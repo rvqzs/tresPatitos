@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mdiWindow</class>
+ <widget class="QMainWindow" name="mdiWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>607</width>
+    <height>394</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QMdiArea" name="mdiArea">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>611</width>
+      <height>361</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>607</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="mnuUsuarios">
+    <property name="title">
+     <string>Usuarios</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuEmpleados">
+    <property name="title">
+     <string>Empleados</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="mnuDepartamento">
+    <property name="title">
+     <string>Departamento</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="mnuBienes">
+    <property name="title">
+     <string>Bienes</string>
+    </property>
+    <addaction name="mniAsignar"/>
+    <addaction name="mniDesligar"/>
+    <addaction name="mniBienes"/>
+   </widget>
+   <widget class="QMenu" name="mnuReportes">
+    <property name="title">
+     <string>Reportes</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="mnuLogIn">
+    <property name="title">
+     <string>Log In</string>
+    </property>
+   </widget>
+   <addaction name="mnuLogIn"/>
+   <addaction name="mnuUsuarios"/>
+   <addaction name="menuEmpleados"/>
+   <addaction name="mnuDepartamento"/>
+   <addaction name="mnuBienes"/>
+   <addaction name="mnuReportes"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="mniAsignar">
+   <property name="text">
+    <string>Asiganción de bienes</string>
+   </property>
+  </action>
+  <action name="mniDesligar">
+   <property name="text">
+    <string>Desligar Bienes</string>
+   </property>
+  </action>
+  <action name="mniBienes">
+   <property name="text">
+    <string>Bienes</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
