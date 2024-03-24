@@ -1,3 +1,5 @@
+import pymongo
+
 class Departamentos:
     
     def __init__(self, codigo, nombre, jefatura):
