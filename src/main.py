@@ -1,29 +1,28 @@
 from PyQt5.QtCore import Qt
 import sys
 
-
-#importar los widgets
+# Import Widgets
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QWidget
 
-#Import Classes
+# Import Classes
 
-#Login
+# Login
 from Ui_Login import Ui_Login
 
-#MDI
+# MDI
 from Ui_mdi import Ui_mdiWindow
 
-#Usuarios
+# Usuarios
 from Ui_Usuarios import Ui_Usuarios
 
-#Empleados
+# Empleados
 
-#Departamentos
+# Departamentos
 from Ui_Departamentos  import Ui_Departamentos
 from model.Departamentos import Departamentos
 
-#Bienes
+# Bienes
 from model.Bienes import Bienes
 from Ui_Bienes import Ui_Bienes
 from Ui_Asignacion_Bienes import Ui_Asignacion_Bienes
