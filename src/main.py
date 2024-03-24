@@ -1,6 +1,7 @@
 from PyQt5.QtCore import Qt
 import sys
 
+
 #importar los widgets
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QWidget
@@ -20,7 +21,7 @@ from Ui_Usuarios import Ui_Usuarios
 
 #Departamentos
 from Ui_Departamentos  import Ui_Departamentos
-from model import Departamentos
+from model.Departamentos import Departamentos
 
 #Bienes
 from model.Bienes import Bienes
