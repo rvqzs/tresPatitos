@@ -5,27 +5,28 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QWidget
 
-#importar clases Ui
+#Import Classes
+
 #Login
+from Ui_Login import Ui_Login
+
 #MDI
 from Ui_mdi import Ui_mdiWindow
+
 #Usuarios
+from Ui_Usuarios import Ui_Usuarios
+
 #Empleados
+
 #Departamentos
+from Ui_Departamentos  import Ui_Departamentos
+from model import Departamentos
+
 #Bienes
+from model.Bienes import Bienes
 from Ui_Bienes import Ui_Bienes
 from Ui_Asignacion_Bienes import Ui_Asignacion_Bienes
 from Ui_Desligar_Bienes import Ui_Desligar_Bienes
-
-#import clases
-
-#Login
-#Usuarios
-#Empleados
-#Departamentos
-#Bienes
-from model.Bienes import Bienes
-
 
 class mdiApp(QMainWindow):
     #init al constructor

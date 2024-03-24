@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\proyecto\usuarios.ui'
+# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitos\tresPatitosUIA\src\Usuarios.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -11,44 +11,44 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(577, 469)
-        self.label = QtWidgets.QLabel(Form)
+class Ui_Usuarios(object):
+    def setupUi(self, Usuarios):
+        Usuarios.setObjectName("Usuarios")
+        Usuarios.resize(577, 469)
+        self.label = QtWidgets.QLabel(Usuarios)
         self.label.setGeometry(QtCore.QRect(20, 10, 61, 51))
         self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(Form)
+        self.label_2 = QtWidgets.QLabel(Usuarios)
         self.label_2.setGeometry(QtCore.QRect(30, 60, 111, 41))
         self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(Form)
+        self.label_3 = QtWidgets.QLabel(Usuarios)
         self.label_3.setGeometry(QtCore.QRect(30, 110, 91, 31))
         self.label_3.setObjectName("label_3")
-        self.label_4 = QtWidgets.QLabel(Form)
+        self.label_4 = QtWidgets.QLabel(Usuarios)
         self.label_4.setGeometry(QtCore.QRect(30, 150, 91, 41))
         self.label_4.setObjectName("label_4")
-        self.lineEdit = QtWidgets.QLineEdit(Form)
+        self.lineEdit = QtWidgets.QLineEdit(Usuarios)
         self.lineEdit.setGeometry(QtCore.QRect(160, 160, 113, 20))
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_2 = QtWidgets.QLineEdit(Usuarios)
         self.lineEdit_2.setGeometry(QtCore.QRect(160, 70, 113, 20))
         self.lineEdit_2.setText("")
         self.lineEdit_2.setObjectName("lineEdit_2")
-        self.lineEdit_3 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_3 = QtWidgets.QLineEdit(Usuarios)
         self.lineEdit_3.setGeometry(QtCore.QRect(160, 110, 113, 20))
         self.lineEdit_3.setText("")
         self.lineEdit_3.setObjectName("lineEdit_3")
-        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton = QtWidgets.QPushButton(Usuarios)
         self.pushButton.setGeometry(QtCore.QRect(370, 430, 75, 23))
         self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(Form)
+        self.pushButton_2 = QtWidgets.QPushButton(Usuarios)
         self.pushButton_2.setGeometry(QtCore.QRect(490, 430, 75, 23))
         self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_3 = QtWidgets.QPushButton(Form)
+        self.pushButton_3 = QtWidgets.QPushButton(Usuarios)
         self.pushButton_3.setGeometry(QtCore.QRect(260, 430, 75, 23))
         self.pushButton_3.setObjectName("pushButton_3")
-        self.tableWidget = QtWidgets.QTableWidget(Form)
+        self.tableWidget = QtWidgets.QTableWidget(Usuarios)
         self.tableWidget.setGeometry(QtCore.QRect(20, 200, 541, 192))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(2)
@@ -57,25 +57,25 @@ class Ui_Form(object):
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(1, item)
-        self.pushButton_4 = QtWidgets.QPushButton(Form)
+        self.pushButton_4 = QtWidgets.QPushButton(Usuarios)
         self.pushButton_4.setGeometry(QtCore.QRect(20, 430, 75, 23))
         self.pushButton_4.setObjectName("pushButton_4")
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(Usuarios)
+        QtCore.QMetaObject.connectSlotsByName(Usuarios)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, Usuarios):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "Usuarios"))
-        self.label_2.setText(_translate("Form", "Nombre de Usuario:"))
-        self.label_3.setText(_translate("Form", "Contraseña:"))
-        self.label_4.setText(_translate("Form", "Nombre Completo:"))
-        self.pushButton.setText(_translate("Form", "Modificar"))
-        self.pushButton_2.setText(_translate("Form", "Eliminar"))
-        self.pushButton_3.setText(_translate("Form", "Crear"))
+        Usuarios.setWindowTitle(_translate("Usuarios", "Form"))
+        self.label.setText(_translate("Usuarios", "Usuarios"))
+        self.label_2.setText(_translate("Usuarios", "Nombre de Usuario:"))
+        self.label_3.setText(_translate("Usuarios", "Contraseña:"))
+        self.label_4.setText(_translate("Usuarios", "Nombre Completo:"))
+        self.pushButton.setText(_translate("Usuarios", "Modificar"))
+        self.pushButton_2.setText(_translate("Usuarios", "Eliminar"))
+        self.pushButton_3.setText(_translate("Usuarios", "Crear"))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("Form", "Nombre"))
+        item.setText(_translate("Usuarios", "Nombre"))
         item = self.tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("Form", "Usuario"))
-        self.pushButton_4.setText(_translate("Form", "Cancelar"))
+        item.setText(_translate("Usuarios", "Usuario"))
+        self.pushButton_4.setText(_translate("Usuarios", "Cancelar"))
