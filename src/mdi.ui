@@ -25,7 +25,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QMenuBar" name="mnubar">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -39,12 +39,12 @@
      <string>Usuarios</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menuEmpleados">
+   <widget class="QMenu" name="mnuEmpleados">
     <property name="title">
      <string>Empleados</string>
     </property>
    </widget>
-   <widget class="QMenu" name="mnuDepartamento">
+   <widget class="QMenu" name="mnuDepartamentos">
     <property name="title">
      <string>Departamento</string>
     </property>
@@ -62,15 +62,15 @@
      <string>Reportes</string>
     </property>
    </widget>
-   <widget class="QMenu" name="mnuLogIn">
+   <widget class="QMenu" name="mnuLogin">
     <property name="title">
      <string>Log In</string>
     </property>
    </widget>
-   <addaction name="mnuLogIn"/>
+   <addaction name="mnuLogin"/>
    <addaction name="mnuUsuarios"/>
-   <addaction name="menuEmpleados"/>
-   <addaction name="mnuDepartamento"/>
+   <addaction name="mnuEmpleados"/>
+   <addaction name="mnuDepartamentos"/>
    <addaction name="mnuBienes"/>
    <addaction name="mnuReportes"/>
   </widget>

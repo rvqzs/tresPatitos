@@ -17,7 +17,7 @@ from Ui_mdi import Ui_mdiWindow
 # Usuarios
 from Ui_Usuarios import Ui_Usuarios
 
-# Empleados
+# TODO Empleados
 
 # Departamentos
 from Ui_Departamentos  import Ui_Departamentos
@@ -30,7 +30,6 @@ from Ui_Asignacion_Bienes import Ui_Asignacion_Bienes
 from Ui_Desligar_Bienes import Ui_Desligar_Bienes
 
 class mdiApp(QMainWindow):
-    #init al constructor
 
     def __init__(self):
         super().__init__()
@@ -47,18 +46,34 @@ class mdiApp(QMainWindow):
         self.show()
     
     def initComponents(self):
+        self.uiMdi.mnuLogin.triggered.connect(self.openWinLogin)
+        # TODO self.uiMdi.mnuUsuarios.triggered.connect(self.openWinUsuarios)
+        # TODO self.uiMdi.mnuEmpleados.triggered.connect(self.openWinEmpleados)
+        self.uiMdi.mnuDepartamentos.triggered.connect(self.openWinDepartamentos)
         self.uiMdi.mniBienes.triggered.connect(self.openWinBienes)
         self.uiMdi.mniAsignar.triggered.connect(self.openWinAsignacion)
         self.uiMdi.mniDesligar.triggered.connect(self.openWinDesligar)
 
-
+    def openWinLogin(self):
+        self.winLogin=winLogin()
+        self.uiMdi.mdiArea.addSubWindow(self.winLogin)
+        #events
+    
+    # TODO openWinUsers
+    # TODO openWinEmpleados
+    
+    def openWinDepartamentos(self):
+        self.winDepartamentos=winDepartamentos()
+        self.uiMdi.mdiArea.addSubWindow(self.winDepartamentos)
+        #eventos
+        
     def openWinBienes(self):
         self.winBienes=winBienes()
         #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winBienes)
         #eventos
-        self.winBienes.uiBienes.btnGuardar.clicked.connect(self.guardarBien)
-        self.winBienes.uiBienes.btnModificar.clicked.connect(self.modificarBien)
+        self.winBienes.uiBienes.btnGuardar.clicked.connect(self.guardarBienes)
+        self.winBienes.uiBienes.btnModificar.clicked.connect(self.modificarBienes)
         self.winBienes.uiBienes.btnEliminar.clicked.connect(self.eliminarBien)
         self.winBienes.show()
 
@@ -134,9 +149,9 @@ class winDepartamentos(QWidget):
     def __init__(self):
         super().__init__()
         self.uiDepartamentos=Ui_Departamentos()
-        self.uiDepartamentos=Ui_Departamentos()
+        self.uiDepartamentos.setupUi(self)
         #manejo de eventos
-        
+
 class winBienes(QWidget):
     def __init__(self):
         super().__init__()
