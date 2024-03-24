@@ -2,6 +2,7 @@ from PyQt5.QtCore import Qt
 import sys
 
 # Import Widgets
+from PyQt5.QtGui import QPainter
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QWidget
 
@@ -30,6 +31,7 @@ from Ui_Desligar_Bienes import Ui_Desligar_Bienes
 
 class mdiApp(QMainWindow):
     #init al constructor
+
     def __init__(self):
         super().__init__()
         #instanciar la ventana
@@ -48,7 +50,8 @@ class mdiApp(QMainWindow):
         self.uiMdi.mniBienes.triggered.connect(self.openWinBienes)
         self.uiMdi.mniAsignar.triggered.connect(self.openWinAsignacion)
         self.uiMdi.mniDesligar.triggered.connect(self.openWinDesligar)
-    
+
+
     def openWinBienes(self):
         self.winBienes=winBienes()
         #agregar la ventana al mdi
@@ -58,18 +61,21 @@ class mdiApp(QMainWindow):
         self.winBienes.uiBienes.btnModificar.clicked.connect(self.modificarBien)
         self.winBienes.uiBienes.btnEliminar.clicked.connect(self.eliminarBien)
         self.winBienes.show()
+
     def openWinAsignacion(self):
         self.winAsignacion=winAsignacion()
         #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winAsignacion)
         #eventos
         self.winAsignacion.show()
+
     def openWinDesligar(self):
         self.winDesligar=winDesligar()
         #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winDesligar)
         #eventos
         self.winDesligar.show()
+
     def msgBox(self,mensaje,icono,tipo=0):
         msg = QMessageBox()
         msg.setIcon(icono)
@@ -77,7 +83,7 @@ class mdiApp(QMainWindow):
         msg.setWindowTitle("Mensaje")
         retval=msg.exec_()
 
-    def guardarBien(self):
+    def guardarBienes(self):
         bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(),
                         self.winBienes.uiBienes.txtNombreBien.text(),
                         self.winBienes.uiBienes.txtCategoria.text(),
@@ -89,7 +95,7 @@ class mdiApp(QMainWindow):
         else:
             self.msgBox("Error al Guardar los datos",QMessageBox.Warning)
     
-    def modificarBien(self):
+    def modificarBienes(self):
         bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(),
                         self.winBienes.uiBienes.txtNombreBien.text(),
                         self.winBienes.uiBienes.txtCategoria.text(),
@@ -114,7 +120,23 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al eliminar los datos",QMessageBox.Warning)
 
 
+class winLogin(QWidget):
+    def initPainter(self):
+        super().__init__()
+        self.uiLogin=Ui_Login()
+        self.uiLogin.setupUi(self)
+        #manejo de eventos
 
+# class winUsuarios
+# class winEmpleados        
+
+class winDepartamentos(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.uiDepartamentos=Ui_Departamentos()
+        self.uiDepartamentos=Ui_Departamentos()
+        #manejo de eventos
+        
 class winBienes(QWidget):
     def __init__(self):
         super().__init__()
@@ -135,6 +157,7 @@ class winDesligar(QWidget):
         self.uiDesligar=Ui_Desligar_Bienes()
         self.uiDesligar.setupUi(self)
         #manejo de eventos
+
 
 if __name__=="__main__":
     app=QApplication(sys.argv)
