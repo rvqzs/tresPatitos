@@ -29,6 +29,47 @@ from src.Ui_Bienes import Ui_Bienes
 from src.Ui_Asignacion_Bienes import Ui_Asignacion_Bienes
 from src.Ui_Desligar_Bienes import Ui_Desligar_Bienes
 
+class Login(QDialog):
+
+    def __init__(self):
+
+        super().__init__()
+
+        #instanciar la ventana
+
+        self.uiLogin=Ui_Login()
+
+        #generar los componentes
+
+        self.uiLogin.setupUi(self)
+
+        #mostrar la ventana
+
+        self.show()
+
+        # Validar credenciales
+
+        self.uiLogin.btn_login.clicked.connect(self.validate_credentials)
+
+        # self.uiLogin.btnCancelar.clicked.connect(self.reject)
+
+
+    def validate_credentials(self):
+
+        username = self.uiLogin.txt_user.text()
+
+        password = self.uiLogin.txt_password.text()
+
+        # TODO: Validate username and password
+
+        # If valid:
+
+        self.accept()
+
+        # Else:
+
+        # self.msgBox("Invalid credentials", QMessageBox.Warning)
+
 class mdiApp(QMainWindow):
 
     def __init__(self):
@@ -207,6 +248,6 @@ class winDesligar(QWidget):
 
 if __name__=="__main__":
     app=QApplication(sys.argv)
-    win=mdiApp()
-    win.showMaximized()
+    win=Login()
+    # win.showMaximized()
     sys.exit(app.exec())

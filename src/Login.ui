@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>422</width>
+    <width>400</width>
     <height>600</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>400</width>
-    <height>600</height>
+    <height>200</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -57,8 +57,8 @@
      <widget class="QPushButton" name="btn_login">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>520</y>
+        <x>80</x>
+        <y>280</y>
         <width>111</width>
         <height>31</height>
        </rect>
@@ -77,15 +77,15 @@
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>90</x>
         <y>120</y>
-        <width>341</width>
-        <height>191</height>
+        <width>191</width>
+        <height>131</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0">
        <property name="spacing">
-        <number>25</number>
+        <number>5</number>
        </property>
        <property name="leftMargin">
         <number>10</number>
@@ -100,92 +100,37 @@
         <number>10</number>
        </property>
        <item>
-        <widget class="QTextEdit" name="txt_user">
-         <property name="baseSize">
+        <widget class="QLineEdit" name="txt_username">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
           <size>
-           <width>80</width>
-           <height>80</height>
+           <width>20</width>
+           <height>5</height>
           </size>
          </property>
-         <property name="font">
-          <font>
-           <family>Arial Narrow</family>
-           <pointsize>15</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
+         <property name="text">
+          <string/>
          </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="autoFillBackground">
-          <bool>false</bool>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::WinPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Sunken</enum>
-         </property>
-         <property name="lineWidth">
-          <number>5</number>
-         </property>
-         <property name="midLineWidth">
-          <number>-1</number>
-         </property>
-         <property name="tabChangesFocus">
-          <bool>true</bool>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
          <property name="placeholderText">
-          <string>Usuario</string>
+          <string>Username</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="txt_password">
-         <property name="baseSize">
-          <size>
-           <width>80</width>
-           <height>80</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Arial Narrow</family>
-           <pointsize>15</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="autoFillBackground">
-          <bool>false</bool>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::WinPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Sunken</enum>
-         </property>
-         <property name="lineWidth">
-          <number>5</number>
-         </property>
-         <property name="midLineWidth">
-          <number>-1</number>
-         </property>
-         <property name="tabChangesFocus">
-          <bool>true</bool>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
+        <widget class="QLineEdit" name="txt_password">
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
          <property name="placeholderText">
-          <string>Contraseña</string>
+          <string>Password</string>
          </property>
         </widget>
        </item>
