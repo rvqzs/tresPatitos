@@ -1,7 +1,7 @@
 import pymongo
 
-
 class Bienes:
+
     def __init__(self, placa, nombreBien, categoria, descripcion, estado):
         self.placa = placa
         self.nombreBien = nombreBien
@@ -14,13 +14,13 @@ class Bienes:
         #abrir la conexión mediante un objeto cliente
         bien= pymongo.MongoClient("mongodb://localhost:27017")
         #seleccionar la tabla a utilizar
-        bd=bien["Empresa"]
+        bd=bien["empresa"]
         try:
             #definir la tabla a utilizar
             tbl=bd["bien"]
             #crear diccionario
             doc={"_placa":self.placa,
-                "nombre bien":self.nombreBien,
+                "nombre":self.nombreBien,
                 "categoria":self.categoria,
                 "descripcion":self.descripcion}
             #insertar en la tabla
@@ -38,7 +38,7 @@ class Bienes:
         # abrir la conexión mediante un objeto cliente
         bien = pymongo.MongoClient("mongodb://localhost:27017")
         # seleccionar la tabla a utilizar
-        bd = bien["bien"]
+        bd = bien["empresa"]
         try:
             # definir la tabla a utilizar
             tbl = bd["bien"]
@@ -68,7 +68,7 @@ class Bienes:
         # abrir la conexión mediante un objeto cliente
         bien = pymongo.MongoClient("mongodb://localhost:27017")
         # seleccionar la tabla a utilizar
-        bd = bien["bien"]
+        bd = bien["empresa"]
         try:
             # definir la tabla a utilizar
             tbl = bd["bien"]

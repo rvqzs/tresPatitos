@@ -7,36 +7,32 @@ class Departamentos:
         self.nombre = nombre
         self.jefatura = jefatura
 
-    def guardar(self):
+    def registrar(self):
         estado=0
-        #abrir la conexión mediante un objeto cliente
-        bien= pymongo.MongoClient("mongodb://localhost:27017")
+        departamento= pymongo.MongoClient("mongodb://localhost:27017")
         #seleccionar la tabla a utilizar
-        bd=bien["Empresa"]
+        bd=departamento["Empresa"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["bien"]
+            tbl=bd["departamentos"]
             #crear diccionario
-            doc={"_placa":self.placa,
-                "nombre bien":self.nombreBien,
-                "categoria":self.categoria,
-                "descripcion":self.descripcion}
+            doc={"_codigo":self.codigo,
+                "nombre":self.nombre,
+                "jefatura":self.jefatura}
             #insertar en la tabla
             tbl.insert_one(doc)
             estado=1
         except Exception:
-            print("error al guardar")
+            print("Error al guardar")
             estado=0
         finally:
-            bien.close        
+            departamento.close        
         return estado
 
     def actualizar(self):
         estado = 0
-        # abrir la conexión mediante un objeto cliente
-        bien = pymongo.MongoClient("mongodb://localhost:27017")
-        # seleccionar la tabla a utilizar
-        bd = bien["bien"]
+        departamento = pymongo.MongoClient("mongodb://localhost:27017")
+        bd = departamento["Empresa"]
         try:
             # definir la tabla a utilizar
             tbl = bd["bien"]

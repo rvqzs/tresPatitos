@@ -94,8 +94,49 @@ class mdiApp(QMainWindow):
         msg = QMessageBox()
         msg.setIcon(icono)
         msg.setText(mensaje)
-        msg.setWindowTitle("Mensaje")
+        msg.setWindowTitle("Notificación del Sistema")
         retval=msg.exec_()
+
+    # TODO save/edit/delete/search users /Kevin
+    # TODO save/edit/delete empleados/ Kevin
+        
+    def registrarDepartamento(self):
+        departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(),
+                        self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
+                        self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex(),
+                        )
+        if departamento.guardar()==1:
+            self.msgBox("Datos guardados correctamente",QMessageBox.Information)
+        else:
+            self.msgBox("Error al guardar los datos",QMessageBox.Warning)
+    
+    def actualizarDepartamento(self):
+        departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(),
+                        self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
+                        self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex(),
+                        )
+        if departamento.actualizar()==1:
+            self.msgBox("Departamento actualizado correctamente",QMessageBox.Information)
+        else:
+            self.msgBox("Error al actualizar el departamento",QMessageBox.Warning)
+    
+    def eliminarDepartamento(self):
+        departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(),
+                        self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
+                        self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex(),
+                        )
+        if departamento.eliminar()==1:
+            self.msgBox("Departamento eliminados Correctamente",QMessageBox.Information)
+        else:
+            self.msgBox("Error al eliminar departamento",QMessageBox.Warning)
+
+
+
+
+
+###############################################################################################
+
+
 
     def guardarBienes(self):
         bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(),
@@ -105,9 +146,9 @@ class mdiApp(QMainWindow):
                         self.winBienes.uiBienes.checkEstado.text()
                         )
         if bien.guardar()==1:
-            self.msgBox("Datos Guardados Correctamente",QMessageBox.Information)
+            self.msgBox("Datos guardados correctamente",QMessageBox.Information)
         else:
-            self.msgBox("Error al Guardar los datos",QMessageBox.Warning)
+            self.msgBox("Error al guardar los datos",QMessageBox.Warning)
     
     def modificarBienes(self):
         bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(),
@@ -117,11 +158,11 @@ class mdiApp(QMainWindow):
                         self.winBienes.uiBienes.checkEstado.text()
                         )
         if bien.actualizar()==1:
-            self.msgBox("Datos Modificados Correctamente",QMessageBox.Information)
+            self.msgBox("Bienes actualizados correctamente",QMessageBox.Information)
         else:
-            self.msgBox("Error al Modificar los datos",QMessageBox.Warning)
+            self.msgBox("Error al actualizar los bienes",QMessageBox.Warning)
     
-    def eliminarBien(self):
+    def eliminarBienes(self):
         bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(),
                         self.winBienes.uiBienes.txtNombreBien.text(),
                         self.winBienes.uiBienes.txtCategoria.text(),
@@ -129,10 +170,10 @@ class mdiApp(QMainWindow):
                         self.winBienes.uiBienes.checkEstado.text()
                         )
         if bien.eliminar()==1:
-            self.msgBox("Datos Eliminados Correctamente",QMessageBox.Information)
+            self.msgBox("Bienes eliminados Correctamente",QMessageBox.Information)
         else:
-            self.msgBox("Error al eliminar los datos",QMessageBox.Warning)
-
+            self.msgBox("Error al eliminar los bienes",QMessageBox.Warning)
+            
 
 class winLogin(QWidget):
     def initPainter(self):
