@@ -58,6 +58,7 @@ class mdiApp(QMainWindow):
         self.winLogin=winLogin()
         #agregar ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winLogin)
+        self.winLogin.show()
         # TODO events/ Esconder password cuando se escribe/ Robert
         # TODO events/ Crear btn de salir/cancelar/ Robert
     
@@ -67,6 +68,7 @@ class mdiApp(QMainWindow):
     def openWinDepartamentos(self):
         self.winDepartamentos=winDepartamentos()
         self.uiMdi.mdiArea.addSubWindow(self.winDepartamentos)
+        self.winDepartamentos.show()
         # TODO events/ Agregar funciones de registrar, actualizar y eliminar
 
     def openWinBienes(self):
@@ -139,41 +141,40 @@ class winLogin(QWidget):
         self.uiLogin.setupUi(self)
         #manejo de eventos
 
-# class winUsuarios
-# class winEmpleados        
+# TODO class winUsuarios
+# TODO class winEmpleados        
 
 class winDepartamentos(QWidget):
     def __init__(self):
         super().__init__()
         self.uiDepartamentos=Ui_Departamentos()
         self.uiDepartamentos.setupUi(self)
-        #manejo de eventos
+        # TODO Manejo de eventos
 
 class winBienes(QWidget):
     def __init__(self):
         super().__init__()
         self.uiBienes=Ui_Bienes()
         self.uiBienes.setupUi(self)
-        #manejo de eventos
+        # TODO Manejo de eventos
 
 class winAsignacion(QWidget):
     def __init__(self):
         super().__init__()
         self.uiAsignacion=Ui_Asignacion_Bienes()
         self.uiAsignacion.setupUi(self)
-        #manejo de eventos
+        # TODO Manejo de eventos
 
 class winDesligar(QWidget):
     def __init__(self):
         super().__init__()
         self.uiDesligar=Ui_Desligar_Bienes()
         self.uiDesligar.setupUi(self)
-        #manejo de eventos
+        # TODO Manejo de eventos
 
 
 if __name__=="__main__":
     app=QApplication(sys.argv)
-    #cargar ventana
     win=mdiApp()
     win.showMaximized()
     sys.exit(app.exec())
