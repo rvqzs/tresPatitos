@@ -46,10 +46,10 @@ class mdiApp(QMainWindow):
         self.show()
     
     def initComponents(self):
-        self.uiMdi.mnuLogin.triggered.connect(self.openWinLogin)
+        self.uiMdi.menuLogin.triggered.connect(self.openWinLogin)
         # TODO self.uiMdi.mnuUsuarios.triggered.connect(self.openWinUsuarios)
         # TODO self.uiMdi.mnuEmpleados.triggered.connect(self.openWinEmpleados)
-        self.uiMdi.mnuDepartamentos.triggered.connect(self.openWinDepartamentos)
+        self.uiMdi.mniDepartamentos.triggered.connect(self.openWinDepartamentos)
         self.uiMdi.mniBienes.triggered.connect(self.openWinBienes)
         self.uiMdi.mniAsignar.triggered.connect(self.openWinAsignacion)
         self.uiMdi.mniDesligar.triggered.connect(self.openWinDesligar)
@@ -165,12 +165,12 @@ class mdiApp(QMainWindow):
             self.msgBox("Bienes eliminados Correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al eliminar los bienes",QMessageBox.Warning)
-            
 
 class winLogin(QWidget):
     def __init__(self):
         super().__init__()
         self.uiLogin=Ui_Login()
+        
         self.uiLogin.setupUi(self)
         #manejo de eventos
 
@@ -204,7 +204,6 @@ class winDesligar(QWidget):
         self.uiDesligar=Ui_Desligar_Bienes()
         self.uiDesligar.setupUi(self)
         # TODO Manejo de eventos
-
 
 if __name__=="__main__":
     app=QApplication(sys.argv)

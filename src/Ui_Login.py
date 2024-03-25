@@ -14,7 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Login(object):
     def setupUi(self, Login):
         Login.setObjectName("Login")
-        Login.resize(422, 611)
+        Login.resize(422, 600)
+        Login.setMinimumSize(QtCore.QSize(400, 600))
+        Login.setMaximumSize(QtCore.QSize(16777215, 600))
         Login.setAutoFillBackground(False)
         self.verticalLayout = QtWidgets.QVBoxLayout(Login)
         self.verticalLayout.setObjectName("verticalLayout")
