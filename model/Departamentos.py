@@ -34,46 +34,38 @@ class Departamentos:
         departamento = pymongo.MongoClient("mongodb://localhost:27017")
         bd = departamento["Empresa"]
         try:
-            # definir la tabla a utilizar
-            tbl = bd["bien"]
-            # filtro
-            filtro = {"_placa": self.placa}
-            # crear diccionario
-            doc = {
-                "$set": {
-                    "nombre bien": self.nombreBien,
-                    "categoria": self.categoria,
-                    "descripcion": self.descripcion,
-                    "estado": self.estado
+            tbl = bd["departamentos"]
+            filtro = {"_codigo": self.codigo}
+            doc={"_codigo":self.codigo,
+                "nombre":self.nombre,
+                "jefatura":self.jefatura
                 }
-            }
+            
             # modifcar en la tabla
             tbl.update_one(filtro,doc)
             estado = 1
         except Exception:
-            print("error al modificar")
+            print("Error al modificar")
             estado = 0
         finally:
-            bien.close
+            departamento.close
         return estado
 
     def eliminar(self):
         estado = 0
-        # abrir la conexión mediante un objeto cliente
-        bien = pymongo.MongoClient("mongodb://localhost:27017")
-        # seleccionar la tabla a utilizar
-        bd = bien["bien"]
+        departamento = pymongo.MongoClient("mongodb://localhost:27017")
+        bd = departamento["bien"]
         try:
             # definir la tabla a utilizar
-            tbl = bd["bien"]
+            tbl = bd["departamentos"]
             # filtro
-            filtro = {"_placa": self.placa}
+            filtro = {"_codigo": self.codigo}
             # modifcar en la tabla
             tbl.delete_one(filtro)
             estado = 1
         except Exception:
-            print("error al eliminar")
+            print("Error al eliminar")
             estado = 0
         finally:
-            bien.close
+            departamento.close
         return estado
