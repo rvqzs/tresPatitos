@@ -56,22 +56,22 @@ class mdiApp(QMainWindow):
 
     def openWinLogin(self):
         self.winLogin=winLogin()
+        #agregar ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winLogin)
-        #events
+        # TODO events/ Esconder password cuando se escribe/ Robert
+        # TODO events/ Crear btn de salir/cancelar/ Robert
     
-    # TODO openWinUsers
-    # TODO openWinEmpleados
+    # TODO openWinUsers/ Kevin
+    # TODO openWinEmpleados/ Kevin
     
     def openWinDepartamentos(self):
         self.winDepartamentos=winDepartamentos()
         self.uiMdi.mdiArea.addSubWindow(self.winDepartamentos)
-        #eventos
-        
+        # TODO events/ Agregar funciones de registrar, actualizar y eliminar
+
     def openWinBienes(self):
         self.winBienes=winBienes()
-        #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winBienes)
-        #eventos
         self.winBienes.uiBienes.btnGuardar.clicked.connect(self.guardarBienes)
         self.winBienes.uiBienes.btnModificar.clicked.connect(self.modificarBienes)
         self.winBienes.uiBienes.btnEliminar.clicked.connect(self.eliminarBien)
@@ -79,16 +79,13 @@ class mdiApp(QMainWindow):
 
     def openWinAsignacion(self):
         self.winAsignacion=winAsignacion()
-        #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winAsignacion)
-        #eventos
         self.winAsignacion.show()
 
     def openWinDesligar(self):
         self.winDesligar=winDesligar()
-        #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winDesligar)
-        #eventos
+        #events
         self.winDesligar.show()
 
     def msgBox(self,mensaje,icono,tipo=0):
