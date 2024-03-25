@@ -121,9 +121,9 @@ class Ui_Asignacion_Bienes(object):
         icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\recursos/cancelar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_4.setIcon(icon3)
         self.pushButton_4.setObjectName("pushButton_4")
-        self.0 = QtWidgets.QTableView(Asignacion_Bienes)
-        self.0.setGeometry(QtCore.QRect(40, 270, 421, 171))
-        self.0.setObjectName("0")
+        self = QtWidgets.QTableView(Asignacion_Bienes)
+        self.setGeometry(QtCore.QRect(40, 270, 421, 171))
+        self.setObjectName("0")
 
         self.retranslateUi(Asignacion_Bienes)
         QtCore.QMetaObject.connectSlotsByName(Asignacion_Bienes)

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Los Tres Patitos S.A.</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QMdiArea" name="mdiArea">

@@ -61,7 +61,7 @@ class Ui_mdiWindow(object):
 
     def retranslateUi(self, mdiWindow):
         _translate = QtCore.QCoreApplication.translate
-        mdiWindow.setWindowTitle(_translate("mdiWindow", "MainWindow"))
+        mdiWindow.setWindowTitle(_translate("mdiWindow", "Los Tres Patitos S.A."))
         self.mnuUsuarios.setTitle(_translate("mdiWindow", "Usuarios"))
         self.mnuEmpleados.setTitle(_translate("mdiWindow", "Empleados"))
         self.mnuDepartamentos.setTitle(_translate("mdiWindow", "Departamento"))

@@ -168,7 +168,7 @@ class mdiApp(QMainWindow):
             
 
 class winLogin(QWidget):
-    def initPainter(self):
+    def __init__(self):
         super().__init__()
         self.uiLogin=Ui_Login()
         self.uiLogin.setupUi(self)
