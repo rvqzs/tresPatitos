@@ -17,7 +17,7 @@ class Bienes:
         bd=bien["empresa"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["bien"]
+            tbl=bd["bienes"]
             #crear diccionario
             doc={"_placa":self.placa,
                 "nombre":self.nombreBien,
@@ -27,7 +27,7 @@ class Bienes:
             tbl.insert_one(doc)
             estado=1
         except Exception:
-            print("error al guardar")
+            print("Error al guardar")
             estado=0
         finally:
             bien.close        
@@ -41,7 +41,7 @@ class Bienes:
         bd = bien["empresa"]
         try:
             # definir la tabla a utilizar
-            tbl = bd["bien"]
+            tbl = bd["bienes"]
             # filtro
             filtro = {"_placa": self.placa}
             # crear diccionario
@@ -57,7 +57,7 @@ class Bienes:
             tbl.update_one(filtro,doc)
             estado = 1
         except Exception:
-            print("error al modificar")
+            print("Error al modificar")
             estado = 0
         finally:
             bien.close
@@ -71,14 +71,14 @@ class Bienes:
         bd = bien["empresa"]
         try:
             # definir la tabla a utilizar
-            tbl = bd["bien"]
+            tbl = bd["bienes"]
             # filtro
             filtro = {"_placa": self.placa}
             # modifcar en la tabla
             tbl.delete_one(filtro)
             estado = 1
         except Exception:
-            print("error al eliminar")
+            print("Error al eliminar")
             estado = 0
         finally:
             bien.close
