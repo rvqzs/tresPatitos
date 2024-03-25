@@ -105,7 +105,7 @@ class mdiApp(QMainWindow):
                         self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
                         self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex(),
                         )
-        if departamento.guardar()==1:
+        if departamento.registrar()==1:
             self.msgBox("Datos guardados correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al guardar los datos",QMessageBox.Warning)
@@ -129,14 +129,6 @@ class mdiApp(QMainWindow):
             self.msgBox("Departamento eliminados Correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al eliminar departamento",QMessageBox.Warning)
-
-
-
-
-
-###############################################################################################
-
-
 
     def guardarBienes(self):
         bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(),
