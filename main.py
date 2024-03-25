@@ -1,4 +1,3 @@
-from PyQt5.QtCore import Qt
 import sys
 
 # Import Widgets
@@ -29,46 +28,29 @@ from src.Ui_Bienes import Ui_Bienes
 from src.Ui_Asignacion_Bienes import Ui_Asignacion_Bienes
 from src.Ui_Desligar_Bienes import Ui_Desligar_Bienes
 
+
 class Login(QDialog):
 
-    def __init__(self):
+    def __init__(self, parent=None):
 
-        super().__init__()
-
-        #instanciar la ventana
-
+        super().__init__(parent)
         self.uiLogin=Ui_Login()
-
-        #generar los componentes
-
         self.uiLogin.setupUi(self)
-
-        #mostrar la ventana
-
         self.show()
 
         # Validar credenciales
-
         self.uiLogin.btn_login.clicked.connect(self.validate_credentials)
-
         # self.uiLogin.btnCancelar.clicked.connect(self.reject)
 
-
     def validate_credentials(self):
-
-        username = self.uiLogin.txt_user.text()
-
-        password = self.uiLogin.txt_password.text()
-
-        # TODO: Validate username and password
-
-        # If valid:
-
-        self.accept()
-
-        # Else:
-
-        # self.msgBox("Invalid credentials", QMessageBox.Warning)
+        # Check if username and password are correct
+        if self.uiLogin.txt_username.text() == "admin" and self.uiLogin.txt_password.text() == "admin":
+            # If correct, accept the dialog, allowing it to close
+            # TODO If correct, abrir mdiApp
+            self.accept()
+        else:
+            # If incorrect, show a warning message
+            QMessageBox.warning(self, "Invalid credentials", "Invalid username or password")
 
 class mdiApp(QMainWindow):
 
@@ -248,6 +230,6 @@ class winDesligar(QWidget):
 
 if __name__=="__main__":
     app=QApplication(sys.argv)
-    win=Login()
-    # win.showMaximized()
+    win=mdiApp()
+    win.showMaximized()
     sys.exit(app.exec())
