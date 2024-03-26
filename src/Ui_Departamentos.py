@@ -14,7 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Departamentos(object):
     def setupUi(self, Departamentos):
         Departamentos.setObjectName("Departamentos")
-        Departamentos.resize(682, 627)
+        Departamentos.resize(500, 650)
+        Departamentos.setMinimumSize(QtCore.QSize(500, 650))
+        Departamentos.setMaximumSize(QtCore.QSize(500, 650))
         self.lbl_departamentos = QtWidgets.QLabel(Departamentos)
         self.lbl_departamentos.setGeometry(QtCore.QRect(30, 10, 141, 41))
         font = QtGui.QFont()
@@ -82,7 +84,9 @@ class Ui_Departamentos(object):
         self.cmb_jefatura.setObjectName("cmb_jefatura")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.cmb_jefatura)
         self.tableWidget = QtWidgets.QTableWidget(Departamentos)
-        self.tableWidget.setGeometry(QtCore.QRect(40, 320, 591, 281))
+        self.tableWidget.setGeometry(QtCore.QRect(40, 320, 400, 300))
+        self.tableWidget.setMinimumSize(QtCore.QSize(400, 300))
+        self.tableWidget.setMaximumSize(QtCore.QSize(400, 300))
         self.tableWidget.setRowCount(3)
         self.tableWidget.setColumnCount(3)
         self.tableWidget.setObjectName("tableWidget")
