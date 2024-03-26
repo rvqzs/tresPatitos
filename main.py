@@ -20,10 +20,10 @@ from src.Ui_Usuarios import Ui_Usuarios
 
 # Departamentos
 from src.Ui_Departamentos  import Ui_Departamentos
-from model import Departamentos
+from model.Departamentos import Departamentos
 
 # Bienes
-from model import Bienes
+from model.Bienes import Bienes
 from src.Ui_Bienes import Ui_Bienes
 from src.Ui_Asignacion_Bienes import Ui_Asignacion_Bienes
 from src.Ui_Desligar_Bienes import Ui_Desligar_Bienes
@@ -32,21 +32,25 @@ from src.Ui_Desligar_Bienes import Ui_Desligar_Bienes
 class Login(QDialog):
 
     def __init__(self, parent=None):
-
         super().__init__(parent)
         self.uiLogin=Ui_Login()
         self.uiLogin.setupUi(self)
-        self.show()
+        self.initComponents()
 
-        # Validar credenciales
+    def initComponents(self):
         self.uiLogin.btn_login.clicked.connect(self.validate_credentials)
-        # self.uiLogin.btnCancelar.clicked.connect(self.reject)
+
+    def login(self):
+        mdi = mdiApp()
+        mdi.show()
+        self.close()
 
     def validate_credentials(self):
-        # Check if username and password are correct
         if self.uiLogin.txt_username.text() == "admin" and self.uiLogin.txt_password.text() == "admin":
             # If correct, accept the dialog, allowing it to close
-            # TODO If correct, abrir mdiApp
+            mdi = mdiApp()
+            mdi.showMaximized()
+            self.close()
             self.accept()
         else:
             # If incorrect, show a warning message
@@ -69,7 +73,7 @@ class mdiApp(QMainWindow):
         self.show()
     
     def initComponents(self):
-        self.uiMdi.menuLogin.triggered.connect(self.openWinLogin)
+        # self.uiMdi.menuLogin.triggered.connect(self.openWinLogin)
         # TODO self.uiMdi.mnuUsuarios.triggered.connect(self.openWinUsuarios)
         # TODO self.uiMdi.mnuEmpleados.triggered.connect(self.openWinEmpleados)
         self.uiMdi.mniDepartamentos.triggered.connect(self.openWinDepartamentos)
@@ -77,13 +81,13 @@ class mdiApp(QMainWindow):
         self.uiMdi.mniAsignar.triggered.connect(self.openWinAsignacion)
         self.uiMdi.mniDesligar.triggered.connect(self.openWinDesligar)
 
-    def openWinLogin(self):
-        self.winLogin=winLogin()
-        #agregar ventana al mdi
-        self.uiMdi.mdiArea.addSubWindow(self.winLogin)
-        self.winLogin.show()
-        # TODO events/ Esconder password cuando se escribe/ Robert
-        # TODO events/ Crear btn de salir/cancelar/ Robert
+    # def openWinLogin(self):
+    #     self.winLogin=winLogin()
+    #     #agregar ventana al mdi
+    #     self.uiMdi.mdiArea.addSubWindow(self.winLogin)
+    #     self.winLogin.show()
+    #     # TODO events/ Esconder password cuando se escribe/ Robert
+    #     # TODO events/ Crear btn de salir/cancelar/ Robert
     
     # TODO openWinUsers/ Kevin
     # TODO openWinEmpleados/ Kevin
@@ -92,14 +96,16 @@ class mdiApp(QMainWindow):
         self.winDepartamentos=winDepartamentos()
         self.uiMdi.mdiArea.addSubWindow(self.winDepartamentos)
         self.winDepartamentos.show()
-        # TODO events/ Agregar funciones de registrar, actualizar y eliminar
+        self.winDepartamentos.uiDepartamentos.btn_registrar.clicked.connect(self.registrarDepartamento)
+        self.winDepartamentos.uiDepartamentos.btn_editar.clicked.connect(self.actualizarDepartamento)
+        self.winDepartamentos.uiDepartamentos.btn_eliminar.clicked.connect(self.eliminarDepartamento)
 
     def openWinBienes(self):
         self.winBienes=winBienes()
         self.uiMdi.mdiArea.addSubWindow(self.winBienes)
         self.winBienes.uiBienes.btnGuardar.clicked.connect(self.guardarBienes)
         self.winBienes.uiBienes.btnModificar.clicked.connect(self.modificarBienes)
-        self.winBienes.uiBienes.btnEliminar.clicked.connect(self.eliminarBien)
+        self.winBienes.uiBienes.btnEliminar.clicked.connect(self.eliminarBienes)
         self.winBienes.show()
 
     def openWinAsignacion(self):
@@ -228,8 +234,16 @@ class winDesligar(QWidget):
         self.uiDesligar.setupUi(self)
         # TODO Manejo de eventos
 
+# if __name__=="__main__":
+#     app=QApplication(sys.argv)
+#     win=mdiApp()
+#     win.showMaximized()
+#     sys.exit(app.exec())
+
 if __name__=="__main__":
     app=QApplication(sys.argv)
-    win=mdiApp()
-    win.showMaximized()
+    win=Login()
+    if win.exec_() == QDialog.Accepted:
+        mdi=mdiApp()
+        mdi.showMaximized()
     sys.exit(app.exec())

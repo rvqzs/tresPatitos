@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>682</width>
-    <height>627</height>
+    <width>500</width>
+    <height>650</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>650</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>500</width>
+    <height>650</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Departamentos</string>
@@ -165,9 +177,21 @@
     <rect>
      <x>40</x>
      <y>320</y>
-     <width>591</width>
-     <height>281</height>
+     <width>400</width>
+     <height>300</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>400</width>
+     <height>300</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>400</width>
+     <height>300</height>
+    </size>
    </property>
    <property name="rowCount">
     <number>3</number>
