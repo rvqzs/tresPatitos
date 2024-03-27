@@ -234,12 +234,6 @@ class winDesligar(QWidget):
         self.uiDesligar.setupUi(self)
         # TODO Manejo de eventos
 
-# if __name__=="__main__":
-#     app=QApplication(sys.argv)
-#     win=mdiApp()
-#     win.showMaximized()
-#     sys.exit(app.exec())
-
 if __name__=="__main__":
     app=QApplication(sys.argv)
     win=Login()
