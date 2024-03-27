@@ -248,4 +248,3 @@ if __name__=="__main__":
         mdi.showMaximized()
     sys.exit(app.exec())
 
-    print("Hola")
