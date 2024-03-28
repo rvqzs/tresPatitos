@@ -15,6 +15,7 @@ from src.Ui_mdi import Ui_mdiWindow
 
 # Usuarios
 from src.Ui_Usuarios import Ui_Usuarios
+from model.Usuarios import Usuarios
 
 # TODO Empleados
 
