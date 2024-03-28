@@ -17,7 +17,9 @@ from src.Ui_mdi import Ui_mdiWindow
 from src.Ui_Usuarios import Ui_Usuarios
 from model.Usuarios import Usuarios
 
-# TODO Empleados
+# Empleados
+from src.Ui_creacionEmpleados import Ui_CrearEmpleados
+from model.Empleados import crearEmpleados
 
 # Departamentos
 from src.Ui_Departamentos  import Ui_Departamentos
