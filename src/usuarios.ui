@@ -65,7 +65,7 @@
     <string>Nombre Completo:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="txtNombre">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -78,7 +78,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="txtID">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -91,7 +91,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="txtPassword">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -104,7 +104,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btnModificarUsuario">
    <property name="geometry">
     <rect>
      <x>370</x>
@@ -117,7 +117,7 @@
     <string>Modificar</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="btnEliminarUsuario">
    <property name="geometry">
     <rect>
      <x>490</x>
@@ -130,7 +130,7 @@
     <string>Eliminar</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="btnCrearUsuario">
    <property name="geometry">
     <rect>
      <x>260</x>

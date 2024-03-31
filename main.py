@@ -4,6 +4,7 @@ import sys
 from PyQt5.QtGui import QPainter
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QWidget
+from PyQt5.QtCore import Qt
 
 # Import Classes
 
@@ -39,6 +40,8 @@ class Login(QDialog):
         super().__init__(parent)
         self.uiLogin=Ui_Login()
         self.uiLogin.setupUi(self)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
         self.initComponents()
 
     def initComponents(self):
@@ -50,7 +53,7 @@ class Login(QDialog):
         self.close()
 
     def validate_credentials(self):
-        if self.uiLogin.txt_username.text() == "admin" and self.uiLogin.txt_password.text() == "admin":
+        if self.uiLogin.txt_username.text() == "1" and self.uiLogin.txt_password.text() == "1":
             # If correct, accept the dialog, allowing it to close
             mdi = mdiApp()
             mdi.showMaximized()

@@ -22,45 +22,80 @@ class Ui_Login(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.login_widget = QtWidgets.QWidget(Login)
         self.login_widget.setMinimumSize(QtCore.QSize(0, 0))
+        self.login_widget.setStyleSheet("background-color: rgb(191, 191, 191);")
         self.login_widget.setObjectName("login_widget")
         self.lbl_logIn = QtWidgets.QLabel(self.login_widget)
-        self.lbl_logIn.setGeometry(QtCore.QRect(140, 50, 101, 41))
+        self.lbl_logIn.setGeometry(QtCore.QRect(150, 40, 81, 71))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
         self.lbl_logIn.setFont(font)
+        self.lbl_logIn.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.Zimbabwe))
+        self.lbl_logIn.setText("")
+        self.lbl_logIn.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/profile.png"))
+        self.lbl_logIn.setScaledContents(True)
         self.lbl_logIn.setObjectName("lbl_logIn")
         self.btn_login = QtWidgets.QPushButton(self.login_widget)
-        self.btn_login.setGeometry(QtCore.QRect(60, 300, 111, 31))
+        self.btn_login.setGeometry(QtCore.QRect(140, 260, 101, 31))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
         self.btn_login.setFont(font)
+        self.btn_login.setStyleSheet("QPushButton{\n"
+"\n"
+"background-color:rgb(182, 217, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color:rgb(86, 110, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"}\n"
+"\n"
+"")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/login.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_login.setIcon(icon)
+        self.btn_login.setIconSize(QtCore.QSize(20, 20))
         self.btn_login.setObjectName("btn_login")
-        self.verticalLayoutWidget = QtWidgets.QWidget(self.login_widget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(60, 110, 271, 141))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_2.setContentsMargins(10, 10, 10, 10)
-        self.verticalLayout_2.setSpacing(5)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.txt_username = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.txt_password = QtWidgets.QLineEdit(self.login_widget)
+        self.txt_password.setGeometry(QtCore.QRect(100, 210, 181, 21))
+        self.txt_password.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;")
+        self.txt_password.setAlignment(QtCore.Qt.AlignCenter)
+        self.txt_password.setObjectName("txt_password")
+        self.txt_username = QtWidgets.QLineEdit(self.login_widget)
+        self.txt_username.setGeometry(QtCore.QRect(100, 140, 181, 20))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.txt_username.sizePolicy().hasHeightForWidth())
         self.txt_username.setSizePolicy(sizePolicy)
         self.txt_username.setMinimumSize(QtCore.QSize(20, 5))
+        self.txt_username.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;")
         self.txt_username.setText("")
         self.txt_username.setAlignment(QtCore.Qt.AlignCenter)
         self.txt_username.setObjectName("txt_username")
-        self.verticalLayout_2.addWidget(self.txt_username)
-        self.txt_password = QtWidgets.QLineEdit(self.verticalLayoutWidget)
-        self.txt_password.setAlignment(QtCore.Qt.AlignCenter)
-        self.txt_password.setObjectName("txt_password")
-        self.verticalLayout_2.addWidget(self.txt_password)
+        self.label = QtWidgets.QLabel(self.login_widget)
+        self.label.setGeometry(QtCore.QRect(70, 210, 21, 21))
+        self.label.setStyleSheet("background-color: rgb(0, 0, 0,0%);")
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/password2.png"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.login_widget)
+        self.label_2.setGeometry(QtCore.QRect(70, 140, 21, 21))
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/user2.png"))
+        self.label_2.setScaledContents(True)
+        self.label_2.setObjectName("label_2")
         self.verticalLayout.addWidget(self.login_widget)
 
         self.retranslateUi(Login)
@@ -70,7 +105,6 @@ class Ui_Login(object):
         _translate = QtCore.QCoreApplication.translate
         Login.setWindowTitle(_translate("Login", "Log In"))
         self.lbl_logIn.setWhatsThis(_translate("Login", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Log In</span></p></body></html>"))
-        self.lbl_logIn.setText(_translate("Login", "Log In"))
-        self.btn_login.setText(_translate("Login", "Log In"))
-        self.txt_username.setPlaceholderText(_translate("Login", "Username"))
+        self.btn_login.setText(_translate("Login", " Log in"))
         self.txt_password.setPlaceholderText(_translate("Login", "Password"))
+        self.txt_username.setPlaceholderText(_translate("Login", "Username"))
