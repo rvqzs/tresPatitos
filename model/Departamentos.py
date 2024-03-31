@@ -9,9 +9,9 @@ class Departamentos:
 
     def registrar(self):
         estado=0
-        departamento= pymongo.MongoClient("mongodb://localhost:27017")
+        departamento= pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         #seleccionar la tabla a utilizar
-        bd=departamento["Empresa"]
+        bd=departamento["TresPatitos"]
         try:
             #definir la tabla a utilizar
             tbl=bd["departamentos"]

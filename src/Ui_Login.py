@@ -51,8 +51,8 @@ class Ui_Login(object):
 "}\n"
 "\n"
 "QPushButton:hover{\n"
-"background-color:rgb(86, 110, 255);\n"
-"border:none;\n"
+"\n"
+"border:2px solid #566eff;\n"
 "border-radius:10px;\n"
 "}\n"
 "\n"
@@ -63,14 +63,14 @@ class Ui_Login(object):
         self.btn_login.setIconSize(QtCore.QSize(20, 20))
         self.btn_login.setObjectName("btn_login")
         self.txt_password = QtWidgets.QLineEdit(self.login_widget)
-        self.txt_password.setGeometry(QtCore.QRect(100, 210, 181, 21))
+        self.txt_password.setGeometry(QtCore.QRect(100, 210, 180, 20))
         self.txt_password.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border:none;\n"
+"border:2px solid #566eff;\n"
 "border-radius:10px;")
         self.txt_password.setAlignment(QtCore.Qt.AlignCenter)
         self.txt_password.setObjectName("txt_password")
         self.txt_username = QtWidgets.QLineEdit(self.login_widget)
-        self.txt_username.setGeometry(QtCore.QRect(100, 140, 181, 20))
+        self.txt_username.setGeometry(QtCore.QRect(100, 140, 180, 20))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -78,7 +78,7 @@ class Ui_Login(object):
         self.txt_username.setSizePolicy(sizePolicy)
         self.txt_username.setMinimumSize(QtCore.QSize(20, 5))
         self.txt_username.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border:none;\n"
+"border:2px solid #566eff;\n"
 "border-radius:10px;")
         self.txt_username.setText("")
         self.txt_username.setAlignment(QtCore.Qt.AlignCenter)

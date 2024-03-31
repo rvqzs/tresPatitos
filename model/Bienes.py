@@ -12,9 +12,9 @@ class Bienes:
     def guardar(self):
         estado=0
         #abrir la conexión mediante un objeto cliente
-        bien= pymongo.MongoClient("mongodb://localhost:27017")
+        bien= pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         #seleccionar la tabla a utilizar
-        bd=bien["empresa"]
+        bd=bien["TresPatitos"]
         try:
             #definir la tabla a utilizar
             tbl=bd["bienes"]

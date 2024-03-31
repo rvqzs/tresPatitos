@@ -97,8 +97,8 @@ border-radius:10px;
 }
 
 QPushButton:hover{
-background-color:rgb(86, 110, 255);
-border:none;
+
+border:2px solid #566eff;
 border-radius:10px;
 }
 
@@ -123,13 +123,13 @@ border-radius:10px;
        <rect>
         <x>100</x>
         <y>210</y>
-        <width>181</width>
-        <height>21</height>
+        <width>180</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);
-border:none;
+border:2px solid #566eff;
 border-radius:10px;</string>
       </property>
       <property name="alignment">
@@ -144,7 +144,7 @@ border-radius:10px;</string>
        <rect>
         <x>100</x>
         <y>140</y>
-        <width>181</width>
+        <width>180</width>
         <height>20</height>
        </rect>
       </property>
@@ -162,7 +162,7 @@ border-radius:10px;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);
-border:none;
+border:2px solid #566eff;
 border-radius:10px;</string>
       </property>
       <property name="text">

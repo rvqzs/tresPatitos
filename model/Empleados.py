@@ -12,18 +12,18 @@ class crearEmpleados:
         self.jefatura=jefatura
 
     def guardarEmpleados(self):
-        empleados=pymongo.MongoClient("mongodb://localhost:27017")
-        bd=empleados["Empresa"]
+        empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd=empleados["TresPatitos"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["Empleados"]
+            tbl=bd["empleados"]
             #crear diccionario
             doc={"_id":self.cedula,"Nombre":self.nombre,"Apellidos":self.apellidos,"Telefono":self.telefono,"Direccion":self.direccion,"Puesto":self.puesto,"Ingreso":self.ingreso,"Jefatura":self.jefatura}
             #insertar en la tabla
             tbl.insert_one(doc)
             estado=1
         except Exception:
-            print("error al guardar")
+            print("Error al guardar")
             estado=0
         finally:
             empleados.close

@@ -16,21 +16,21 @@ from src.Ui_mdi import Ui_mdiWindow
 
 # Usuarios
 from src.Ui_Usuarios import Ui_Usuarios
-from model.Usuarios import Usuarios
+from model.usuarios import Usuarios
 
 # Empleados
 from src.Ui_creacionEmpleados import Ui_CrearEmpleados
-from model.Empleados import crearEmpleados
+from model.empleados import crearEmpleados
 
 # Departamentos
 from src.Ui_Departamentos  import Ui_Departamentos
-from model.Departamentos import Departamentos
+from model.departamentos import Departamentos
 
 # Bienes
-from model.Bienes import Bienes
+from model.bienes import Bienes
 from src.Ui_Bienes import Ui_Bienes
 from src.Ui_Asignacion_Bienes import Ui_Asignacion_Bienes
-from model.Asignacion import Asignar
+from model.asignacion import Asignar
 from src.Ui_Desligar_Bienes import Ui_Desligar_Bienes
 
 
