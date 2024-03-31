@@ -98,9 +98,9 @@ class mdiApp(QMainWindow):
         #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winUsuarios)
         #eventos
-        self.winUsuarios.uiUsuarios.bttCrearUsuario.clicked.connect(self.guardarUsuario)
-        self.winUsuarios.uiUsuarios.bttModificarUsuario.clicked.connect(self.modificarUsuario)
-        self.winUsuarios.uiUsuarios.bttEliminarUsuario.clicked.connect(self.eliminarUsuario)
+        self.winUsuarios.uiUsuarios.btnCrearUsuario.clicked.connect(self.guardarUsuario)
+        self.winUsuarios.uiUsuarios.btnModificarUsuario.clicked.connect(self.modificarUsuario)
+        self.winUsuarios.uiUsuarios.btnEliminarUsuario.clicked.connect(self.eliminarUsuario)
         self.winUsuarios.show()
 
     def openWinCrearEmpleado(self):
