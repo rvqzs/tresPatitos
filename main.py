@@ -16,7 +16,7 @@ from src.Ui_mdi import Ui_mdiWindow
 
 # Usuarios
 from src.Ui_Usuarios import Ui_Usuarios
-from model.usuarios import Usuarios
+from model.Usuarios import Usuarios
 
 # Empleados
 from src.Ui_creacionEmpleados import Ui_CrearEmpleados
@@ -335,3 +335,5 @@ if __name__=="__main__":
         mdi=mdiApp()
         mdi.showMaximized()
     sys.exit(app.exec())
+
+#hola
