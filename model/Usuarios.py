@@ -74,13 +74,13 @@ class Usuarios:
             usuarios.close
         return estado
     
-    def getusuarios(self):
+    def getUsuarios(self):
         usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=usuarios["TresPatitos"]
         tbl=bd["usuarios"]
         return tbl.find()
     
-    def getRegistrosusuarios(self):
+    def getRegistrosUsuarios(self):
         usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=usuarios["TresPatitos"]
         size=bd.command("collstats","usuarios")#estadisticas

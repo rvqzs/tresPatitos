@@ -11,7 +11,7 @@ class Empleados:
         self.ingreso=ingreso
         self.jefatura=jefatura
 
-    def guardarempleados(self):
+    def guardarEmpleados(self):
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=empleados["TresPatitos"]
         
@@ -38,7 +38,7 @@ class Empleados:
             empleados.close
         return estado
     
-    def actualizarempleados(self):
+    def actualizarEmpleados(self):
         #abrir la conxion mediante un objeto cliente
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=empleados["TresPatitos"]
@@ -67,7 +67,7 @@ class Empleados:
             empleados.close
         return estado
     
-    def eliminarempleados(self):
+    def eliminarEmpleados(self):
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=empleados["TresPatitos"]
 
@@ -85,7 +85,7 @@ class Empleados:
             empleados.close
         return estado
     
-    def getempleados(self):
+    def getEmpleados(self):
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=empleados["TresPatitos"]
         tbl=bd["empleados"]
