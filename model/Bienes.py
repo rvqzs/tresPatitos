@@ -19,7 +19,7 @@ class Bienes:
             #definir la tabla a utilizar
             tbl=bd["bienes"]
             #crear diccionario
-            doc={"_placa":self.placa,
+            doc={"_id":self.placa,
                 "nombre":self.nombreBien,
                 "categoria":self.categoria,
                 "descripcion":self.descripcion}
@@ -38,12 +38,12 @@ class Bienes:
         # abrir la conexión mediante un objeto cliente
         bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
-        bd = bien["empresa"]
+        bd = bien["TresPatitos"]
         try:
             # definir la tabla a utilizar
             tbl = bd["bienes"]
             # filtro
-            filtro = {"_placa": self.placa}
+            filtro = {"_id": self.placa}
             # crear diccionario
             doc = {
                 "$set": {
@@ -68,12 +68,12 @@ class Bienes:
         # abrir la conexión mediante un objeto cliente
         bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
-        bd = bien["empresa"]
+        bd = bien["TresPatitos"]
         try:
             # definir la tabla a utilizar
             tbl = bd["bienes"]
             # filtro
-            filtro = {"_placa": self.placa}
+            filtro = {"_id": self.placa}
             # modifcar en la tabla
             tbl.delete_one(filtro)
             estado = 1

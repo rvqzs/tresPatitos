@@ -14,10 +14,10 @@ class Asignar:
         #abrir la conexión mediante un objeto cliente
         bienAsignado= pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         #seleccionar la tabla a utilizar
-        bd=bienAsignado["Empresa"]
+        bd=bienAsignado["TresPatitos"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["bienes asignados"]
+            tbl=bd["bienes_asignados"]
             #crear diccionario
             doc={"_id":self.cedula,
                 "nombre":self.nombre,
@@ -28,7 +28,7 @@ class Asignar:
             tbl.insert_one(doc)
             estado=1
         except Exception:
-            print("error al guardar")
+            print("Error al guardar")
             estado=0
         finally:
             bienAsignado.close        
@@ -39,10 +39,10 @@ class Asignar:
         # abrir la conexión mediante un objeto cliente
         bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
-        bd = bienAsignado["Empresa"]
+        bd = bienAsignado["TresPatitos"]
         try:
             # definir la tabla a utilizar
-            tbl = bd["bienes asignados"]
+            tbl = bd["bienes_asignados"]
             # filtro
             filtro = {"_id": self.cedula}
             # crear diccionario
@@ -58,7 +58,7 @@ class Asignar:
             tbl.update_one(filtro,doc)
             estado = 1
         except Exception:
-            print("error al modificar")
+            print("Error al modificar")
             estado = 0
         finally:
             bienAsignado.close
@@ -69,10 +69,10 @@ class Asignar:
         # abrir la conexión mediante un objeto cliente
         bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
-        bd = bienAsignado["Empresa"]
+        bd = bienAsignado["TresPatitos"]
         try:
             # definir la tabla a utilizar
-            tbl = bd["bienes asignados"]
+            tbl = bd["bienes_asignados"]
             # filtro
             filtro = {"_id": self.cedula}
             # modifcar en la tabla

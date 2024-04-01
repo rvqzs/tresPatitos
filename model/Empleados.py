@@ -18,7 +18,10 @@ class crearEmpleados:
             #definir la tabla a utilizar
             tbl=bd["empleados"]
             #crear diccionario
-            doc={"_id":self.cedula,"Nombre":self.nombre,"Apellidos":self.apellidos,"Telefono":self.telefono,"Direccion":self.direccion,"Puesto":self.puesto,"Ingreso":self.ingreso,"Jefatura":self.jefatura}
+            doc={"_id":self.cedula,"Nombre":self.nombre,
+                "Apellidos":self.apellidos,"Telefono":self.telefono,
+                "Direccion":self.direccion,"Puesto":self.puesto,"Ingreso":self.ingreso,
+                "Jefatura":self.jefatura}
             #insertar en la tabla
             tbl.insert_one(doc)
             estado=1

@@ -16,7 +16,7 @@ class Departamentos:
             #definir la tabla a utilizar
             tbl=bd["departamentos"]
             #crear diccionario
-            doc={"_codigo":self.codigo,
+            doc={"_id":self.codigo,
                 "nombre":self.nombre,
                 "jefatura":self.jefatura}
             #insertar en la tabla
@@ -32,10 +32,10 @@ class Departamentos:
     def actualizar(self):
         estado = 0
         departamento = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
-        bd = departamento["Empresa"]
+        bd = departamento["TresPatitos"]
         try:
             tbl = bd["departamentos"]
-            filtro = {"_codigo": self.codigo}
+            filtro = {"_id": self.codigo}
             doc={"_codigo":self.codigo,
                 "nombre":self.nombre,
                 "jefatura":self.jefatura
@@ -54,12 +54,12 @@ class Departamentos:
     def eliminar(self):
         estado = 0
         departamento = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
-        bd = departamento["bien"]
+        bd = departamento["TresPatitos"]
         try:
             # definir la tabla a utilizar
             tbl = bd["departamentos"]
             # filtro
-            filtro = {"_codigo": self.codigo}
+            filtro = {"_id": self.codigo}
             # modifcar en la tabla
             tbl.delete_one(filtro)
             estado = 1
