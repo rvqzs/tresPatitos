@@ -78,7 +78,6 @@ class mdiApp(QMainWindow):
         self.show()
     
     def initComponents(self):
-        # self.uiMdi.menuLogin.triggered.connect(self.openWinLogin)
         self.uiMdi.mniUsuarios.triggered.connect(self.openWinUsuarios)
         self.uiMdi.mniEmpleados.triggered.connect(self.openWinEmpleados)
         self.uiMdi.mniDepartamentos.triggered.connect(self.openWinDepartamentos)
@@ -101,17 +100,17 @@ class mdiApp(QMainWindow):
         #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winUsuarios)
         #eventos
-        self.winUsuarios.uiUsuarios.bttCrearUsuario.clicked.connect(self.guardarUsuario)
-        self.winUsuarios.uiUsuarios.bttModificarUsuario.clicked.connect(self.modificarUsuario)
-        self.winUsuarios.uiUsuarios.bttEliminarUsuario.clicked.connect(self.eliminarUsuario)
-        self.winUsuarios.uiUsuarios.bttLimpiar.clicked.connect(self.limpiarUsuarios)
-        self.winUsuarios.uiUsuarios.tblWidgetUsuario.clicked.connect(self.cargarDatosUsuarios)
+        self.winUsuarios.uiUsuarios.btnCrearUsuario.clicked.connect(self.guardarUsuario)
+        self.winUsuarios.uiUsuarios.btnModificarUsuario.clicked.connect(self.modificarUsuario)
+        self.winUsuarios.uiUsuarios.btnEliminarUsuario.clicked.connect(self.eliminarUsuario)
+        self.winUsuarios.uiUsuarios.btnLimpiar.clicked.connect(self.limpiarUsuarios)
+        self.winUsuarios.uiUsuarios.tblUsuarios.clicked.connect(self.cargarDatosUsuarios)
         self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getUsuarios())
         self.habilitarGuardarUsuarios
         self.winUsuarios.show()
 
     def guardarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),
+        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtUsername.text(),
                         self.winUsuarios.uiUsuarios.txtEmail.text()
                         )
         if usuarios.guardar()==1:
@@ -120,7 +119,7 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al crear usuario",QMessageBox.Information)
 
     def modificarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),
+        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtUsername.text(),
                         self.winUsuarios.uiUsuarios.txtEmail.text()
                         )
         if usuarios.actualizar()==1:
@@ -129,7 +128,7 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al modificar datos",QMessageBox.Information)
 
     def eliminarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),
+        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtUsername.text(),
                         self.winUsuarios.uiUsuarios.txtEmail.text()
                         )
         if usuarios.eliminar()==1:
@@ -138,37 +137,37 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al eliminar datos",QMessageBox.Information)
 
     def cargarTablaUsuarios(self,numFilas,datos):
-        self.winUsuarios.uiUsuarios.tblWidgetUsuario.setRowCount(numFilas)
-        self.winUsuarios.uiUsuarios.tblWidgetUsuario.setColumnCount(3)
+        self.winUsuarios.uiUsuarios.tblUsuarios.setRowCount(numFilas)
+        self.winUsuarios.uiUsuarios.tblUsuarios.setColumnCount(3)
         i=0
         for d in datos:
-            self.winUsuarios.uiUsuarios.tblWidgetUsuario.setItem(i,0,QTableWidgetItem(d["_id"]))
-            self.winUsuarios.uiUsuarios.tblWidgetUsuario.setItem(i,1,QTableWidgetItem(d["Usuario"]))
-            self.winUsuarios.uiUsuarios.tblWidgetUsuario.setItem(i,2,QTableWidgetItem(d["email"]))
+            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,0,QTableWidgetItem(d["_id"]))
+            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,1,QTableWidgetItem(d["usuario"]))
+            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,2,QTableWidgetItem(d["email"]))
             i+=1
 
     def habilitarGuardarUsuarios(self):
-        self.winUsuarios.uiUsuarios.bttCrearUsuario.setEnabled(True)
-        self.winUsuarios.uiUsuarios.bttModificarUsuario.setEnabled(False)
-        self.winUsuarios.uiUsuarios.bttEliminarUsuario.setEnabled(False)
+        self.winUsuarios.uiUsuarios.btnCrearUsuario.setEnabled(True)
+        self.winUsuarios.uiUsuarios.btnModificarUsuario.setEnabled(False)
+        self.winUsuarios.uiUsuarios.btnEliminarUsuario.setEnabled(False)
 
     def limpiarUsuarios(self):
         self.winUsuarios.uiUsuarios.txtID.setText("")
-        self.winUsuarios.uiUsuarios.txtNombreUsuario.setText("")
+        self.winUsuarios.uiUsuarios.txtUsername.setText("")
         self.winUsuarios.uiUsuarios.txtEmail.setText("")
         self.habilitarGuardarUsuarios()
     
     def habilitarEliminarModificarusuario(self):
-        self.winUsuarios.uiUsuarios.bttCrearUsuario.setEnabled(False)
-        self.winUsuarios.uiUsuarios.bttModificarUsuario.setEnabled(True)
-        self.winUsuarios.uiUsuarios.bttEliminarUsuario.setEnabled(True)
+        self.winUsuarios.uiUsuarios.btnCrearUsuario.setEnabled(False)
+        self.winUsuarios.uiUsuarios.btnModificarUsuario.setEnabled(True)
+        self.winUsuarios.uiUsuarios.btnEliminarUsuario.setEnabled(True)
 
     def cargarDatosUsuarios(self):
         self.habilitarEliminarModificarusuario()
-        numFilas=self.winUsuarios.uiUsuarios.tblWidgetUsuario.currentRow()
-        self.winUsuarios.uiUsuarios.txtID.setText(self.winUsuarios.uiUsuarios.tblWidgetUsuario.item(numFilas,0).text())
-        self.winUsuarios.uiUsuarios.txtNombreUsuario.setText(self.winUsuarios.uiUsuarios.tblWidgetUsuario.item(numFilas,1).text())
-        self.winUsuarios.uiUsuarios.txtEmail.setText(self.winUsuarios.uiUsuarios.tblWidgetUsuario.item(numFilas,2).text())
+        numFilas=self.winUsuarios.uiUsuarios.tblUsuarios.currentRow()
+        self.winUsuarios.uiUsuarios.txtID.setText(self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas,0).text())
+        self.winUsuarios.uiUsuarios.txtUsername.setText(self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas,1).text())
+        self.winUsuarios.uiUsuarios.txtEmail.setText(self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas,2).text())
 
     #Empleados
             
