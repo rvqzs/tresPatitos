@@ -155,7 +155,7 @@ class mdiApp(QMainWindow):
         i=0
         for d in datos:
             self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,0,QTableWidgetItem(d["_id"]))
-            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,1,QTableWidgetItem(d["usuario"]))
+            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,1,QTableWidgetItem(d["Usuario"]))
             self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,2,QTableWidgetItem(d["email"]))
             i+=1
 
