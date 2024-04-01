@@ -82,7 +82,7 @@ class mdiApp(QMainWindow):
         self.uiMdi.mniUsuarios.triggered.connect(self.openWinUsuarios)
         self.uiMdi.mniEmpleados.triggered.connect(self.openWinEmpleados)
         self.uiMdi.mniDepartamentos.triggered.connect(self.openWinDepartamentos)
-        self.uiMdi.mniBienes.triggered.connect(self.openWinBienes)
+        self.uiMdi.mniRegistrarBienes.triggered.connect(self.openWinBienes)
         self.uiMdi.mniAsignar.triggered.connect(self.openWinAsignacionBienes)
         self.uiMdi.mniDesligar.triggered.connect(self.openWinDesligarBienes)
 
@@ -321,7 +321,7 @@ class mdiApp(QMainWindow):
         self.winBienes.uiBienes.btnGuardar.clicked.connect(self.guardarBienes)
         self.winBienes.uiBienes.btnModificar.clicked.connect(self.modificarBienes)
         self.winBienes.uiBienes.btnEliminar.clicked.connect(self.eliminarBienes)
-        self.cargarTabla(bien.getNumeroRegistros(),bien.getBienes())
+        self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
         self.winBienes.show()
 
     def guardarBienes(self):
@@ -382,7 +382,7 @@ class mdiApp(QMainWindow):
         self.winAsignacion.uiAsignacion.btnGuardar.clicked.connect(self.guardarBienAsignado)
         self.winAsignacion.uiAsignacion.btnModificar.clicked.connect(self.modificarBienAsignado)
         self.winAsignacion.uiAsignacion.btnEliminar.clicked.connect(self.eliminarBienAsignado)
-        self.cargarTablaAsignados(asignado.getNumeroAsignados(),asignado.getAsignados())
+        self.cargarTablaBienesAsignado(asignado.getNumeroAsignados(),asignado.getAsignados())
         self.winAsignacion.show()
             
     def guardarBienAsignado(self):

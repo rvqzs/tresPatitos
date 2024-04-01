@@ -48,6 +48,7 @@
      <property name="title">
       <string>Bienes</string>
      </property>
+     <addaction name="mniRegistrarBienes"/>
      <addaction name="mniAsignar"/>
      <addaction name="mniDesligar"/>
     </widget>
@@ -87,6 +88,11 @@
   <action name="actionLogin">
    <property name="text">
     <string>Login</string>
+   </property>
+  </action>
+  <action name="mniRegistrarBienes">
+   <property name="text">
+    <string>Registrar</string>
    </property>
   </action>
  </widget>
