@@ -12,23 +12,23 @@ class AsignarBienes:
     def guardar(self):
         estado=0
         #abrir la conexión mediante un objeto cliente
-        bienAsignado= pymongo.MongoClient("mongodb://localhost:27017")
+        bienAsignado= pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         #seleccionar la tabla a utilizar
-        bd=bienAsignado["Empresa"]
+        bd=bienAsignado["TresPatitos"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["bienes asignados"]
+            tbl=bd["bienes_asignados"]
             #crear diccionario
             doc={"_id":self.cedula,
                 "nombre":self.nombre,
                 "apellidos":self.apellidos,
                 "telefono":self.telefono,
-                "bien asignado": self.bienAsignado}
+                "bien_asignado": self.bienAsignado}
             #insertar en la tabla
             tbl.insert_one(doc)
             estado=1
         except Exception:
-            print("error al guardar")
+            print("Error al guardar")
             estado=0
         finally:
             bienAsignado.close        
@@ -37,12 +37,12 @@ class AsignarBienes:
     def actualizar(self):
         estado = 0
         # abrir la conexión mediante un objeto cliente
-        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
+        bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
-        bd = bienAsignado["Empresa"]
+        bd = bienAsignado["TresPatitos"]
         try:
             # definir la tabla a utilizar
-            tbl = bd["bienes asignados"]
+            tbl = bd["bienes_asignados"]
             # filtro
             filtro = {"_id": self.cedula}
             # crear diccionario
@@ -51,14 +51,14 @@ class AsignarBienes:
                     "nombre": self.nombre,
                     "apellidos": self.apellidos,
                     "telefono": self.telefono,
-                    "bien asignado": self.bienAsignado
+                    "bien_asignado": self.bienAsignado
                 }
             }
             # modifcar en la tabla
             tbl.update_one(filtro,doc)
             estado = 1
         except Exception:
-            print("error al modificar")
+            print("Error al modificar")
             estado = 0
         finally:
             bienAsignado.close
@@ -67,32 +67,32 @@ class AsignarBienes:
     def eliminar(self):
         estado = 0
         # abrir la conexión mediante un objeto cliente
-        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
+        bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
-        bd = bienAsignado["Empresa"]
+        bd = bienAsignado["TresPatitos"]
         try:
             # definir la tabla a utilizar
-            tbl = bd["bienes asignados"]
+            tbl = bd["bienes_asignados"]
             # filtro
             filtro = {"_id": self.cedula}
             # modifcar en la tabla
             tbl.delete_one(filtro)
             estado = 1
         except Exception:
-            print("error al eliminar")
+            print("Error al eliminar")
             estado = 0
         finally:
             bienAsignado.close
         return estado
     
     def getAsignados(self):
-        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
-        bd = bienAsignado["Empresa"]
-        tbl = bd["bienes asignados"]
+        bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = bienAsignado["TresPatitos"]
+        tbl = bd["bienes_asignados"]
         return tbl.find()
 
     def getNumeroAsignados(self):
-        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
-        bd = bienAsignado["Empresa"]
-        size=bd.command("collstats","bienes asignados")
+        bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = bienAsignado["TresPatitos"]
+        size=bd.command("collstats","bienes_asignados")
         return size["count"]

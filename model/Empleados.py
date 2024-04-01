@@ -1,6 +1,6 @@
 import pymongo
 
-class Empleados:
+class empleados:
     def __init__(self,cedula=0, nombre=1, telefono=2,apellidos=3,direccion=4,puesto=5,ingreso=6,jefatura=7):
         self.cedula = cedula
         self.nombre = nombre
@@ -11,70 +11,86 @@ class Empleados:
         self.ingreso=ingreso
         self.jefatura=jefatura
 
-    def guardarEmpleados(self):
-        empleados=pymongo.MongoClient("mongodb://localhost:27017")
-        bd=empleados["Empresa"]
+    def guardarempleados(self):
+        empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd=empleados["TresPatitos"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["Empleados"]
+            tbl=bd["empleados"]
             #crear diccionario
-            doc={"_id":self.cedula,"Nombre":self.nombre,"Apellidos":self.apellidos,"Telefono":self.telefono,"Direccion":self.direccion,"Puesto":self.puesto,"Ingreso":self.ingreso,"Jefatura":self.jefatura}
+            doc={"_id":self.cedula,
+                "Nombre":self.nombre,
+                "Apellidos":self.apellidos,
+                "Telefono":self.telefono,
+                "Direccion":self.direccion,
+                "Puesto":self.puesto,
+                "Ingreso":self.ingreso,
+                "Jefatura":self.jefatura
+                }
             #insertar en la tabla
             tbl.insert_one(doc)
             estado=1
         except Exception:
-            print("error al guardar")
+            print("Error al guardar")
             estado=0
         finally:
             empleados.close
         return estado
     
-    def actualizarEmpleados(self):
+    def actualizarempleados(self):
         #abrir la conxion mediante un objeto cliente
-        empleados=pymongo.MongoClient("mongodb://localhost:27017")
-        bd=empleados["Empresa"]
+        empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd=empleados["TresPatitos"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["Empleados"]
+            tbl=bd["empleados"]
             #filtro sirve para ver que quiero modificar
             filtro={"_id":self.cedula}
             #crear diccionario
-            doc={"$set":{"Nombre":self.nombre,"Apellidos":self.apellidos,"Telefono":self.telefono,"Direccion":self.direccion,"Puesto":self.puesto,"Ingreso":self.ingreso,"Jefatura":self.jefatura}}
+            doc={"$set":{"Nombre":self.nombre,
+                        "Apellidos":self.apellidos,
+                        "Telefono":self.telefono,
+                        "Direccion":self.direccion,
+                        "Puesto":self.puesto,
+                        "Ingreso":self.ingreso,
+                        "Jefatura":self.jefatura}
+                        }
             #insertar en la tabla
             tbl.update_one(filtro,doc)
             estado=1
         except Exception:
-            print("error al guardar")
+            print("Error al guardar")
             estado=0
         finally:
             empleados.close
         return estado
     
-    def eliminarEmpleados(self):
-        empleados=pymongo.MongoClient("mongodb://localhost:27017")
-        bd=empleados["Empresa"]
+    def eliminarempleados(self):
+        empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd=empleados["TresPatitos"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["Empleados"]
+            tbl=bd["empleados"]
             #filtro sirve para ver que quiero modificar
-            filtro={"_id":self.id}
+            filtro={"_id":self.cedula}
             tbl.delete_one(filtro)
             estado=1
         except Exception:
-            print("error al Eliminar")
+            print("Error al Eliminar")
             estado=0
         finally:
             empleados.close
         return estado
     
-    def getEmpleados(self):
-        empleados=pymongo.MongoClient("mongodb://localhost:27017")
-        bd=empleados["Empresa"]
-        tbl=bd["Empleados"]
+    def getempleados(self):
+        empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd=empleados["TresPatitos"]
+        tbl=bd["empleados"]
         return tbl.find()
     
     def getRegistrosEmpleados(self):
         empleados=pymongo.MongoClient("mongodb://localhost:27017")
-        bd=empleados["Empresa"]
+        bd=empleados["TresPatitos"]
         size=bd.command("collstats","Empleados")
         return size["count"]
+

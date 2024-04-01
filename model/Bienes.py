@@ -12,15 +12,15 @@ class Bienes:
     def guardar(self):
         estado=0
         #abrir la conexión mediante un objeto cliente
-        bien= pymongo.MongoClient("mongodb://localhost:27017")
+        bien= pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         #seleccionar la tabla a utilizar
-        bd=bien["Empresa"]
+        bd=bien["TresPatitos"]
         try:
             #definir la tabla a utilizar
             tbl=bd["bienes"]
             #crear diccionario
             doc={"_id":self.placa,
-                "nombre bien":self.nombreBien,
+                "nombre":self.nombreBien,
                 "categoria":self.categoria,
                 "descripcion":self.descripcion,
                 "estado": self.estado}
@@ -28,7 +28,7 @@ class Bienes:
             tbl.insert_one(doc)
             estado=1
         except Exception:
-            print("error al guardar")
+            print("Error al guardar")
             estado=0
         finally:
             bien.close        
@@ -37,9 +37,9 @@ class Bienes:
     def actualizar(self):
         estado = 0
         # abrir la conexión mediante un objeto cliente
-        bien = pymongo.MongoClient("mongodb://localhost:27017")
+        bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
-        bd = bien["Empresa"]
+        bd = bien["TresPatitos"]
         try:
             # definir la tabla a utilizar
             tbl = bd["bienes"]
@@ -48,7 +48,7 @@ class Bienes:
             # crear diccionario
             doc = {
                 "$set": {
-                    "nombre bien": self.nombreBien,
+                    "nombre": self.nombreBien,
                     "categoria": self.categoria,
                     "descripcion": self.descripcion,
                     "estado": self.estado
@@ -58,7 +58,7 @@ class Bienes:
             tbl.update_one(filtro,doc)
             estado = 1
         except Exception:
-            print("error al modificar")
+            print("Error al modificar")
             estado = 0
         finally:
             bien.close
@@ -67,9 +67,9 @@ class Bienes:
     def eliminar(self):
         estado = 0
         # abrir la conexión mediante un objeto cliente
-        bien = pymongo.MongoClient("mongodb://localhost:27017")
+        bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
-        bd = bien["Empresa"]
+        bd = bien["TresPatitos"]
         try:
             # definir la tabla a utilizar
             tbl = bd["bienes"]
@@ -79,20 +79,20 @@ class Bienes:
             tbl.delete_one(filtro)
             estado = 1
         except Exception:
-            print("error al eliminar")
+            print("Error al eliminar")
             estado = 0
         finally:
             bien.close
         return estado
     
     def getBienes(self):
-        bien = pymongo.MongoClient("mongodb://localhost:27017")
-        bd = bien["Empresa"]
+        bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = bien["TresPatitos"]
         tbl = bd["bienes"]
         return tbl.find()
 
     def getNumeroRegistros(self):
-        bien = pymongo.MongoClient("mongodb://localhost:27017")
-        bd = bien["Empresa"]
+        bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = bien["TresPatitos"]
         size=bd.command("collstats","bienes")
         return size["count"]

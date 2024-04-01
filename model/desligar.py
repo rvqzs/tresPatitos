@@ -5,7 +5,7 @@ class DesligarBienes:
         pass
 
     def getAsignados(self):
-        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
-        bd = bienAsignado["Empresa"]
+        bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = bienAsignado["TresPatitos"]
         tbl = bd["bienes_asignados"]
         return tbl.find()
