@@ -1,4 +1,5 @@
 import sys
+import pymongo
 
 # Widgets
 from PyQt5.QtGui import QPainter
@@ -43,22 +44,29 @@ class Login(QDialog):
         self.initComponents()
 
     def initComponents(self):
-        self.uiLogin.btn_login.clicked.connect(self.validate_credentials)
+        self.uiLogin.btn_login.clicked.connect(self.validarAdmin)
 
     def login(self):
         mdi = mdiApp()
         mdi.show()
         self.close()
 
-    def validate_credentials(self):
-        if self.uiLogin.txt_username.text() == "admin" and self.uiLogin.txt_password.text() == "admin":
-            # If correct, accept the dialog, allowing it to close
+    def validarAdmin(self):
+        username = self.uiLogin.txt_username.text()
+        password = self.uiLogin.txt_password.text()
+
+        # Conectarse a la base de datos
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        db = client["TresPatitos"]
+        collection = db["admin"]
+        user = collection.find_one({"username": username, "password": password})
+        if user:
             mdi = mdiApp()
             mdi.showMaximized()
             self.close()
             self.accept()
         else:
-            # If incorrect, show a warning message
+            # Si no se encuentra el usuario, mostrar un mensaje de advertencia
             QMessageBox.warning(self, "Invalid credentials", "Invalid username or password")
 
 class mdiApp(QMainWindow):
@@ -328,7 +336,7 @@ class mdiApp(QMainWindow):
         numFilas=self.winDepartamentos.uiDepartamentos.tblDepartamentos.currentRow()
         self.winDepartamentos.uiDepartamentos.txt_codigo.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,0).text())
         self.winDepartamentos.uiDepartamentos.txt_nombre.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,1).text())
-        
+
         # TODO Cuando se selecciona un item de la tabla, se cierra el programa error:
             # self.winDepartamentos.uiDepartamentos.cmb_jefatura.setCurrentIndex(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,2).text())
             # TypeError: setCurrentIndex(self, index: int): argument 1 has unexpected type 'str'
