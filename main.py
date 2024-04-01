@@ -1,12 +1,10 @@
 import sys
 
-# Import Widgets
+# Widgets
 from PyQt5.QtGui import QPainter
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import Qt
-
-# Import Classes
 
 # Login
 from src.Ui_001_login import Ui_Login
