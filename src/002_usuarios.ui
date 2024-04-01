@@ -16,17 +16,24 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>61</width>
+     <x>40</x>
+     <y>0</y>
+     <width>241</width>
      <height>51</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="text">
-    <string>Usuarios</string>
+    <string>Creacion De Usuarios</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="lblNombreUsuario">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -39,7 +46,7 @@
     <string>Nombre de Usuario:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="lblCedula">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -49,10 +56,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Contraseña:</string>
+    <string>ID:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="lblEmail">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -62,10 +69,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Nombre Completo:</string>
+    <string>Email:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="txtNombre">
+  <widget class="QLineEdit" name="txtEmail">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -78,7 +85,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="txtID">
+  <widget class="QLineEdit" name="txtNombreUsuario">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -91,7 +98,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="txtPassword">
+  <widget class="QLineEdit" name="txtID">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -104,7 +111,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnModificarUsuario">
+  <widget class="QPushButton" name="bttModificarUsuario">
    <property name="geometry">
     <rect>
      <x>370</x>
@@ -116,8 +123,12 @@
    <property name="text">
     <string>Modificar</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>recursos/editar.jpg</normaloff>recursos/editar.jpg</iconset>
+   </property>
   </widget>
-  <widget class="QPushButton" name="btnEliminarUsuario">
+  <widget class="QPushButton" name="bttEliminarUsuario">
    <property name="geometry">
     <rect>
      <x>490</x>
@@ -129,8 +140,12 @@
    <property name="text">
     <string>Eliminar</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>recursos/eliminar.jpg</normaloff>recursos/eliminar.jpg</iconset>
+   </property>
   </widget>
-  <widget class="QPushButton" name="btnCrearUsuario">
+  <widget class="QPushButton" name="bttCrearUsuario">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -142,8 +157,12 @@
    <property name="text">
     <string>Crear</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>recursos/guardar.jpg</normaloff>recursos/guardar.jpg</iconset>
+   </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableWidget" name="tblWidgetUsuario">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -152,18 +171,14 @@
      <height>192</height>
     </rect>
    </property>
-   <column>
-    <property name="text">
-     <string>Nombre</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Usuario</string>
-    </property>
-   </column>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="bttLimpiar">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -173,7 +188,26 @@
     </rect>
    </property>
    <property name="text">
-    <string>Cancelar</string>
+    <string>Limpiar</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>90</y>
+     <width>141</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../../Laboratorio_6_Kevin_Chacon_Quesada_Aarón_Zúñiga_Ramírez_Robert_Viquez_Santos/Laboratorio_6_Kevin_Chacon_Quesada_Aarón_Zúñiga_Ramírez_Robert_Viquez_Santos/recursos/woman.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

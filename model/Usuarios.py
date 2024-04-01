@@ -1,10 +1,9 @@
 import pymongo
 
 class Usuarios:
-    def __init__(self, id, username, password, email):
+    def __init__(self, id=1, nombreUsuario=2, email=3):
         self.id = id
-        self.username = username
-        self.password = password
+        self.nombreUsuario = nombreUsuario
         self.email = email
 
         #self.telefono = telefono
@@ -15,18 +14,18 @@ class Usuarios:
     
     def guardar(self):
         #abrir la conxion mediante un objeto cliente
-        usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
-        bd=usuarios["TresPatitos"]
+        usuarios=pymongo.MongoClient("mongodb://localhost:27017")
+        bd=usuarios["Empresa"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["usuarios"]
+            tbl=bd["Usuarios"]
             #crear diccionario
-            doc={"_id":self.id,"Usuario":self.username,"email":self.email}
+            doc={"_id":self.id,"Usuario":self.nombreUsuario,"email":self.email}
             #insertar en la tabla
             tbl.insert_one(doc)
             estado=1
         except Exception:
-            print("Error al guardar")
+            print("error al guardar")
             estado=0
         finally:
             usuarios.close
@@ -34,38 +33,50 @@ class Usuarios:
     
     def actualizar(self):
         #abrir la conxion mediante un objeto cliente
-        usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
-        bd=usuarios["TresPatitos"]
+        usuarios=pymongo.MongoClient("mongodb://localhost:27017")
+        bd=usuarios["Empresa"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["usuarios"]
+            tbl=bd["Usuarios"]
             #filtro sirve para ver que quiero modificar
             filtro={"_id":self.id}
             #crear diccionario
-            doc={"$set":{"Usuario":self.username,"email":self.email}}
+            doc={"$set":{"Usuario":self.nombreUsuario,"email":self.email}}
             #insertar en la tabla
             tbl.update_one(filtro,doc)
             estado=1
         except Exception:
-            print("Error al guardar")
+            print("error al guardar")
             estado=0
         finally:
             usuarios.close
         return estado
     
     def eliminar(self):
-        usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
-        bd=usuarios["TresPatitos"]
+        usuarios=pymongo.MongoClient("mongodb://localhost:27017")
+        bd=usuarios["Empresa"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["usuarios"]
+            tbl=bd["Usuarios"]
             #filtro sirve para ver que quiero modificar
             filtro={"_id":self.id}
             tbl.delete_one(filtro)
             estado=1
         except Exception:
-            print("Error al Eliminar")
+            print("error al Eliminar")
             estado=0
         finally:
             usuarios.close
         return estado
+    
+    def getusuarios(self):
+        usuarios=pymongo.MongoClient("mongodb://localhost:27017")
+        bd=usuarios["Empresa"]
+        tbl=bd["Usuarios"]
+        return tbl.find()
+    
+    def getRegistrosUsuarios(self):
+        usuarios=pymongo.MongoClient("mongodb://localhost:27017")
+        bd=usuarios["Empresa"]
+        size=bd.command("collstats","Usuarios")#estadisticas
+        return size["count"]
