@@ -114,21 +114,27 @@ class mdiApp(QMainWindow):
         self.winUsuarios.show()
 
     def guardarUsuario(self):
-        usuarios=usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),self.winUsuarios.uiUsuarios.txtEmail.text())
+        usuarios=usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),
+                        self.winUsuarios.uiUsuarios.txtEmail.text()
+                        )
         if usuarios.guardar()==1:
             self.msgBox("Usuario creado correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al crear usuario",QMessageBox.Information)
 
     def modificarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),self.winUsuarios.uiUsuarios.txtEmail.text())
+        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),
+                        self.winUsuarios.uiUsuarios.txtEmail.text()
+                        )
         if usuarios.actualizar()==1:
             self.msgBox("Datos moidificados correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al modificar datos",QMessageBox.Information)
 
     def eliminarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),self.winUsuarios.uiUsuarios.txtEmail.text())
+        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),
+                        self.winUsuarios.uiUsuarios.txtEmail.text()
+                        )
         if usuarios.eliminar()==1:
             self.msgBox("Datos eliminados correctamente",QMessageBox.Information)
         else:
@@ -196,7 +202,11 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al crear Empleado",QMessageBox.Information)
 
     def actualizarEmpleado(self):
-        creacionEmpleado=crearEmpleados(self.wincrearEmpleados.uicreacionEmpleado.txtCedula.text(),self.wincrearEmpleados.uicreacionEmpleado.txtNombre.text(),self.wincrearEmpleados.uicreacionEmpleado.txtApellidos.text(),self.wincrearEmpleados.uicreacionEmpleado.txtTelefono.text(),self.wincrearEmpleados.uicreacionEmpleado.txtDireccion.text(),self.wincrearEmpleados.uicreacionEmpleado.txtPuesto.text(),self.wincrearEmpleados.uicreacionEmpleado.txtIngreso.text(),self.wincrearEmpleados.uicreacionEmpleado.txtJefatura.text())
+        creacionEmpleado=crearEmpleados(self.wincrearEmpleados.uicreacionEmpleado.txtCedula.text(),self.wincrearEmpleados.uicreacionEmpleado.txtNombre.text(),
+                                        self.wincrearEmpleados.uicreacionEmpleado.txtApellidos.text(),self.wincrearEmpleados.uicreacionEmpleado.txtTelefono.text(),
+                                        self.wincrearEmpleados.uicreacionEmpleado.txtDireccion.text(),self.wincrearEmpleados.uicreacionEmpleado.txtPuesto.text(),
+                                        self.wincrearEmpleados.uicreacionEmpleado.txtIngreso.text(),self.wincrearEmpleados.uicreacionEmpleado.txtJefatura.text()
+                                        )
         if creacionEmpleado.actualizarEmpleados()==1:
             self.msgBox("Empleado actualizado correctamente",QMessageBox.Information)
             self.limpiarEmpleados()
@@ -205,7 +215,11 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al actualizar Empleado",QMessageBox.Information)
 
     def eliminarEmpleado(self):
-        creacionEmpleado=crearEmpleados(self.wincrearEmpleados.uicreacionEmpleado.txtCedula.text(),self.wincrearEmpleados.uicreacionEmpleado.txtNombre.text(),self.wincrearEmpleados.uicreacionEmpleado.txtApellidos.text(),self.wincrearEmpleados.uicreacionEmpleado.txtTelefono.text(),self.wincrearEmpleados.uicreacionEmpleado.txtDireccion.text(),self.wincrearEmpleados.uicreacionEmpleado.txtPuesto.text(),self.wincrearEmpleados.uicreacionEmpleado.txtIngreso.text(),self.wincrearEmpleados.uicreacionEmpleado.txtJefatura.text())
+        creacionEmpleado=crearEmpleados(self.wincrearEmpleados.uicreacionEmpleado.txtCedula.text(),self.wincrearEmpleados.uicreacionEmpleado.txtNombre.text(),
+                                        self.wincrearEmpleados.uicreacionEmpleado.txtApellidos.text(),self.wincrearEmpleados.uicreacionEmpleado.txtTelefono.text(),
+                                        self.wincrearEmpleados.uicreacionEmpleado.txtDireccion.text(),self.wincrearEmpleados.uicreacionEmpleado.txtPuesto.text(),
+                                        self.wincrearEmpleados.uicreacionEmpleado.txtIngreso.text(),self.wincrearEmpleados.uicreacionEmpleado.txtJefatura.text()
+                                        )
         if creacionEmpleado.eliminarEmpleados()==1:
             self.msgBox("Empleado eliminado correctamente",QMessageBox.Information)
             self.limpiarEmpleados()
@@ -272,8 +286,7 @@ class mdiApp(QMainWindow):
         self.winDepartamentos.uiDepartamentos.btn_eliminar.clicked.connect(self.eliminarDepartamento)
 
     def registrarDepartamento(self):
-        departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(),
-                        self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
+        departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(), self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
                         self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex(),
                         )
         if departamento.registrar()==1:
@@ -292,8 +305,7 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al actualizar el departamento",QMessageBox.Warning)
     
     def eliminarDepartamento(self):
-        departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(),
-                self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
+        departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(), self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
                 self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex(),
                 )
         if departamento.eliminar()==1:
@@ -328,10 +340,8 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al Guardar los datos",QMessageBox.Warning)
 
     def modificarBienes(self):
-        bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(),
-                        self.winBienes.uiBienes.txtNombreBien.text(),
-                        self.winBienes.uiBienes.txtCategoria.text(),
-                        self.winBienes.uiBienes.txtDescripcion.text(),
+        bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(), self.winBienes.uiBienes.txtNombreBien.text(),
+                        self.winBienes.uiBienes.txtCategoria.text(), self.winBienes.uiBienes.txtDescripcion.text(),
                         self.winBienes.uiBienes.cbxEstado.currentText()
                         )
         if bien.actualizar()==1:
@@ -340,10 +350,8 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al Modificar los datos",QMessageBox.Warning)
     
     def eliminarBienes(self):
-        bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(),
-                        self.winBienes.uiBienes.txtNombreBien.text(),
-                        self.winBienes.uiBienes.txtCategoria.text(),
-                        self.winBienes.uiBienes.txtDescripcion.text(),
+        bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(), self.winBienes.uiBienes.txtNombreBien.text(),
+                        self.winBienes.uiBienes.txtCategoria.text(), self.winBienes.uiBienes.txtDescripcion.text(),
                         self.winBienes.uiBienes.cbxEstado.currentText()
                         )
         if bien.eliminar()==1:
@@ -381,10 +389,8 @@ class mdiApp(QMainWindow):
         self.winAsignacion.show()
             
     def guardarBienAsignado(self):
-        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.txtCedula.text(),
-                    self.winAsignacion.uiAsignacion.txtNombre.text(),
-                    self.winAsignacion.uiAsignacion.txtApellidos.text(),
-                    self.winAsignacion.uiAsignacion.txtTelefono.text(),
+        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.txtCedula.text(), self.winAsignacion.uiAsignacion.txtNombre.text(),
+                    self.winAsignacion.uiAsignacion.txtApellidos.text(), self.winAsignacion.uiAsignacion.txtTelefono.text(),
                     self.winAsignacion.uiAsignacion.txtBienAsignado.text()
                     )
         if bienesAsignados.guardar()==1:
@@ -393,22 +399,18 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al Guardar los datos",QMessageBox.Warning)
 
     def modificarBienAsignado(self):
-        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.txtCedula.text(),
-                        self.winAsignacion.uiAsignacion.txtNombre.text(),
-                        self.winAsignacion.uiAsignacion.txtApellidos.text(),
-                        self.winAsignacion.uiAsignacion.txtTelefono.text(),
+        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.txtCedula.text(), self.winAsignacion.uiAsignacion.txtNombre.text(),
+                        self.winAsignacion.uiAsignacion.txtApellidos.text(), self.winAsignacion.uiAsignacion.txtTelefono.text(),
                         self.winAsignacion.uiAsignacion.txtBienAsignado.text()
-                )
+                        )
         if bienesAsignados.actualizar()==1:
             self.msgBox("Datos Modificados Correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al Modificar los datos",QMessageBox.Warning)
 
     def eliminarBienAsignado(self):
-        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.txtCedula.text(),
-                        self.winAsignacion.uiAsignacion.txtNombre.text(),
-                        self.winAsignacion.uiAsignacion.txtApellidos.text(),
-                        self.winAsignacion.uiAsignacion.txtTelefono.text(),
+        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.txtCedula.text(), self.winAsignacion.uiAsignacion.txtNombre.text(),
+                        self.winAsignacion.uiAsignacion.txtApellidos.text(), self.winAsignacion.uiAsignacion.txtTelefono.text(),
                         self.winAsignacion.uiAsignacion.txtBienAsignado.text()
                         )
         if bienesAsignados.eliminar()==1:
