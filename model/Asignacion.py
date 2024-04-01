@@ -12,7 +12,7 @@ class Asignar:
     def guardar(self):
         estado=0
         #abrir la conexión mediante un objeto cliente
-        bienAsignado= pymongo.MongoClient("mongodb://localhost:27017")
+        bienAsignado= pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         #seleccionar la tabla a utilizar
         bd=bienAsignado["Empresa"]
         try:
@@ -37,7 +37,7 @@ class Asignar:
     def actualizar(self):
         estado = 0
         # abrir la conexión mediante un objeto cliente
-        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
+        bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
         bd = bienAsignado["Empresa"]
         try:
@@ -67,7 +67,7 @@ class Asignar:
     def eliminar(self):
         estado = 0
         # abrir la conexión mediante un objeto cliente
-        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
+        bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
         bd = bienAsignado["Empresa"]
         try:
