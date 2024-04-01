@@ -111,7 +111,7 @@ class mdiApp(QMainWindow):
         self.winUsuarios.show()
 
     def guardarUsuario(self):
-        usuarios=usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),
+        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),
                         self.winUsuarios.uiUsuarios.txtEmail.text()
                         )
         if usuarios.guardar()==1:
