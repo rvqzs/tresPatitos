@@ -69,6 +69,10 @@ class Login(QDialog):
             # Si no se encuentra el usuario, mostrar un mensaje de advertencia
             QMessageBox.warning(self, "Invalid credentials", "Invalid username or password")
 
+    # TODO hacer exit para la pagina de login
+    def exitLogin(self):
+        pass
+
 class mdiApp(QMainWindow):
 
     def __init__(self):
