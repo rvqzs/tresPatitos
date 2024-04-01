@@ -36,7 +36,7 @@ class Bienes:
     def actualizar(self):
         estado = 0
         # abrir la conexión mediante un objeto cliente
-        bien = pymongo.MongoClient("mongodb://localhost:27017")
+        bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
         bd = bien["empresa"]
         try:
@@ -66,7 +66,7 @@ class Bienes:
     def eliminar(self):
         estado = 0
         # abrir la conexión mediante un objeto cliente
-        bien = pymongo.MongoClient("mongodb://localhost:27017")
+        bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         # seleccionar la tabla a utilizar
         bd = bien["empresa"]
         try:

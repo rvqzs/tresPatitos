@@ -31,7 +31,7 @@ class Departamentos:
 
     def actualizar(self):
         estado = 0
-        departamento = pymongo.MongoClient("mongodb://localhost:27017")
+        departamento = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd = departamento["Empresa"]
         try:
             tbl = bd["departamentos"]
@@ -53,7 +53,7 @@ class Departamentos:
 
     def eliminar(self):
         estado = 0
-        departamento = pymongo.MongoClient("mongodb://localhost:27017")
+        departamento = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd = departamento["bien"]
         try:
             # definir la tabla a utilizar
