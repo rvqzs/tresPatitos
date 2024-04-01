@@ -1,6 +1,6 @@
 import pymongo
 
-class usuarios:
+class Usuarios:
     def __init__(self, id=1, nombreUsuario=2, email=3):
         self.id = id
         self.nombreUsuario = nombreUsuario
