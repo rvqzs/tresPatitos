@@ -85,7 +85,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="txtNombreUsuario">
+  <widget class="QLineEdit" name="txtUsername">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -111,7 +111,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="bttModificarUsuario">
+  <widget class="QPushButton" name="btnModificarUsuario">
    <property name="geometry">
     <rect>
      <x>370</x>
@@ -128,7 +128,7 @@
      <normaloff>recursos/editar.jpg</normaloff>recursos/editar.jpg</iconset>
    </property>
   </widget>
-  <widget class="QPushButton" name="bttEliminarUsuario">
+  <widget class="QPushButton" name="btnEliminarUsuario">
    <property name="geometry">
     <rect>
      <x>490</x>
@@ -145,7 +145,7 @@
      <normaloff>recursos/eliminar.jpg</normaloff>recursos/eliminar.jpg</iconset>
    </property>
   </widget>
-  <widget class="QPushButton" name="bttCrearUsuario">
+  <widget class="QPushButton" name="btnCrearUsuario">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -162,7 +162,7 @@
      <normaloff>recursos/guardar.jpg</normaloff>recursos/guardar.jpg</iconset>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tblWidgetUsuario">
+  <widget class="QTableWidget" name="tblUsuarios">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -193,7 +193,7 @@
     </property>
    </column>
   </widget>
-  <widget class="QPushButton" name="bttLimpiar">
+  <widget class="QPushButton" name="btnLimpiar">
    <property name="geometry">
     <rect>
      <x>20</x>
