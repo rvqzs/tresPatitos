@@ -87,14 +87,6 @@ class mdiApp(QMainWindow):
         self.uiMdi.mniBienes.triggered.connect(self.openWinBienes)
         self.uiMdi.mniAsignar.triggered.connect(self.openWinAsignacion)
         self.uiMdi.mniDesligar.triggered.connect(self.openWinDesligar)
-
-    # def openWinLogin(self):
-    #     self.winLogin=winLogin()
-    #     #agregar ventana al mdi
-    #     self.uiMdi.mdiArea.addSubWindow(self.winLogin)
-    #     self.winLogin.show()
-    #     # TODO events/ Esconder password cuando se escribe/ Robert
-    #     # TODO events/ Crear btn de salir/cancelar/ Robert
     
     def openWinUsuarios(self):
         self.winUsuarios=winUsuarios()
