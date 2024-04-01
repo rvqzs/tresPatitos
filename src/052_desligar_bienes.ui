@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Desligar_Bienes</class>
- <widget class="QWidget" name="Desligar_Bienes">
+ <class>Desligar</class>
+ <widget class="QWidget" name="Desligar">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -55,7 +55,7 @@
     <string>Seleccione el empelado:</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="cbxEmpleados">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -76,26 +76,6 @@
    <property name="placeholderText">
     <string>Seleccione</string>
    </property>
-   <item>
-    <property name="text">
-     <string>Luis</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Maria</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Luisa</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Carlos</string>
-    </property>
-   </item>
   </widget>
   <widget class="QTableView" name="tableView">
    <property name="geometry">
@@ -111,13 +91,75 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>170</y>
+     <y>250</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>Desligar</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>150</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Variable Text Semibold</family>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nombre Empleado</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtNombre">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>170</y>
+     <width>82</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>200</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Variable Text Semibold</family>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Bien asignado</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtBienAsignado">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>82</width>
+     <height>20</height>
+    </rect>
    </property>
   </widget>
  </widget>

@@ -1,8 +1,8 @@
 import pymongo
 
 
-class Asignar:
-    def __init__(self, cedula, nombre, apellidos, telefono, bienAsignado):
+class AsignarBienes:
+    def __init__(self, cedula=1, nombre=2, apellidos=3, telefono=4, bienAsignado=5):
         self.cedula = cedula
         self.nombre = nombre
         self.apellidos = apellidos
@@ -12,12 +12,12 @@ class Asignar:
     def guardar(self):
         estado=0
         #abrir la conexión mediante un objeto cliente
-        bienAsignado= pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bienAsignado= pymongo.MongoClient("mongodb://localhost:27017")
         #seleccionar la tabla a utilizar
-        bd=bienAsignado["TresPatitos"]
+        bd=bienAsignado["Empresa"]
         try:
             #definir la tabla a utilizar
-            tbl=bd["bienes_asignados"]
+            tbl=bd["bienes asignados"]
             #crear diccionario
             doc={"_id":self.cedula,
                 "nombre":self.nombre,
@@ -28,7 +28,7 @@ class Asignar:
             tbl.insert_one(doc)
             estado=1
         except Exception:
-            print("Error al guardar")
+            print("error al guardar")
             estado=0
         finally:
             bienAsignado.close        
@@ -37,12 +37,12 @@ class Asignar:
     def actualizar(self):
         estado = 0
         # abrir la conexión mediante un objeto cliente
-        bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
         # seleccionar la tabla a utilizar
-        bd = bienAsignado["TresPatitos"]
+        bd = bienAsignado["Empresa"]
         try:
             # definir la tabla a utilizar
-            tbl = bd["bienes_asignados"]
+            tbl = bd["bienes asignados"]
             # filtro
             filtro = {"_id": self.cedula}
             # crear diccionario
@@ -58,7 +58,7 @@ class Asignar:
             tbl.update_one(filtro,doc)
             estado = 1
         except Exception:
-            print("Error al modificar")
+            print("error al modificar")
             estado = 0
         finally:
             bienAsignado.close
@@ -67,12 +67,12 @@ class Asignar:
     def eliminar(self):
         estado = 0
         # abrir la conexión mediante un objeto cliente
-        bienAsignado = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
         # seleccionar la tabla a utilizar
-        bd = bienAsignado["TresPatitos"]
+        bd = bienAsignado["Empresa"]
         try:
             # definir la tabla a utilizar
-            tbl = bd["bienes_asignados"]
+            tbl = bd["bienes asignados"]
             # filtro
             filtro = {"_id": self.cedula}
             # modifcar en la tabla
@@ -84,3 +84,15 @@ class Asignar:
         finally:
             bienAsignado.close
         return estado
+    
+    def getAsignados(self):
+        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
+        bd = bienAsignado["Empresa"]
+        tbl = bd["bienes asignados"]
+        return tbl.find()
+
+    def getNumeroAsignados(self):
+        bienAsignado = pymongo.MongoClient("mongodb://localhost:27017")
+        bd = bienAsignado["Empresa"]
+        size=bd.command("collstats","bienes asignados")
+        return size["count"]

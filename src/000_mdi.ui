@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mdiWindow</class>
+ <widget class="QMainWindow" name="mdiWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QMdiArea" name="mdiArea">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>801</width>
+      <height>581</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuLogin">
+    <property name="title">
+     <string>Login</string>
+    </property>
+    <addaction name="actionLogin"/>
+   </widget>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <widget class="QMenu" name="mniBienes">
+     <property name="title">
+      <string>Bienes</string>
+     </property>
+     <addaction name="mniAsignar"/>
+     <addaction name="mniDesligar"/>
+    </widget>
+    <addaction name="mniUsuarios"/>
+    <addaction name="mniEmpleados"/>
+    <addaction name="mniDepartamentos"/>
+    <addaction name="mniBienes"/>
+   </widget>
+   <addaction name="menuLogin"/>
+   <addaction name="menuMenu"/>
+  </widget>
+  <action name="mniUsuarios">
+   <property name="text">
+    <string>Usuarios</string>
+   </property>
+  </action>
+  <action name="mniEmpleados">
+   <property name="text">
+    <string>Empleados</string>
+   </property>
+  </action>
+  <action name="mniDepartamentos">
+   <property name="text">
+    <string>Departamentos</string>
+   </property>
+  </action>
+  <action name="mniAsignar">
+   <property name="text">
+    <string>Asignar</string>
+   </property>
+  </action>
+  <action name="mniDesligar">
+   <property name="text">
+    <string>Desligar</string>
+   </property>
+  </action>
+  <action name="actionLogin">
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
