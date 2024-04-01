@@ -14,6 +14,7 @@ class empleados:
     def guardarempleados(self):
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=empleados["TresPatitos"]
+        
         try:
             #definir la tabla a utilizar
             tbl=bd["empleados"]
@@ -41,6 +42,7 @@ class empleados:
         #abrir la conxion mediante un objeto cliente
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=empleados["TresPatitos"]
+
         try:
             #definir la tabla a utilizar
             tbl=bd["empleados"]
@@ -55,7 +57,7 @@ class empleados:
                         "Ingreso":self.ingreso,
                         "Jefatura":self.jefatura}
                         }
-            #insertar en la tabla
+            #insertar en la tablaS
             tbl.update_one(filtro,doc)
             estado=1
         except Exception:
@@ -68,6 +70,7 @@ class empleados:
     def eliminarempleados(self):
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=empleados["TresPatitos"]
+
         try:
             #definir la tabla a utilizar
             tbl=bd["empleados"]
@@ -91,6 +94,5 @@ class empleados:
     def getRegistrosEmpleados(self):
         empleados=pymongo.MongoClient("mongodb://localhost:27017")
         bd=empleados["TresPatitos"]
-        size=bd.command("collstats","Empleados")
+        size=bd.command("collstats","empleados")
         return size["count"]
-
