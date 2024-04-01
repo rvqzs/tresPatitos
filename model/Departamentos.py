@@ -2,7 +2,7 @@ import pymongo
 
 class Departamentos:
     
-    def __init__(self, codigo, nombre, jefatura):
+    def __init__(self, codigo=1, nombre=2, jefatura=3):
         self.codigo = codigo
         self.nombre = nombre
         self.jefatura = jefatura
@@ -69,3 +69,15 @@ class Departamentos:
         finally:
             departamento.close
         return estado
+    
+    def getDepartamentos(self):
+        usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd=usuarios["TresPatitos"]
+        tbl=bd["departamentos"]
+        return tbl.find()
+    
+    def getRegistroDepartamentos(self):
+        usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd=usuarios["TresPatitos"]
+        size=bd.command("collstats","departamentos") #estadisticas
+        return size["count"]
