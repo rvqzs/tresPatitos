@@ -16,7 +16,7 @@ from src.Ui_mdi import Ui_mdiWindow
 
 # Usuarios
 from src.Ui_Usuarios import Ui_Usuarios
-from model.Usuarios import Usuarios
+from model.usuarios import Usuarios
 
 # Empleados
 from src.Ui_creacionEmpleados import Ui_CrearEmpleados
@@ -149,21 +149,21 @@ class mdiApp(QMainWindow):
         retval=msg.exec_()
 
     def guardarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),self.winUsuarios.uiUsuarios.txtEmail.text())
+        usuarios=usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombre.text(),self.winUsuarios.uiUsuarios.txtEmail.text())
         if usuarios.guardar()==1:
             self.msgBox("Usuario creado correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al crear usuario",QMessageBox.Information)
 
     def modificarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),self.winUsuarios.uiUsuarios.txtEmail.text())
+        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombre.text(),self.winUsuarios.uiUsuarios.txtEmail.text())
         if usuarios.actualizar()==1:
             self.msgBox("Datos moidificados correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al modificar datos",QMessageBox.Information)
 
     def eliminarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombreUsuario.text(),self.winUsuarios.uiUsuarios.txtEmail.text())
+        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtNombre.text(),self.winUsuarios.uiUsuarios.txtEmail.text())
         if usuarios.eliminar()==1:
             self.msgBox("Datos eliminados correctamente",QMessageBox.Information)
         else:
