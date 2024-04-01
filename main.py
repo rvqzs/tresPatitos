@@ -115,6 +115,7 @@ class mdiApp(QMainWindow):
                         )
         if usuarios.guardar()==1:
             self.msgBox("Usuario creado correctamente",QMessageBox.Information)
+            self.cargarTablaUsuarios()
         else:
             self.msgBox("Error al crear usuario",QMessageBox.Information)
 
@@ -274,12 +275,16 @@ class mdiApp(QMainWindow):
     #Departamentos
             
     def openWinDepartamentos(self):
+        departamentos=Departamentos()
         self.winDepartamentos=winDepartamentos()
         self.uiMdi.mdiArea.addSubWindow(self.winDepartamentos)
         self.winDepartamentos.show()
         self.winDepartamentos.uiDepartamentos.btn_registrar.clicked.connect(self.registrarDepartamento)
         self.winDepartamentos.uiDepartamentos.btn_editar.clicked.connect(self.actualizarDepartamento)
         self.winDepartamentos.uiDepartamentos.btn_eliminar.clicked.connect(self.eliminarDepartamento)
+        ##
+        self.winDepartamentos.uiDepartamentos.tblDepartamentos.clicked.connect(self.cargarDatostblDepartamentos)
+        self.cargarTblDepartamentos(departamentos.getRegistroDepartamentos(),departamentos.getDepartamentos())
 
     def registrarDepartamento(self):
         departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(), self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
@@ -308,6 +313,33 @@ class mdiApp(QMainWindow):
             self.msgBox("Departamento eliminados Correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al eliminar departamento",QMessageBox.Warning)
+
+    def cargarTblDepartamentos(self, numFilas, datos):
+        self.winDepartamentos.uiDepartamentos.tblDepartamentos.setRowCount(numFilas)
+        self.winDepartamentos.uiDepartamentos.tblDepartamentos.setColumnCount(3)
+        i=0
+        for d in datos:
+            self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i,0,QTableWidgetItem(d["_id"]))
+            self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i,1,QTableWidgetItem(d["nombre"]))
+            self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i,2,QTableWidgetItem(d["jefatura"]))
+            i+=1
+    
+    def cargarDatostblDepartamentos(self):
+        numFilas=self.winDepartamentos.uiDepartamentos.tblDepartamentos.currentRow()
+        self.winDepartamentos.uiDepartamentos.txt_codigo.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,0).text())
+        self.winDepartamentos.uiDepartamentos.txt_nombre.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,1).text())
+        
+        # TODO Cuando se selecciona un item de la tabla, se cierra el programa error:
+            # self.winDepartamentos.uiDepartamentos.cmb_jefatura.setCurrentIndex(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,2).text())
+            # TypeError: setCurrentIndex(self, index: int): argument 1 has unexpected type 'str'
+        self.winDepartamentos.uiDepartamentos.cmb_jefatura.setCurrentIndex(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,2).text())
+
+    # TODO Llenar el combo box de Jefatura con los Empleados que sean Jefatura (ver /openWinAsignacionBienes)
+    def comboBoxDepartamentos(self, datos):
+        for d in datos:
+            nombre=d["nombre"]
+            if nombre:
+                self.winDepartamentos.uiDepartamentos.cmb_jefatura.addItem(nombre)
 
     #Bienes
             
