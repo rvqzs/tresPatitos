@@ -106,7 +106,7 @@ class mdiApp(QMainWindow):
         self.winUsuarios.uiUsuarios.bttEliminarUsuario.clicked.connect(self.eliminarUsuario)
         self.winUsuarios.uiUsuarios.bttLimpiar.clicked.connect(self.limpiarUsuarios)
         self.winUsuarios.uiUsuarios.tblWidgetUsuario.clicked.connect(self.cargarDatosUsuarios)
-        self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getusuarios())
+        self.cargarTablaUsuarios(usuarios.getRegistrosusuarios(),usuarios.getusuarios())
         self.habilitarGuardarUsuarios
         self.winUsuarios.show()
 
