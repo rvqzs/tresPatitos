@@ -172,7 +172,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableWidget" name="tblDepartamentos">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -194,13 +194,11 @@
     </size>
    </property>
    <property name="rowCount">
-    <number>3</number>
+    <number>1</number>
    </property>
    <property name="columnCount">
     <number>3</number>
    </property>
-   <row/>
-   <row/>
    <row/>
    <column>
     <property name="text">
