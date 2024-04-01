@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CrearEmpleados</class>
- <widget class="QWidget" name="CrearEmpleados">
+ <class>Empleados</class>
+ <widget class="QWidget" name="Empleados">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Creacion de Empleados</string>
+   <string>Empleados</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">

@@ -19,8 +19,8 @@ from src.Ui_002_usuarios import Ui_Usuarios
 from model.usuarios import Usuarios
 
 # Empleados
-from src.Ui_003_empleados import Ui_CrearEmpleados
-from model.empleados import crearEmpleados
+from src.Ui_003_empleados import Ui_Empleados
+from model.empleados import Empleados
 
 # Departamentos
 from src.Ui_004_departamentos  import Ui_Departamentos
@@ -33,7 +33,6 @@ from src.Ui_051_asignacion_bienes import Ui_Asignacion
 from model.asignacion import AsignarBienes
 from Ui_052_desligar_bienes import Ui_Desligar
 from model.desligar import DesligarBienes
-
 
 class Login(QDialog):
 
@@ -176,25 +175,25 @@ class mdiApp(QMainWindow):
     #Empleados
             
     def openWinEmpleados(self):
-        creacionEmpleado=crearEmpleados()
-        self.wincrearEmpleados=winEmpleados()
+        creacionEmpleado=Empleados()
+        self.winEmpleados=winEmpleados()
         #agregar ventana
-        self.uiMdi.mdiArea.addSubWindow(self.wincrearEmpleados)
+        self.uiMdi.mdiArea.addSubWindow(self.winEmpleados)
         #eventos
-        self.wincrearEmpleados.uicreacionEmpleado.bttCrearEmpleado.clicked.connect(self.guardarEmpleado)
-        self.wincrearEmpleados.uicreacionEmpleado.bttModificarEmpleado.clicked.connect(self.actualizarEmpleado)
-        self.wincrearEmpleados.uicreacionEmpleado.bttEliminarEmpleado.clicked.connect(self.eliminarEmpleado)
-        self.wincrearEmpleados.uicreacionEmpleado.bttLimpiarEmpleado.clicked.connect(self.limpiarEmpleados)
-        self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.clicked.connect(self.cargarDatosEmpleados)
+        self.winEmpleados.uiEmpleados.bttCrearEmpleado.clicked.connect(self.guardarEmpleado)
+        self.winEmpleados.uiEmpleados.bttModificarEmpleado.clicked.connect(self.actualizarEmpleado)
+        self.winEmpleados.uiEmpleados.bttEliminarEmpleado.clicked.connect(self.eliminarEmpleado)
+        self.winEmpleados.uiEmpleados.bttLimpiarEmpleado.clicked.connect(self.limpiarEmpleados)
+        self.winEmpleados.uiEmpleados.tblWidgetEmpleados.clicked.connect(self.cargarDatosEmpleados)
         self.cargarTablaEmpleados(creacionEmpleado.getRegistrosEmpleados(),creacionEmpleado.getEmpleados())
         self.habilitarGuardarEmpleados
-        self.wincrearEmpleados.show()
+        self.winEmpleados.show()
     
     def guardarEmpleado(self):
-        creacionEmpleado=crearEmpleados(self.wincrearEmpleados.uicreacionEmpleado.txtCedula.text(),self.wincrearEmpleados.uicreacionEmpleado.txtNombre.text(),
-                                self.wincrearEmpleados.uicreacionEmpleado.txtApellidos.text(),self.wincrearEmpleados.uicreacionEmpleado.txtTelefono.text(),
-                                self.wincrearEmpleados.uicreacionEmpleado.txtDireccion.text(),self.wincrearEmpleados.uicreacionEmpleado.txtPuesto.text(),
-                                self.wincrearEmpleados.uicreacionEmpleado.txtIngreso.text(),self.wincrearEmpleados.uicreacionEmpleado.txtJefatura.text()
+        creacionEmpleado=Empleados(self.winEmpleados.uiEmpleados.txtCedula.text(),self.winEmpleados.uiEmpleados.txtNombre.text(),
+                                self.winEmpleados.uiEmpleados.txtApellidos.text(),self.winEmpleados.uiEmpleados.txtTelefono.text(),
+                                self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtPuesto.text(),
+                                self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.txtJefatura.text()
                                 )
         if creacionEmpleado.guardarEmpleados()==1:
             self.msgBox("Empleado creado correctamente",QMessageBox.Information)
@@ -202,10 +201,10 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al crear Empleado",QMessageBox.Information)
 
     def actualizarEmpleado(self):
-        creacionEmpleado=crearEmpleados(self.wincrearEmpleados.uicreacionEmpleado.txtCedula.text(),self.wincrearEmpleados.uicreacionEmpleado.txtNombre.text(),
-                                        self.wincrearEmpleados.uicreacionEmpleado.txtApellidos.text(),self.wincrearEmpleados.uicreacionEmpleado.txtTelefono.text(),
-                                        self.wincrearEmpleados.uicreacionEmpleado.txtDireccion.text(),self.wincrearEmpleados.uicreacionEmpleado.txtPuesto.text(),
-                                        self.wincrearEmpleados.uicreacionEmpleado.txtIngreso.text(),self.wincrearEmpleados.uicreacionEmpleado.txtJefatura.text()
+        creacionEmpleado=Empleados(self.winEmpleados.uiEmpleados.txtCedula.text(),self.winEmpleados.uiEmpleados.txtNombre.text(),
+                                        self.winEmpleados.uiEmpleados.txtApellidos.text(),self.winEmpleados.uiEmpleados.txtTelefono.text(),
+                                        self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtPuesto.text(),
+                                        self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.txtJefatura.text()
                                         )
         if creacionEmpleado.actualizarEmpleados()==1:
             self.msgBox("Empleado actualizado correctamente",QMessageBox.Information)
@@ -215,10 +214,10 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al actualizar Empleado",QMessageBox.Information)
 
     def eliminarEmpleado(self):
-        creacionEmpleado=crearEmpleados(self.wincrearEmpleados.uicreacionEmpleado.txtCedula.text(),self.wincrearEmpleados.uicreacionEmpleado.txtNombre.text(),
-                                        self.wincrearEmpleados.uicreacionEmpleado.txtApellidos.text(),self.wincrearEmpleados.uicreacionEmpleado.txtTelefono.text(),
-                                        self.wincrearEmpleados.uicreacionEmpleado.txtDireccion.text(),self.wincrearEmpleados.uicreacionEmpleado.txtPuesto.text(),
-                                        self.wincrearEmpleados.uicreacionEmpleado.txtIngreso.text(),self.wincrearEmpleados.uicreacionEmpleado.txtJefatura.text()
+        creacionEmpleado=Empleados(self.winEmpleados.uiEmpleados.txtCedula.text(),self.winEmpleados.uiEmpleados.txtNombre.text(),
+                                        self.winEmpleados.uiEmpleados.txtApellidos.text(),self.winEmpleados.uiEmpleados.txtTelefono.text(),
+                                        self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtPuesto.text(),
+                                        self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.txtJefatura.text()
                                         )
         if creacionEmpleado.eliminarEmpleados()==1:
             self.msgBox("Empleado eliminado correctamente",QMessageBox.Information)
@@ -229,50 +228,50 @@ class mdiApp(QMainWindow):
 
     def cargarDatosEmpleados(self):
         self.habilitarEliminarModificarEmpleados()
-        numFilasE=self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.currentRow()
-        self.wincrearEmpleados.uicreacionEmpleado.txtCedula.setText(self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.item(numFilasE,0).text())
-        self.wincrearEmpleados.uicreacionEmpleado.txtNombre.setText(self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.item(numFilasE,1).text())
-        self.wincrearEmpleados.uicreacionEmpleado.txtApellidos.setText(self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.item(numFilasE,2).text())
-        self.wincrearEmpleados.uicreacionEmpleado.txtTelefono.setText(self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.item(numFilasE,3).text())
-        self.wincrearEmpleados.uicreacionEmpleado.txtDireccion.setText(self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.item(numFilasE,4).text())
-        self.wincrearEmpleados.uicreacionEmpleado.txtPuesto.setText(self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.item(numFilasE,5).text())
-        self.wincrearEmpleados.uicreacionEmpleado.txtIngreso.setText(self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.item(numFilasE,6).text())
-        self.wincrearEmpleados.uicreacionEmpleado.txtJefatura.setText(self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.item(numFilasE,7).text())
+        numFilasE=self.winEmpleados.uiEmpleados.tblWidgetEmpleados.currentRow()
+        self.winEmpleados.uiEmpleados.txtCedula.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,0).text())
+        self.winEmpleados.uiEmpleados.txtNombre.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,1).text())
+        self.winEmpleados.uiEmpleados.txtApellidos.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,2).text())
+        self.winEmpleados.uiEmpleados.txtTelefono.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,3).text())
+        self.winEmpleados.uiEmpleados.txtDireccion.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,4).text())
+        self.winEmpleados.uiEmpleados.txtPuesto.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,5).text())
+        self.winEmpleados.uiEmpleados.txtIngreso.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,6).text())
+        self.winEmpleados.uiEmpleados.txtJefatura.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,7).text())
 
     def limpiarEmpleados(self):
-        self.wincrearEmpleados.uicreacionEmpleado.txtCedula.setText("")
-        self.wincrearEmpleados.uicreacionEmpleado.txtNombre.setText("")
-        self.wincrearEmpleados.uicreacionEmpleado.txtApellidos.setText("")
-        self.wincrearEmpleados.uicreacionEmpleado.txtTelefono.setText("")
-        self.wincrearEmpleados.uicreacionEmpleado.txtDireccion.setText("")
-        self.wincrearEmpleados.uicreacionEmpleado.txtPuesto.setText("")
-        self.wincrearEmpleados.uicreacionEmpleado.txtIngreso.setText("")
-        self.wincrearEmpleados.uicreacionEmpleado.txtJefatura.setText("")
+        self.winEmpleados.uiEmpleados.txtCedula.setText("")
+        self.winEmpleados.uiEmpleados.txtNombre.setText("")
+        self.winEmpleados.uiEmpleados.txtApellidos.setText("")
+        self.winEmpleados.uiEmpleados.txtTelefono.setText("")
+        self.winEmpleados.uiEmpleados.txtDireccion.setText("")
+        self.winEmpleados.uiEmpleados.txtPuesto.setText("")
+        self.winEmpleados.uiEmpleados.txtIngreso.setText("")
+        self.winEmpleados.uiEmpleados.txtJefatura.setText("")
         self.habilitarGuardarEmpleados()
 
     def habilitarGuardarEmpleados(self):
-        self.wincrearEmpleados.uicreacionEmpleado.bttCrearEmpleado.setEnabled(True)
-        self.wincrearEmpleados.uicreacionEmpleado.bttModificarEmpleado.setEnabled(False)
-        self.wincrearEmpleados.uicreacionEmpleado.bttEliminarEmpleado.setEnabled(False)
+        self.winEmpleados.uiEmpleados.bttCrearEmpleado.setEnabled(True)
+        self.winEmpleados.uiEmpleados.bttModificarEmpleado.setEnabled(False)
+        self.winEmpleados.uiEmpleados.bttEliminarEmpleado.setEnabled(False)
     
     def habilitarEliminarModificarEmpleados(self):
-        self.wincrearEmpleados.uicreacionEmpleado.bttCrearEmpleado.setEnabled(False)
-        self.wincrearEmpleados.uicreacionEmpleado.bttModificarEmpleado.setEnabled(True)
-        self.wincrearEmpleados.uicreacionEmpleado.bttEliminarEmpleado.setEnabled(True)
+        self.winEmpleados.uiEmpleados.bttCrearEmpleado.setEnabled(False)
+        self.winEmpleados.uiEmpleados.bttModificarEmpleado.setEnabled(True)
+        self.winEmpleados.uiEmpleados.bttEliminarEmpleado.setEnabled(True)
 
     def cargarTablaEmpleados(self,numFilasE,datosE):
-        self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.setRowCount(numFilasE)
-        self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.setColumnCount(8)
+        self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setRowCount(numFilasE)
+        self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setColumnCount(8)
         i=0
         for b in datosE:
-            self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.setItem(i,0,QTableWidgetItem(b["_id"]))
-            self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.setItem(i,1,QTableWidgetItem(b["Nombre"]))
-            self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.setItem(i,2,QTableWidgetItem(b["Apellidos"]))
-            self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.setItem(i,3,QTableWidgetItem(b["Telefono"]))
-            self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.setItem(i,4,QTableWidgetItem(b["Direccion"]))
-            self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.setItem(i,5,QTableWidgetItem(b["Puesto"]))
-            self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.setItem(i,6,QTableWidgetItem(b["Ingreso"]))
-            self.wincrearEmpleados.uicreacionEmpleado.tblWidgetEmpleados.setItem(i,7,QTableWidgetItem(b["Jefatura"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,0,QTableWidgetItem(b["_id"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,1,QTableWidgetItem(b["Nombre"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,2,QTableWidgetItem(b["Apellidos"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,3,QTableWidgetItem(b["Telefono"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,4,QTableWidgetItem(b["Direccion"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,5,QTableWidgetItem(b["Puesto"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,6,QTableWidgetItem(b["Ingreso"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,7,QTableWidgetItem(b["Jefatura"]))
             i+=1
             
     #Departamentos
@@ -469,8 +468,8 @@ class winUsuarios(QWidget):
 class winEmpleados(QWidget):
     def __init__(self):
         super().__init__()
-        self.uicreacionEmpleado=Ui_CrearEmpleados()
-        self.uicreacionEmpleado.setupUi(self)       
+        self.uiEmpleados=Ui_Empleados()
+        self.uiEmpleados.setupUi(self)       
 
 class winDepartamentos(QWidget):
     def __init__(self):
