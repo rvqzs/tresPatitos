@@ -46,9 +46,9 @@ class Usuarios:
             #filtro sirve para ver que quiero modificar
             filtro={"_id":self.id}
             #crear diccionario
-            doc={"$set":{"usuario":self.username,
-                        "email":self.email,
-                        "password":self.password}
+            doc={"$set":{"username":self.username,
+                        "password":self.password,
+                        "email":self.email,}
                         }
             #insertar en la tabla
             tbl.update_one(filtro,doc)
