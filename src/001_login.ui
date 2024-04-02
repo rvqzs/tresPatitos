@@ -132,11 +132,17 @@ border-radius:10px;
 border:2px solid #566eff;
 border-radius:10px;</string>
       </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
       <property name="placeholderText">
        <string>Password</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="txt_username">
