@@ -81,3 +81,11 @@ class Departamentos:
         bd=usuarios["TresPatitos"]
         size=bd.command("collstats","departamentos") #estadisticas
         return size["count"]
+    
+    def getJefaturas(self):
+        jefaturas = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = jefaturas["TresPatitos"]
+        tbl = bd["empleados"]
+        
+        # Obtener solo los empleados que tienen la posición de jefatura
+        return tbl.find({"jefatura": "Si"})
