@@ -2,8 +2,8 @@ import sys
 import pymongo
 
 # Widgets
-from PyQt5.QtGui import QPainter
-from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt, QThread, pyqtSignal
+from PyQt5.QtWidgets import *   
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import Qt
 
@@ -45,15 +45,21 @@ class Login(QDialog):
 
     def initComponents(self):
         self.uiLogin.btn_login.clicked.connect(self.validarAdmin)
-
+        
     def login(self):
         mdi = mdiApp()
         mdi.show()
         self.close()
 
+    def startLoading(self):
+        # Mostrar la pantalla de carga
+        self.loading_dialog = LoadingDialog(self)
+        self.loading_dialog.show()
+
     def validarAdmin(self):
         username = self.uiLogin.txt_username.text()
         password = self.uiLogin.txt_password.text()
+        self.startLoading()
 
         # Conectarse a la base de datos
         client = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
@@ -61,12 +67,14 @@ class Login(QDialog):
         collection = db["admin"]
         user = collection.find_one({"username": username, "password": password})
         if user:
+            self.loading_dialog.close()
             mdi = mdiApp()
             mdi.showMaximized()
             self.close()
             self.accept()
         else:
             # Si no se encuentra el usuario, mostrar un mensaje de advertencia
+            self.loading_dialog.close()
             QMessageBox.warning(self, "Invalid credentials", "Invalid username or password")
 
     # TODO hacer exit para la pagina de login
@@ -117,6 +125,7 @@ class mdiApp(QMainWindow):
         self.winUsuarios.uiUsuarios.btnEliminarUsuario.clicked.connect(self.eliminarUsuario)
         self.winUsuarios.uiUsuarios.btnLimpiar.clicked.connect(self.limpiarUsuarios)
         self.winUsuarios.uiUsuarios.tblUsuarios.clicked.connect(self.cargarDatosUsuarios)
+
         self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getUsuarios())
         self.habilitarGuardarUsuarios
         self.winUsuarios.show()
