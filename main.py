@@ -300,14 +300,14 @@ class mdiApp(QMainWindow):
         self.winDepartamentos=winDepartamentos()
         self.uiMdi.mdiArea.addSubWindow(self.winDepartamentos)
         self.winDepartamentos.show()
-        
-        self.cargarTblDepartamentos(departamentos.getRegistroDepartamentos(),departamentos.getDepartamentos())
+
         self.winDepartamentos.uiDepartamentos.btn_registrar.clicked.connect(self.registrarDepartamento)
         self.winDepartamentos.uiDepartamentos.btn_editar.clicked.connect(self.actualizarDepartamento)
         self.winDepartamentos.uiDepartamentos.btn_eliminar.clicked.connect(self.eliminarDepartamento)
-        
         self.winDepartamentos.uiDepartamentos.tblDepartamentos.clicked.connect(self.cargarDatostblDepartamentos)
-        
+
+        self.cargarTblDepartamentos(departamentos.getRegistroDepartamentos(),departamentos.getDepartamentos())
+        self.comboBoxDepartamentos(departamentos.getJefaturas())
 
     def registrarDepartamento(self):
         departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(), self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
@@ -357,15 +357,19 @@ class mdiApp(QMainWindow):
         if index != -1:
             self.winDepartamentos.uiDepartamentos.cmb_jefatura.setCurrentIndex(index)
 
-        
     def comboBoxDepartamentos(self, datos):
         # Limpiar el combo box antes de agregar nuevos elementos
         self.winDepartamentos.uiDepartamentos.cmb_jefatura.clear()
+        self.winDepartamentos.uiDepartamentos.cmb_jefatura.addItem("Elegir Jefatura")
         
         for d in datos:
             nombre = d["nombre"]
-            if nombre:
-                self.winDepartamentos.uiDepartamentos.cmb_jefatura.addItem(nombre)
+            apellido = d["apellidos"]
+            # Verificar si tanto el nombre como el apellido existen antes de agregar al combo box
+            if nombre and apellido:
+                nombre_completo = f"{nombre} {apellido}"
+                self.winDepartamentos.uiDepartamentos.cmb_jefatura.addItem(nombre_completo)
+
 
     #Bienes
             
@@ -553,6 +557,17 @@ class winDesligarBienes(QWidget):
         self.uiDesligar=Ui_Desligar()
         self.uiDesligar.setupUi(self)
         # TODO Manejo de eventos
+
+class LoadingDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Loading...")
+        self.setFixedSize(200, 100)
+
+        # Añadir un QLabel para mostrar un mensaje de carga
+        self.loading_label = QLabel("Loading...", self)
+        self.loading_label.setAlignment(Qt.AlignCenter)
+        self.loading_label.setGeometry(0, 30, 200, 40)
 
 if __name__=="__main__":
     app=QApplication(sys.argv)
