@@ -92,7 +92,7 @@ class Empleados:
         return tbl.find()
     
     def getRegistrosEmpleados(self):
-        empleados=pymongo.MongoClient("mongodb://localhost:27017")
+        empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=empleados["TresPatitos"]
         size=bd.command("collstats","empleados")
         return size["count"]
