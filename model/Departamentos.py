@@ -88,4 +88,4 @@ class Departamentos:
         tbl = bd["empleados"]
         
         # Obtener solo los empleados que tienen la posición de jefatura
-        return tbl.find({"jefatura": "Si"})
+        return tbl.find({"jefatura": "Sí"})
