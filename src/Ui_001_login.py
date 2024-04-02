@@ -52,7 +52,7 @@ class Ui_Login(object):
 "\n"
 "QPushButton:hover{\n"
 "\n"
-"border:2px solid #566eff;\n"
+"border:3px solid #566eff;\n"
 "border-radius:10px;\n"
 "}\n"
 "\n"
