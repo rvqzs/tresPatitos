@@ -67,7 +67,9 @@ class Ui_Login(object):
         self.txt_password.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border:2px solid #566eff;\n"
 "border-radius:10px;")
+        self.txt_password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.txt_password.setAlignment(QtCore.Qt.AlignCenter)
+        self.txt_password.setClearButtonEnabled(False)
         self.txt_password.setObjectName("txt_password")
         self.txt_username = QtWidgets.QLineEdit(self.login_widget)
         self.txt_username.setGeometry(QtCore.QRect(100, 140, 180, 20))
