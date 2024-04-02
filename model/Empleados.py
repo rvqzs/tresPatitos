@@ -20,13 +20,13 @@ class Empleados:
             tbl=bd["empleados"]
             #crear diccionario
             doc={"_id":self.cedula,
-                "Nombre":self.nombre,
-                "Apellidos":self.apellidos,
-                "Telefono":self.telefono,
-                "Direccion":self.direccion,
-                "Puesto":self.puesto,
-                "Ingreso":self.ingreso,
-                "Jefatura":self.jefatura
+                "nombre":self.nombre,
+                "apellidos":self.apellidos,
+                "telefono":self.telefono,
+                "direccion":self.direccion,
+                "puesto":self.puesto,
+                "ingreso":self.ingreso,
+                "jefatura":self.jefatura
                 }
             #insertar en la tabla
             tbl.insert_one(doc)
@@ -49,13 +49,13 @@ class Empleados:
             #filtro sirve para ver que quiero modificar
             filtro={"_id":self.cedula}
             #crear diccionario
-            doc={"$set":{"Nombre":self.nombre,
-                        "Apellidos":self.apellidos,
-                        "Telefono":self.telefono,
-                        "Direccion":self.direccion,
-                        "Puesto":self.puesto,
-                        "Ingreso":self.ingreso,
-                        "Jefatura":self.jefatura}
+            doc={"$set":{"nombre":self.nombre,
+                        "apellidos":self.apellidos,
+                        "telefono":self.telefono,
+                        "direccion":self.direccion,
+                        "puesto":self.puesto,
+                        "ingreso":self.ingreso,
+                        "jefatura":self.jefatura}
                         }
             #insertar en la tablaS
             tbl.update_one(filtro,doc)
