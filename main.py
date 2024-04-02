@@ -340,15 +340,15 @@ class mdiApp(QMainWindow):
             i+=1
     
     def cargarDatostblDepartamentos(self):
-        numFilas=self.winDepartamentos.uiDepartamentos.tblDepartamentos.currentRow()
-        self.winDepartamentos.uiDepartamentos.txt_codigo.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,0).text())
-        self.winDepartamentos.uiDepartamentos.txt_nombre.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,1).text())
+        numFilas = self.winDepartamentos.uiDepartamentos.tblDepartamentos.currentRow()
+        self.winDepartamentos.uiDepartamentos.txt_codigo.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas, 0).text())
+        self.winDepartamentos.uiDepartamentos.txt_nombre.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas, 1).text())
+        valor_jefatura = self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas, 2).text()
+        index = self.winDepartamentos.uiDepartamentos.cmb_jefatura.findText(valor_jefatura)
+        if index != -1:
+            self.winDepartamentos.uiDepartamentos.cmb_jefatura.setCurrentIndex(index)
 
-        # TODO Cuando se selecciona un item de la tabla, se cierra el programa error:
-            # self.winDepartamentos.uiDepartamentos.cmb_jefatura.setCurrentIndex(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,2).text())
-            # TypeError: setCurrentIndex(self, index: int): argument 1 has unexpected type 'str'
-        self.winDepartamentos.uiDepartamentos.cmb_jefatura.setCurrentIndex(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas,2).text())
-    # TODO Llenar el combo box de Jefatura con los Empleados que sean Jefatura (ver /openWinAsignacionBienes)
+        
     def comboBoxDepartamentos(self, datos):
         # Limpiar el combo box antes de agregar nuevos elementos
         self.winDepartamentos.uiDepartamentos.cmb_jefatura.clear()
