@@ -45,7 +45,7 @@ class Login(QDialog):
 
     def initComponents(self):
         self.uiLogin.btn_login.clicked.connect(self.validarAdmin)
-        
+
     def login(self):
         mdi = mdiApp()
         mdi.show()
@@ -96,7 +96,7 @@ class mdiApp(QMainWindow):
         self.initComponents()
         #mostrar la ventana
         self.show()
-    
+
     def initComponents(self):
         self.uiMdi.mniUsuarios.triggered.connect(self.openWinUsuarios)
         self.uiMdi.mniEmpleados.triggered.connect(self.openWinEmpleados)
@@ -111,9 +111,9 @@ class mdiApp(QMainWindow):
         msg.setText(mensaje)
         msg.setWindowTitle("Notificación del Sistema")
         retval=msg.exec_()
-    
+
     #Usuarios
-        
+
     def openWinUsuarios(self):
         usuarios=Usuarios()
         self.winUsuarios=winUsuarios()
@@ -178,7 +178,7 @@ class mdiApp(QMainWindow):
         self.winUsuarios.uiUsuarios.txtUsername.setText("")
         self.winUsuarios.uiUsuarios.txtEmail.setText("")
         self.habilitarGuardarUsuarios()
-    
+
     def habilitarEliminarModificarusuario(self):
         self.winUsuarios.uiUsuarios.btnCrearUsuario.setEnabled(False)
         self.winUsuarios.uiUsuarios.btnModificarUsuario.setEnabled(True)
@@ -192,7 +192,7 @@ class mdiApp(QMainWindow):
         self.winUsuarios.uiUsuarios.txtEmail.setText(self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas,2).text())
 
     #Empleados
-            
+
     def openWinEmpleados(self):
         creacionEmpleado=Empleados()
         self.winEmpleados=winEmpleados()
@@ -207,7 +207,7 @@ class mdiApp(QMainWindow):
         self.cargarTablaEmpleados(creacionEmpleado.getRegistrosEmpleados(),creacionEmpleado.getEmpleados())
         self.habilitarGuardarEmpleados
         self.winEmpleados.show()
-    
+
     def guardarEmpleado(self):
         creacionEmpleado=Empleados(self.winEmpleados.uiEmpleados.txtCedula.text(),self.winEmpleados.uiEmpleados.txtNombre.text(),
                                 self.winEmpleados.uiEmpleados.txtApellidos.text(),self.winEmpleados.uiEmpleados.txtTelefono.text(),
@@ -272,7 +272,7 @@ class mdiApp(QMainWindow):
         self.winEmpleados.uiEmpleados.bttCrearEmpleado.setEnabled(True)
         self.winEmpleados.uiEmpleados.bttModificarEmpleado.setEnabled(False)
         self.winEmpleados.uiEmpleados.bttEliminarEmpleado.setEnabled(False)
-    
+
     def habilitarEliminarModificarEmpleados(self):
         self.winEmpleados.uiEmpleados.bttCrearEmpleado.setEnabled(False)
         self.winEmpleados.uiEmpleados.bttModificarEmpleado.setEnabled(True)
@@ -292,9 +292,9 @@ class mdiApp(QMainWindow):
             self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,6,QTableWidgetItem(b["ingreso"]))
             self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,7,QTableWidgetItem(b["jefatura"]))
             i+=1
-            
+
     #Departamentos
-            
+
     def openWinDepartamentos(self):
         departamentos=Departamentos()
         self.winDepartamentos=winDepartamentos()
@@ -317,7 +317,7 @@ class mdiApp(QMainWindow):
             self.msgBox("Datos guardados correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al guardar los datos",QMessageBox.Warning)
-    
+
     def actualizarDepartamento(self):
         departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(),
                         self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
@@ -327,7 +327,7 @@ class mdiApp(QMainWindow):
             self.msgBox("Departamento actualizado correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al actualizar el departamento",QMessageBox.Warning)
-    
+
     def eliminarDepartamento(self):
         departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(), self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
                 self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex(),
@@ -347,7 +347,7 @@ class mdiApp(QMainWindow):
             self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i,1,QTableWidgetItem(d["nombre"]))
             self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i,2,QTableWidgetItem(d["jefatura"]))
             i+=1
-    
+
     def cargarDatostblDepartamentos(self):
         numFilas = self.winDepartamentos.uiDepartamentos.tblDepartamentos.currentRow()
         self.winDepartamentos.uiDepartamentos.txt_codigo.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas, 0).text())
@@ -370,9 +370,8 @@ class mdiApp(QMainWindow):
                 nombre_completo = f"{nombre} {apellido}"
                 self.winDepartamentos.uiDepartamentos.cmb_jefatura.addItem(nombre_completo)
 
-
     #Bienes
-            
+
     def openWinBienes(self):
         bien=Bienes()
         self.winBienes=winBienes()
@@ -406,7 +405,7 @@ class mdiApp(QMainWindow):
             self.msgBox("Datos Modificados Correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al Modificar los datos",QMessageBox.Warning)
-    
+
     def eliminarBienes(self):
         bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(), self.winBienes.uiBienes.txtNombreBien.text(),
                         self.winBienes.uiBienes.txtCategoria.text(), self.winBienes.uiBienes.txtDescripcion.text(),
@@ -416,7 +415,7 @@ class mdiApp(QMainWindow):
             self.msgBox("Datos Eliminados Correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al eliminar los datos",QMessageBox.Warning)
-    
+
     def cargarTablaBienes(self, numFilas, datos):
         #determinar el numero de filas de la tabla
         self.winBienes.uiBienes.tblRegistro.setRowCount(numFilas)
@@ -431,7 +430,7 @@ class mdiApp(QMainWindow):
             self.winBienes.uiBienes.tblRegistro.setItem(i,3,QTableWidgetItem(d["descripcion"]))
             self.winBienes.uiBienes.tblRegistro.setItem(i,4,QTableWidgetItem(d["estado"]))
             i+=1
-    
+
     #Asignacion Bienes
 
     def openWinAsignacionBienes(self):
@@ -445,7 +444,7 @@ class mdiApp(QMainWindow):
         self.winAsignacion.uiAsignacion.btnEliminar.clicked.connect(self.eliminarBienAsignado)
         self.cargarTablaBienesAsignado(asignado.getNumeroAsignados(),asignado.getAsignados())
         self.winAsignacion.show()
-            
+
     def guardarBienAsignado(self):
         bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.txtCedula.text(), self.winAsignacion.uiAsignacion.txtNombre.text(),
                     self.winAsignacion.uiAsignacion.txtApellidos.text(), self.winAsignacion.uiAsignacion.txtTelefono.text(),
@@ -475,7 +474,7 @@ class mdiApp(QMainWindow):
             self.msgBox("Datos Eliminados Correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al eliminar los datos",QMessageBox.Warning)
-    
+
     def cargarTablaBienesAsignado(self, numFilas, datos):
         #determinar el numero de filas de la tabla
         self.winAsignacion.uiAsignacion.tblAsignados.setRowCount(numFilas)
@@ -498,7 +497,7 @@ class mdiApp(QMainWindow):
                 self.winDesligar.uiDesligar.cbxEmpleados.addItem(nombre)
 
     #Desligar Bienes
-                
+
     def openWinDesligarBienes(self):
         desligar=DesligarBienes()
         self.winDesligar=winDesligarBienes()
@@ -509,7 +508,7 @@ class mdiApp(QMainWindow):
         self.winDesligar.show()
 
     #Class Windows
-                
+
 class winLogin(QWidget):
     def __init__(self):
         super().__init__()
