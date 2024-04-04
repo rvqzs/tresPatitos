@@ -555,6 +555,10 @@ class winDesligarBienes(QWidget):
         self.uiDesligar.setupUi(self)
         # TODO Manejo de eventos
 
+class winReportes(QWidget):
+    def __init__(self):
+        super().__init__()
+        
 class LoadingDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
