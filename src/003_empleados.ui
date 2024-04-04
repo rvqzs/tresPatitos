@@ -231,16 +231,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="txtJefatura">
-   <property name="geometry">
-    <rect>
-     <x>560</x>
-     <y>270</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="bttCrearEmpleado">
    <property name="geometry">
     <rect>
@@ -404,6 +394,26 @@
    <property name="text">
     <string>Limpiar Datos</string>
    </property>
+  </widget>
+  <widget class="QComboBox" name="cmbJefatura">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>270</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Sí</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>No</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>
