@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>Departamentos</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(206, 206, 206);</string>
+  </property>
   <widget class="QLabel" name="lbl_departamentos">
    <property name="geometry">
     <rect>
@@ -42,151 +45,6 @@
    <property name="text">
     <string>Departamentos</string>
    </property>
-  </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>220</y>
-     <width>381</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="btn_Layout">
-    <item>
-     <widget class="QPushButton" name="btn_registrar">
-      <property name="text">
-       <string>Registrar</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btn_editar">
-      <property name="text">
-       <string>Actualizar</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btn_eliminar">
-      <property name="text">
-       <string>Eliminar</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="formLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>60</y>
-     <width>401</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="formLayout">
-    <property name="sizeConstraint">
-     <enum>QLayout::SetDefaultConstraint</enum>
-    </property>
-    <property name="fieldGrowthPolicy">
-     <enum>QFormLayout::FieldsStayAtSizeHint</enum>
-    </property>
-    <property name="rowWrapPolicy">
-     <enum>QFormLayout::DontWrapRows</enum>
-    </property>
-    <property name="labelAlignment">
-     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
-    </property>
-    <property name="formAlignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-    </property>
-    <property name="horizontalSpacing">
-     <number>25</number>
-    </property>
-    <property name="verticalSpacing">
-     <number>25</number>
-    </property>
-    <property name="leftMargin">
-     <number>6</number>
-    </property>
-    <property name="topMargin">
-     <number>6</number>
-    </property>
-    <property name="rightMargin">
-     <number>6</number>
-    </property>
-    <property name="bottomMargin">
-     <number>6</number>
-    </property>
-    <item row="0" column="0">
-     <widget class="QLabel" name="lbl_codigo">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Código</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="txt_codigo"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="lbl_nombre">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Nombre</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="txt_nombre"/>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="lbl_jefatura">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Jefatura</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QComboBox" name="cmb_jefatura">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="editable">
-       <bool>false</bool>
-      </property>
-      <property name="currentText">
-       <string/>
-      </property>
-     </widget>
-    </item>
-   </layout>
   </widget>
   <widget class="QTableWidget" name="tblDepartamentos">
    <property name="geometry">
@@ -209,13 +67,15 @@
      <height>300</height>
     </size>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
    <property name="rowCount">
-    <number>1</number>
+    <number>0</number>
    </property>
    <property name="columnCount">
     <number>3</number>
    </property>
-   <row/>
    <column>
     <property name="text">
      <string>Código</string>
@@ -232,6 +92,238 @@
     </property>
    </column>
   </widget>
+  <widget class="QLineEdit" name="txt_codigo">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>70</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_nombre">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>110</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cmb_jefatura">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>150</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
+   <property name="currentText">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_codigo">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>70</y>
+     <width>43</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>10</pointsize>
+     <weight>7</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Código</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_nombre">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>110</y>
+     <width>50</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>10</pointsize>
+     <weight>7</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Nombre</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_jefatura">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>150</y>
+     <width>48</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>10</pointsize>
+     <weight>7</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Jefatura</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QSplitter" name="splitter">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>230</y>
+     <width>311</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <widget class="QPushButton" name="btn_registrar">
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Registrar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/iconSave.png</normaloff>../res/iconSave.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_editar">
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Modificar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/iconEdit.png</normaloff>../res/iconEdit.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_eliminar">
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Eliminar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/iconDelete.png</normaloff>../res/iconDelete.png</iconset>
+    </property>
+   </widget>
+  </widget>
+  <zorder>lbl_departamentos</zorder>
+  <zorder>tblDepartamentos</zorder>
+  <zorder>txt_codigo</zorder>
+  <zorder>txt_nombre</zorder>
+  <zorder>cmb_jefatura</zorder>
+  <zorder>lbl_codigo</zorder>
+  <zorder>lbl_nombre</zorder>
+  <zorder>lbl_jefatura</zorder>
+  <zorder>splitter</zorder>
+  <zorder>btn_registrar</zorder>
+  <zorder>btn_editar</zorder>
+  <zorder>btn_eliminar</zorder>
  </widget>
  <resources/>
  <connections/>

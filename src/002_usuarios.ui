@@ -25,6 +25,16 @@
   <property name="windowTitle">
    <string>Creacion de Usuarios</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../res/iconUsuarios.png</normaloff>../res/iconUsuarios.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(206, 206, 206);</string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -45,143 +55,25 @@
     <string>Creacion De Usuarios</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lblNombreUsuario">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>110</y>
-     <width>111</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Nombre de Usuario:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lblCedula">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>60</y>
-     <width>91</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ID:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lblEmail">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>150</y>
-     <width>91</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Email:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="txtEmail">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>160</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="txtUsername">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>120</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="txtID">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>70</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnModificarUsuario">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>430</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Modificar</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>../res/edit.png</normaloff>../res/edit.png</iconset>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnEliminarUsuario">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>430</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Eliminar</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>../res/delete.png</normaloff>../res/delete.png</iconset>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnCrearUsuario">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>430</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Crear</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>../res/save.png</normaloff>../res/save.png</iconset>
-   </property>
-  </widget>
   <widget class="QTableWidget" name="tblUsuarios">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>200</y>
+     <y>210</y>
      <width>541</width>
      <height>192</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
@@ -209,14 +101,243 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>430</y>
+     <y>170</y>
      <width>75</width>
-     <height>23</height>
+     <height>25</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
    </property>
    <property name="text">
     <string>Limpiar</string>
    </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../res/iconClear.png</normaloff>../res/iconClear.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>18</width>
+     <height>18</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>60</y>
+     <width>56</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="lblLayout">
+    <property name="spacing">
+     <number>15</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="lblCedula">
+      <property name="font">
+       <font>
+        <family>Segoe UI Semibold</family>
+        <pointsize>10</pointsize>
+        <weight>7</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>ID  </string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lblNombreUsuario">
+      <property name="styleSheet">
+       <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Usuario </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lblEmail">
+      <property name="styleSheet">
+       <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Email </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>60</y>
+     <width>213</width>
+     <height>94</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="txtLayout">
+    <property name="spacing">
+     <number>8</number>
+    </property>
+    <item>
+     <widget class="QLineEdit" name="txtID">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="txtUsername">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="txtEmail">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QSplitter" name="splitter">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>420</y>
+     <width>281</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <widget class="QPushButton" name="btnCrearUsuario">
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Crear</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/iconCrear.png</normaloff>../res/iconCrear.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnModificarUsuario">
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Modificar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/iconEdit.png</normaloff>../res/iconEdit.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnEliminarUsuario">
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Eliminar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/iconDelete.png</normaloff>../res/iconDelete.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>18</width>
+      <height>18</height>
+     </size>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

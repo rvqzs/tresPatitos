@@ -6,22 +6,74 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>666</width>
+    <height>471</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Tres Patitos S.A</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../res/mdiIcon.png</normaloff>../res/mdiIcon.png</iconset>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>34</width>
+    <height>34</height>
+   </size>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QMdiArea" name="mdiArea">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>-1</x>
-      <y>-1</y>
-      <width>801</width>
-      <height>581</height>
+      <x>0</x>
+      <y>0</y>
+      <width>671</width>
+      <height>451</height>
      </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+    </property>
+    <property name="viewMode">
+     <enum>QMdiArea::SubWindowView</enum>
     </property>
    </widget>
   </widget>
@@ -30,49 +82,135 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>21</height>
+     <width>666</width>
+     <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuLogin">
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(85, 193, 250);</string>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <widget class="QMenu" name="menuMain">
+    <property name="focusPolicy">
+     <enum>Qt::TabFocus</enum>
+    </property>
     <property name="title">
      <string>Login</string>
     </property>
-    <addaction name="actionLogin"/>
-   </widget>
-   <widget class="QMenu" name="menuMenu">
-    <property name="title">
-     <string>Menu</string>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/iconMenu.png</normaloff>../res/iconMenu.png</iconset>
     </property>
-    <widget class="QMenu" name="mniBienes">
+    <widget class="QMenu" name="menuBienes">
+     <property name="geometry">
+      <rect>
+       <x>453</x>
+       <y>228</y>
+       <width>175</width>
+       <height>137</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Semibold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::TabFocus</enum>
+     </property>
      <property name="title">
       <string>Bienes</string>
      </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../res/icons8-goods-48.png</normaloff>../res/icons8-goods-48.png</iconset>
+     </property>
      <addaction name="mniRegistrarBienes"/>
-     <addaction name="mniAsignar"/>
-     <addaction name="mniDesligar"/>
+     <addaction name="menuAsignar"/>
+     <addaction name="menuDesligar"/>
     </widget>
+    <addaction name="separator"/>
     <addaction name="mniUsuarios"/>
     <addaction name="mniEmpleados"/>
     <addaction name="mniDepartamentos"/>
-    <addaction name="mniBienes"/>
+    <addaction name="menuBienes"/>
+    <addaction name="mniReportes"/>
+    <addaction name="separator"/>
+    <addaction name="btn_logout"/>
+    <addaction name="separator"/>
    </widget>
-   <addaction name="menuLogin"/>
-   <addaction name="menuMenu"/>
+   <widget class="QMenu" name="menuHelp">
+    <property name="tearOffEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/iconHelp.png</normaloff>../res/iconHelp.png</iconset>
+    </property>
+   </widget>
+   <addaction name="menuMain"/>
+   <addaction name="menuHelp"/>
   </widget>
   <action name="mniUsuarios">
+   <property name="icon">
+    <iconset>
+     <normaloff>../res/iconUsuarios.png</normaloff>../res/iconUsuarios.png</iconset>
+   </property>
    <property name="text">
     <string>Usuarios</string>
    </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
+   </property>
   </action>
   <action name="mniEmpleados">
+   <property name="icon">
+    <iconset>
+     <normaloff>../res/empleados.png</normaloff>../res/empleados.png</iconset>
+   </property>
    <property name="text">
     <string>Empleados</string>
    </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
   </action>
   <action name="mniDepartamentos">
+   <property name="icon">
+    <iconset>
+     <normaloff>../res/iconDepartamentos.png</normaloff>../res/iconDepartamentos.png</iconset>
+   </property>
    <property name="text">
     <string>Departamentos</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
   </action>
   <action name="mniAsignar">
@@ -85,14 +223,65 @@
     <string>Desligar</string>
    </property>
   </action>
-  <action name="actionLogin">
+  <action name="btn_logout">
+   <property name="icon">
+    <iconset>
+     <normaloff>../res/iconLogout.png</normaloff>../res/iconLogout.png</iconset>
+   </property>
    <property name="text">
-    <string>Login</string>
+    <string>Log out</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
   </action>
   <action name="mniRegistrarBienes">
+   <property name="icon">
+    <iconset>
+     <normaloff>../res/iconRegistrar.png</normaloff>../res/iconRegistrar.png</iconset>
+   </property>
    <property name="text">
     <string>Registrar</string>
+   </property>
+  </action>
+  <action name="menuAsignar">
+   <property name="icon">
+    <iconset>
+     <normaloff>../res/iconAsignar.png</normaloff>../res/iconAsignar.png</iconset>
+   </property>
+   <property name="text">
+    <string>Asignar</string>
+   </property>
+  </action>
+  <action name="menuDesligar">
+   <property name="icon">
+    <iconset>
+     <normaloff>../res/iconDesligar.png</normaloff>../res/iconDesligar.png</iconset>
+   </property>
+   <property name="text">
+    <string>Desligar</string>
+   </property>
+  </action>
+  <action name="mniReportes">
+   <property name="icon">
+    <iconset>
+     <normaloff>../res/iconReportes.png</normaloff>../res/iconReportes.png</iconset>
+   </property>
+   <property name="text">
+    <string>Reportes</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
   </action>
  </widget>
