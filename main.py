@@ -206,7 +206,6 @@ class mdiApp(QMainWindow):
         self.winEmpleados.uiEmpleados.tblWidgetEmpleados.clicked.connect(self.cargarDatosEmpleados)
         self.cargarTablaEmpleados(creacionEmpleado.getRegistrosEmpleados(),creacionEmpleado.getEmpleados())
         self.habilitarGuardarEmpleados
-        self.comboBoxEmpleadosJefatura
         self.winEmpleados.show()
 
     def guardarEmpleado(self):
@@ -258,7 +257,7 @@ class mdiApp(QMainWindow):
         self.winEmpleados.uiEmpleados.txtDireccion.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,4).text())
         self.winEmpleados.uiEmpleados.txtDepartamento.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,5).text())
         self.winEmpleados.uiEmpleados.txtIngreso.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,6).text())
-        self.winEmpleados.uiEmpleados.cmbJefatura(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,7).text())
+        self.winEmpleados.uiEmpleados.cmbJefatura.findText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,7).text())
 
     def limpiarEmpleados(self):
         self.winEmpleados.uiEmpleados.txtCedula.setText("")
@@ -296,9 +295,6 @@ class mdiApp(QMainWindow):
             self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,7,QTableWidgetItem(b["jefatura"]))
             i+=1
 
-    def comboBoxEmpleadosJefatura(self):
-        self.winEmpleados.uiEmpleados.cmbJefatura.addItem("Sí")
-        self.winEmpleados.uiEmpleados.cmbJefatura.addItem("No")
 
     #Departamentos
 
