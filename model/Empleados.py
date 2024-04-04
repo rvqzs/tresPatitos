@@ -1,13 +1,13 @@
 import pymongo
 
 class Empleados:
-    def __init__(self,cedula=0, nombre=1, telefono=2,apellidos=3,direccion=4,puesto=5,ingreso=6,jefatura=7):
+    def __init__(self,cedula=0, nombre=1, telefono=2,apellidos=3,direccion=4,departamento=5,ingreso=6,jefatura=7):
         self.cedula = cedula
         self.nombre = nombre
         self.apellidos = apellidos
         self.telefono = telefono
         self.direccion= direccion
-        self.puesto=puesto
+        self.departamento=departamento
         self.ingreso=ingreso
         self.jefatura=jefatura
 
@@ -24,7 +24,7 @@ class Empleados:
                 "apellidos":self.apellidos,
                 "telefono":self.telefono,
                 "direccion":self.direccion,
-                "puesto":self.puesto,
+                "departamento":self.departamento,
                 "ingreso":self.ingreso,
                 "jefatura":self.jefatura
                 }
@@ -53,7 +53,7 @@ class Empleados:
                         "apellidos":self.apellidos,
                         "telefono":self.telefono,
                         "direccion":self.direccion,
-                        "puesto":self.puesto,
+                        "departamento":self.departamento,
                         "ingreso":self.ingreso,
                         "jefatura":self.jefatura}
                         }

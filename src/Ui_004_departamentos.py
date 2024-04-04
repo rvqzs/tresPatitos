@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\004_departamentos.ui'
+# Form implementation generated from reading ui file 'c:\Users\kevin\Documents\docss\Cuatrimaterias\programacion\Proga 2\tresPatitosUIA\src\004_departamentos.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
