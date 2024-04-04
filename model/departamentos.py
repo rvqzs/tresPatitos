@@ -13,13 +13,12 @@ class Departamentos:
         #seleccionar la tabla a utilizar
         bd=departamento["TresPatitos"]
         try:
-            #definir la tabla a utilizar
             tbl=bd["departamentos"]
-            #crear diccionario
+
             doc={"_id":self.codigo,
                 "nombre":self.nombre,
                 "jefatura":self.jefatura}
-            #insertar en la tabla
+
             tbl.insert_one(doc)
             estado=1
         except Exception:
