@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\kevin\Documents\docss\Cuatrimaterias\programacion\Proga 2\tresPatitosUIA\src\002_usuarios.ui'
+# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\002_usuarios.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -49,19 +49,19 @@ class Ui_Usuarios(object):
         self.btnModificarUsuario = QtWidgets.QPushButton(Usuarios)
         self.btnModificarUsuario.setGeometry(QtCore.QRect(370, 430, 75, 23))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/edit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/edit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnModificarUsuario.setIcon(icon)
         self.btnModificarUsuario.setObjectName("btnModificarUsuario")
         self.btnEliminarUsuario = QtWidgets.QPushButton(Usuarios)
         self.btnEliminarUsuario.setGeometry(QtCore.QRect(490, 430, 75, 23))
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnEliminarUsuario.setIcon(icon1)
         self.btnEliminarUsuario.setObjectName("btnEliminarUsuario")
         self.btnCrearUsuario = QtWidgets.QPushButton(Usuarios)
         self.btnCrearUsuario.setGeometry(QtCore.QRect(260, 430, 75, 23))
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/save.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnCrearUsuario.setIcon(icon2)
         self.btnCrearUsuario.setObjectName("btnCrearUsuario")
         self.tblUsuarios = QtWidgets.QTableWidget(Usuarios)
