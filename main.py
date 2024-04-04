@@ -69,10 +69,6 @@ class Login(QDialog):
             self.loading_dialog.close()
             QMessageBox.warning(self, "Invalid credentials", "Invalid username or password")
 
-    # TODO hacer exit para la pagina de login
-    def exitLogin(self):
-        pass
-
 class mdiApp(QMainWindow):
 
     def __init__(self):
@@ -90,6 +86,7 @@ class mdiApp(QMainWindow):
         self.show()
 
     def initComponents(self):
+        self.uiMdi.btn_logout.triggered.connect(self.exitApp)
         self.uiMdi.mniUsuarios.triggered.connect(self.openWinUsuarios)
         self.uiMdi.mniEmpleados.triggered.connect(self.openWinEmpleados)
         self.uiMdi.mniDepartamentos.triggered.connect(self.openWinDepartamentos)
@@ -103,6 +100,12 @@ class mdiApp(QMainWindow):
         msg.setText(mensaje)
         msg.setWindowTitle("Notificación del Sistema")
         retval=msg.exec_()
+
+    def exitApp(self):
+        self.hide()
+        login_dialog = Login()
+        login_dialog.accepted.connect(self.show)
+        login_dialog.exec_()
 
     #Usuarios
 
@@ -156,7 +159,7 @@ class mdiApp(QMainWindow):
         i=0
         for d in datos:
             self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,0,QTableWidgetItem(d["_id"]))
-            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,1,QTableWidgetItem(d["Usuario"]))
+            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,1,QTableWidgetItem(d["username"]))
             self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,2,QTableWidgetItem(d["email"]))
             i+=1
 
