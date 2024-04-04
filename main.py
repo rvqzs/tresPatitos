@@ -206,19 +206,21 @@ class mdiApp(QMainWindow):
     def guardarEmpleado(self):
         creacionEmpleado=Empleados(self.winEmpleados.uiEmpleados.txtCedula.text(),self.winEmpleados.uiEmpleados.txtNombre.text(),
                                 self.winEmpleados.uiEmpleados.txtApellidos.text(),self.winEmpleados.uiEmpleados.txtTelefono.text(),
-                                self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtPuesto.text(),
-                                self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.txtJefatura.text()
+                                self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtDepartamento.text(),
+                                self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.cmbJefatura.currentText()
                                 )
         if creacionEmpleado.guardarEmpleados()==1:
             self.msgBox("Empleado creado correctamente",QMessageBox.Information)
+            self.limpiarEmpleados()
+            self.cargarTablaEmpleados(creacionEmpleado.getRegistrosEmpleados(),creacionEmpleado.getEmpleados())
         else:
             self.msgBox("Error al crear Empleado",QMessageBox.Information)
 
     def actualizarEmpleado(self):
         creacionEmpleado=Empleados(self.winEmpleados.uiEmpleados.txtCedula.text(),self.winEmpleados.uiEmpleados.txtNombre.text(),
                                         self.winEmpleados.uiEmpleados.txtApellidos.text(),self.winEmpleados.uiEmpleados.txtTelefono.text(),
-                                        self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtPuesto.text(),
-                                        self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.txtJefatura.text()
+                                        self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtDepartamento.text(),
+                                        self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.cmbJefatura.currentText()
                                         )
         if creacionEmpleado.actualizarEmpleados()==1:
             self.msgBox("Empleado actualizado correctamente",QMessageBox.Information)
@@ -230,8 +232,8 @@ class mdiApp(QMainWindow):
     def eliminarEmpleado(self):
         creacionEmpleado=Empleados(self.winEmpleados.uiEmpleados.txtCedula.text(),self.winEmpleados.uiEmpleados.txtNombre.text(),
                                         self.winEmpleados.uiEmpleados.txtApellidos.text(),self.winEmpleados.uiEmpleados.txtTelefono.text(),
-                                        self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtPuesto.text(),
-                                        self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.txtJefatura.text()
+                                        self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtDepartamento.text(),
+                                        self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.cmbJefatura.currentText()
                                         )
         if creacionEmpleado.eliminarEmpleados()==1:
             self.msgBox("Empleado eliminado correctamente",QMessageBox.Information)
@@ -248,9 +250,9 @@ class mdiApp(QMainWindow):
         self.winEmpleados.uiEmpleados.txtApellidos.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,2).text())
         self.winEmpleados.uiEmpleados.txtTelefono.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,3).text())
         self.winEmpleados.uiEmpleados.txtDireccion.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,4).text())
-        self.winEmpleados.uiEmpleados.txtPuesto.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,5).text())
+        self.winEmpleados.uiEmpleados.txtDepartamento.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,5).text())
         self.winEmpleados.uiEmpleados.txtIngreso.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,6).text())
-        self.winEmpleados.uiEmpleados.txtJefatura.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,7).text())
+        self.winEmpleados.uiEmpleados.cmbJefatura.findText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,7).text())
 
     def limpiarEmpleados(self):
         self.winEmpleados.uiEmpleados.txtCedula.setText("")
@@ -258,9 +260,9 @@ class mdiApp(QMainWindow):
         self.winEmpleados.uiEmpleados.txtApellidos.setText("")
         self.winEmpleados.uiEmpleados.txtTelefono.setText("")
         self.winEmpleados.uiEmpleados.txtDireccion.setText("")
-        self.winEmpleados.uiEmpleados.txtPuesto.setText("")
+        self.winEmpleados.uiEmpleados.txtDepartamento.setText("")
         self.winEmpleados.uiEmpleados.txtIngreso.setText("")
-        self.winEmpleados.uiEmpleados.txtJefatura.setText("")
+        #self.winEmpleados.uiEmpleados.cmbJefatura.setText("")
         self.habilitarGuardarEmpleados()
 
     def habilitarGuardarEmpleados(self):
@@ -283,10 +285,11 @@ class mdiApp(QMainWindow):
             self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,2,QTableWidgetItem(b["apellidos"]))
             self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,3,QTableWidgetItem(b["telefono"]))
             self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,4,QTableWidgetItem(b["direccion"]))
-            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,5,QTableWidgetItem(b["puesto"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,5,QTableWidgetItem(b["departamento"]))
             self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,6,QTableWidgetItem(b["ingreso"]))
             self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,7,QTableWidgetItem(b["jefatura"]))
             i+=1
+
 
     #Departamentos
 

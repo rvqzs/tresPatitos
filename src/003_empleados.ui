@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>687</width>
-    <height>691</height>
+    <height>690</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>687</width>
+    <height>690</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>687</width>
+    <height>690</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Empleados</string>
@@ -105,13 +117,13 @@
     <string>Direccion:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lblPuesto">
+  <widget class="QLabel" name="lblDepartamento">
    <property name="geometry">
     <rect>
-     <x>490</x>
+     <x>460</x>
      <y>140</y>
-     <width>47</width>
-     <height>13</height>
+     <width>91</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -120,7 +132,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Puesto:</string>
+    <string>Departamento:</string>
    </property>
   </widget>
   <widget class="QLabel" name="lblIngreso">
@@ -199,7 +211,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="txtPuesto">
+  <widget class="QLineEdit" name="txtDepartamento">
    <property name="geometry">
     <rect>
      <x>560</x>
@@ -217,35 +229,6 @@
      <width>113</width>
      <height>20</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="txtJefatura">
-   <property name="geometry">
-    <rect>
-     <x>560</x>
-     <y>270</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>60</y>
-     <width>161</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>../../Laboratorio_6_Kevin_Chacon_Quesada_Aarón_Zúñiga_Ramírez_Robert_Viquez_Santos/Laboratorio_6_Kevin_Chacon_Quesada_Aarón_Zúñiga_Ramírez_Robert_Viquez_Santos/recursos/woman.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="bttCrearEmpleado">
@@ -311,6 +294,46 @@
    <property name="selectionBehavior">
     <enum>QAbstractItemView::SelectRows</enum>
    </property>
+   <column>
+    <property name="text">
+     <string>Cedula</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nombre</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Apellidos</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Telefono</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Direccion</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Departamento</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Ingreso</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Jefatura</string>
+    </property>
+   </column>
   </widget>
   <widget class="QPushButton" name="bttModificarEmpleado">
    <property name="geometry">
@@ -371,6 +394,26 @@
    <property name="text">
     <string>Limpiar Datos</string>
    </property>
+  </widget>
+  <widget class="QComboBox" name="cmbJefatura">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>270</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Sí</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>No</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>
