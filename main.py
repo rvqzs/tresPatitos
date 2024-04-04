@@ -2,36 +2,28 @@ import sys
 import pymongo
 
 # Widgets
-from PyQt5.QtCore import Qt, QThread, pyqtSignal
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *   
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import Qt
 
-# Login
+#Model
+from model.usuarios import Usuarios
+from model.empleados import Empleados
+from model.departamentos import Departamentos
+from model.bienes import Bienes
+from model.asignacion import AsignarBienes
+from model.desligar import DesligarBienes
+
+# UI
 from src.Ui_001_login import Ui_Login
-
-# MDI
 from src.Ui_000_mdi import Ui_mdiWindow
-
-# Usuarios
 from src.Ui_002_usuarios import Ui_Usuarios
-from model.Usuarios import Usuarios
-
-# Empleados
 from src.Ui_003_empleados import Ui_Empleados
-from model.Empleados import Empleados
-
-# Departamentos
 from src.Ui_004_departamentos  import Ui_Departamentos
-from model.Departamentos import Departamentos
-
-# Bienes
-from model.Bienes import Bienes
 from src.Ui_005_bienes import Ui_Bienes
 from src.Ui_051_asignacion_bienes import Ui_Asignacion
-from model.Asignacion import AsignarBienes
 from src.Ui_052_desligar_bienes import Ui_Desligar
-from model.desligar import DesligarBienes
 
 class Login(QDialog):
 
