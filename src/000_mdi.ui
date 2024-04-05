@@ -20,8 +20,8 @@
    <string>Tres Patitos S.A</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../res/mdiIcon.png</normaloff>../res/mdiIcon.png</iconset>
+   <iconset resource="../res/icons/icons.qrc">
+    <normaloff>:/icons/mdiIcon.png</normaloff>:/icons/mdiIcon.png</iconset>
   </property>
   <property name="iconSize">
    <size>
@@ -100,8 +100,8 @@
      <string>Login</string>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../res/iconMenu.png</normaloff>../res/iconMenu.png</iconset>
+     <iconset resource="../res/icons/buttons.qrc">
+      <normaloff>:/buttons/iconMenu.png</normaloff>:/buttons/iconMenu.png</iconset>
     </property>
     <widget class="QMenu" name="menuBienes">
      <property name="geometry">
@@ -127,8 +127,8 @@
       <string>Bienes</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../res/icons8-goods-48.png</normaloff>../res/icons8-goods-48.png</iconset>
+      <iconset resource="../res/icons/icons.qrc">
+       <normaloff>:/icons/icons8-goods-48.png</normaloff>:/icons/icons8-goods-48.png</iconset>
      </property>
      <addaction name="mniRegistrarBienes"/>
      <addaction name="mnuAsignar"/>
@@ -161,8 +161,8 @@
   </widget>
   <action name="mniUsuarios">
    <property name="icon">
-    <iconset>
-     <normaloff>../res/iconUsuarios.png</normaloff>../res/iconUsuarios.png</iconset>
+    <iconset resource="../res/icons/icons.qrc">
+     <normaloff>:/icons/iconUsuarios.png</normaloff>:/icons/iconUsuarios.png</iconset>
    </property>
    <property name="text">
     <string>Usuarios</string>
@@ -181,8 +181,8 @@
   </action>
   <action name="mniEmpleados">
    <property name="icon">
-    <iconset>
-     <normaloff>../res/empleados.png</normaloff>../res/empleados.png</iconset>
+    <iconset resource="../res/icons/icons.qrc">
+     <normaloff>:/icons/empleados.png</normaloff>:/icons/empleados.png</iconset>
    </property>
    <property name="text">
     <string>Empleados</string>
@@ -198,8 +198,8 @@
   </action>
   <action name="mniDepartamentos">
    <property name="icon">
-    <iconset>
-     <normaloff>../res/iconDepartamentos.png</normaloff>../res/iconDepartamentos.png</iconset>
+    <iconset resource="../res/icons/icons.qrc">
+     <normaloff>:/icons/iconDepartamentos.png</normaloff>:/icons/iconDepartamentos.png</iconset>
    </property>
    <property name="text">
     <string>Departamentos</string>
@@ -225,8 +225,8 @@
   </action>
   <action name="btn_logout">
    <property name="icon">
-    <iconset>
-     <normaloff>../res/iconLogout.png</normaloff>../res/iconLogout.png</iconset>
+    <iconset resource="../res/icons/buttons.qrc">
+     <normaloff>:/buttons/iconLogout.png</normaloff>:/buttons/iconLogout.png</iconset>
    </property>
    <property name="text">
     <string>Log out</string>
@@ -242,8 +242,8 @@
   </action>
   <action name="mniRegistrarBienes">
    <property name="icon">
-    <iconset>
-     <normaloff>../res/iconRegistrar.png</normaloff>../res/iconRegistrar.png</iconset>
+    <iconset resource="../res/icons/buttons.qrc">
+     <normaloff>:/buttons/iconRegistrar.png</normaloff>:/buttons/iconRegistrar.png</iconset>
    </property>
    <property name="text">
     <string>Registrar</string>
@@ -251,8 +251,8 @@
   </action>
   <action name="mnuAsignar">
    <property name="icon">
-    <iconset>
-     <normaloff>../res/iconAsignar.png</normaloff>../res/iconAsignar.png</iconset>
+    <iconset resource="../res/icons/icons.qrc">
+     <normaloff>:/icons/iconAsignar.png</normaloff>:/icons/iconAsignar.png</iconset>
    </property>
    <property name="text">
     <string>Asignar</string>
@@ -260,8 +260,8 @@
   </action>
   <action name="mnuDesligar">
    <property name="icon">
-    <iconset>
-     <normaloff>../res/iconDesligar.png</normaloff>../res/iconDesligar.png</iconset>
+    <iconset resource="../res/icons/buttons.qrc">
+     <normaloff>:/buttons/iconDesligar.png</normaloff>:/buttons/iconDesligar.png</iconset>
    </property>
    <property name="text">
     <string>Desligar</string>
@@ -269,8 +269,8 @@
   </action>
   <action name="mniReportes">
    <property name="icon">
-    <iconset>
-     <normaloff>../res/iconReportes.png</normaloff>../res/iconReportes.png</iconset>
+    <iconset resource="../res/icons/icons.qrc">
+     <normaloff>:/icons/iconReportes.png</normaloff>:/icons/iconReportes.png</iconset>
    </property>
    <property name="text">
     <string>Reportes</string>
@@ -285,6 +285,9 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../res/icons/icons.qrc"/>
+  <include location="../res/icons/buttons.qrc"/>
+ </resources>
  <connections/>
 </ui>
