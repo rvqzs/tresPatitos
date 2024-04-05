@@ -22,6 +22,9 @@
     <height>469</height>
    </size>
   </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
   <property name="windowTitle">
    <string>Creacion de Usuarios</string>
   </property>
@@ -30,19 +33,28 @@
     <normaloff>../res/iconUsuarios.png</normaloff>../res/iconUsuarios.png</iconset>
   </property>
   <property name="autoFillBackground">
-   <bool>false</bool>
+   <bool>true</bool>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(206, 206, 206);</string>
   </property>
   <widget class="QLabel" name="label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>0</y>
+     <x>30</x>
+     <y>10</y>
      <width>241</width>
-     <height>51</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>
@@ -53,6 +65,15 @@
    </property>
    <property name="text">
     <string>Creacion De Usuarios</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::RichText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
    </property>
   </widget>
   <widget class="QTableWidget" name="tblUsuarios">
@@ -246,6 +267,9 @@ border-radius:10px;
    </layout>
   </widget>
   <widget class="QSplitter" name="splitter">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -254,8 +278,17 @@ border-radius:10px;
      <height>31</height>
     </rect>
    </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="opaqueResize">
+    <bool>false</bool>
+   </property>
+   <property name="childrenCollapsible">
+    <bool>false</bool>
    </property>
    <widget class="QPushButton" name="btnCrearUsuario">
     <property name="styleSheet">

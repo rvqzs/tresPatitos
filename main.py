@@ -91,8 +91,8 @@ class mdiApp(QMainWindow):
         self.uiMdi.mniEmpleados.triggered.connect(self.openWinEmpleados)
         self.uiMdi.mniDepartamentos.triggered.connect(self.openWinDepartamentos)
         self.uiMdi.mniRegistrarBienes.triggered.connect(self.openWinBienes)
-        self.uiMdi.mniAsignar.triggered.connect(self.openWinAsignacionBienes)
-        self.uiMdi.mniDesligar.triggered.connect(self.openWinDesligarBienes)
+        self.uiMdi.mnuAsignar.triggered.connect(self.openWinAsignacionBienes)
+        self.uiMdi.mnuDesligar.triggered.connect(self.openWinDesligarBienes)
 
     def msgBox(self,mensaje,icono,tipo=0):
         msg = QMessageBox()
@@ -290,7 +290,6 @@ class mdiApp(QMainWindow):
             self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,7,QTableWidgetItem(b["jefatura"]))
             i+=1
 
-
     #Departamentos
 
     def openWinDepartamentos(self):
@@ -423,7 +422,7 @@ class mdiApp(QMainWindow):
         for d in datos:
             print(d)
             self.winBienes.uiBienes.tblRegistro.setItem(i,0,QTableWidgetItem(d["_id"]))
-            self.winBienes.uiBienes.tblRegistro.setItem(i,1,QTableWidgetItem(d["nombre bien"]))
+            self.winBienes.uiBienes.tblRegistro.setItem(i,1,QTableWidgetItem(d["nombre"]))
             self.winBienes.uiBienes.tblRegistro.setItem(i,2,QTableWidgetItem(d["categoria"]))
             self.winBienes.uiBienes.tblRegistro.setItem(i,3,QTableWidgetItem(d["descripcion"]))
             self.winBienes.uiBienes.tblRegistro.setItem(i,4,QTableWidgetItem(d["estado"]))
@@ -485,7 +484,7 @@ class mdiApp(QMainWindow):
             self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,1,QTableWidgetItem(d["nombre"]))
             self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,2,QTableWidgetItem(d["apellidos"]))
             self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,3,QTableWidgetItem(d["telefono"]))
-            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,4,QTableWidgetItem(d["bien asignado"]))
+            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,4,QTableWidgetItem(d["bien_asignado"]))
             i+=1
 
     def comboBoxBienesAsignado(self, datos):

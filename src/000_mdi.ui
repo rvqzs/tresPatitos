@@ -106,7 +106,7 @@
     <widget class="QMenu" name="menuBienes">
      <property name="geometry">
       <rect>
-       <x>453</x>
+       <x>977</x>
        <y>228</y>
        <width>175</width>
        <height>137</height>
@@ -131,8 +131,8 @@
        <normaloff>../res/icons8-goods-48.png</normaloff>../res/icons8-goods-48.png</iconset>
      </property>
      <addaction name="mniRegistrarBienes"/>
-     <addaction name="menuAsignar"/>
-     <addaction name="menuDesligar"/>
+     <addaction name="mnuAsignar"/>
+     <addaction name="mnuDesligar"/>
     </widget>
     <addaction name="separator"/>
     <addaction name="mniUsuarios"/>
@@ -249,7 +249,7 @@
     <string>Registrar</string>
    </property>
   </action>
-  <action name="menuAsignar">
+  <action name="mnuAsignar">
    <property name="icon">
     <iconset>
      <normaloff>../res/iconAsignar.png</normaloff>../res/iconAsignar.png</iconset>
@@ -258,7 +258,7 @@
     <string>Asignar</string>
    </property>
   </action>
-  <action name="menuDesligar">
+  <action name="mnuDesligar">
    <property name="icon">
     <iconset>
      <normaloff>../res/iconDesligar.png</normaloff>../res/iconDesligar.png</iconset>
