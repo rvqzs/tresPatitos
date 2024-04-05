@@ -28,28 +28,28 @@ class Ui_Login(object):
         font.setBold(True)
         font.setWeight(75)
         self.lbl_logIn.setFont(font)
+        self.lbl_logIn.setStyleSheet("")
         self.lbl_logIn.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.Zimbabwe))
         self.lbl_logIn.setText("")
-        self.lbl_logIn.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/profile.png"))
+        self.lbl_logIn.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconHeader.png"))
         self.lbl_logIn.setScaledContents(True)
         self.lbl_logIn.setObjectName("lbl_logIn")
         self.btn_login = QtWidgets.QPushButton(self.login_widget)
-        self.btn_login.setGeometry(QtCore.QRect(140, 260, 101, 31))
+        self.btn_login.setGeometry(QtCore.QRect(140, 300, 101, 31))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
         self.btn_login.setFont(font)
         self.btn_login.setStyleSheet("QPushButton{\n"
-"\n"
-"background-color:rgb(182, 217, 255);\n"
+"background-color:rgb(250, 250, 250);\n"
 "border:none;\n"
 "border-radius:10px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
-"\n"
-"border:3px solid #566eff;\n"
+"background-color:rgb(85, 193, 250);\n"
+"border:3px solid #55C1FA;\n"
 "border-radius:10px;\n"
 "}\n"
 "\n"
@@ -60,16 +60,16 @@ class Ui_Login(object):
         self.btn_login.setIconSize(QtCore.QSize(15, 15))
         self.btn_login.setObjectName("btn_login")
         self.txt_password = QtWidgets.QLineEdit(self.login_widget)
-        self.txt_password.setGeometry(QtCore.QRect(100, 210, 180, 20))
+        self.txt_password.setGeometry(QtCore.QRect(100, 210, 191, 31))
         self.txt_password.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border:2px solid #566eff;\n"
+"border:3px solid #55C1FA;\n"
 "border-radius:10px;")
         self.txt_password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.txt_password.setAlignment(QtCore.Qt.AlignCenter)
         self.txt_password.setClearButtonEnabled(False)
         self.txt_password.setObjectName("txt_password")
         self.txt_username = QtWidgets.QLineEdit(self.login_widget)
-        self.txt_username.setGeometry(QtCore.QRect(100, 140, 180, 20))
+        self.txt_username.setGeometry(QtCore.QRect(100, 140, 191, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -77,24 +77,29 @@ class Ui_Login(object):
         self.txt_username.setSizePolicy(sizePolicy)
         self.txt_username.setMinimumSize(QtCore.QSize(20, 5))
         self.txt_username.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border:2px solid #566eff;\n"
+"border:3px solid #55C1FA;\n"
 "border-radius:10px;")
         self.txt_username.setText("")
         self.txt_username.setAlignment(QtCore.Qt.AlignCenter)
         self.txt_username.setObjectName("txt_username")
-        self.label = QtWidgets.QLabel(self.login_widget)
-        self.label.setGeometry(QtCore.QRect(70, 210, 21, 21))
-        self.label.setStyleSheet("background-color: rgb(0, 0, 0,0%);")
-        self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/password2.png"))
-        self.label.setScaledContents(True)
-        self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.login_widget)
-        self.label_2.setGeometry(QtCore.QRect(70, 140, 21, 21))
+        self.label_2.setGeometry(QtCore.QRect(50, 130, 51, 41))
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/user2.png"))
+        self.label_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconUser.png"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
+        self.label = QtWidgets.QLabel(self.login_widget)
+        self.label.setGeometry(QtCore.QRect(60, 210, 31, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy)
+        self.label.setStyleSheet("background-color: rgb(0, 0, 0,0%);")
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconPassword.png"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.login_widget)
 
         self.retranslateUi(Login)
