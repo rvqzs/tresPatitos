@@ -13,3 +13,4 @@ model/__pycache__/desligar.cpython-311.pyc
 model/__pycache__/Departamentos.cpython-311.pyc
 model/__pycache__/Bienes.cpython-311.pyc
 model/__pycache__/Asignacion.cpython-311.pyc
+*.pyc
