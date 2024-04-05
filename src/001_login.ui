@@ -199,7 +199,7 @@ border-radius:10px;</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../res/iconUser.png</pixmap>
+       <pixmap resource="../res/iconLoginUsername.qrc">:/LoginPage/iconUser.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -237,6 +237,8 @@ border-radius:10px;</string>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../res/iconLoginUsername.qrc"/>
+ </resources>
  <connections/>
 </ui>

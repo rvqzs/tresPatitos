@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\001_login.ui'
+# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\001_login.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -35,7 +35,7 @@ class Ui_Login(object):
         self.lbl_logIn.setStyleSheet("")
         self.lbl_logIn.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.Zimbabwe))
         self.lbl_logIn.setText("")
-        self.lbl_logIn.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconHeader.png"))
+        self.lbl_logIn.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconHeader.png"))
         self.lbl_logIn.setScaledContents(True)
         self.lbl_logIn.setObjectName("lbl_logIn")
         self.btn_login = QtWidgets.QPushButton(self.login_widget)
@@ -59,7 +59,7 @@ class Ui_Login(object):
 "\n"
 "")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnLogin.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnLogin.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_login.setIcon(icon)
         self.btn_login.setIconSize(QtCore.QSize(15, 15))
         self.btn_login.setObjectName("btn_login")
@@ -89,7 +89,7 @@ class Ui_Login(object):
         self.label_2 = QtWidgets.QLabel(self.login_widget)
         self.label_2.setGeometry(QtCore.QRect(50, 130, 51, 41))
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconUser.png"))
+        self.label_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconUser.png"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
         self.label = QtWidgets.QLabel(self.login_widget)
@@ -101,7 +101,7 @@ class Ui_Login(object):
         self.label.setSizePolicy(sizePolicy)
         self.label.setStyleSheet("background-color: rgb(0, 0, 0,0%);")
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconPassword.png"))
+        self.label.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconPassword.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.login_widget)
