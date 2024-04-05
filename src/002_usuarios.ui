@@ -30,10 +30,10 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../res/iconUsuarios.png</normaloff>../res/iconUsuarios.png</iconset>
+    <normaloff>../res/iconMenuUsers.png</normaloff>../res/iconMenuUsers.png</iconset>
   </property>
   <property name="autoFillBackground">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(206, 206, 206);</string>
@@ -123,9 +123,15 @@
     <rect>
      <x>20</x>
      <y>170</y>
-     <width>75</width>
-     <height>25</height>
+     <width>80</width>
+     <height>30</height>
     </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>80</width>
+     <height>30</height>
+    </size>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
@@ -146,7 +152,7 @@ border-radius:10px;
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../res/iconClear.png</normaloff>../res/iconClear.png</iconset>
+     <normaloff>../res/btnClear.png</normaloff>../res/btnClear.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -267,19 +273,34 @@ border-radius:10px;
    </layout>
   </widget>
   <widget class="QSplitter" name="splitter">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>279</x>
      <y>420</y>
-     <width>281</width>
-     <height>31</height>
+     <width>280</width>
+     <height>30</height>
     </rect>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>280</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>280</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
@@ -287,10 +308,16 @@ border-radius:10px;
    <property name="opaqueResize">
     <bool>false</bool>
    </property>
-   <property name="childrenCollapsible">
-    <bool>false</bool>
+   <property name="handleWidth">
+    <number>2</number>
    </property>
    <widget class="QPushButton" name="btnCrearUsuario">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 background-color:rgb(255, 255, 255);
@@ -310,16 +337,22 @@ border-radius:10px;
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../res/iconCrear.png</normaloff>../res/iconCrear.png</iconset>
+      <normaloff>../res/btnCrear.png</normaloff>../res/btnCrear.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>20</width>
-      <height>20</height>
+      <width>25</width>
+      <height>25</height>
      </size>
     </property>
    </widget>
    <widget class="QPushButton" name="btnModificarUsuario">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 background-color:rgb(255, 255, 255);
@@ -339,10 +372,22 @@ border-radius:10px;
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../res/iconEdit.png</normaloff>../res/iconEdit.png</iconset>
+      <normaloff>../res/btnEdit.png</normaloff>../res/btnEdit.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="btnEliminarUsuario">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 background-color:rgb(255, 255, 255);
@@ -362,12 +407,12 @@ border-radius:10px;
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../res/iconDelete.png</normaloff>../res/iconDelete.png</iconset>
+      <normaloff>../res/btnDelete.png</normaloff>../res/btnDelete.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>18</width>
-      <height>18</height>
+      <width>20</width>
+      <height>20</height>
      </size>
     </property>
    </widget>

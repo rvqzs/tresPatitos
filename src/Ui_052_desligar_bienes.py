@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\052_desligar_bienes.ui'
+# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\052_desligar_bienes.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -15,19 +15,38 @@ class Ui_Desligar(object):
     def setupUi(self, Desligar):
         Desligar.setObjectName("Desligar")
         Desligar.resize(500, 355)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconDesligar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Desligar.setWindowIcon(icon)
+        Desligar.setStyleSheet("background-color: rgb(191, 191, 191);")
         self.cbxEmpleados = QtWidgets.QComboBox(Desligar)
         self.cbxEmpleados.setGeometry(QtCore.QRect(10, 110, 171, 21))
+        self.cbxEmpleados.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.cbxEmpleados.setEditable(False)
         self.cbxEmpleados.setCurrentText("")
         self.cbxEmpleados.setObjectName("cbxEmpleados")
         self.btnDesligar = QtWidgets.QPushButton(Desligar)
         self.btnDesligar.setGeometry(QtCore.QRect(10, 300, 75, 23))
+        self.btnDesligar.setStyleSheet("QPushButton{\n"
+"background-color:rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"border:2px solid #55C1FA;\n"
+"border-radius:10px;\n"
+"}")
         self.btnDesligar.setObjectName("btnDesligar")
         self.txtBienAsignado = QtWidgets.QLineEdit(Desligar)
         self.txtBienAsignado.setGeometry(QtCore.QRect(10, 270, 82, 20))
+        self.txtBienAsignado.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.txtBienAsignado.setObjectName("txtBienAsignado")
         self.tblDesligar = QtWidgets.QTableWidget(Desligar)
         self.tblDesligar.setGeometry(QtCore.QRect(220, 80, 256, 192))
+        self.tblDesligar.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.tblDesligar.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tblDesligar.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tblDesligar.setObjectName("tblDesligar")
@@ -43,7 +62,7 @@ class Ui_Desligar(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.label = QtWidgets.QLabel(Desligar)
-        self.label.setGeometry(QtCore.QRect(190, 10, 161, 31))
+        self.label.setGeometry(QtCore.QRect(10, 10, 161, 31))
         font = QtGui.QFont()
         font.setFamily("Perpetua Titling MT")
         font.setPointSize(12)
@@ -62,6 +81,7 @@ class Ui_Desligar(object):
         self.label_3.setObjectName("label_3")
         self.txtNombre = QtWidgets.QLineEdit(Desligar)
         self.txtNombre.setGeometry(QtCore.QRect(10, 220, 82, 20))
+        self.txtNombre.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.txtNombre.setObjectName("txtNombre")
         self.label_2 = QtWidgets.QLabel(Desligar)
         self.label_2.setGeometry(QtCore.QRect(10, 70, 181, 31))
@@ -74,6 +94,7 @@ class Ui_Desligar(object):
         self.label_2.setObjectName("label_2")
         self.txtCedula = QtWidgets.QLineEdit(Desligar)
         self.txtCedula.setGeometry(QtCore.QRect(10, 170, 82, 20))
+        self.txtCedula.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.txtCedula.setObjectName("txtCedula")
         self.lblID = QtWidgets.QLabel(Desligar)
         self.lblID.setGeometry(QtCore.QRect(10, 140, 121, 16))

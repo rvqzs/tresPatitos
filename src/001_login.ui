@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Log In</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../res/iconMDI.png</normaloff>../res/iconMDI.png</iconset>
+  </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
@@ -43,7 +47,7 @@
      <property name="locale">
       <locale language="English" country="UnitedStatesMinorOutlyingIslands"/>
      </property>
-     <widget class="QLabel" name="lbl_logIn">
+     <widget class="QLabel" name="labelHeader">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -72,7 +76,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../res/iconHeader.png</pixmap>
+       <pixmap>../res/iconLoginHeader.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -94,15 +98,18 @@
         <bold>true</bold>
        </font>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::TabFocus</enum>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
-background-color:rgb(250, 250, 250);
+background-color:rgb(85, 193, 250);
 border:none;
 border-radius:10px;
 }
 
 QPushButton:hover{
-background-color:rgb(85, 193, 250);
+background-color:rgb(250, 250, 250);
 border:3px solid #55C1FA;
 border-radius:10px;
 }
@@ -114,12 +121,12 @@ border-radius:10px;
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../res/btnLogin.png</normaloff>../res/btnLogin.png</iconset>
+        <normaloff>../res/icons8-login-50.png</normaloff>../res/icons8-login-50.png</iconset>
       </property>
       <property name="iconSize">
        <size>
-        <width>15</width>
-        <height>15</height>
+        <width>20</width>
+        <height>20</height>
        </size>
       </property>
      </widget>
@@ -128,9 +135,18 @@ border-radius:10px;
        <rect>
         <x>100</x>
         <y>210</y>
-        <width>191</width>
-        <height>31</height>
+        <width>190</width>
+        <height>30</height>
        </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);
@@ -155,12 +171,12 @@ border-radius:10px;</string>
        <rect>
         <x>100</x>
         <y>140</y>
-        <width>191</width>
-        <height>31</height>
+        <width>190</width>
+        <height>30</height>
        </rect>
       </property>
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -170,6 +186,9 @@ border-radius:10px;</string>
         <width>20</width>
         <height>5</height>
        </size>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);
@@ -186,7 +205,7 @@ border-radius:10px;</string>
        <string>Username</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="labelUsername">
       <property name="geometry">
        <rect>
         <x>50</x>
@@ -199,13 +218,13 @@ border-radius:10px;</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="../res/iconLoginUsername.qrc">:/LoginPage/iconUser.png</pixmap>
+       <pixmap>../res/iconLoginUsername.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="labelPassword">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -237,8 +256,6 @@ border-radius:10px;</string>
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../res/iconLoginUsername.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

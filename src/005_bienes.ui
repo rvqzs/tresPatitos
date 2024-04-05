@@ -6,12 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>489</width>
-    <height>396</height>
+    <width>770</width>
+    <height>400</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>770</width>
+    <height>400</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Bienes</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../res/icons8-assets-64.png</normaloff>../res/icons8-assets-64.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(191, 191, 191);</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -39,7 +52,7 @@
     <rect>
      <x>20</x>
      <y>70</y>
-     <width>167</width>
+     <width>169</width>
      <height>201</height>
     </rect>
    </property>
@@ -52,17 +65,25 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="txtPlaca"/>
+     <widget class="QLineEdit" name="txtPlaca">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
     <item row="1" column="0">
      <widget class="QLabel" name="lblNombreBien">
       <property name="text">
-       <string>Nombre del Bien</string>
+       <string>Nombre</string>
       </property>
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="txtNombreBien"/>
+     <widget class="QLineEdit" name="txtNombreBien">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="lblCategoria">
@@ -72,7 +93,11 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QLineEdit" name="txtCategoria"/>
+     <widget class="QLineEdit" name="txtCategoria">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
     <item row="3" column="0">
      <widget class="QLabel" name="lblDescripcion">
@@ -82,7 +107,11 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QLineEdit" name="txtDescripcion"/>
+     <widget class="QLineEdit" name="txtDescripcion">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
     <item row="4" column="0">
      <widget class="QLabel" name="lblestado">
@@ -93,6 +122,9 @@
     </item>
     <item row="4" column="1">
      <widget class="QComboBox" name="cbxEstado">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <item>
        <property name="text">
         <string>Asignable</string>
@@ -121,12 +153,26 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+   </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../res/iconSave.png</normaloff>../res/iconSave.png</iconset>
+     <normaloff>../res/btnSave.png</normaloff>../res/btnSave.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -144,12 +190,26 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+   </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../res/iconEdit.png</normaloff>../res/iconEdit.png</iconset>
+     <normaloff>../res/btnEdit.png</normaloff>../res/btnEdit.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -167,12 +227,26 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+   </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../res/iconDelete.png</normaloff>../res/iconDelete.png</iconset>
+     <normaloff>../res/btnDelete.png</normaloff>../res/btnDelete.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -190,12 +264,26 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+   </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../res/iconClear.png</normaloff>../res/iconClear.png</iconset>
+     <normaloff>../res/btnClear.png</normaloff>../res/btnClear.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -210,8 +298,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>310</y>
+     <x>640</x>
+     <y>300</y>
      <width>101</width>
      <height>71</height>
     </rect>
@@ -241,9 +329,12 @@
     <rect>
      <x>220</x>
      <y>70</y>
-     <width>256</width>
+     <width>531</width>
      <height>201</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
@@ -251,6 +342,31 @@
    <property name="selectionBehavior">
     <enum>QAbstractItemView::SelectRows</enum>
    </property>
+   <column>
+    <property name="text">
+     <string>Placa</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nombre</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Categoria</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Descripcion</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Estado</string>
+    </property>
+   </column>
   </widget>
  </widget>
  <resources/>

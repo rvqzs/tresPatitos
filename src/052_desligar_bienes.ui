@@ -13,6 +13,13 @@
   <property name="windowTitle">
    <string>Desligar Bienes</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../res/iconDesligar.png</normaloff>../res/iconDesligar.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(191, 191, 191);</string>
+  </property>
   <widget class="QComboBox" name="cbxEmpleados">
    <property name="geometry">
     <rect>
@@ -21,6 +28,9 @@
      <width>171</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="editable">
     <bool>false</bool>
@@ -44,6 +54,20 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+   </property>
    <property name="text">
     <string>Desligar</string>
    </property>
@@ -57,6 +81,9 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
   </widget>
   <widget class="QTableWidget" name="tblDesligar">
    <property name="geometry">
@@ -66,6 +93,9 @@
      <width>256</width>
      <height>192</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
@@ -98,7 +128,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>10</x>
      <y>10</y>
      <width>161</width>
      <height>31</height>
@@ -146,6 +176,9 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
@@ -176,6 +209,9 @@
      <width>82</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QLabel" name="lblID">

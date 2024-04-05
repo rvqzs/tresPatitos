@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\002_usuarios.ui'
+# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\002_usuarios.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -19,9 +19,9 @@ class Ui_Usuarios(object):
         Usuarios.setMaximumSize(QtCore.QSize(576, 469))
         Usuarios.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconUsuarios.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconMenuUsers.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Usuarios.setWindowIcon(icon)
-        Usuarios.setAutoFillBackground(True)
+        Usuarios.setAutoFillBackground(False)
         Usuarios.setStyleSheet("background-color: rgb(206, 206, 206);")
         self.label = QtWidgets.QLabel(Usuarios)
         self.label.setEnabled(True)
@@ -61,7 +61,8 @@ class Ui_Usuarios(object):
         item = QtWidgets.QTableWidgetItem()
         self.tblUsuarios.setHorizontalHeaderItem(2, item)
         self.btnLimpiar = QtWidgets.QPushButton(Usuarios)
-        self.btnLimpiar.setGeometry(QtCore.QRect(20, 170, 75, 25))
+        self.btnLimpiar.setGeometry(QtCore.QRect(20, 170, 80, 30))
+        self.btnLimpiar.setMaximumSize(QtCore.QSize(80, 30))
         self.btnLimpiar.setStyleSheet("QPushButton{\n"
 "background-color:rgb(255, 255, 255);\n"
 "border:none;\n"
@@ -75,7 +76,7 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnLimpiar.setIcon(icon1)
         self.btnLimpiar.setIconSize(QtCore.QSize(18, 18))
         self.btnLimpiar.setObjectName("btnLimpiar")
@@ -132,14 +133,25 @@ class Ui_Usuarios(object):
         self.txtEmail.setObjectName("txtEmail")
         self.txtLayout.addWidget(self.txtEmail)
         self.splitter = QtWidgets.QSplitter(Usuarios)
-        self.splitter.setEnabled(True)
-        self.splitter.setGeometry(QtCore.QRect(280, 420, 281, 31))
-        self.splitter.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.splitter.setGeometry(QtCore.QRect(279, 420, 280, 30))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.splitter.sizePolicy().hasHeightForWidth())
+        self.splitter.setSizePolicy(sizePolicy)
+        self.splitter.setMinimumSize(QtCore.QSize(280, 30))
+        self.splitter.setMaximumSize(QtCore.QSize(280, 30))
+        self.splitter.setLineWidth(0)
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setOpaqueResize(False)
-        self.splitter.setChildrenCollapsible(False)
+        self.splitter.setHandleWidth(2)
         self.splitter.setObjectName("splitter")
         self.btnCrearUsuario = QtWidgets.QPushButton(self.splitter)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnCrearUsuario.sizePolicy().hasHeightForWidth())
+        self.btnCrearUsuario.setSizePolicy(sizePolicy)
         self.btnCrearUsuario.setStyleSheet("QPushButton{\n"
 "background-color:rgb(255, 255, 255);\n"
 "border:none;\n"
@@ -153,11 +165,16 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconCrear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnCrear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnCrearUsuario.setIcon(icon2)
-        self.btnCrearUsuario.setIconSize(QtCore.QSize(20, 20))
+        self.btnCrearUsuario.setIconSize(QtCore.QSize(25, 25))
         self.btnCrearUsuario.setObjectName("btnCrearUsuario")
         self.btnModificarUsuario = QtWidgets.QPushButton(self.splitter)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnModificarUsuario.sizePolicy().hasHeightForWidth())
+        self.btnModificarUsuario.setSizePolicy(sizePolicy)
         self.btnModificarUsuario.setStyleSheet("QPushButton{\n"
 "background-color:rgb(255, 255, 255);\n"
 "border:none;\n"
@@ -171,10 +188,16 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnModificarUsuario.setIcon(icon3)
+        self.btnModificarUsuario.setIconSize(QtCore.QSize(20, 20))
         self.btnModificarUsuario.setObjectName("btnModificarUsuario")
         self.btnEliminarUsuario = QtWidgets.QPushButton(self.splitter)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnEliminarUsuario.sizePolicy().hasHeightForWidth())
+        self.btnEliminarUsuario.setSizePolicy(sizePolicy)
         self.btnEliminarUsuario.setStyleSheet("QPushButton{\n"
 "background-color:rgb(255, 255, 255);\n"
 "border:none;\n"
@@ -188,9 +211,9 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnEliminarUsuario.setIcon(icon4)
-        self.btnEliminarUsuario.setIconSize(QtCore.QSize(18, 18))
+        self.btnEliminarUsuario.setIconSize(QtCore.QSize(20, 20))
         self.btnEliminarUsuario.setObjectName("btnEliminarUsuario")
 
         self.retranslateUi(Usuarios)

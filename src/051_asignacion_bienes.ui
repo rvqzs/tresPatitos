@@ -13,18 +13,29 @@
   <property name="windowTitle">
    <string>Asignacion de bienes</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../res/iconAsignar.png</normaloff>../res/iconAsignar.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(191, 191, 191);</string>
+  </property>
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>70</y>
+     <x>50</x>
+     <y>50</y>
      <width>191</width>
      <height>131</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
     <item row="0" column="1">
-     <widget class="QLineEdit" name="txtCedula"/>
+     <widget class="QLineEdit" name="txtCedula">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
     <item row="0" column="0">
      <widget class="QLabel" name="lblCedula">
@@ -57,7 +68,11 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="txtNombre"/>
+     <widget class="QLineEdit" name="txtNombre">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="lblApellidos">
@@ -75,7 +90,11 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QLineEdit" name="txtApellidos"/>
+     <widget class="QLineEdit" name="txtApellidos">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
     <item row="3" column="0">
      <widget class="QLabel" name="lblTelefono">
@@ -93,7 +112,11 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QLineEdit" name="txtTelefono"/>
+     <widget class="QLineEdit" name="txtTelefono">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
     <item row="4" column="0">
      <widget class="QLabel" name="lblBienAsignado">
@@ -111,15 +134,19 @@
      </widget>
     </item>
     <item row="4" column="1">
-     <widget class="QLineEdit" name="txtBienAsignado"/>
+     <widget class="QLineEdit" name="txtBienAsignado">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>40</y>
+     <x>30</x>
+     <y>20</y>
      <width>211</width>
      <height>16</height>
     </rect>
@@ -139,52 +166,112 @@
   <widget class="QPushButton" name="btnGuardar">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>220</y>
+     <x>60</x>
+     <y>200</y>
      <width>51</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../res/iconSave.png</normaloff>../res/iconSave.png</iconset>
+     <normaloff>../res/btnSave.png</normaloff>../res/btnSave.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>27</width>
+     <height>27</height>
+    </size>
    </property>
   </widget>
   <widget class="QPushButton" name="btnModificar">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>220</y>
+     <x>140</x>
+     <y>200</y>
      <width>51</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../res/iconEdit.png</normaloff>../res/iconEdit.png</iconset>
+     <normaloff>../res/btnEdit.png</normaloff>../res/btnEdit.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>27</width>
+     <height>27</height>
+    </size>
    </property>
   </widget>
   <widget class="QPushButton" name="btnEliminar">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>220</y>
+     <x>220</x>
+     <y>200</y>
      <width>51</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../res/iconDelete.png</normaloff>../res/iconDelete.png</iconset>
+     <normaloff>../res/btnDelete.png</normaloff>../res/btnDelete.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>27</width>
+     <height>27</height>
+    </size>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -199,28 +286,51 @@
   <widget class="QPushButton" name="btnCancelar">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>220</y>
+     <x>300</x>
+     <y>200</y>
      <width>51</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>../res/iconClear.png</normaloff>../res/iconClear.png</iconset>
+     <normaloff>../res/btnClear.png</normaloff>../res/btnClear.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>27</width>
+     <height>27</height>
+    </size>
    </property>
   </widget>
   <widget class="QTableWidget" name="tblAsignados">
    <property name="geometry">
     <rect>
-     <x>75</x>
-     <y>270</y>
+     <x>50</x>
+     <y>260</y>
      <width>361</width>
      <height>192</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>

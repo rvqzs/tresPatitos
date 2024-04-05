@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Departamentos</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../res/iconMenuDepartamentos.png</normaloff>../res/iconMenuDepartamentos.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(206, 206, 206);</string>
   </property>
@@ -262,7 +266,13 @@ border-radius:10px;
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../res/iconSave.png</normaloff>../res/iconSave.png</iconset>
+      <normaloff>../res/btnSave.png</normaloff>../res/btnSave.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_editar">
@@ -285,7 +295,13 @@ border-radius:10px;
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../res/iconEdit.png</normaloff>../res/iconEdit.png</iconset>
+      <normaloff>../res/btnEdit.png</normaloff>../res/btnEdit.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_eliminar">
@@ -308,22 +324,16 @@ border-radius:10px;
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../res/iconDelete.png</normaloff>../res/iconDelete.png</iconset>
+      <normaloff>../res/btnDelete.png</normaloff>../res/btnDelete.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
     </property>
    </widget>
   </widget>
-  <zorder>lbl_departamentos</zorder>
-  <zorder>tblDepartamentos</zorder>
-  <zorder>txt_codigo</zorder>
-  <zorder>txt_nombre</zorder>
-  <zorder>cmb_jefatura</zorder>
-  <zorder>lbl_codigo</zorder>
-  <zorder>lbl_nombre</zorder>
-  <zorder>lbl_jefatura</zorder>
-  <zorder>splitter</zorder>
-  <zorder>btn_registrar</zorder>
-  <zorder>btn_editar</zorder>
-  <zorder>btn_eliminar</zorder>
  </widget>
  <resources/>
  <connections/>
