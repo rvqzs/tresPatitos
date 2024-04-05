@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\005_bienes.ui'
+#
 # Created by: PyQt5 UI code generator 5.15.9
 #
 # WARNING: Any manual changes made to this file will be lost when pyuic5 is
@@ -63,7 +67,7 @@ class Ui_Bienes(object):
         self.btnGuardar.setGeometry(QtCore.QRect(20, 280, 41, 41))
         self.btnGuardar.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\recursos/guardar.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnGuardar.setIcon(icon)
         self.btnGuardar.setIconSize(QtCore.QSize(27, 27))
         self.btnGuardar.setObjectName("btnGuardar")
@@ -71,7 +75,7 @@ class Ui_Bienes(object):
         self.btnModificar.setGeometry(QtCore.QRect(70, 280, 41, 41))
         self.btnModificar.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\recursos/editar.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnModificar.setIcon(icon1)
         self.btnModificar.setIconSize(QtCore.QSize(27, 27))
         self.btnModificar.setObjectName("btnModificar")
@@ -79,7 +83,7 @@ class Ui_Bienes(object):
         self.btnEliminar.setGeometry(QtCore.QRect(120, 280, 41, 41))
         self.btnEliminar.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\recursos/eliminar.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnEliminar.setIcon(icon2)
         self.btnEliminar.setIconSize(QtCore.QSize(27, 27))
         self.btnEliminar.setObjectName("btnEliminar")
@@ -87,7 +91,7 @@ class Ui_Bienes(object):
         self.btnCancelar.setGeometry(QtCore.QRect(170, 280, 41, 41))
         self.btnCancelar.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\recursos/cancelar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnCancelar.setIcon(icon3)
         self.btnCancelar.setIconSize(QtCore.QSize(27, 27))
         self.btnCancelar.setObjectName("btnCancelar")
@@ -100,12 +104,14 @@ class Ui_Bienes(object):
         self.pushButton_5.setFont(font)
         self.pushButton_5.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\recursos/departamento.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/departamento.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_5.setIcon(icon4)
         self.pushButton_5.setIconSize(QtCore.QSize(52, 52))
         self.pushButton_5.setObjectName("pushButton_5")
         self.tblRegistro = QtWidgets.QTableWidget(Bienes)
         self.tblRegistro.setGeometry(QtCore.QRect(220, 70, 256, 201))
+        self.tblRegistro.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tblRegistro.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tblRegistro.setObjectName("tblRegistro")
         self.tblRegistro.setColumnCount(0)
         self.tblRegistro.setRowCount(0)

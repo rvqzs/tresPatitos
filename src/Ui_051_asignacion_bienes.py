@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\051_asignacion_bienes.ui'
+#
 # Created by: PyQt5 UI code generator 5.15.9
 #
 # WARNING: Any manual changes made to this file will be lost when pyuic5 is
@@ -90,21 +94,21 @@ class Ui_Asignacion(object):
         self.btnGuardar.setGeometry(QtCore.QRect(110, 220, 51, 41))
         self.btnGuardar.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\recursos/guardar.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnGuardar.setIcon(icon)
         self.btnGuardar.setObjectName("btnGuardar")
         self.btnModificar = QtWidgets.QPushButton(Asignacion)
         self.btnModificar.setGeometry(QtCore.QRect(190, 220, 51, 41))
         self.btnModificar.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\recursos/editar.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnModificar.setIcon(icon1)
         self.btnModificar.setObjectName("btnModificar")
         self.btnEliminar = QtWidgets.QPushButton(Asignacion)
         self.btnEliminar.setGeometry(QtCore.QRect(270, 220, 51, 41))
         self.btnEliminar.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\recursos/eliminar.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnEliminar.setIcon(icon2)
         self.btnEliminar.setCheckable(True)
         self.btnEliminar.setChecked(False)
@@ -114,11 +118,13 @@ class Ui_Asignacion(object):
         self.btnCancelar.setGeometry(QtCore.QRect(350, 220, 51, 41))
         self.btnCancelar.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\recursos/cancelar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnCancelar.setIcon(icon3)
         self.btnCancelar.setObjectName("btnCancelar")
         self.tblAsignados = QtWidgets.QTableWidget(Asignacion)
         self.tblAsignados.setGeometry(QtCore.QRect(75, 270, 361, 192))
+        self.tblAsignados.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tblAsignados.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tblAsignados.setObjectName("tblAsignados")
         self.tblAsignados.setColumnCount(0)
         self.tblAsignados.setRowCount(0)

@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\002_usuarios.ui'
+#
 # Created by: PyQt5 UI code generator 5.15.9
 #
 # WARNING: Any manual changes made to this file will be lost when pyuic5 is
@@ -15,7 +19,7 @@ class Ui_Usuarios(object):
         Usuarios.setMaximumSize(QtCore.QSize(576, 469))
         Usuarios.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconUsuarios.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconUsuarios.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Usuarios.setWindowIcon(icon)
         Usuarios.setAutoFillBackground(True)
         Usuarios.setStyleSheet("background-color: rgb(206, 206, 206);")
@@ -71,7 +75,7 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnLimpiar.setIcon(icon1)
         self.btnLimpiar.setIconSize(QtCore.QSize(18, 18))
         self.btnLimpiar.setObjectName("btnLimpiar")
@@ -149,7 +153,7 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconCrear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconCrear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnCrearUsuario.setIcon(icon2)
         self.btnCrearUsuario.setIconSize(QtCore.QSize(20, 20))
         self.btnCrearUsuario.setObjectName("btnCrearUsuario")
@@ -167,7 +171,7 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnModificarUsuario.setIcon(icon3)
         self.btnModificarUsuario.setObjectName("btnModificarUsuario")
         self.btnEliminarUsuario = QtWidgets.QPushButton(self.splitter)
@@ -184,7 +188,7 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnEliminarUsuario.setIcon(icon4)
         self.btnEliminarUsuario.setIconSize(QtCore.QSize(18, 18))
         self.btnEliminarUsuario.setObjectName("btnEliminarUsuario")

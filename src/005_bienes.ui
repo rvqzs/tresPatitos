@@ -126,7 +126,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>recursos/guardar.jpg</normaloff>recursos/guardar.jpg</iconset>
+     <normaloff>../res/iconSave.png</normaloff>../res/iconSave.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -149,7 +149,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>recursos/editar.jpg</normaloff>recursos/editar.jpg</iconset>
+     <normaloff>../res/iconEdit.png</normaloff>../res/iconEdit.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -172,7 +172,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>recursos/eliminar.jpg</normaloff>recursos/eliminar.jpg</iconset>
+     <normaloff>../res/iconDelete.png</normaloff>../res/iconDelete.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -195,7 +195,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>recursos/cancelar.png</normaloff>recursos/cancelar.png</iconset>
+     <normaloff>../res/iconClear.png</normaloff>../res/iconClear.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -227,7 +227,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>recursos/departamento.png</normaloff>recursos/departamento.png</iconset>
+     <normaloff>../res/departamento.png</normaloff>../res/departamento.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -244,6 +244,12 @@
      <width>256</width>
      <height>201</height>
     </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
    </property>
   </widget>
  </widget>

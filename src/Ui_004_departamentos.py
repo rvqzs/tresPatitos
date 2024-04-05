@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\004_departamentos.ui'
+#
 # Created by: PyQt5 UI code generator 5.15.9
 #
 # WARNING: Any manual changes made to this file will be lost when pyuic5 is
@@ -108,7 +112,7 @@ class Ui_Departamentos(object):
 "border-radius:10px;\n"
 "}")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_registrar.setIcon(icon)
         self.btn_registrar.setObjectName("btn_registrar")
         self.btn_editar = QtWidgets.QPushButton(self.splitter)
@@ -125,7 +129,7 @@ class Ui_Departamentos(object):
 "border-radius:10px;\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_editar.setIcon(icon1)
         self.btn_editar.setObjectName("btn_editar")
         self.btn_eliminar = QtWidgets.QPushButton(self.splitter)
@@ -142,7 +146,7 @@ class Ui_Departamentos(object):
 "border-radius:10px;\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_eliminar.setIcon(icon2)
         self.btn_eliminar.setObjectName("btn_eliminar")
         self.lbl_departamentos.raise_()

@@ -378,6 +378,7 @@ class mdiApp(QMainWindow):
         self.winBienes.uiBienes.btnGuardar.clicked.connect(self.guardarBienes)
         self.winBienes.uiBienes.btnModificar.clicked.connect(self.modificarBienes)
         self.winBienes.uiBienes.btnEliminar.clicked.connect(self.eliminarBienes)
+        self.winBienes.uiBienes.tblRegistro.clicked.connect(self.cargarDatosBienes)
         self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
         self.winBienes.show()
 
@@ -427,6 +428,13 @@ class mdiApp(QMainWindow):
             self.winBienes.uiBienes.tblRegistro.setItem(i,3,QTableWidgetItem(d["descripcion"]))
             self.winBienes.uiBienes.tblRegistro.setItem(i,4,QTableWidgetItem(d["estado"]))
             i+=1
+    
+    def cargarDatosBienes(self):
+        numFila=self.winBienes.uiBienes.tblRegistro.currentRow()
+        self.winBienes.uiBienes.txtPlaca.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,0).text())
+        self.winBienes.uiBienes.txtNombreBien.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,1).text())
+        self.winBienes.uiBienes.txtCategoria.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,2).text())
+        self.winBienes.uiBienes.txtDescripcion.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,3).text())
 
     #Asignacion Bienes
 
@@ -439,6 +447,7 @@ class mdiApp(QMainWindow):
         self.winAsignacion.uiAsignacion.btnGuardar.clicked.connect(self.guardarBienAsignado)
         self.winAsignacion.uiAsignacion.btnModificar.clicked.connect(self.modificarBienAsignado)
         self.winAsignacion.uiAsignacion.btnEliminar.clicked.connect(self.eliminarBienAsignado)
+        self.winAsignacion.uiAsignacion.tblAsignados.clicked.connect(self.cargarDatosAsignacion)
         self.cargarTablaBienesAsignado(asignado.getNumeroAsignados(),asignado.getAsignados())
         self.winAsignacion.show()
 
@@ -486,6 +495,14 @@ class mdiApp(QMainWindow):
             self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,3,QTableWidgetItem(d["telefono"]))
             self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,4,QTableWidgetItem(d["bien_asignado"]))
             i+=1
+    
+    def cargarDatosAsignacion(self):
+        numFila=self.winAsignacion.uiAsignacion.tblAsignados.currentRow()
+        self.winAsignacion.uiAsignacion.txtCedula.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,0).text())
+        self.winAsignacion.uiAsignacion.txtNombre.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,1).text())
+        self.winAsignacion.uiAsignacion.txtApellidos.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,2).text())
+        self.winAsignacion.uiAsignacion.txtTelefono.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,3).text())
+        self.winAsignacion.uiAsignacion.txtBienAsignado.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,4).text())
 
     def comboBoxBienesAsignado(self, datos):
         for d in datos:
@@ -502,7 +519,67 @@ class mdiApp(QMainWindow):
         self.uiMdi.mdiArea.addSubWindow(self.winDesligar)
         #eventos
         self.comboBoxBienesAsignado(desligar.getAsignados())
+        self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.espaciosDesligar)
+        self.winDesligar.uiDesligar.btnDesligar.clicked.connect(self.modificarDesligar)
+        self.cargarTablaDesligar(desligar.getNumeroDesligar(),desligar.getAsignados())
         self.winDesligar.show()
+
+    def espaciosDesligar(self):
+        nombre=self.winDesligar.uiDesligar.cbxEmpleados.currentText()
+        self.winDesligar.uiDesligar.txtNombre.setText(nombre)
+        #self.winDesligar.uiDesligar.txtBienAsignado.setText()
+    
+    def modificarDesligar(self):
+        desligar=DesligarBienes(self.winDesligar.uiDesligar.txtCedula.text(),
+                        self.winDesligar.uiDesligar.txtNombre.text()
+                        )
+        if desligar.actualizar()==1:
+            self.msgBox("Datos Modificados Correctamente",QMessageBox.Information)
+        else:
+            self.msgBox("Error al Modificar los datos",QMessageBox.Warning)
+    
+    def eliminarDesligar(self):
+        desligar=DesligarBienes(self.winDesligar.uiDesligar.txtCedula.text(),
+                        self.winDesligar.uiDesligar.txtNombre.text()
+                        )
+        if desligar.eliminar()==1:
+            self.msgBox("Bien desligado Correctamente",QMessageBox.Information)
+        else:
+            self.msgBox("Error al desligar los datos",QMessageBox.Warning)
+
+    def cargarTablaDesligar(self, numFilas, datos):
+        #determinar el numero de filas de la tabla
+        self.winDesligar.uiDesligar.tblDesligar.setRowCount(numFilas)
+        #determinar el numero de columnas de la tabla
+        self.winDesligar.uiDesligar.tblDesligar.setColumnCount(3)
+        i=0
+        for d in datos:
+            print(d)
+            self.winDesligar.uiDesligar.tblDesligar.setItem(i,0,QTableWidgetItem(d["_id"]))
+            self.winDesligar.uiDesligar.tblDesligar.setItem(i,1,QTableWidgetItem(d["nombre"]))
+            self.winDesligar.uiDesligar.tblDesligar.setItem(i,2,QTableWidgetItem(d["bien_asignado"]))
+            i+=1
+    
+    def tablaDesligar(self, datos):
+        empleado_seleccionado = self.winDesligar.uiDesligar.cbxEmpleados.currentText()
+
+        # Limpiamos la tabla antes de cargar nuevos datos
+        self.winDesligar.uiDesligar.tblDesligar.clear()
+        self.winDesligar.uiDesligar.tblDesligar.setRowCount(0)
+        self.winDesligar.uiDesligar.tblDesligar.setColumnCount(1)
+        self.winDesligar.uiDesligar.tblDesligar.setHorizontalHeaderLabels(["Objetos Asignados"])
+
+        self.db=datos
+
+        asignaciones_empleado = self.db['bien asignado'].find_one({'nombre': empleado_seleccionado})
+
+        if asignaciones_empleado:
+            objetos_asignados = asignaciones_empleado['bien asignado']
+            for objeto in objetos_asignados:
+                # Insertamos cada objeto en una nueva fila de la tabla
+                row_position = self.winDesligar.uiDesligar.tblDesligar.rowCount()
+                self.winDesligar.uiDesligar.tblDesligar.insertRow(row_position)
+                self.winDesligar.uiDesligar.tblDesligar.setItem(row_position, 0, QTableWidgetItem(objeto))
 
     #Class Windows
 
@@ -576,4 +653,3 @@ if __name__=="__main__":
         mdi=mdiApp()
         mdi.showMaximized()
     sys.exit(app.exec())
-    

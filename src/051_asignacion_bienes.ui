@@ -150,7 +150,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>recursos/guardar.jpg</normaloff>recursos/guardar.jpg</iconset>
+     <normaloff>../res/iconSave.png</normaloff>../res/iconSave.png</iconset>
    </property>
   </widget>
   <widget class="QPushButton" name="btnModificar">
@@ -167,7 +167,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>recursos/editar.jpg</normaloff>recursos/editar.jpg</iconset>
+     <normaloff>../res/iconEdit.png</normaloff>../res/iconEdit.png</iconset>
    </property>
   </widget>
   <widget class="QPushButton" name="btnEliminar">
@@ -184,7 +184,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>recursos/eliminar.jpg</normaloff>recursos/eliminar.jpg</iconset>
+     <normaloff>../res/iconDelete.png</normaloff>../res/iconDelete.png</iconset>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -210,7 +210,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>recursos/cancelar.png</normaloff>recursos/cancelar.png</iconset>
+     <normaloff>../res/iconClear.png</normaloff>../res/iconClear.png</iconset>
    </property>
   </widget>
   <widget class="QTableWidget" name="tblAsignados">
@@ -221,6 +221,12 @@
      <width>361</width>
      <height>192</height>
     </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
    </property>
   </widget>
  </widget>

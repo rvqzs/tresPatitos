@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\060_reportes.ui'
+#
 # Created by: PyQt5 UI code generator 5.15.9
 #
 # WARNING: Any manual changes made to this file will be lost when pyuic5 is
