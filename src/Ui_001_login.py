@@ -89,7 +89,7 @@ class Ui_Login(object):
         self.label_2 = QtWidgets.QLabel(self.login_widget)
         self.label_2.setGeometry(QtCore.QRect(50, 130, 51, 41))
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconUser.png"))
+        self.label_2.setPixmap(QtGui.QPixmap(":/LoginPage/iconUser.png"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
         self.label = QtWidgets.QLabel(self.login_widget)
@@ -116,3 +116,4 @@ class Ui_Login(object):
         self.btn_login.setText(_translate("Login", " Log in"))
         self.txt_password.setPlaceholderText(_translate("Login", "Password"))
         self.txt_username.setPlaceholderText(_translate("Login", "Username"))
+import iconLoginUsername_rc
