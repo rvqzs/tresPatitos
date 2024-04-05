@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>departamento.png</file>
+    <file>empleados.png</file>
+    <file>iconAsignar.png</file>
+    <file>iconDepartamentos.png</file>
+    <file>iconEmpleados.png</file>
+    <file>iconHeader.png</file>
+    <file>iconPassword.png</file>
+    <file>iconReportes.png</file>
+    <file>icons8-goods-48.png</file>
+    <file>iconUser.png</file>
+    <file>iconUsuarios.png</file>
+    <file>mdiIcon.png</file>
+  </qresource>
+</RCC>
