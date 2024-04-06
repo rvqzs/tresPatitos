@@ -504,12 +504,6 @@ class mdiApp(QMainWindow):
         self.winAsignacion.uiAsignacion.txtTelefono.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,3).text())
         self.winAsignacion.uiAsignacion.txtBienAsignado.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,4).text())
 
-    def comboBoxBienesAsignado(self, datos):
-        for d in datos:
-            nombre=d["nombre"]
-            if nombre:
-                self.winDesligar.uiDesligar.cbxEmpleados.addItem(nombre)
-
     #Desligar Bienes
 
     def openWinDesligarBienes(self):
@@ -580,6 +574,12 @@ class mdiApp(QMainWindow):
                 row_position = self.winDesligar.uiDesligar.tblDesligar.rowCount()
                 self.winDesligar.uiDesligar.tblDesligar.insertRow(row_position)
                 self.winDesligar.uiDesligar.tblDesligar.setItem(row_position, 0, QTableWidgetItem(objeto))
+    
+    def comboBoxBienesAsignado(self, datos):
+        for d in datos:
+            nombre=d["nombre"]
+            if nombre:
+                self.winDesligar.uiDesligar.cbxEmpleados.addItem(nombre)
 
     #Class Windows
 
