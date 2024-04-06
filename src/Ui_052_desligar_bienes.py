@@ -14,7 +14,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Desligar(object):
     def setupUi(self, Desligar):
         Desligar.setObjectName("Desligar")
-        Desligar.resize(500, 355)
+        Desligar.resize(770, 400)
+        Desligar.setMinimumSize(QtCore.QSize(770, 400))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconDesligar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Desligar.setWindowIcon(icon)

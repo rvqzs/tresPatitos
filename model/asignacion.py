@@ -108,3 +108,15 @@ class AsignarBienes:
         bd=empleados["TresPatitos"]
         size=bd.command("collstats","empleados")
         return size["count"]
+    
+    def getBienes(self):
+        bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = bien["TresPatitos"]
+        tbl = bd["bienes"]
+        return tbl.find()
+
+    def getNumeroRegistros(self):
+        bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = bien["TresPatitos"]
+        size=bd.command("collstats","bienes")
+        return size["count"]

@@ -41,7 +41,7 @@ class DesligarBienes:
             # crear diccionario
             doc = {
                 "$set": {
-                    "nombre": "No Asignado"
+                    "bien_asignado": "No Asignado"
                 }
             }
             # modifcar en la tabla
