@@ -1,6 +1,7 @@
 import pymongo
 
 class Usuarios:
+
     def __init__(self, id=1, username=2, password=3, email=4):
         self.id = id
         self.username = username
@@ -64,9 +65,7 @@ class Usuarios:
         usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=usuarios["TresPatitos"]
         try:
-            #definir la tabla a utilizar
             tbl=bd["usuarios"]
-            #filtro sirve para ver que quiero modificar
             filtro={"_id":self.id}
             tbl.delete_one(filtro)
             estado=1
@@ -88,3 +87,8 @@ class Usuarios:
         bd=usuarios["TresPatitos"]
         size=bd.command("collstats","usuarios") #estadisticas
         return size["count"]
+
+
+
+
+
