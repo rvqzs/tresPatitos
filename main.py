@@ -450,6 +450,8 @@ class mdiApp(QMainWindow):
         #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winAsignacion)
         #eventos
+        self.comboBoxAsignarEmpeladosCedula(asignado.getEmpleados())
+        self.comboBoxBienes(asignado.getBienes())
         self.winAsignacion.uiAsignacion.btnGuardar.clicked.connect(self.guardarBienAsignado)
         self.winAsignacion.uiAsignacion.btnModificar.clicked.connect(self.modificarBienAsignado)
         self.winAsignacion.uiAsignacion.btnEliminar.clicked.connect(self.eliminarBienAsignado)
@@ -458,9 +460,9 @@ class mdiApp(QMainWindow):
         self.winAsignacion.show()
 
     def guardarBienAsignado(self):
-        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.txtCedula.text(), self.winAsignacion.uiAsignacion.txtNombre.text(),
+        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.currentText(), self.winAsignacion.uiAsignacion.txtNombre.text(),
                     self.winAsignacion.uiAsignacion.txtApellidos.text(), self.winAsignacion.uiAsignacion.txtTelefono.text(),
-                    self.winAsignacion.uiAsignacion.txtBienAsignado.text()
+                    self.winAsignacion.uiAsignacion.cbxBienes.currentText()
                     )
         if bienesAsignados.guardar()==1:
             self.msgBox("Datos Guardados Correctamente",QMessageBox.Information)
@@ -468,9 +470,9 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al Guardar los datos",QMessageBox.Warning)
 
     def modificarBienAsignado(self):
-        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.txtCedula.text(), self.winAsignacion.uiAsignacion.txtNombre.text(),
+        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.currentText(), self.winAsignacion.uiAsignacion.txtNombre.text(),
                         self.winAsignacion.uiAsignacion.txtApellidos.text(), self.winAsignacion.uiAsignacion.txtTelefono.text(),
-                        self.winAsignacion.uiAsignacion.txtBienAsignado.text()
+                        self.winAsignacion.uiAsignacion.cbxBienes.currentText()
                         )
         if bienesAsignados.actualizar()==1:
             self.msgBox("Datos Modificados Correctamente",QMessageBox.Information)
@@ -478,9 +480,9 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al Modificar los datos",QMessageBox.Warning)
 
     def eliminarBienAsignado(self):
-        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.txtCedula.text(), self.winAsignacion.uiAsignacion.txtNombre.text(),
+        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.currentText(), self.winAsignacion.uiAsignacion.txtNombre.text(),
                         self.winAsignacion.uiAsignacion.txtApellidos.text(), self.winAsignacion.uiAsignacion.txtTelefono.text(),
-                        self.winAsignacion.uiAsignacion.txtBienAsignado.text()
+                        self.winAsignacion.uiAsignacion.cbxBienes.currentText()
                         )
         if bienesAsignados.eliminar()==1:
             self.msgBox("Datos Eliminados Correctamente",QMessageBox.Information)
@@ -504,17 +506,23 @@ class mdiApp(QMainWindow):
     
     def cargarDatosAsignacion(self):
         numFila=self.winAsignacion.uiAsignacion.tblAsignados.currentRow()
-        self.winAsignacion.uiAsignacion.txtCedula.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,0).text())
+        self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.setCurrentText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,0).text())
         self.winAsignacion.uiAsignacion.txtNombre.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,1).text())
         self.winAsignacion.uiAsignacion.txtApellidos.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,2).text())
         self.winAsignacion.uiAsignacion.txtTelefono.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,3).text())
-        self.winAsignacion.uiAsignacion.txtBienAsignado.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,4).text())
+        self.winAsignacion.uiAsignacion.cbxBienes.setCurrentText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,4).text())
 
-    def comboBoxBienesAsignado(self, datos):
+    def comboBoxAsignarEmpeladosCedula(self, datos):
+        for d in datos:
+            cedula=d["_id"]
+            if cedula:
+                self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.addItem(cedula)
+    
+    def comboBoxBienes(self, datos):
         for d in datos:
             nombre=d["nombre"]
             if nombre:
-                self.winDesligar.uiDesligar.cbxEmpleados.addItem(nombre)
+                self.winAsignacion.uiAsignacion.cbxBienes.addItem(nombre)
 
     #Desligar Bienes
 
@@ -528,6 +536,7 @@ class mdiApp(QMainWindow):
         self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.espaciosDesligar)
         self.winDesligar.uiDesligar.btnDesligar.clicked.connect(self.modificarDesligar)
         self.cargarTablaDesligar(desligar.getNumeroDesligar(),desligar.getAsignados())
+        self.winDesligar.uiDesligar.tblDesligar.clicked.connect(self.cargarDatosDesligar)
         self.winDesligar.show()
 
     def espaciosDesligar(self):
@@ -586,7 +595,20 @@ class mdiApp(QMainWindow):
                 row_position = self.winDesligar.uiDesligar.tblDesligar.rowCount()
                 self.winDesligar.uiDesligar.tblDesligar.insertRow(row_position)
                 self.winDesligar.uiDesligar.tblDesligar.setItem(row_position, 0, QTableWidgetItem(objeto))
+    
+    def comboBoxBienesAsignado(self, datos):
+        for d in datos:
+            nombre=d["nombre"]
+            if nombre:
+                self.winDesligar.uiDesligar.cbxEmpleados.addItem(nombre)
 
+    def cargarDatosDesligar(self):
+        numFila=self.winDesligar.uiDesligar.tblDesligar.currentRow()
+        #self.winDesligar.uiDesligar.cbxEmpleados.setCurrentText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,0).text())
+        self.winDesligar.uiDesligar.txtCedula.setText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,0).text())
+        self.winDesligar.uiDesligar.txtNombre.setText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,1).text())
+        self.winDesligar.uiDesligar.txtBienAsignado.setText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,2).text())
+        
     #Class Windows
 
 class winLogin(QWidget):

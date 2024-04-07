@@ -96,3 +96,27 @@ class AsignarBienes:
         bd = bienAsignado["TresPatitos"]
         size=bd.command("collstats","bienes_asignados")
         return size["count"]
+    
+    def getEmpleados(self):
+        empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd=empleados["TresPatitos"]
+        tbl=bd["empleados"]
+        return tbl.find()
+    
+    def getRegistrosEmpleados(self):
+        empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd=empleados["TresPatitos"]
+        size=bd.command("collstats","empleados")
+        return size["count"]
+    
+    def getBienes(self):
+        bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = bien["TresPatitos"]
+        tbl = bd["bienes"]
+        return tbl.find()
+
+    def getNumeroRegistros(self):
+        bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = bien["TresPatitos"]
+        size=bd.command("collstats","bienes")
+        return size["count"]

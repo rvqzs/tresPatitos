@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\051_asignacion_bienes.ui'
+# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\051_asignacion_bienes.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -14,9 +14,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Asignacion(object):
     def setupUi(self, Asignacion):
         Asignacion.setObjectName("Asignacion")
-        Asignacion.resize(508, 467)
+        Asignacion.setEnabled(True)
+        Asignacion.resize(820, 820)
+        Asignacion.setMinimumSize(QtCore.QSize(770, 400))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconAsignar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconAsignar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Asignacion.setWindowIcon(icon)
         Asignacion.setStyleSheet("background-color: rgb(191, 191, 191);")
         self.formLayoutWidget = QtWidgets.QWidget(Asignacion)
@@ -25,10 +27,6 @@ class Ui_Asignacion(object):
         self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
         self.formLayout.setContentsMargins(0, 0, 0, 0)
         self.formLayout.setObjectName("formLayout")
-        self.txtCedula = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.txtCedula.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.txtCedula.setObjectName("txtCedula")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.txtCedula)
         self.lblCedula = QtWidgets.QLabel(self.formLayoutWidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Banner")
@@ -86,10 +84,12 @@ class Ui_Asignacion(object):
         self.lblBienAsignado.setFont(font)
         self.lblBienAsignado.setObjectName("lblBienAsignado")
         self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.lblBienAsignado)
-        self.txtBienAsignado = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.txtBienAsignado.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.txtBienAsignado.setObjectName("txtBienAsignado")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.txtBienAsignado)
+        self.cbxCedulaEmpleados = QtWidgets.QComboBox(self.formLayoutWidget)
+        self.cbxCedulaEmpleados.setObjectName("cbxCedulaEmpleados")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.cbxCedulaEmpleados)
+        self.cbxBienes = QtWidgets.QComboBox(self.formLayoutWidget)
+        self.cbxBienes.setObjectName("cbxBienes")
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.cbxBienes)
         self.label = QtWidgets.QLabel(Asignacion)
         self.label.setGeometry(QtCore.QRect(30, 20, 211, 16))
         font = QtGui.QFont()
@@ -115,7 +115,7 @@ class Ui_Asignacion(object):
 "}")
         self.btnGuardar.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnGuardar.setIcon(icon1)
         self.btnGuardar.setIconSize(QtCore.QSize(27, 27))
         self.btnGuardar.setObjectName("btnGuardar")
@@ -135,7 +135,7 @@ class Ui_Asignacion(object):
 "}")
         self.btnModificar.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnModificar.setIcon(icon2)
         self.btnModificar.setIconSize(QtCore.QSize(27, 27))
         self.btnModificar.setObjectName("btnModificar")
@@ -155,7 +155,7 @@ class Ui_Asignacion(object):
 "}")
         self.btnEliminar.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnEliminar.setIcon(icon3)
         self.btnEliminar.setIconSize(QtCore.QSize(27, 27))
         self.btnEliminar.setCheckable(True)
@@ -178,7 +178,7 @@ class Ui_Asignacion(object):
 "}")
         self.btnCancelar.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnCancelar.setIcon(icon4)
         self.btnCancelar.setIconSize(QtCore.QSize(27, 27))
         self.btnCancelar.setObjectName("btnCancelar")
