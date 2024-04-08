@@ -134,12 +134,18 @@
      <addaction name="mnuAsignar"/>
      <addaction name="mnuDesligar"/>
     </widget>
+    <widget class="QMenu" name="menuReportes">
+     <property name="title">
+      <string>Reportes</string>
+     </property>
+     <addaction name="submnuBienesAsignados"/>
+    </widget>
     <addaction name="separator"/>
     <addaction name="mniUsuarios"/>
     <addaction name="mniEmpleados"/>
     <addaction name="mniDepartamentos"/>
     <addaction name="menuBienes"/>
-    <addaction name="mniReportes"/>
+    <addaction name="menuReportes"/>
     <addaction name="separator"/>
     <addaction name="btn_logout"/>
     <addaction name="separator"/>
@@ -267,21 +273,9 @@
     <string>Desligar</string>
    </property>
   </action>
-  <action name="mniReportes">
-   <property name="icon">
-    <iconset>
-     <normaloff>../res/iconMenuReportes.png</normaloff>../res/iconMenuReportes.png</iconset>
-   </property>
+  <action name="submnuBienesAsignados">
    <property name="text">
-    <string>Reportes</string>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI Semibold</family>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
+    <string>Bienes Asignados</string>
    </property>
   </action>
  </widget>
