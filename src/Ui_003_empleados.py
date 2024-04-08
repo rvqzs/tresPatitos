@@ -370,5 +370,5 @@ class Ui_Empleados(object):
         self.bttModificarEmpleado.setText(_translate("Empleados", "Modificar"))
         self.bttEliminarEmpleado.setText(_translate("Empleados", "Eliminar"))
         self.bttLimpiarEmpleado.setText(_translate("Empleados", "Limpiar"))
-        self.cmbJefatura.setItemText(0, _translate("Empleados", "Sí"))
+        self.cmbJefatura.setItemText(0, _translate("Empleados", "Si"))
         self.cmbJefatura.setItemText(1, _translate("Empleados", "No"))
