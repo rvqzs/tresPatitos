@@ -146,7 +146,7 @@ border-radius:10px;
        </sizepolicy>
       </property>
       <property name="focusPolicy">
-       <enum>Qt::TabFocus</enum>
+       <enum>Qt::StrongFocus</enum>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);
