@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\052_desligar_bienes.ui'
+# Form implementation generated from reading ui file 'c:\Users\kevin\Documents\docss\Cuatrimaterias\programacion\Proga 2\tresPatitosUIA\src\052_desligar_bienes.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -17,7 +17,7 @@ class Ui_Desligar(object):
         Desligar.resize(770, 400)
         Desligar.setMinimumSize(QtCore.QSize(770, 400))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconDesligar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/iconDesligar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Desligar.setWindowIcon(icon)
         Desligar.setStyleSheet("background-color: rgb(191, 191, 191);")
         self.cbxEmpleados = QtWidgets.QComboBox(Desligar)
