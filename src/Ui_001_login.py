@@ -74,7 +74,7 @@ class Ui_Login(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.txt_password.sizePolicy().hasHeightForWidth())
         self.txt_password.setSizePolicy(sizePolicy)
-        self.txt_password.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.txt_password.setFocusPolicy(QtCore.Qt.TabFocus)
         self.txt_password.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border:3px solid #55C1FA;\n"
 "border-radius:10px;")

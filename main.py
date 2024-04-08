@@ -38,6 +38,14 @@ class Login(QDialog):
 
     def initComponents(self):
         self.uiLogin.btn_login.clicked.connect(self.validarAdmin)
+        self.uiLogin.txt_username.setFocus()
+
+    def msgBox(self,mensaje,icono,tipo=0):
+        msg = QMessageBox()
+        msg.setIcon(icono)
+        msg.setText(mensaje)
+        msg.setWindowTitle("Notificación del Sistema")
+        retval=msg.exec_()
 
     def login(self):
         mdi = mdiApp()
@@ -71,9 +79,9 @@ class Login(QDialog):
             self.close()
             self.accept()
         else:
-            # Si no se encuentra el usuario, mostrar un mensaje de advertencia
             self.loading_dialog.close()
-            QMessageBox.warning(self, "Invalid credentials", "Invalid username or password")
+            QMessageBox.warning(self, "Invalid credentials", QMessageBox.Warning)
+            self.__init__()
 
 class mdiApp(QMainWindow):
 
