@@ -534,7 +534,7 @@ class mdiApp(QMainWindow):
         #eventos
         self.comboBoxBienesAsignado(desligar.getAsignados())
         self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.espaciosDesligar)
-        self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.esta)
+        self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.cargarMetodoTablaDesligar)
         self.winDesligar.uiDesligar.btnDesligar.clicked.connect(self.modificarDesligar)
         self.cargarTablaDesligar(desligar.getNumeroDesligar(),desligar.getAsignados())
         self.winDesligar.uiDesligar.tblDesligar.clicked.connect(self.cargarDatosDesligar)
@@ -552,7 +552,7 @@ class mdiApp(QMainWindow):
             self.winDesligar.uiDesligar.tblDesligar2.setItem(i,0,QTableWidgetItem(d["nombre"]))
             self.winDesligar.uiDesligar.tblDesligar2.setItem(i,1,QTableWidgetItem(d["bien_asignado"]))
             i+=1
-    def esta(self):
+    def cargarMetodoTablaDesligar(self):
         desligar=DesligarBienes()
         self.tablaBienDesligar(desligar.getNumeroDesligar(), desligar.getAsignados())
 
@@ -607,27 +607,6 @@ class mdiApp(QMainWindow):
             self.winDesligar.uiDesligar.tblDesligar.setItem(i,1,QTableWidgetItem(d["nombre"]))
             self.winDesligar.uiDesligar.tblDesligar.setItem(i,2,QTableWidgetItem(d["bien_asignado"]))
             i+=1
-    
-    def tablaDesligar(self, datos):
-        empleado_seleccionado = self.winDesligar.uiDesligar.cbxEmpleados.currentText()
-
-        # Limpiamos la tabla antes de cargar nuevos datos
-        self.winDesligar.uiDesligar.tblDesligar.clear()
-        self.winDesligar.uiDesligar.tblDesligar.setRowCount(0)
-        self.winDesligar.uiDesligar.tblDesligar.setColumnCount(1)
-        self.winDesligar.uiDesligar.tblDesligar.setHorizontalHeaderLabels(["Objetos Asignados"])
-
-        self.db=datos
-
-        asignaciones_empleado = self.db['bien_asignado'].find_one({'nombre': empleado_seleccionado})
-
-        if asignaciones_empleado:
-            objetos_asignados = asignaciones_empleado['bien_asignado']
-            for objeto in objetos_asignados:
-                # Insertamos cada objeto en una nueva fila de la tabla
-                row_position = self.winDesligar.uiDesligar.tblDesligar.rowCount()
-                self.winDesligar.uiDesligar.tblDesligar.insertRow(row_position)
-                self.winDesligar.uiDesligar.tblDesligar.setItem(row_position, 0, QTableWidgetItem(objeto))
     
     def comboBoxBienesAsignado(self, datos):
         for d in datos:
