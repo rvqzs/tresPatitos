@@ -534,10 +534,43 @@ class mdiApp(QMainWindow):
         #eventos
         self.comboBoxBienesAsignado(desligar.getAsignados())
         self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.espaciosDesligar)
+        self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.esta)
         self.winDesligar.uiDesligar.btnDesligar.clicked.connect(self.modificarDesligar)
         self.cargarTablaDesligar(desligar.getNumeroDesligar(),desligar.getAsignados())
         self.winDesligar.uiDesligar.tblDesligar.clicked.connect(self.cargarDatosDesligar)
+        #self.cargarEmpleadosAsignados(desligar.getNumeroDesligar(),desligar.getAsignados())
         self.winDesligar.show()
+
+    def cargarEmpleadosAsignados(self, numFilas, datos):
+        
+        self.winDesligar.uiDesligar.tblDesligar2.setRowCount(numFilas)
+        #determinar el numero de columnas de la tabla
+        self.winDesligar.uiDesligar.tblDesligar2.setColumnCount(2)
+        i=0
+        for d in datos:
+            print(d)
+            self.winDesligar.uiDesligar.tblDesligar2.setItem(i,0,QTableWidgetItem(d["nombre"]))
+            self.winDesligar.uiDesligar.tblDesligar2.setItem(i,1,QTableWidgetItem(d["bien_asignado"]))
+            i+=1
+    def esta(self):
+        desligar=DesligarBienes()
+        self.tablaBienDesligar(desligar.getNumeroDesligar(), desligar.getAsignados())
+
+    def tablaBienDesligar(self, numFilas, datos):
+
+        self.winDesligar.uiDesligar.tblDesligar2.setRowCount(numFilas)
+        #determinar el numero de columnas de la tabla
+        self.winDesligar.uiDesligar.tblDesligar2.setColumnCount(2)
+
+        nombreArchivo=self.winDesligar.uiDesligar.cbxEmpleados.currentText()
+        i=0
+        for d in datos:
+            nombre=d["nombre"]
+            #bien=["bien_asignado"]
+            if nombre==nombreArchivo:
+                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,0,QTableWidgetItem(d["nombre"]))
+                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,1,QTableWidgetItem(d["bien_asignado"]))
+                i+=1
 
     def espaciosDesligar(self):
         nombre=self.winDesligar.uiDesligar.cbxEmpleados.currentText()
@@ -586,10 +619,10 @@ class mdiApp(QMainWindow):
 
         self.db=datos
 
-        asignaciones_empleado = self.db['bien asignado'].find_one({'nombre': empleado_seleccionado})
+        asignaciones_empleado = self.db['bien_asignado'].find_one({'nombre': empleado_seleccionado})
 
         if asignaciones_empleado:
-            objetos_asignados = asignaciones_empleado['bien asignado']
+            objetos_asignados = asignaciones_empleado['bien_asignado']
             for objeto in objetos_asignados:
                 # Insertamos cada objeto en una nueva fila de la tabla
                 row_position = self.winDesligar.uiDesligar.tblDesligar.rowCount()

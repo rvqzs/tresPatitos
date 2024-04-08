@@ -241,6 +241,25 @@ border-radius:10px;
     <string>ID Empleado</string>
    </property>
   </widget>
+  <widget class="QTableWidget" name="tblDesligar2">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>80</y>
+     <width>256</width>
+     <height>192</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

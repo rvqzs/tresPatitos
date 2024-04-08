@@ -65,3 +65,10 @@ class DesligarBienes:
         bd = bienDesligar["TresPatitos"]
         size=bd.command("collstats","bienes_asignados")
         return size["count"]
+    
+    def getEmpleadosAsignadosNombre(self):
+        empleados = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = empleados["TresPatitos"]
+        empleados_nombre = bd["bienes_asignados"].find({}, {"nombre": 1, "bien_asinado": 1, "_id": 0, "apellidos": 0, "telefono": 0})
+
+        return empleados_nombre
