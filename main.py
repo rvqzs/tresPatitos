@@ -14,6 +14,7 @@ from model.departamentos import Departamentos
 from model.bienes import Bienes
 from model.asignacion import AsignarBienes
 from model.desligar import DesligarBienes
+# from model.login import Login
 
 # UI
 from src.Ui_001_login import Ui_Login
@@ -26,7 +27,7 @@ from src.Ui_051_asignacion_bienes import Ui_Asignacion
 from src.Ui_052_desligar_bienes import Ui_Desligar
 
 class Login(QDialog):
-
+    
     def __init__(self, parent=None):
         super().__init__(parent)
         self.uiLogin=Ui_Login()
@@ -51,9 +52,14 @@ class Login(QDialog):
     def validarAdmin(self):
         username = self.uiLogin.txt_username.text()
         password = self.uiLogin.txt_password.text()
-        self.startLoading()
 
-        # Conectarse a la base de datos
+        if not username or not password:
+            self.msgBox("Por favor, ingrese un nombre de usuario y una contraseña.", QMessageBox.Warning)
+            return
+        
+        self.startLoading()
+        #TODO: Hacer que la validación del usuario administrador se haga desde
+            #model/usuarios y hacer una validación para usuarios no admin
         client = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         db = client["TresPatitos"]
         collection = db["admin"]
