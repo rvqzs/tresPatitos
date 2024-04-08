@@ -7,20 +7,23 @@
     <x>0</x>
     <y>0</y>
     <width>576</width>
-    <height>469</height>
+    <height>900</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>576</width>
-    <height>469</height>
+    <height>900</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>576</width>
-    <height>469</height>
+    <width>600</width>
+    <height>1000</height>
    </size>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::StrongFocus</enum>
   </property>
   <property name="contextMenuPolicy">
    <enum>Qt::DefaultContextMenu</enum>
@@ -38,16 +41,16 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(206, 206, 206);</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="labelAdminUsers">
    <property name="enabled">
     <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>10</y>
-     <width>241</width>
-     <height>31</height>
+     <x>62</x>
+     <y>12</y>
+     <width>171</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -58,13 +61,19 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>16</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <family>Segoe UI Semibold</family>
+     <pointsize>10</pointsize>
+     <weight>5</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 43 10pt &quot;Segoe UI Semibold&quot;;
+border:none;</string>
+   </property>
    <property name="text">
-    <string>Creacion De Usuarios</string>
+    <string>Administración de Usuarios</string>
    </property>
    <property name="textFormat">
     <enum>Qt::RichText</enum>
@@ -80,9 +89,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>210</y>
+     <y>300</y>
      <width>541</width>
-     <height>192</height>
+     <height>281</height>
     </rect>
    </property>
    <property name="font">
@@ -104,37 +113,307 @@
    </property>
    <column>
     <property name="text">
-     <string>ID</string>
+     <string>Username</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>Usuario</string>
+     <string>Nombre</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>Email</string>
+     <string>Contraseña</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Privilegios</string>
     </property>
    </column>
   </widget>
-  <widget class="QPushButton" name="btnLimpiar">
+  <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>170</y>
-     <width>80</width>
-     <height>30</height>
+     <y>40</y>
+     <width>541</width>
+     <height>251</height>
     </rect>
    </property>
-   <property name="maximumSize">
-    <size>
-     <width>80</width>
-     <height>30</height>
-    </size>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton{
+    <string notr="true">border:4px solid;
+border-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="labelUsuario">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>30</y>
+      <width>50</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;
+border:none;</string>
+    </property>
+    <property name="text">
+     <string>Usuario </string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelNombre">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>70</y>
+      <width>50</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;
+border:none;</string>
+    </property>
+    <property name="text">
+     <string>Nombre</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelPassword">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>110</y>
+      <width>69</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Semibold</family>
+      <pointsize>10</pointsize>
+      <weight>7</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;
+border:none;</string>
+    </property>
+    <property name="text">
+     <string>Contraseña</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelPassword_2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>150</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Semibold</family>
+      <pointsize>10</pointsize>
+      <weight>7</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;
+border:none;</string>
+    </property>
+    <property name="text">
+     <string>Confirmar Contraseña</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtConfirmPassword">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>154</y>
+      <width>190</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Normal</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtName">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>70</y>
+      <width>190</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtPassword">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>110</y>
+      <width>190</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::PasswordEchoOnEdit</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtUsername">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>30</y>
+      <width>190</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkBoxAdmin">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>190</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;
+border:none;</string>
+    </property>
+    <property name="text">
+     <string>Administrador</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/iconadminUser.png</normaloff>../res/iconadminUser.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>18</width>
+      <height>18</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelUser">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>20</y>
+      <width>81</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../res/iconLoginUsername.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnLimpiar">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>150</y>
+      <width>90</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>90</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
 background-color:rgb(255, 255, 255);
 border:none;
 border-radius:10px;
@@ -146,172 +425,73 @@ QPushButton:hover{
 border:2px solid #55C1FA;
 border-radius:10px;
 }</string>
-   </property>
-   <property name="text">
-    <string>Limpiar</string>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>../res/btnClear.png</normaloff>../res/btnClear.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>18</width>
-     <height>18</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>60</y>
-     <width>56</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="lblLayout">
-    <property name="spacing">
-     <number>15</number>
     </property>
-    <item>
-     <widget class="QLabel" name="lblCedula">
-      <property name="font">
-       <font>
-        <family>Segoe UI Semibold</family>
-        <pointsize>10</pointsize>
-        <weight>7</weight>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;</string>
-      </property>
-      <property name="text">
-       <string>ID  </string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::RichText</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="lblNombreUsuario">
-      <property name="styleSheet">
-       <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Usuario </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="lblEmail">
-      <property name="styleSheet">
-       <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Email </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>60</y>
-     <width>213</width>
-     <height>94</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="txtLayout">
-    <property name="spacing">
-     <number>8</number>
+    <property name="text">
+     <string>Limpiar</string>
     </property>
-    <item>
-     <widget class="QLineEdit" name="txtID">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="txtUsername">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="txtEmail">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QSplitter" name="splitter">
-   <property name="geometry">
-    <rect>
-     <x>279</x>
-     <y>420</y>
-     <width>280</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>280</width>
-     <height>30</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>280</width>
-     <height>30</height>
-    </size>
-   </property>
-   <property name="lineWidth">
-    <number>0</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="opaqueResize">
-    <bool>false</bool>
-   </property>
-   <property name="handleWidth">
-    <number>2</number>
-   </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/btnClear.png</normaloff>../res/btnClear.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>18</width>
+      <height>18</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnModificarUsuario">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>70</y>
+      <width>90</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Modificar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/btnEdit.png</normaloff>../res/btnEdit.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>18</width>
+      <height>18</height>
+     </size>
+    </property>
+   </widget>
    <widget class="QPushButton" name="btnCrearUsuario">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>30</y>
+      <width>90</width>
+      <height>30</height>
+     </rect>
+    </property>
     <property name="sizePolicy">
      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
       <horstretch>0</horstretch>
@@ -346,42 +526,15 @@ border-radius:10px;
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnModificarUsuario">
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-background-color:rgb(255, 255, 255);
-border:none;
-border-radius:10px;
-font: 63 10pt &quot;Segoe UI Semibold&quot;;
-}
-
-QPushButton:hover{
-
-border:2px solid #55C1FA;
-border-radius:10px;
-}</string>
-    </property>
-    <property name="text">
-     <string>Modificar</string>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../res/btnEdit.png</normaloff>../res/btnEdit.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>20</width>
-      <height>20</height>
-     </size>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btnEliminarUsuario">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>110</y>
+      <width>90</width>
+      <height>30</height>
+     </rect>
+    </property>
     <property name="sizePolicy">
      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
       <horstretch>0</horstretch>
@@ -416,6 +569,39 @@ border-radius:10px;
      </size>
     </property>
    </widget>
+  </widget>
+  <widget class="QLabel" name="labelHeader">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:none;
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../res/iconAddUser.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
  </widget>
  <resources/>

@@ -118,79 +118,157 @@ class mdiApp(QMainWindow):
     def openWinUsuarios(self):
         usuarios=Usuarios()
         self.winUsuarios=winUsuarios()
-        #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winUsuarios)
-        #eventos
+
+        txtusername = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper()
+        txtname = self.winUsuarios.uiUsuarios.txtName.text().title()
+        txtpassword = self.winUsuarios.uiUsuarios.txtPassword.text().strip()
+        txtconfirm_password = self.winUsuarios.uiUsuarios.txtConfirmPassword.text().strip()
+        is_admin = self.winUsuarios.uiUsuarios.chkBoxAdmin.isChecked()
+        
+        #Eventos
         self.winUsuarios.uiUsuarios.btnCrearUsuario.clicked.connect(self.guardarUsuario)
         self.winUsuarios.uiUsuarios.btnModificarUsuario.clicked.connect(self.modificarUsuario)
         self.winUsuarios.uiUsuarios.btnEliminarUsuario.clicked.connect(self.eliminarUsuario)
         self.winUsuarios.uiUsuarios.btnLimpiar.clicked.connect(self.limpiarUsuarios)
+        
+        if not txtusername or not txtname or not txtpassword or not txtconfirm_password or not is_admin:
+            self.winUsuarios.uiUsuarios.btnLimpiar.setEnabled(False)
+            self.btnEditSaveAreEnabled(False)
+        else:
+            self.winUsuarios.uiUsuarios.btnLimpiar.setEnabled(True)
+            self.btnEditSaveAreEnabled(True)
+
         self.winUsuarios.uiUsuarios.tblUsuarios.clicked.connect(self.cargarDatosUsuarios)
 
         self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getUsuarios())
-        self.habilitarGuardarUsuarios
+        self.btnEditSaveAreEnabled(True)
         self.winUsuarios.show()
 
+        #Focus order
+        self.winUsuarios.uiUsuarios.txtUsername.setFocus()
+        self.winUsuarios.uiUsuarios.txtUsername.returnPressed.connect(self.winUsuarios.uiUsuarios.txtName.setFocus)
+        self.winUsuarios.uiUsuarios.txtName.returnPressed.connect(self.winUsuarios.uiUsuarios.txtPassword.setFocus)
+        self.winUsuarios.uiUsuarios.txtPassword.returnPressed.connect(self.winUsuarios.uiUsuarios.txtConfirmPassword.setFocus)
+
     def guardarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtUsername.text(),
-                        self.winUsuarios.uiUsuarios.txtEmail.text()
-                        )
-        if usuarios.guardar()==1:
-            self.msgBox("Usuario creado correctamente",QMessageBox.Information)
-            self.cargarTablaUsuarios()
+        usuarios=Usuarios()
+        username = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper()
+        name = self.winUsuarios.uiUsuarios.txtName.text().title()
+        password = self.winUsuarios.uiUsuarios.txtPassword.text().strip()
+        confirm_password = self.winUsuarios.uiUsuarios.txtConfirmPassword.text().strip()
+        is_admin = self.winUsuarios.uiUsuarios.chkBoxAdmin.isChecked()
+        
+        if not username or not name or not password or not confirm_password:
+            self.msgBox("Todos los campos deben ser completados", QMessageBox.Warning)
+            return
+
+        if password != confirm_password:
+            self.msgBox("Las contraseñas no coinciden", QMessageBox.Warning)
+            return
+        
+        user = Usuarios(username, name, password, is_admin)
+        if user.guardar()==0:
+            message="Nuevo usuario " + username + " creado con éxito!"
+            self.msgBox(message,QMessageBox.Information)
+
+        elif user.guardar()==1:
+            self.msgBox("Error de registro, el usuario ya está registrado",QMessageBox.Information)
+            
         else:
-            self.msgBox("Error al crear usuario",QMessageBox.Information)
+            self.msgBox("Error al registrar nuevo usuario",QMessageBox.Information)
+
+        self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getUsuarios())
+        self.limpiarUsuarios()
+        self.btnEditSaveAreEnabled(False)
 
     def modificarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtUsername.text(),
-                        self.winUsuarios.uiUsuarios.txtEmail.text()
-                        )
-        if usuarios.actualizar()==1:
-            self.msgBox("Datos moidificados correctamente",QMessageBox.Information)
+        usuarios=Usuarios()
+        username = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper()
+        name = self.winUsuarios.uiUsuarios.txtName.text().strip().title()
+        password = self.winUsuarios.uiUsuarios.txtPassword.text().strip()
+        confirm_password = self.winUsuarios.uiUsuarios.txtConfirmPassword.text().strip()
+        is_admin = self.winUsuarios.uiUsuarios.chkBoxAdmin.isChecked()
+
+        if not username or not name or not password or not confirm_password:
+            self.msgBox("Todos los campos deben ser completados", QMessageBox.Warning)
+            return
+
+        if password != confirm_password:
+            self.msgBox("Las contraseñas no coinciden", QMessageBox.Warning)
+            return
+        
+        user = Usuarios(username, name, password, is_admin)
+        if user.actualizar()==1:
+            message="Usuario " + username + " modificado correctamente"
+            self.msgBox(message,QMessageBox.Information)
         else:
-            self.msgBox("Error al modificar datos",QMessageBox.Information)
+            message="Error al modificar usuario " + username
+            self.msgBox(message, QMessageBox.Information)
+
+        self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getUsuarios())
+        self.limpiarUsuarios()
+        self.btnEditSaveAreEnabled(False)
 
     def eliminarUsuario(self):
-        usuarios=Usuarios(self.winUsuarios.uiUsuarios.txtID.text(),self.winUsuarios.uiUsuarios.txtUsername.text(),
-                        self.winUsuarios.uiUsuarios.txtEmail.text()
-                        )
-        if usuarios.eliminar()==1:
-            self.msgBox("Datos eliminados correctamente",QMessageBox.Information)
+        usuarios=Usuarios()
+        username = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper()
+        name = self.winUsuarios.uiUsuarios.txtName.text().strip().title()
+        password = self.winUsuarios.uiUsuarios.txtPassword.text().strip()
+        # confirm_password = self.winUsuarios.uiUsuarios.txtConfirmPassword.text().strip()
+        is_admin = self.winUsuarios.uiUsuarios.chkBoxAdmin.isChecked()
+
+        user = Usuarios(username, name, password, is_admin)
+        if user.eliminar()==1:
+            message="Usuario " + username + " ha sido eliminado correctamente!"
+            self.msgBox(message,QMessageBox.Information)
         else:
-            self.msgBox("Error al eliminar datos",QMessageBox.Information)
+            message="Error al eliminar usuario " + username
+            self.msgBox(message, QMessageBox.Information)
 
-    def cargarTablaUsuarios(self,numFilas,datos):
+        self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getUsuarios())
+        self.limpiarUsuarios()
+        self.btnEditSaveAreEnabled(False)
+
+    def cargarTablaUsuarios(self, numFilas, datos):
         self.winUsuarios.uiUsuarios.tblUsuarios.setRowCount(numFilas)
-        self.winUsuarios.uiUsuarios.tblUsuarios.setColumnCount(3)
-        i=0
+        self.winUsuarios.uiUsuarios.tblUsuarios.setColumnCount(4)
+        i = 0
         for d in datos:
-            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,0,QTableWidgetItem(d["_id"]))
-            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,1,QTableWidgetItem(d["username"]))
-            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i,2,QTableWidgetItem(d["email"]))
-            i+=1
-
-    def habilitarGuardarUsuarios(self):
-        self.winUsuarios.uiUsuarios.btnCrearUsuario.setEnabled(True)
-        self.winUsuarios.uiUsuarios.btnModificarUsuario.setEnabled(False)
-        self.winUsuarios.uiUsuarios.btnEliminarUsuario.setEnabled(False)
-
-    def limpiarUsuarios(self):
-        self.winUsuarios.uiUsuarios.txtID.setText("")
-        self.winUsuarios.uiUsuarios.txtUsername.setText("")
-        self.winUsuarios.uiUsuarios.txtEmail.setText("")
-        self.habilitarGuardarUsuarios()
-
-    def habilitarEliminarModificarusuario(self):
-        self.winUsuarios.uiUsuarios.btnCrearUsuario.setEnabled(False)
-        self.winUsuarios.uiUsuarios.btnModificarUsuario.setEnabled(True)
-        self.winUsuarios.uiUsuarios.btnEliminarUsuario.setEnabled(True)
+            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i, 0, QTableWidgetItem(d["_id"]))
+            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i, 1, QTableWidgetItem(d["nombre"]))
+            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i, 2, QTableWidgetItem(d["password"]))
+            privilegio = "Administrador" if d["is_admin"] else "Usuario"
+            self.winUsuarios.uiUsuarios.tblUsuarios.setItem(i, 3, QTableWidgetItem(privilegio))
+            i += 1
 
     def cargarDatosUsuarios(self):
-        self.habilitarEliminarModificarusuario()
-        numFilas=self.winUsuarios.uiUsuarios.tblUsuarios.currentRow()
-        self.winUsuarios.uiUsuarios.txtID.setText(self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas,0).text())
-        self.winUsuarios.uiUsuarios.txtUsername.setText(self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas,1).text())
-        self.winUsuarios.uiUsuarios.txtEmail.setText(self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas,2).text())
+        self.btnEditSaveAreEnabled(True)
+        self.winUsuarios.uiUsuarios.btnLimpiar.setEnabled(True)
+        numFilas = self.winUsuarios.uiUsuarios.tblUsuarios.currentRow()
+        self.winUsuarios.uiUsuarios.txtUsername.setText(self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas, 0).text())
+        self.winUsuarios.uiUsuarios.txtName.setText(self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas, 1).text())
+        self.winUsuarios.uiUsuarios.txtPassword.setText(self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas, 2).text())
+        self.winUsuarios.uiUsuarios.txtConfirmPassword.setText("")
+        admin_value = self.winUsuarios.uiUsuarios.tblUsuarios.item(numFilas, 3).text()
+
+        if admin_value.lower() in ['true', '1']: 
+            self.winUsuarios.uiUsuarios.chkBoxAdmin.setChecked(True)
+        else:
+            self.winUsuarios.uiUsuarios.chkBoxAdmin.setChecked(False)
+
+    def limpiarUsuarios(self):
+        self.winUsuarios.uiUsuarios.txtUsername.setText("")
+        self.winUsuarios.uiUsuarios.txtName.setText("")
+        self.winUsuarios.uiUsuarios.txtPassword.setText("")
+        self.winUsuarios.uiUsuarios.txtConfirmPassword.setText("")
+        self.winUsuarios.uiUsuarios.chkBoxAdmin.setChecked(False)
+        self.btnEditSaveAreEnabled(False)
+
+    def btnEditSaveAreEnabled(self, isAble):
+        # self.winUsuarios.uiUsuarios.btnCrearUsuario.setEnabled(isAble)
+        self.winUsuarios.uiUsuarios.btnModificarUsuario.setEnabled(isAble)
+        self.winUsuarios.uiUsuarios.btnEliminarUsuario.setEnabled(isAble)
 
     #Empleados
 

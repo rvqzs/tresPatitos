@@ -2,60 +2,53 @@ import pymongo
 
 class Usuarios:
 
-    def __init__(self, id=1, username=2, password=3, email=4):
-        self.id = id
+    def __init__(self, username=1, name=2, password=3, is_admin=4):
         self.username = username
+        self.name = name
         self.password = password
-        self.email = email
+        self.admin = is_admin
 
-        #self.telefono = telefono
-        #self.direccion= direccion
-        #self.puesto=puesto
-        #self.ingreso=ingreso
-        #self.jefatura=jefatura
-    
     def guardar(self):
-        #abrir la conxion mediante un objeto cliente
         usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=usuarios["TresPatitos"]
         try:
-            #definir la tabla a utilizar
             tbl=bd["usuarios"]
-            #crear diccionario
-            doc={"_id":self.id,
-                "username":self.username,
+            doc={
+                "_id":self.username,
+                "nombre":self.name,
                 "password":self.password,
-                "email":self.email
+                "is_admin":self.admin
                 }
-            #insertar en la tabla
+            
             tbl.insert_one(doc)
-            estado=1
-        except Exception:
-            print("Error al guardar")
             estado=0
+        except Exception as e:
+            if e=="E11000 duplicate key error collection:":
+                print("Error al guardar, el usuario ya está registrado")
+                estado=1
         finally:
             usuarios.close
         return estado
     
     def actualizar(self):
-        #abrir la conxion mediante un objeto cliente
         usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=usuarios["TresPatitos"]
         try:
-            #definir la tabla a utilizar
             tbl=bd["usuarios"]
-            #filtro sirve para ver que quiero modificar
-            filtro={"_id":self.id}
-            #crear diccionario
-            doc={"$set":{"username":self.username,
-                        "password":self.password,
-                        "email":self.email,}
-                        }
-            #insertar en la tabla
+            filtro={"_id":self.username}
+            doc={
+                "$set":
+                {"_id":self.username,
+                "nombre":self.name,
+                "password":self.password,
+                "is_admin":self.admin
+                }
+                }
+            
             tbl.update_one(filtro,doc)
             estado=1
-        except Exception:
-            print("Error al guardar")
+        except Exception as e:
+            print("Error al guardar", e)
             estado=0
         finally:
             usuarios.close
@@ -66,11 +59,11 @@ class Usuarios:
         bd=usuarios["TresPatitos"]
         try:
             tbl=bd["usuarios"]
-            filtro={"_id":self.id}
+            filtro={"_id":self.username}
             tbl.delete_one(filtro)
             estado=1
-        except Exception:
-            print("Error al Eliminar")
+        except Exception as e:
+            print("Error al Eliminar", e)
             estado=0
         finally:
             usuarios.close
@@ -85,7 +78,7 @@ class Usuarios:
     def getRegistrosUsuarios(self):
         usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=usuarios["TresPatitos"]
-        size=bd.command("collstats","usuarios") #estadisticas
+        size=bd.command("collstats","usuarios")
         return size["count"]
 
 
