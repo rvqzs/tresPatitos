@@ -14,6 +14,7 @@ from model.departamentos import Departamentos
 from model.bienes import Bienes
 from model.asignacion import AsignarBienes
 from model.desligar import DesligarBienes
+from model.reporteBienesAsignados import ReporteBienesAsignados
 # from model.login import Login
 
 # UI
@@ -25,6 +26,7 @@ from src.Ui_004_departamentos  import Ui_Departamentos
 from src.Ui_005_bienes import Ui_Bienes
 from src.Ui_051_asignacion_bienes import Ui_Asignacion
 from src.Ui_052_desligar_bienes import Ui_Desligar
+from src.Ui_061_reporte_bienes_asignados import Ui_ReporteBienesAsignados
 
 class Login(QDialog):
     
@@ -99,6 +101,7 @@ class mdiApp(QMainWindow):
         self.uiMdi.mniRegistrarBienes.triggered.connect(self.openWinBienes)
         self.uiMdi.mnuAsignar.triggered.connect(self.openWinAsignacionBienes)
         self.uiMdi.mnuDesligar.triggered.connect(self.openWinDesligarBienes)
+        self.uiMdi.submnuBienesAsignados.triggered.connect(self.openWinReporteBienesAsignados)
 
     def msgBox(self,mensaje,icono,tipo=0):
         msg = QMessageBox()
@@ -620,7 +623,15 @@ class mdiApp(QMainWindow):
         self.winDesligar.uiDesligar.txtCedula.setText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,0).text())
         self.winDesligar.uiDesligar.txtNombre.setText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,1).text())
         self.winDesligar.uiDesligar.txtBienAsignado.setText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,2).text())
-        
+
+    def openWinReporteBienesAsignados(self):
+        reporteBienesAsignados=ReporteBienesAsignados()
+        self.winReporteBienesAsig=winReporteBienesAsignados()
+        #agregar ventana
+        self.uiMdi.mdiArea.addSubWindow(self.winReporteBienesAsig)
+        #eventos
+    
+        self.winReporteBienesAsig.show()
     #Class Windows
 
 class winLogin(QWidget):
@@ -669,6 +680,13 @@ class winDesligarBienes(QWidget):
         super().__init__()
         self.uiDesligar=Ui_Desligar()
         self.uiDesligar.setupUi(self)
+        # TODO Manejo de eventos
+
+class winReporteBienesAsignados(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.uiReporteBienesAsignados=Ui_ReporteBienesAsignados()
+        self.uiReporteBienesAsignados.setupUi(self)
         # TODO Manejo de eventos
 
 class winReportes(QWidget):
