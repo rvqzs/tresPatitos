@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\052_desligar_bienes.ui'
+# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\052_desligar_bienes.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -17,7 +17,7 @@ class Ui_Desligar(object):
         Desligar.resize(770, 400)
         Desligar.setMinimumSize(QtCore.QSize(770, 400))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconDesligar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconDesligar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Desligar.setWindowIcon(icon)
         Desligar.setStyleSheet("background-color: rgb(191, 191, 191);")
         self.cbxEmpleados = QtWidgets.QComboBox(Desligar)
@@ -106,6 +106,14 @@ class Ui_Desligar(object):
         font.setWeight(75)
         self.lblID.setFont(font)
         self.lblID.setObjectName("lblID")
+        self.tblDesligar2 = QtWidgets.QTableWidget(Desligar)
+        self.tblDesligar2.setGeometry(QtCore.QRect(490, 80, 256, 192))
+        self.tblDesligar2.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.tblDesligar2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tblDesligar2.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tblDesligar2.setObjectName("tblDesligar2")
+        self.tblDesligar2.setColumnCount(0)
+        self.tblDesligar2.setRowCount(0)
 
         self.retranslateUi(Desligar)
         self.cbxEmpleados.setCurrentIndex(-1)
