@@ -8,17 +8,13 @@ class Departamentos:
         self.jefatura = jefatura
 
     def registrar(self):
-        estado=0
         departamento= pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
-        #seleccionar la tabla a utilizar
         bd=departamento["TresPatitos"]
         try:
             tbl=bd["departamentos"]
-
             doc={"_id":self.codigo,
                 "nombre":self.nombre,
                 "jefatura":self.jefatura}
-
             tbl.insert_one(doc)
             estado=1
         except Exception:
@@ -29,37 +25,33 @@ class Departamentos:
         return estado
 
     def actualizar(self):
-        estado = 0
         departamento = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd = departamento["TresPatitos"]
         try:
             tbl = bd["departamentos"]
             filtro = {"_id": self.codigo}
-            doc={"_codigo":self.codigo,
+            doc={"$set":
+                {"_id":self.codigo,
                 "nombre":self.nombre,
                 "jefatura":self.jefatura
                 }
+                }
             
-            # modifcar en la tabla
             tbl.update_one(filtro,doc)
             estado = 1
-        except Exception:
-            print("Error al modificar")
+        except Exception as e:
+            print("Error al modificar", e)
             estado = 0
         finally:
             departamento.close
         return estado
 
     def eliminar(self):
-        estado = 0
         departamento = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd = departamento["TresPatitos"]
         try:
-            # definir la tabla a utilizar
             tbl = bd["departamentos"]
-            # filtro
             filtro = {"_id": self.codigo}
-            # modifcar en la tabla
             tbl.delete_one(filtro)
             estado = 1
         except Exception:
@@ -69,13 +61,27 @@ class Departamentos:
             departamento.close
         return estado
     
+    def existeDepartamento(self):
+        departamento = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = departamento["TresPatitos"]
+        try:
+            tbl = bd["departamentos"]
+            filtro = {"nombre": self.nombre}
+            resultado = tbl.find_one(filtro)
+            return resultado is not None
+        except Exception as e:
+            print("Error al verificar si existe el departamento:", e)
+            return False
+        finally:
+            departamento.close()
+
     def getDepartamentos(self):
         usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=usuarios["TresPatitos"]
         tbl=bd["departamentos"]
         return tbl.find()
     
-    def getRegistroDepartamentos(self):
+    def getCountDepartamentos(self):
         usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=usuarios["TresPatitos"]
         size=bd.command("collstats","departamentos") #estadisticas
@@ -87,4 +93,4 @@ class Departamentos:
         tbl = bd["empleados"]
         
         # Obtener solo los empleados que tienen la posición de jefatura
-        return tbl.find({"jefatura": "Sí"})
+        return tbl.find({"jefatura": "Si"})

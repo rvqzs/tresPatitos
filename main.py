@@ -385,51 +385,92 @@ class mdiApp(QMainWindow):
         self.winDepartamentos.uiDepartamentos.btn_registrar.clicked.connect(self.registrarDepartamento)
         self.winDepartamentos.uiDepartamentos.btn_editar.clicked.connect(self.actualizarDepartamento)
         self.winDepartamentos.uiDepartamentos.btn_eliminar.clicked.connect(self.eliminarDepartamento)
-        self.winDepartamentos.uiDepartamentos.tblDepartamentos.clicked.connect(self.cargarDatostblDepartamentos)
+        self.winDepartamentos.uiDepartamentos.tblDepartamentos.clicked.connect(self.cargarDatosDepartamentos)
 
-        self.cargarTblDepartamentos(departamentos.getRegistroDepartamentos(),departamentos.getDepartamentos())
+        self.cargarTablaDepartamentos(departamentos.getCountDepartamentos(),departamentos.getDepartamentos())
         self.comboBoxDepartamentos(departamentos.getJefaturas())
 
     def registrarDepartamento(self):
-        departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(), self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
-                        self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex(),
-                        )
-        if departamento.registrar()==1:
-            self.msgBox("Datos guardados correctamente",QMessageBox.Information)
+        departamentos=Departamentos()
+        codigo=self.winDepartamentos.uiDepartamentos.txt_codigo.text().strip().upper()
+        nombre=self.winDepartamentos.uiDepartamentos.txt_nombre.text().strip().title()
+        jefatura=self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex()
+
+        if not codigo or not nombre or not jefatura:
+            self.msgBox("Todos los campos deben ser completados", QMessageBox.Warning)
+            return
+        
+        if departamentos.existeDepartamento():
+            self.msgBox("Error al registrar departamento, no pueden existir dos departamentos con el mismo nombre",QMessageBox.Warning)
         else:
-            self.msgBox("Error al guardar los datos",QMessageBox.Warning)
+            departamento = Departamentos(codigo, nombre, jefatura)
+
+        if departamento.registrar()==1:
+            message="Departamento " + nombre + " registrado correctamente"
+            self.msgBox(message,QMessageBox.Information)
+        else:
+            self.msgBox("Error al registrar departamento",QMessageBox.Warning)
+
+        self.cargarTablaDepartamentos(departamentos.getCountDepartamentos(),departamentos.getDepartamentos())
+        self.limpiarDepartamentos()
+        self.btnnEditDeleteEnabled(False)
 
     def actualizarDepartamento(self):
-        departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(),
-                        self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
-                        self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex(),
-                        )
+        departamentos=Departamentos()
+        codigo=self.winDepartamentos.uiDepartamentos.txt_codigo.text().strip().upper()
+        nombre=self.winDepartamentos.uiDepartamentos.txt_nombre.text().strip().title()
+        jefatura=self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex()
+
+        if not codigo or not nombre or not jefatura:
+            self.msgBox("Todos los campos deben ser completados", QMessageBox.Warning)
+            return
+
+        if departamentos.existeDepartamento():
+            self.msgBox("Error al actualizar departamento, no pueden existir dos departamentos con el mismo nombre",QMessageBox.Warning)
+        else:
+            departamento = Departamentos(codigo, nombre, jefatura)
+
         if departamento.actualizar()==1:
             self.msgBox("Departamento actualizado correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al actualizar el departamento",QMessageBox.Warning)
 
+        self.cargarTablaDepartamentos(departamentos.getCountDepartamentos(),departamentos.getDepartamentos())
+        self.limpiarDepartamentos()
+        self.btnnEditDeleteEnabled(False)
+
     def eliminarDepartamento(self):
-        departamento=Departamentos(self.winDepartamentos.uiDepartamentos.txt_codigo.text(), self.winDepartamentos.uiDepartamentos.txt_nombre.text(),
-                self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex(),
-                )
+        departamentos=Departamentos()
+        codigo=self.winDepartamentos.uiDepartamentos.txt_codigo.text().strip().upper()
+        nombre=self.winDepartamentos.uiDepartamentos.txt_nombre.text().strip().title()
+        jefatura=self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentIndex()
+
+        departamento = Departamentos(codigo, nombre, jefatura)
         if departamento.eliminar()==1:
-            self.msgBox("Departamento eliminado",QMessageBox.Information)
-            self.cargarTblDepartamentos
+            message="Departamento "+ nombre + " eliminado con éxito!"
+            self.msgBox(message,QMessageBox.Information)
         else:
             self.msgBox("Error al eliminar departamento",QMessageBox.Warning)
 
-    def cargarTblDepartamentos(self, numFilas, datos):
+        self.cargarTablaDepartamentos(departamentos.getCountDepartamentos(),departamentos.getDepartamentos())
+        self.limpiarDepartamentos()
+        self.btnnEditDeleteEnabled(False)
+
+    def cargarTablaDepartamentos(self, numFilas, datos):
         self.winDepartamentos.uiDepartamentos.tblDepartamentos.setRowCount(numFilas)
         self.winDepartamentos.uiDepartamentos.tblDepartamentos.setColumnCount(3)
-        i=0
+        i = 0
         for d in datos:
-            self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i,0,QTableWidgetItem(d["_id"]))
-            self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i,1,QTableWidgetItem(d["nombre"]))
-            self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i,2,QTableWidgetItem(d["jefatura"]))
-            i+=1
+            self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i, 0, QTableWidgetItem(d["_id"]))
+            self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i, 1, QTableWidgetItem(d["nombre"]))
+            
+            index_jefatura = d["jefatura"] 
+            jefatura_texto = self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentText()
+            
+            self.winDepartamentos.uiDepartamentos.tblDepartamentos.setItem(i, 2, QTableWidgetItem(jefatura_texto))
+            i += 1
 
-    def cargarDatostblDepartamentos(self):
+    def cargarDatosDepartamentos(self):
         numFilas = self.winDepartamentos.uiDepartamentos.tblDepartamentos.currentRow()
         self.winDepartamentos.uiDepartamentos.txt_codigo.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas, 0).text())
         self.winDepartamentos.uiDepartamentos.txt_nombre.setText(self.winDepartamentos.uiDepartamentos.tblDepartamentos.item(numFilas, 1).text())
@@ -439,17 +480,26 @@ class mdiApp(QMainWindow):
             self.winDepartamentos.uiDepartamentos.cmb_jefatura.setCurrentIndex(index)
 
     def comboBoxDepartamentos(self, datos):
-        # Limpiar el combo box antes de agregar nuevos elementos
         self.winDepartamentos.uiDepartamentos.cmb_jefatura.clear()
-        self.winDepartamentos.uiDepartamentos.cmb_jefatura.addItem("Elegir Jefatura")
+        self.winDepartamentos.uiDepartamentos.cmb_jefatura.addItem("Elegir")
         
         for d in datos:
             nombre = d["nombre"]
             apellido = d["apellidos"]
-            # Verificar si tanto el nombre como el apellido existen antes de agregar al combo box
             if nombre and apellido:
                 nombre_completo = f"{nombre} {apellido}"
                 self.winDepartamentos.uiDepartamentos.cmb_jefatura.addItem(nombre_completo)
+
+    def limpiarDepartamentos(self):
+        self.winDepartamentos.uiDepartamentos.txt_codigo.setText("")
+        self.winDepartamentos.uiDepartamentos.txt_nombre.setText("")
+        self.winDepartamentos.uiDepartamentos.cmb_jefatura.setCurrentIndex(0)
+
+    def btnnEditDeleteEnabled(self, enabled):
+        # self.winDepartamentos.uiDepartamentos.btn_registrar.setEnabled(enabled)
+        self.winDepartamentos.uiDepartamentos.btn_editar.setEnabled(enabled)
+        self.winDepartamentos.uiDepartamentos.btn_eliminar.setEnabled(enabled)
+        self.winDepartamentos.uiDepartamentos.btnLimpiar.setEnabled(enabled)
 
     #Bienes
 
