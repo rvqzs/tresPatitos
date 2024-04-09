@@ -25,6 +25,8 @@ class Ui_ReportBienesNoAsignables(object):
         self.tblWidgetBienesNoAsignados.setFrameShape(QtWidgets.QFrame.Box)
         self.tblWidgetBienesNoAsignados.setFrameShadow(QtWidgets.QFrame.Plain)
         self.tblWidgetBienesNoAsignados.setLineWidth(3)
+        self.tblWidgetBienesNoAsignados.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tblWidgetBienesNoAsignados.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tblWidgetBienesNoAsignados.setObjectName("tblWidgetBienesNoAsignados")
         self.tblWidgetBienesNoAsignados.setColumnCount(5)
         self.tblWidgetBienesNoAsignados.setRowCount(0)
@@ -81,7 +83,7 @@ class Ui_ReportBienesNoAsignables(object):
         _translate = QtCore.QCoreApplication.translate
         ReportBienesNoAsignables.setWindowTitle(_translate("ReportBienesNoAsignables", "Reporte de bienes no Asignables"))
         item = self.tblWidgetBienesNoAsignados.horizontalHeaderItem(0)
-        item.setText(_translate("ReportBienesNoAsignables", "Nueva columna"))
+        item.setText(_translate("ReportBienesNoAsignables", "Placa"))
         item = self.tblWidgetBienesNoAsignados.horizontalHeaderItem(1)
         item.setText(_translate("ReportBienesNoAsignables", "Nombre"))
         item = self.tblWidgetBienesNoAsignados.horizontalHeaderItem(2)
