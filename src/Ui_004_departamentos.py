@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\kevin\Documents\docss\Cuatrimaterias\programacion\Proga 2\tresPatitosUIA\src\004_departamentos.ui'
+# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\004_departamentos.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -14,12 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Departamentos(object):
     def setupUi(self, Departamentos):
         Departamentos.setObjectName("Departamentos")
-        Departamentos.resize(500, 650)
-        Departamentos.setMinimumSize(QtCore.QSize(500, 650))
+        Departamentos.resize(481, 650)
+        Departamentos.setMinimumSize(QtCore.QSize(480, 650))
         Departamentos.setMaximumSize(QtCore.QSize(500, 650))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/iconMenuDepartamentos.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconMenuDepartamentos.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Departamentos.setWindowIcon(icon)
+        Departamentos.setToolTipDuration(1)
         Departamentos.setStyleSheet("background-color: rgb(206, 206, 206);")
         self.lbl_departamentos = QtWidgets.QLabel(Departamentos)
         self.lbl_departamentos.setGeometry(QtCore.QRect(60, 10, 211, 31))
@@ -31,13 +32,18 @@ class Ui_Departamentos(object):
         font.setWeight(5)
         self.lbl_departamentos.setFont(font)
         self.lbl_departamentos.setStyleSheet("font: 43 10pt \"Segoe UI Semibold\";\n"
-"border:none;")
+"border:none;\n"
+"background-color: rgba(0,0,0,0%);")
         self.lbl_departamentos.setObjectName("lbl_departamentos")
         self.tblDepartamentos = QtWidgets.QTableWidget(Departamentos)
         self.tblDepartamentos.setGeometry(QtCore.QRect(40, 280, 410, 341))
         self.tblDepartamentos.setMinimumSize(QtCore.QSize(410, 320))
         self.tblDepartamentos.setMaximumSize(QtCore.QSize(1500, 1500))
         self.tblDepartamentos.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.tblDepartamentos.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tblDepartamentos.setAlternatingRowColors(True)
+        self.tblDepartamentos.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tblDepartamentos.setWordWrap(False)
         self.tblDepartamentos.setRowCount(0)
         self.tblDepartamentos.setColumnCount(3)
         self.tblDepartamentos.setObjectName("tblDepartamentos")
@@ -49,6 +55,7 @@ class Ui_Departamentos(object):
         self.tblDepartamentos.setHorizontalHeaderItem(2, item)
         self.splitter = QtWidgets.QSplitter(Departamentos)
         self.splitter.setGeometry(QtCore.QRect(40, 230, 311, 31))
+        self.splitter.setStyleSheet("background-color: rgba(0,0,0,0%);")
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName("splitter")
         self.btn_registrar = QtWidgets.QPushButton(self.splitter)
@@ -65,7 +72,7 @@ class Ui_Departamentos(object):
 "border-radius:10px;\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_registrar.setIcon(icon1)
         self.btn_registrar.setIconSize(QtCore.QSize(20, 20))
         self.btn_registrar.setObjectName("btn_registrar")
@@ -83,7 +90,7 @@ class Ui_Departamentos(object):
 "border-radius:10px;\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_editar.setIcon(icon2)
         self.btn_editar.setIconSize(QtCore.QSize(20, 20))
         self.btn_editar.setObjectName("btn_editar")
@@ -101,7 +108,7 @@ class Ui_Departamentos(object):
 "border-radius:10px;\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_eliminar.setIcon(icon3)
         self.btn_eliminar.setIconSize(QtCore.QSize(20, 20))
         self.btn_eliminar.setObjectName("btn_eliminar")
@@ -114,13 +121,16 @@ class Ui_Departamentos(object):
         font.setItalic(False)
         font.setWeight(7)
         self.labelHeader.setFont(font)
-        self.labelHeader.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";")
+        self.labelHeader.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
+"background-color: rgba(0,0,0,0%);")
         self.labelHeader.setText("")
-        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/iconDepartamentoHeader.png"))
+        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconDepartamentoHeader.png"))
         self.labelHeader.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.labelHeader.setObjectName("labelHeader")
         self.frame = QtWidgets.QFrame(Departamentos)
         self.frame.setGeometry(QtCore.QRect(40, 50, 401, 151))
+        self.frame.setToolTip("")
+        self.frame.setToolTipDuration(-1)
         self.frame.setStyleSheet("border:4px solid;\n"
 "border-color: rgb(255, 255, 255);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -166,11 +176,11 @@ class Ui_Departamentos(object):
         self.lbl_jefatura.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lbl_jefatura.setObjectName("lbl_jefatura")
         self.txt_codigo = QtWidgets.QLineEdit(self.frame)
-        self.txt_codigo.setGeometry(QtCore.QRect(90, 20, 71, 20))
+        self.txt_codigo.setGeometry(QtCore.QRect(90, 22, 71, 20))
         self.txt_codigo.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.txt_codigo.setObjectName("txt_codigo")
         self.txt_nombre = QtWidgets.QLineEdit(self.frame)
-        self.txt_nombre.setGeometry(QtCore.QRect(90, 60, 121, 20))
+        self.txt_nombre.setGeometry(QtCore.QRect(90, 61, 121, 20))
         self.txt_nombre.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.txt_nombre.setObjectName("txt_nombre")
         self.cmb_jefatura = QtWidgets.QComboBox(self.frame)
@@ -186,7 +196,12 @@ class Ui_Departamentos(object):
         self.cmb_jefatura.setCurrentText("")
         self.cmb_jefatura.setObjectName("cmb_jefatura")
         self.lbl_codigo_2 = QtWidgets.QLabel(self.frame)
-        self.lbl_codigo_2.setGeometry(QtCore.QRect(250, 20, 121, 101))
+        self.lbl_codigo_2.setGeometry(QtCore.QRect(240, 20, 121, 111))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lbl_codigo_2.sizePolicy().hasHeightForWidth())
+        self.lbl_codigo_2.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
         font.setPointSize(10)
@@ -198,11 +213,31 @@ class Ui_Departamentos(object):
 "border:none;\n"
 "")
         self.lbl_codigo_2.setText("")
-        self.lbl_codigo_2.setPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/icons8-stacked-organizational-chart-highlighted-parent-node-96.png"))
+        self.lbl_codigo_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/icons8-stacked-organizational-chart-highlighted-parent-node-96.png"))
         self.lbl_codigo_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lbl_codigo_2.setObjectName("lbl_codigo_2")
+        self.btnNewCode = QtWidgets.QPushButton(self.frame)
+        self.btnNewCode.setGeometry(QtCore.QRect(170, 21, 21, 21))
+        self.btnNewCode.setToolTipDuration(0)
+        self.btnNewCode.setStyleSheet("QPushButton{\n"
+"background-color:rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"border:2px solid #55C1FA;\n"
+"border-radius:10px;\n"
+"}")
+        self.btnNewCode.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconNewDoc.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnNewCode.setIcon(icon4)
+        self.btnNewCode.setObjectName("btnNewCode")
         self.btnLimpiar = QtWidgets.QPushButton(Departamentos)
-        self.btnLimpiar.setGeometry(QtCore.QRect(360, 230, 90, 30))
+        self.btnLimpiar.setGeometry(QtCore.QRect(360, 230, 81, 30))
         self.btnLimpiar.setMaximumSize(QtCore.QSize(90, 30))
         self.btnLimpiar.setStyleSheet("QPushButton{\n"
 "background-color:rgb(255, 255, 255);\n"
@@ -216,11 +251,31 @@ class Ui_Departamentos(object):
 "border:2px solid #55C1FA;\n"
 "border-radius:10px;\n"
 "}")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\kevin\\Documents\\docss\\Cuatrimaterias\\programacion\\Proga 2\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnLimpiar.setIcon(icon4)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnLimpiar.setIcon(icon5)
         self.btnLimpiar.setIconSize(QtCore.QSize(18, 18))
         self.btnLimpiar.setObjectName("btnLimpiar")
+        self.btnRefresh = QtWidgets.QPushButton(Departamentos)
+        self.btnRefresh.setGeometry(QtCore.QRect(410, 20, 31, 23))
+        self.btnRefresh.setStyleSheet("QPushButton{\n"
+"background-color:rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"border:2px solid #55C1FA;\n"
+"border-radius:10px;\n"
+"}")
+        self.btnRefresh.setText("")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/icons8-refresh-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnRefresh.setIcon(icon6)
+        self.btnRefresh.setShortcut("")
+        self.btnRefresh.setObjectName("btnRefresh")
 
         self.retranslateUi(Departamentos)
         QtCore.QMetaObject.connectSlotsByName(Departamentos)
@@ -229,16 +284,28 @@ class Ui_Departamentos(object):
         _translate = QtCore.QCoreApplication.translate
         Departamentos.setWindowTitle(_translate("Departamentos", "Departamentos"))
         self.lbl_departamentos.setText(_translate("Departamentos", "Administración de Departamentos"))
+        self.tblDepartamentos.setSortingEnabled(True)
         item = self.tblDepartamentos.horizontalHeaderItem(0)
         item.setText(_translate("Departamentos", "Código"))
         item = self.tblDepartamentos.horizontalHeaderItem(1)
         item.setText(_translate("Departamentos", "Nombre"))
         item = self.tblDepartamentos.horizontalHeaderItem(2)
         item.setText(_translate("Departamentos", "Jefatura"))
+        self.btn_registrar.setToolTip(_translate("Departamentos", "CTRL+S"))
         self.btn_registrar.setText(_translate("Departamentos", "Registrar"))
+        self.btn_registrar.setShortcut(_translate("Departamentos", "Ctrl+C"))
+        self.btn_editar.setToolTip(_translate("Departamentos", "CTRL+E"))
         self.btn_editar.setText(_translate("Departamentos", "Modificar"))
+        self.btn_editar.setShortcut(_translate("Departamentos", "Ctrl+E"))
+        self.btn_eliminar.setToolTip(_translate("Departamentos", "CTRL+DEL"))
         self.btn_eliminar.setText(_translate("Departamentos", "Eliminar"))
+        self.btn_eliminar.setShortcut(_translate("Departamentos", "Ctrl+Del"))
+        self.frame.setAccessibleDescription(_translate("Departamentos", "Generar código"))
         self.lbl_codigo.setText(_translate("Departamentos", "Código"))
         self.lbl_nombre.setText(_translate("Departamentos", "Nombre"))
         self.lbl_jefatura.setText(_translate("Departamentos", "Jefatura"))
+        self.btnNewCode.setToolTip(_translate("Departamentos", "Auto rellenar"))
+        self.btnLimpiar.setToolTip(_translate("Departamentos", "CTRL+W"))
         self.btnLimpiar.setText(_translate("Departamentos", "Limpiar"))
+        self.btnLimpiar.setShortcut(_translate("Departamentos", "Ctrl+W"))
+        self.btnRefresh.setToolTip(_translate("Departamentos", "CTRL+R"))
