@@ -86,7 +86,7 @@ class Login(QDialog):
             self.__init__()
 
 class mdiApp(QMainWindow):
-
+    
     def __init__(self):
         super().__init__()
         #instanciar la ventana
@@ -142,7 +142,8 @@ class mdiApp(QMainWindow):
         self.winUsuarios.uiUsuarios.btnModificarUsuario.clicked.connect(self.modificarUsuario)
         self.winUsuarios.uiUsuarios.btnEliminarUsuario.clicked.connect(self.eliminarUsuario)
         self.winUsuarios.uiUsuarios.btnLimpiar.clicked.connect(self.limpiarUsuarios)
-        
+        self.winUsuarios.uiUsuarios.isPassowordVisible.toggled.connect(self.btn_ShowPassword)
+
         if not txtusername or not txtname or not txtpassword or not txtconfirm_password or not is_admin:
             self.winUsuarios.uiUsuarios.btnLimpiar.setEnabled(False)
             self.btnEditSaveAreEnabled(False)
@@ -151,7 +152,6 @@ class mdiApp(QMainWindow):
             self.btnEditSaveAreEnabled(True)
 
         self.winUsuarios.uiUsuarios.tblUsuarios.clicked.connect(self.cargarDatosUsuarios)
-
         self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getUsuarios())
         self.btnEditSaveAreEnabled(True)
         self.winUsuarios.show()
@@ -163,6 +163,11 @@ class mdiApp(QMainWindow):
         self.winUsuarios.uiUsuarios.txtPassword.returnPressed.connect(self.winUsuarios.uiUsuarios.txtConfirmPassword.setFocus)
 
     def guardarUsuario(self):
+        self.loading_dialog = winLoadingDialog(self)
+        self.loading_dialog.update_message("Guardando usuario...")
+        self.loading_dialog.update_progress(0)
+        self.loading_dialog.show()
+
         usuarios=Usuarios()
         username = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper()
         name = self.winUsuarios.uiUsuarios.txtName.text().title()
@@ -172,21 +177,30 @@ class mdiApp(QMainWindow):
         
         if not username or not name or not password or not confirm_password:
             self.msgBox("Todos los campos deben ser completados", QMessageBox.Warning)
+            self.loading_dialog.close()
             return
+
+        self.loading_dialog.update_progress(20)
 
         if password != confirm_password:
             self.msgBox("Las contraseñas no coinciden", QMessageBox.Warning)
+            self.loading_dialog.close()
             return
         
+        self.loading_dialog.update_progress(50)
+
         user = Usuarios(username, name, password, is_admin)
         if user.guardar()==0:
+            self.loading_dialog.update_progress(100)
             message="Nuevo usuario " + username + " creado con éxito!"
+            self.loading_dialog.close()
             self.msgBox(message,QMessageBox.Information)
 
         elif user.guardar()==1:
+            self.loading_dialog.close()
             self.msgBox("Error de registro, el usuario ya está registrado",QMessageBox.Information)
-            
         else:
+            self.loading_dialog.close()
             self.msgBox("Error al registrar nuevo usuario",QMessageBox.Information)
 
         self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getUsuarios())
@@ -274,12 +288,25 @@ class mdiApp(QMainWindow):
         self.winUsuarios.uiUsuarios.txtPassword.setText("")
         self.winUsuarios.uiUsuarios.txtConfirmPassword.setText("")
         self.winUsuarios.uiUsuarios.chkBoxAdmin.setChecked(False)
+        self.winUsuarios.uiUsuarios.isPassowordVisible.setChecked(False)
         self.btnEditSaveAreEnabled(False)
 
     def btnEditSaveAreEnabled(self, isAble):
         # self.winUsuarios.uiUsuarios.btnCrearUsuario.setEnabled(isAble)
         self.winUsuarios.uiUsuarios.btnModificarUsuario.setEnabled(isAble)
         self.winUsuarios.uiUsuarios.btnEliminarUsuario.setEnabled(isAble)
+
+    def togglePasswordVisibility(self, visible):
+        if visible:
+            self.winUsuarios.uiUsuarios.txtPassword.setEchoMode(QLineEdit.Normal)
+            self.winUsuarios.uiUsuarios.txtConfirmPassword.setEchoMode(QLineEdit.Normal)
+        else:
+            self.winUsuarios.uiUsuarios.txtPassword.setEchoMode(QLineEdit.Password)
+            self.winUsuarios.uiUsuarios.txtConfirmPassword.setEchoMode(QLineEdit.Password)
+
+    def btn_ShowPassword(self):
+        visibility = self.winUsuarios.uiUsuarios.isPassowordVisible.isChecked()
+        self.togglePasswordVisibility(visibility)
 
     #Empleados
 

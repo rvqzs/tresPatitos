@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>576</width>
-    <height>900</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>576</width>
-    <height>900</height>
+    <height>800</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -70,7 +70,8 @@
    </property>
    <property name="styleSheet">
     <string notr="true">font: 43 10pt &quot;Segoe UI Semibold&quot;;
-border:none;</string>
+border:none;
+background-color: rgba(0,0,0,0%);</string>
    </property>
    <property name="text">
     <string>Administración de Usuarios</string>
@@ -89,9 +90,9 @@ border:none;</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>300</y>
+     <y>330</y>
      <width>541</width>
-     <height>281</height>
+     <height>321</height>
     </rect>
    </property>
    <property name="font">
@@ -105,11 +106,29 @@ border:none;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+   </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
    </property>
    <property name="selectionBehavior">
     <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="wordWrap">
+    <bool>false</bool>
    </property>
    <column>
     <property name="text">
@@ -157,7 +176,7 @@ border-color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="labelUsuario">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>100</x>
       <y>30</y>
       <width>50</width>
       <height>17</height>
@@ -177,7 +196,7 @@ border:none;</string>
    <widget class="QLabel" name="labelNombre">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>100</x>
       <y>70</y>
       <width>50</width>
       <height>17</height>
@@ -197,7 +216,7 @@ border:none;</string>
    <widget class="QLabel" name="labelPassword">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>80</x>
       <y>110</y>
       <width>69</width>
       <height>17</height>
@@ -229,7 +248,7 @@ border:none;</string>
    <widget class="QLabel" name="labelPassword_2">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>10</x>
       <y>150</y>
       <width>141</width>
       <height>27</height>
@@ -264,9 +283,9 @@ border:none;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>160</x>
       <y>154</y>
-      <width>190</width>
+      <width>140</width>
       <height>20</height>
      </rect>
     </property>
@@ -277,7 +296,7 @@ border:none;</string>
      <string/>
     </property>
     <property name="echoMode">
-     <enum>QLineEdit::Normal</enum>
+     <enum>QLineEdit::PasswordEchoOnEdit</enum>
     </property>
    </widget>
    <widget class="QLineEdit" name="txtName">
@@ -286,9 +305,9 @@ border:none;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>160</x>
       <y>70</y>
-      <width>190</width>
+      <width>140</width>
       <height>20</height>
      </rect>
     </property>
@@ -305,9 +324,9 @@ border:none;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>160</x>
       <y>110</y>
-      <width>190</width>
+      <width>140</width>
       <height>20</height>
      </rect>
     </property>
@@ -327,9 +346,9 @@ border:none;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>160</x>
       <y>30</y>
-      <width>190</width>
+      <width>140</width>
       <height>20</height>
      </rect>
     </property>
@@ -346,9 +365,9 @@ border:none;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>190</y>
-      <width>131</width>
+      <x>310</x>
+      <y>24</y>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
@@ -357,7 +376,7 @@ border:none;</string>
 border:none;</string>
     </property>
     <property name="text">
-     <string>Administrador</string>
+     <string>Admin</string>
     </property>
     <property name="icon">
      <iconset>
@@ -373,7 +392,7 @@ border:none;</string>
    <widget class="QLabel" name="labelUser">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>10</x>
       <y>20</y>
       <width>81</width>
       <height>81</height>
@@ -412,6 +431,9 @@ border:none;</string>
       <height>30</height>
      </size>
     </property>
+    <property name="toolTip">
+     <string>CNTRL+W</string>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 background-color:rgb(255, 255, 255);
@@ -439,6 +461,9 @@ border-radius:10px;
       <height>18</height>
      </size>
     </property>
+    <property name="shortcut">
+     <string>Ctrl+W</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="btnModificarUsuario">
     <property name="geometry">
@@ -454,6 +479,9 @@ border-radius:10px;
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
+    </property>
+    <property name="toolTip">
+     <string>CNTRL+E</string>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -482,6 +510,9 @@ border-radius:10px;
       <height>18</height>
      </size>
     </property>
+    <property name="shortcut">
+     <string>Ctrl+E</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="btnCrearUsuario">
     <property name="geometry">
@@ -497,6 +528,9 @@ border-radius:10px;
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
+    </property>
+    <property name="toolTip">
+     <string>CNTRL+S</string>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -525,6 +559,9 @@ border-radius:10px;
       <height>25</height>
      </size>
     </property>
+    <property name="shortcut">
+     <string>Ctrl+S</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="btnEliminarUsuario">
     <property name="geometry">
@@ -540,6 +577,9 @@ border-radius:10px;
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
+    </property>
+    <property name="toolTip">
+     <string>CNTRL+DEL</string>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -568,6 +608,30 @@ border-radius:10px;
       <height>20</height>
      </size>
     </property>
+    <property name="shortcut">
+     <string>Ctrl+Del</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="isPassowordVisible">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>183</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 63 10pt &quot;Segoe UI Semibold&quot;;
+border:none;</string>
+    </property>
+    <property name="text">
+     <string>Mostrar</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../res/icons8-visible-30.png</normaloff>../res/icons8-visible-30.png</iconset>
+    </property>
    </widget>
   </widget>
   <widget class="QLabel" name="labelHeader">
@@ -587,7 +651,7 @@ border-radius:10px;
    </property>
    <property name="styleSheet">
     <string notr="true">border:none;
-
+background-color: rgba(0,0,0,0%);
 </string>
    </property>
    <property name="text">
