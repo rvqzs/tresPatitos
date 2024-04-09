@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="resources">
+    <file>icons8-visible-30.png</file>
+  </qresource>
+</RCC>
