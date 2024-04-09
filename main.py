@@ -1,4 +1,5 @@
 import sys
+import time
 import pymongo
 
 # Widgets
@@ -6,6 +7,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *   
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import Qt
+from PyQt5.QtCore import QDateTime
 
 #Model
 from model.usuarios import Usuarios
@@ -27,6 +29,7 @@ from src.Ui_005_bienes import Ui_Bienes
 from src.Ui_051_asignacion_bienes import Ui_Asignacion
 from src.Ui_052_desligar_bienes import Ui_Desligar
 from src.Ui_061_reporte_bienes_asignados import Ui_ReporteBienesAsignados
+from src.Ui_070_LoadingBox import Ui_LoadingDialog
 
 class Login(QDialog):
     
@@ -39,6 +42,8 @@ class Login(QDialog):
         self.initComponents()
 
     def initComponents(self):
+        self.uiLogin.txt_username.setText("admin")
+        self.uiLogin.txt_password.setText("admin")
         self.uiLogin.btn_login.clicked.connect(self.validarAdmin)
         self.uiLogin.txt_username.setFocus()
 
@@ -49,15 +54,19 @@ class Login(QDialog):
         msg.setWindowTitle("Notificación del Sistema")
         retval=msg.exec_()
 
-    def login(self):
-        mdi = mdiApp()
-        mdi.show()
-        self.close()
+    # def login(self):
+    #     mdi = mdiApp()
+    #     mdi.show()
+    #     self.close()
 
     def startLoading(self):
-        # Mostrar la pantalla de carga
-        self.loading_dialog = LoadingDialog(self)
+        self.loading_dialog = winLoadingDialog(self)
         self.loading_dialog.show()
+        time.sleep(2)
+        self.loading_dialog.update_progress(50)
+        self.loading_dialog.update_message("Cargando...")
+        time.sleep(3)
+        self.loading_dialog.close()
 
     def validarAdmin(self):
         username = self.uiLogin.txt_username.text()
@@ -76,8 +85,8 @@ class Login(QDialog):
         user = collection.find_one({"username": username, "password": password})
         if user:
             self.loading_dialog.close()
-            mdi = mdiApp()
-            mdi.showMaximized()
+            # mdi = mdiApp()
+            # mdi.showMaximized()
             self.close()
             self.accept()
         else:
@@ -779,6 +788,7 @@ class mdiApp(QMainWindow):
             self.winDesligar.uiDesligar.tblDesligar2.setItem(i,0,QTableWidgetItem(d["nombre"]))
             self.winDesligar.uiDesligar.tblDesligar2.setItem(i,1,QTableWidgetItem(d["bien_asignado"]))
             i+=1
+
     def cargarMetodoTablaDesligar(self):
         desligar=DesligarBienes()
         self.tablaBienDesligar(desligar.getNumeroDesligar(), desligar.getAsignados())
@@ -856,6 +866,7 @@ class mdiApp(QMainWindow):
         #eventos
     
         self.winReporteBienesAsig.show()
+    
     #Class Windows
 
 class winLogin(QWidget):
@@ -930,9 +941,11 @@ class winLoadingDialog(QDialog):
         self.uiLoadingBox.messagelabel.setText(message)
 
 if __name__=="__main__":
-    app=QApplication(sys.argv)
-    win=Login()
+    app = QApplication(sys.argv)
+    win = Login()
     if win.exec_() == QDialog.Accepted:
-        mdi=mdiApp()
+        mdi = mdiApp()
         mdi.showMaximized()
-    sys.exit(app.exec())
+        sys.exit(app.exec_())
+    else:
+        sys.exit(0)
