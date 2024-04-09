@@ -15,6 +15,7 @@ from model.bienes import Bienes
 from model.asignacion import AsignarBienes
 from model.desligar import DesligarBienes
 from model.reporteBienesAsignados import ReporteBienesAsignados
+from model.reporteBienesNoAsignables import ReporteBienesNoAsignables
 # from model.login import Login
 
 # UI
@@ -27,6 +28,7 @@ from src.Ui_005_bienes import Ui_Bienes
 from src.Ui_051_asignacion_bienes import Ui_Asignacion
 from src.Ui_052_desligar_bienes import Ui_Desligar
 from src.Ui_061_reporte_bienes_asignados import Ui_ReporteBienesAsignados
+from src.Ui_062_reporte_bienes_no_asignables import Ui_ReportBienesNoAsignables
 
 class Login(QDialog):
     
@@ -110,6 +112,8 @@ class mdiApp(QMainWindow):
         self.uiMdi.mnuAsignar.triggered.connect(self.openWinAsignacionBienes)
         self.uiMdi.mnuDesligar.triggered.connect(self.openWinDesligarBienes)
         self.uiMdi.submnuBienesAsignados.triggered.connect(self.openWinReporteBienesAsignados)
+        self.uiMdi.submnuBienes_no_Asignados.triggered.connect(self.openWinReporteBienesNoAsignables)
+        
 
     def msgBox(self,mensaje,icono,tipo=0):
         msg = QMessageBox()
@@ -768,6 +772,15 @@ class mdiApp(QMainWindow):
         #eventos
     
         self.winReporteBienesAsig.show()
+
+    def openWinReporteBienesNoAsignables(self):
+        reporteBienesNoAsignables=ReporteBienesNoAsignables()
+        self.winReporteBienesNoAsignables=winReportBienesNoAsignables()
+        #ventana
+        self.uiMdi.mdiArea.addSubWindow(self.winReporteBienesNoAsignables)
+        #eventos
+        self.winReporteBienesNoAsignables.show()
+
     #Class Windows
 
 class winLogin(QWidget):
@@ -824,6 +837,12 @@ class winReporteBienesAsignados(QWidget):
         self.uiReporteBienesAsignados=Ui_ReporteBienesAsignados()
         self.uiReporteBienesAsignados.setupUi(self)
         # TODO Manejo de eventos
+
+class winReportBienesNoAsignables(QWidget):
+    def __init__(self):
+        super().__init__()
+        
+        
 
 class winReportes(QWidget):
     def __init__(self):
