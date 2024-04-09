@@ -890,16 +890,17 @@ class winReportes(QWidget):
     def __init__(self):
         super().__init__()
         
-class LoadingDialog(QDialog):
+class winLoadingDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setWindowTitle("Loading...")
-        self.setFixedSize(200, 100)
+        self.uiLoadingBox=Ui_LoadingDialog()
+        self.uiLoadingBox.setupUi(self)
 
-        # Añadir un QLabel para mostrar un mensaje de carga
-        self.loading_label = QLabel("Loading...", self)
-        self.loading_label.setAlignment(Qt.AlignCenter)
-        self.loading_label.setGeometry(0, 30, 200, 40)
+    def update_progress(self, progress):
+        self.uiLoadingBox.progressBar.setValue(progress)
+
+    def update_message(self, message):
+        self.uiLoadingBox.messagelabel.setText(message)
 
 if __name__=="__main__":
     app=QApplication(sys.argv)
