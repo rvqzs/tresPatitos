@@ -286,9 +286,9 @@ class mdiApp(QMainWindow):
     def openWinEmpleados(self):
         creacionEmpleado=Empleados()
         self.winEmpleados=winEmpleados()
-        #agregar ventana
         self.uiMdi.mdiArea.addSubWindow(self.winEmpleados)
-        #eventos
+        
+        #Eventos
         self.winEmpleados.uiEmpleados.bttCrearEmpleado.clicked.connect(self.guardarEmpleado)
         self.winEmpleados.uiEmpleados.bttModificarEmpleado.clicked.connect(self.actualizarEmpleado)
         self.winEmpleados.uiEmpleados.bttEliminarEmpleado.clicked.connect(self.eliminarEmpleado)
@@ -299,65 +299,103 @@ class mdiApp(QMainWindow):
         self.winEmpleados.show()
 
     def guardarEmpleado(self):
-        creacionEmpleado=Empleados(self.winEmpleados.uiEmpleados.txtCedula.text(),self.winEmpleados.uiEmpleados.txtNombre.text(),
-                                self.winEmpleados.uiEmpleados.txtApellidos.text(),self.winEmpleados.uiEmpleados.txtTelefono.text(),
-                                self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtDepartamento.text(),
-                                self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.cmbJefatura.currentText()
-                                )
-        if creacionEmpleado.guardarEmpleados()==1:
+        usuario=str(self.winEmpleados.uiEmpleados.cmbBoxUsuarios.currentText())
+        departamento=str(self.winEmpleados.uiEmpleados.cmbBoxDepartamento.currentText())
+        cedula=self.winEmpleados.uiEmpleados.txtCedula.text()
+        nombre=self.winEmpleados.uiEmpleados.txtNombre.text()
+        telefono=self.winEmpleados.uiEmpleados.txtTelefono.text()
+        fechIngreso=self.winEmpleados.uiEmpleados.txtDate.text()
+        direccion=self.winEmpleados.uiEmpleados.txtDireccion.toPlainText()
+                                
+        empleado=Empleados(usuario, departamento, cedula, nombre, telefono, fechIngreso, direccion)
+
+        if empleado.guardarEmpleados()==1:
             self.msgBox("Empleado creado correctamente",QMessageBox.Information)
             self.limpiarEmpleados()
-            self.cargarTablaEmpleados(creacionEmpleado.getRegistrosEmpleados(),creacionEmpleado.getEmpleados())
+            self.cargarTablaEmpleados(empleado.getRegistrosEmpleados(),empleado.getEmpleados())
         else:
             self.msgBox("Error al crear Empleado",QMessageBox.Information)
 
     def actualizarEmpleado(self):
-        creacionEmpleado=Empleados(self.winEmpleados.uiEmpleados.txtCedula.text(),self.winEmpleados.uiEmpleados.txtNombre.text(),
-                                        self.winEmpleados.uiEmpleados.txtApellidos.text(),self.winEmpleados.uiEmpleados.txtTelefono.text(),
-                                        self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtDepartamento.text(),
-                                        self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.cmbJefatura.currentText()
-                                        )
-        if creacionEmpleado.actualizarEmpleados()==1:
+        usuario=str(self.winEmpleados.uiEmpleados.cmbBoxUsuarios.currentText())
+        departamento=str(self.winEmpleados.uiEmpleados.cmbBoxDepartamento.currentText())
+        cedula=self.winEmpleados.uiEmpleados.txtCedula.text()
+        nombre=self.winEmpleados.uiEmpleados.txtNombre.text()
+        telefono=self.winEmpleados.uiEmpleados.txtTelefono.text()
+        fechIngreso=self.winEmpleados.uiEmpleados.txtDate.text()
+        direccion=self.winEmpleados.uiEmpleados.txtDireccion.toPlainText()
+                                
+        empleado=Empleados(usuario, departamento, cedula, nombre, telefono, fechIngreso, direccion)
+
+        if empleado.actualizarEmpleados()==1:
             self.msgBox("Empleado actualizado correctamente",QMessageBox.Information)
             self.limpiarEmpleados()
-            self.cargarTablaEmpleados(creacionEmpleado.getRegistrosEmpleados(),creacionEmpleado.getEmpleados())
+            self.cargarTablaEmpleados(empleado.getRegistrosEmpleados(),empleado.getEmpleados())
         else:
             self.msgBox("Error al actualizar Empleado",QMessageBox.Information)
 
     def eliminarEmpleado(self):
-        creacionEmpleado=Empleados(self.winEmpleados.uiEmpleados.txtCedula.text(),self.winEmpleados.uiEmpleados.txtNombre.text(),
-                                        self.winEmpleados.uiEmpleados.txtApellidos.text(),self.winEmpleados.uiEmpleados.txtTelefono.text(),
-                                        self.winEmpleados.uiEmpleados.txtDireccion.text(),self.winEmpleados.uiEmpleados.txtDepartamento.text(),
-                                        self.winEmpleados.uiEmpleados.txtIngreso.text(),self.winEmpleados.uiEmpleados.cmbJefatura.currentText()
-                                        )
-        if creacionEmpleado.eliminarEmpleados()==1:
+        usuario=str(self.winEmpleados.uiEmpleados.cmbBoxUsuarios.currentText())
+        departamento=str(self.winEmpleados.uiEmpleados.cmbBoxDepartamento.currentText())
+        cedula=self.winEmpleados.uiEmpleados.txtCedula.text()
+        nombre=self.winEmpleados.uiEmpleados.txtNombre.text()
+        telefono=self.winEmpleados.uiEmpleados.txtTelefono.text()
+        fechIngreso=self.winEmpleados.uiEmpleados.txtDate.text()
+        direccion=self.winEmpleados.uiEmpleados.txtDireccion.toPlainText()
+                                
+        empleado=Empleados(usuario, departamento, cedula, nombre, telefono, fechIngreso, direccion)
+
+        if empleado.eliminarEmpleados()==1:
             self.msgBox("Empleado eliminado correctamente",QMessageBox.Information)
             self.limpiarEmpleados()
-            self.cargarTablaEmpleados(creacionEmpleado.getRegistrosEmpleados(),creacionEmpleado.getEmpleados())
+            self.cargarTablaEmpleados(empleado.getRegistrosEmpleados(),empleado.getEmpleados())
         else:
             self.msgBox("Error al eliminar Empleado",QMessageBox.Information)
 
     def cargarDatosEmpleados(self):
+
         self.habilitarEliminarModificarEmpleados()
-        numFilasE=self.winEmpleados.uiEmpleados.tblWidgetEmpleados.currentRow()
-        self.winEmpleados.uiEmpleados.txtCedula.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,0).text())
-        self.winEmpleados.uiEmpleados.txtNombre.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,1).text())
-        self.winEmpleados.uiEmpleados.txtApellidos.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,2).text())
-        self.winEmpleados.uiEmpleados.txtTelefono.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,3).text())
-        self.winEmpleados.uiEmpleados.txtDireccion.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,4).text())
-        self.winEmpleados.uiEmpleados.txtDepartamento.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,5).text())
-        self.winEmpleados.uiEmpleados.txtIngreso.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,6).text())
-        self.winEmpleados.uiEmpleados.cmbJefatura.findText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(numFilasE,7).text())
+        row=self.winEmpleados.uiEmpleados.tblWidgetEmpleados.currentRow()
+
+        fecha_texto = self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row, 0).text()
+        fecha = QDateTime.fromString(fecha_texto, "yyyy-MM-dd")  # Convertir el texto de la fecha a QDateTime
+        self.winEmpleados.uiEmpleados.txtDate.setDate(fecha.date())  # Establecer la fecha en el QDateEdit
+
+        valor_usuario = self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row, 1).text()
+        index = self.winEmpleados.uiEmpleados.cmbBoxUsuarios.findText(valor_usuario)
+        if index != -1:
+            self.winEmpleados.uiEmpleados.cmbBoxUsuarios.setCurrentIndex(index)
+
+        self.winEmpleados.uiEmpleados.txtCedula.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row,2).text())
+        
+        self.winEmpleados.uiEmpleados.txtNombre.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row,3).text())
+
+        valor_departamento = self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row, 4).text()
+        index = self.winEmpleados.uiEmpleados.cmbBoxDepartamento.findText(valor_departamento)
+        if index != -1:
+            self.winEmpleados.uiEmpleados.cmbBoxDepartamento.setCurrentIndex(index)
+
+        self.winEmpleados.uiEmpleados.txtTelefono.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row,5).text())
+
+        self.winEmpleados.uiEmpleados.txtDireccion.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row,6).text())
+
+        puesto = self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row, 7).text()
+
+        if puesto.lower() in ['true', '1']: 
+            self.winEmpleados.uiEmpleados.chckBoxIsSupervisor.setChecked(True)
+        else:
+            self.winEmpleados.uiEmpleados.chckBoxIsSupervisor.setChecked(False)
 
     def limpiarEmpleados(self):
+
         self.winEmpleados.uiEmpleados.txtCedula.setText("")
         self.winEmpleados.uiEmpleados.txtNombre.setText("")
-        self.winEmpleados.uiEmpleados.txtApellidos.setText("")
         self.winEmpleados.uiEmpleados.txtTelefono.setText("")
         self.winEmpleados.uiEmpleados.txtDireccion.setText("")
-        self.winEmpleados.uiEmpleados.txtDepartamento.setText("")
-        self.winEmpleados.uiEmpleados.txtIngreso.setText("")
-        #self.winEmpleados.uiEmpleados.cmbJefatura.setText("")
+        self.winEmpleados.uiEmpleados.cmbBoxDepartamento.setCurrentIndex(0)
+        self.winEmpleados.uiEmpleados.cmbBoxUsuarios.setCurrentIndex(0)
+        self.winEmpleados.uiEmpleados.txtDate.setDate(QDateEdit.currentDate())
+        self.winEmpleados.uiEmpleados.chckBoxIsSupervisor.isChecked(False)
         self.habilitarGuardarEmpleados()
 
     def habilitarGuardarEmpleados(self):
@@ -370,19 +408,21 @@ class mdiApp(QMainWindow):
         self.winEmpleados.uiEmpleados.bttModificarEmpleado.setEnabled(True)
         self.winEmpleados.uiEmpleados.bttEliminarEmpleado.setEnabled(True)
 
-    def cargarTablaEmpleados(self,numFilasE,datosE):
-        self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setRowCount(numFilasE)
-        self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setColumnCount(8)
+    def cargarTablaEmpleados(self,row,data):
+        self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setRowCount(row)
+        self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setColumnCount(6)
         i=0
-        for b in datosE:
-            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,0,QTableWidgetItem(b["_id"]))
-            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,1,QTableWidgetItem(b["nombre"]))
-            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,2,QTableWidgetItem(b["apellidos"]))
-            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,3,QTableWidgetItem(b["telefono"]))
-            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,4,QTableWidgetItem(b["direccion"]))
-            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,5,QTableWidgetItem(b["departamento"]))
-            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,6,QTableWidgetItem(b["ingreso"]))
-            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,7,QTableWidgetItem(b["jefatura"]))
+        for b in data:
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,0,QTableWidgetItem(b["fechaIngreso"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,1,QTableWidgetItem(b["_id"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,2,QTableWidgetItem(b["cedula"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,3,QTableWidgetItem(b["nombre"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,4,QTableWidgetItem(b["departamento"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,5,QTableWidgetItem(b["telefono"]))
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i,6,QTableWidgetItem(b["direccion"]))
+            
+            puesto = "Supervisor" if b["puesto"] else "Empleado"
+            self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i, 7, QTableWidgetItem(puesto))
             i+=1
 
     #Departamentos

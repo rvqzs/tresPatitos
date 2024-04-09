@@ -1,32 +1,32 @@
 import pymongo
 
 class Empleados:
-    def __init__(self,cedula=0, nombre=1, apellidos=2,telefono=3,direccion=4,departamento=5,ingreso=6,jefatura=7):
+    def __init__(self, usuario=1, departamento =2, cedula=3, nombre=4, telefono=5,
+                fechaIngreso=6, direccion=7, puesto=8):
+        
+        self.usuario=usuario
         self.cedula = cedula
         self.nombre = nombre
-        self.apellidos = apellidos
         self.telefono = telefono
+        self.fechaIngreso=fechaIngreso
         self.direccion= direccion
         self.departamento=departamento
-        self.ingreso=ingreso
-        self.jefatura=jefatura
+        self.puesto=puesto
 
     def guardarEmpleados(self):
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=empleados["TresPatitos"]
-        
         try:
-            #definir la tabla a utilizar
             tbl=bd["empleados"]
             #crear diccionario
-            doc={"_id":self.cedula,
-                "nombre":self.nombre,
-                "apellidos":self.apellidos,
-                "telefono":self.telefono,
-                "direccion":self.direccion,
+            doc={"_id":self.usuario,
                 "departamento":self.departamento,
-                "ingreso":self.ingreso,
-                "jefatura":self.jefatura
+                "cedula":self.cedula,
+                "nombre":self.nombre,
+                "telefono":self.telefono,
+                "fechaIngreso":self.fechaIngreso,
+                "direccion":self.direccion,
+                "puesto":self.puesto
                 }
             #insertar en la tabla
             tbl.insert_one(doc)
@@ -39,29 +39,26 @@ class Empleados:
         return estado
     
     def actualizarEmpleados(self):
-        #abrir la conxion mediante un objeto cliente
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=empleados["TresPatitos"]
-
         try:
-            #definir la tabla a utilizar
             tbl=bd["empleados"]
-            #filtro sirve para ver que quiero modificar
-            filtro={"_id":self.cedula}
-            #crear diccionario
-            doc={"$set":{"nombre":self.nombre,
-                        "apellidos":self.apellidos,
-                        "telefono":self.telefono,
-                        "direccion":self.direccion,
-                        "departamento":self.departamento,
-                        "ingreso":self.ingreso,
-                        "jefatura":self.jefatura}
-                        }
-            #insertar en la tablaS
+            filtro={"_id":self.usuario}
+            doc={"$set":
+                {
+                "departamento":self.departamento,
+                "cedula":self.cedula,
+                "nombre":self.nombre,
+                "telefono":self.telefono,
+                "fechaIngreso":self.fechaIngreso,
+                "direccion":self.direccion,
+                "puesto":self.puesto
+                }
+                }
             tbl.update_one(filtro,doc)
             estado=1
         except Exception:
-            print("Error al guardar")
+            print("Error de actualización")
             estado=0
         finally:
             empleados.close
@@ -75,7 +72,7 @@ class Empleados:
             #definir la tabla a utilizar
             tbl=bd["empleados"]
             #filtro sirve para ver que quiero modificar
-            filtro={"_id":self.cedula}
+            filtro={"_id":self.usuario}
             tbl.delete_one(filtro)
             estado=1
         except Exception:
