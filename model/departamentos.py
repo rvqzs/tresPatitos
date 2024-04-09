@@ -5,23 +5,24 @@ class Departamentos:
     def __init__(self, codigo=1, nombre=2, jefatura=3):
         self.codigo = codigo
         self.nombre = nombre
-        self.jefatura = jefatura
+        self.jefatura = str(jefatura)
 
     def registrar(self):
-        departamento= pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
-        bd=departamento["TresPatitos"]
+        departamento = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = departamento["TresPatitos"]
         try:
-            tbl=bd["departamentos"]
-            doc={"_id":self.codigo,
-                "nombre":self.nombre,
-                "jefatura":self.jefatura}
+            tbl = bd["departamentos"]
+            doc = {"_id": self.codigo,
+                    "nombre": self.nombre,
+                    "jefatura":self.jefatura
+                }
             tbl.insert_one(doc)
-            estado=1
+            estado = 1
         except Exception:
             print("Error al guardar")
-            estado=0
+            estado = 0
         finally:
-            departamento.close        
+            departamento.close
         return estado
 
     def actualizar(self):
@@ -91,6 +92,16 @@ class Departamentos:
         jefaturas = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd = jefaturas["TresPatitos"]
         tbl = bd["empleados"]
-        
-        # Obtener solo los empleados que tienen la posición de jefatura
         return tbl.find({"jefatura": "Si"})
+
+    def getLastCode(self):
+        cliente = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        db = cliente["TresPatitos"]
+        ultimo_departamento = db["departamentos"].find().sort("_id", pymongo.DESCENDING).limit(1)
+        count = db["departamentos"].count_documents({})
+        if count > 0:
+            self.ultimo_codigo = ultimo_departamento[0]["_id"]
+            self.ultimo_numero = int(self.ultimo_codigo[3:])
+        else:
+            self.ultimo_numero = 0
+        return self.ultimo_numero
