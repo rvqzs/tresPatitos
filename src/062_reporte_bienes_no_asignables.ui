@@ -48,9 +48,15 @@
    <property name="lineWidth">
     <number>3</number>
    </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
    <column>
     <property name="text">
-     <string>Nueva columna</string>
+     <string>Placa</string>
     </property>
     <property name="font">
      <font>

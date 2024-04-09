@@ -774,12 +774,45 @@ class mdiApp(QMainWindow):
         self.winReporteBienesAsig.show()
 
     def openWinReporteBienesNoAsignables(self):
-        reporteBienesNoAsignables=ReporteBienesNoAsignables()
+        #reporteBienesNoAsignables=ReporteBienesNoAsignables()
         self.winReporteBienesNoAsignables=winReportBienesNoAsignables()
         #ventana
         self.uiMdi.mdiArea.addSubWindow(self.winReporteBienesNoAsignables)
+        self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.bttBienesNoAsignables.clicked.connect(self.llamarBienesNoAsignados)
+        #self.obtenerBienesNoAsignados(reporteBienesNoAsignables.getNumeroRegistros(),reporteBienesNoAsignables.getBienes())
         #eventos
         self.winReporteBienesNoAsignables.show()
+
+    def llamarBienesNoAsignados(self):
+        bien=Bienes()
+        self.winBienes=winBienes()
+        reporteBienesNoAsignables=ReporteBienesNoAsignables()
+        #findestado=self.winBienes.uiBienes.cbxEstado.currentText()
+        #if findestado==["Reparacion"]:
+        #self.msgBox("Bienes no asignables encontrados",QMessageBox.Information)
+        self.obtenerBienesNoAsignados(reporteBienesNoAsignables.getNumeroRegistros(),reporteBienesNoAsignables.getBienes())
+        #else:
+            #self.msgBox("No hay bienes asignables",QMessageBox.Information)
+
+    def obtenerBienesNoAsignados(self,numFilas,datos):
+        bien=Bienes()
+        self.winBienes=winBienes()
+        self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.tblWidgetBienesNoAsignados.setRowCount(numFilas)
+        self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.tblWidgetBienesNoAsignados.setColumnCount(5)
+        i=0
+        findestado=self.winBienes.uiBienes.cbxEstado.currentText()
+        #self.winBienes.uiBienes.tblRegistro.setItem(i,4,QTableWidgetItem(d["estado"]))
+        for d in datos:
+            bienestado=d["estado"]
+            if findestado!=bienestado:
+                #self.msgBox("Bienes no asignables encontrados",QMessageBox.Information)
+                self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.tblWidgetBienesNoAsignados.setItem(i,0,QTableWidgetItem(d["_id"]))
+                self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.tblWidgetBienesNoAsignados.setItem(i,1,QTableWidgetItem(d["nombre"]))
+                self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.tblWidgetBienesNoAsignados.setItem(i,2,QTableWidgetItem(d["categoria"]))
+                self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.tblWidgetBienesNoAsignados.setItem(i,3,QTableWidgetItem(d["descripcion"]))
+                self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.tblWidgetBienesNoAsignados.setItem(i,4,QTableWidgetItem(d["estado"]))
+                i+=1
+
 
     #Class Windows
 
@@ -841,6 +874,8 @@ class winReporteBienesAsignados(QWidget):
 class winReportBienesNoAsignables(QWidget):
     def __init__(self):
         super().__init__()
+        self.uiReporteBienesNoAsignables=Ui_ReportBienesNoAsignables()
+        self.uiReporteBienesNoAsignables.setupUi(self)
         
         
 
