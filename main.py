@@ -393,10 +393,8 @@ class mdiApp(QMainWindow):
             self.msgBox("Error al eliminar Empleado",QMessageBox.Information)
 
     def cargarDatosEmpleados(self):
-
         self.habilitarEliminarModificarEmpleados()
         row=self.winEmpleados.uiEmpleados.tblWidgetEmpleados.currentRow()
-
         fecha_texto = self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row, 0).text()
         fecha = QDateTime.fromString(fecha_texto, "yyyy-MM-dd")  # Convertir el texto de la fecha a QDateTime
         self.winEmpleados.uiEmpleados.txtDate.setDate(fecha.date())  # Establecer la fecha en el QDateEdit
@@ -427,7 +425,6 @@ class mdiApp(QMainWindow):
             self.winEmpleados.uiEmpleados.chckBoxIsSupervisor.setChecked(False)
 
     def limpiarEmpleados(self):
-
         self.winEmpleados.uiEmpleados.txtCedula.setText("")
         self.winEmpleados.uiEmpleados.txtNombre.setText("")
         self.winEmpleados.uiEmpleados.txtTelefono.setText("")
