@@ -55,5 +55,5 @@ class Ui_LoadingDialog(object):
 
     def retranslateUi(self, LoadingDialog):
         _translate = QtCore.QCoreApplication.translate
-        LoadingDialog.setWindowTitle(_translate("LoadingDialog", "Dialog"))
+        LoadingDialog.setWindowTitle(_translate("LoadingDialog", "Loading..."))
         self.messagelabel.setText(_translate("LoadingDialog", "Cargando..."))

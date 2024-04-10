@@ -341,8 +341,8 @@ class Ui_Empleados(object):
         self.bttModificarEmpleado.setIcon(icon4)
         self.bttModificarEmpleado.setIconSize(QtCore.QSize(20, 20))
         self.bttModificarEmpleado.setObjectName("bttModificarEmpleado")
-        self.txtDireccion = QtWidgets.QTextEdit(self.frame)
-        self.txtDireccion.setGeometry(QtCore.QRect(70, 190, 401, 71))
+        self.txtDireccion = QtWidgets.QLineEdit(self.frame)
+        self.txtDireccion.setGeometry(QtCore.QRect(60, 200, 381, 61))
         self.txtDireccion.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.txtDireccion.setObjectName("txtDireccion")
 
