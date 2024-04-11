@@ -66,10 +66,16 @@ background-color: rgba(0,0,0,0%);</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>370</y>
+     <y>340</y>
      <width>811</width>
-     <height>301</height>
+     <height>311</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>10</horstretch>
+     <verstretch>20</verstretch>
+    </sizepolicy>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -164,8 +170,8 @@ background-color: rgba(0,0,0,0%);</string>
     <rect>
      <x>20</x>
      <y>50</y>
-     <width>811</width>
-     <height>291</height>
+     <width>671</width>
+     <height>241</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -182,7 +188,7 @@ border-color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>70</y>
+      <y>30</y>
       <width>47</width>
       <height>16</height>
      </rect>
@@ -202,7 +208,7 @@ border:none;</string>
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>70</y>
+      <y>30</y>
       <width>100</width>
       <height>20</height>
      </rect>
@@ -361,7 +367,7 @@ border:none;</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>30</y>
+      <y>69</y>
       <width>90</width>
       <height>20</height>
      </rect>
@@ -432,7 +438,7 @@ border:none;</string>
      <rect>
       <x>120</x>
       <y>113</y>
-      <width>100</width>
+      <width>121</width>
       <height>20</height>
      </rect>
     </property>
@@ -478,8 +484,8 @@ border:none;</string>
    <widget class="QCheckBox" name="chckBoxIsSupervisor">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>30</y>
+      <x>120</x>
+      <y>190</y>
       <width>91</width>
       <height>17</height>
      </rect>
@@ -496,8 +502,8 @@ border:none;</string>
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>31</y>
-      <width>100</width>
+      <y>70</y>
+      <width>121</width>
       <height>20</height>
      </rect>
     </property>
@@ -509,8 +515,8 @@ border:none;</string>
    <widget class="QLabel" name="lblDireccion">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>160</y>
+      <x>50</x>
+      <y>150</y>
       <width>60</width>
       <height>20</height>
      </rect>
@@ -544,8 +550,8 @@ border:none;</string>
    <widget class="QPushButton" name="bttLimpiarEmpleado">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>190</y>
+      <x>480</x>
+      <y>180</y>
       <width>100</width>
       <height>30</height>
      </rect>
@@ -590,8 +596,8 @@ border-radius:10px;
    <widget class="QPushButton" name="bttEliminarEmpleado">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>140</y>
+      <x>480</x>
+      <y>130</y>
       <width>100</width>
       <height>30</height>
      </rect>
@@ -636,8 +642,8 @@ border-radius:10px;
    <widget class="QPushButton" name="bttCrearEmpleado">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>40</y>
+      <x>480</x>
+      <y>30</y>
       <width>100</width>
       <height>30</height>
      </rect>
@@ -686,8 +692,8 @@ border-radius:10px;
    <widget class="QPushButton" name="bttModificarEmpleado">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>90</y>
+      <x>480</x>
+      <y>80</y>
       <width>100</width>
       <height>30</height>
      </rect>
@@ -732,10 +738,10 @@ border-radius:10px;
    <widget class="QLineEdit" name="txtDireccion">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>200</y>
-      <width>381</width>
-      <height>61</height>
+      <x>120</x>
+      <y>152</y>
+      <width>311</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">

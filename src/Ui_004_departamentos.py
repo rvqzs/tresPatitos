@@ -196,7 +196,7 @@ class Ui_Departamentos(object):
         self.cmb_jefatura.setCurrentText("")
         self.cmb_jefatura.setObjectName("cmb_jefatura")
         self.lbl_codigo_2 = QtWidgets.QLabel(self.frame)
-        self.lbl_codigo_2.setGeometry(QtCore.QRect(240, 20, 121, 111))
+        self.lbl_codigo_2.setGeometry(QtCore.QRect(250, 40, 61, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -213,7 +213,8 @@ class Ui_Departamentos(object):
 "border:none;\n"
 "")
         self.lbl_codigo_2.setText("")
-        self.lbl_codigo_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/icons8-stacked-organizational-chart-highlighted-parent-node-96.png"))
+        self.lbl_codigo_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/assign2.png"))
+        self.lbl_codigo_2.setScaledContents(True)
         self.lbl_codigo_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lbl_codigo_2.setObjectName("lbl_codigo_2")
         self.btnNewCode = QtWidgets.QPushButton(self.frame)

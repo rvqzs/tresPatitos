@@ -14,8 +14,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Usuarios(object):
     def setupUi(self, Usuarios):
         Usuarios.setObjectName("Usuarios")
-        Usuarios.resize(576, 800)
-        Usuarios.setMinimumSize(QtCore.QSize(576, 800))
+        Usuarios.resize(576, 685)
+        Usuarios.setMinimumSize(QtCore.QSize(575, 650))
         Usuarios.setMaximumSize(QtCore.QSize(600, 1000))
         Usuarios.setFocusPolicy(QtCore.Qt.StrongFocus)
         Usuarios.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
