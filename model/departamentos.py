@@ -12,10 +12,11 @@ class Departamentos:
         bd = departamento["TresPatitos"]
         try:
             tbl = bd["departamentos"]
-            doc = {"_id": self.codigo,
-                    "nombre": self.nombre,
-                    "jefatura":self.jefatura
-                }
+            doc ={
+            "_id": self.codigo,
+            "nombre": self.nombre,
+            "jefatura":self.jefatura
+            }
             tbl.insert_one(doc)
             estado = 1
         except Exception:
@@ -55,8 +56,8 @@ class Departamentos:
             filtro = {"_id": self.codigo}
             tbl.delete_one(filtro)
             estado = 1
-        except Exception:
-            print("Error al eliminar")
+        except Exception as e:
+            print("Error al eliminar", e)
             estado = 0
         finally:
             departamento.close
@@ -87,12 +88,6 @@ class Departamentos:
         bd=usuarios["TresPatitos"]
         size=bd.command("collstats","departamentos") #estadisticas
         return size["count"]
-    
-    def getJefaturas(self):
-        jefaturas = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
-        bd = jefaturas["TresPatitos"]
-        tbl = bd["empleados"]
-        return tbl.find({"jefatura": "Si"})
 
     def getLastCode(self):
         cliente = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
