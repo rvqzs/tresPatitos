@@ -14,160 +14,27 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Bienes(object):
     def setupUi(self, Bienes):
         Bienes.setObjectName("Bienes")
-        Bienes.resize(770, 400)
+        Bienes.resize(770, 527)
         Bienes.setMinimumSize(QtCore.QSize(770, 400))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/icons8-assets-64.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Bienes.setWindowIcon(icon)
         Bienes.setStyleSheet("background-color: rgb(191, 191, 191);")
-        self.label = QtWidgets.QLabel(Bienes)
-        self.label.setGeometry(QtCore.QRect(20, 40, 181, 16))
-        font = QtGui.QFont()
-        font.setFamily("Perpetua Titling MT")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.formLayoutWidget = QtWidgets.QWidget(Bienes)
-        self.formLayoutWidget.setGeometry(QtCore.QRect(20, 70, 169, 201))
-        self.formLayoutWidget.setObjectName("formLayoutWidget")
-        self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
-        self.formLayout.setContentsMargins(0, 0, 0, 0)
-        self.formLayout.setObjectName("formLayout")
-        self.lblPlaca = QtWidgets.QLabel(self.formLayoutWidget)
-        self.lblPlaca.setObjectName("lblPlaca")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.lblPlaca)
-        self.txtPlaca = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.txtPlaca.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.txtPlaca.setObjectName("txtPlaca")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.txtPlaca)
-        self.lblNombreBien = QtWidgets.QLabel(self.formLayoutWidget)
-        self.lblNombreBien.setObjectName("lblNombreBien")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.lblNombreBien)
-        self.txtNombreBien = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.txtNombreBien.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.txtNombreBien.setObjectName("txtNombreBien")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.txtNombreBien)
-        self.lblCategoria = QtWidgets.QLabel(self.formLayoutWidget)
-        self.lblCategoria.setObjectName("lblCategoria")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.lblCategoria)
-        self.txtCategoria = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.txtCategoria.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.txtCategoria.setObjectName("txtCategoria")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.txtCategoria)
-        self.lblDescripcion = QtWidgets.QLabel(self.formLayoutWidget)
-        self.lblDescripcion.setObjectName("lblDescripcion")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.lblDescripcion)
-        self.txtDescripcion = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.txtDescripcion.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.txtDescripcion.setObjectName("txtDescripcion")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.txtDescripcion)
-        self.lblestado = QtWidgets.QLabel(self.formLayoutWidget)
-        self.lblestado.setObjectName("lblestado")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.lblestado)
-        self.cbxEstado = QtWidgets.QComboBox(self.formLayoutWidget)
-        self.cbxEstado.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.cbxEstado.setObjectName("cbxEstado")
-        self.cbxEstado.addItem("")
-        self.cbxEstado.addItem("")
-        self.cbxEstado.addItem("")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.cbxEstado)
-        self.btnGuardar = QtWidgets.QPushButton(Bienes)
-        self.btnGuardar.setGeometry(QtCore.QRect(20, 280, 41, 41))
-        self.btnGuardar.setStyleSheet("QPushButton{\n"
-"background-color:rgb(255, 255, 255);\n"
-"border:none;\n"
-"border-radius:10px;\n"
-"font: 63 10pt \"Segoe UI Semibold\";\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"\n"
-"border:2px solid #55C1FA;\n"
-"border-radius:10px;\n"
-"}")
-        self.btnGuardar.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnGuardar.setIcon(icon1)
-        self.btnGuardar.setIconSize(QtCore.QSize(27, 27))
-        self.btnGuardar.setObjectName("btnGuardar")
-        self.btnModificar = QtWidgets.QPushButton(Bienes)
-        self.btnModificar.setGeometry(QtCore.QRect(70, 280, 41, 41))
-        self.btnModificar.setStyleSheet("QPushButton{\n"
-"background-color:rgb(255, 255, 255);\n"
-"border:none;\n"
-"border-radius:10px;\n"
-"font: 63 10pt \"Segoe UI Semibold\";\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"\n"
-"border:2px solid #55C1FA;\n"
-"border-radius:10px;\n"
-"}")
-        self.btnModificar.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnModificar.setIcon(icon2)
-        self.btnModificar.setIconSize(QtCore.QSize(27, 27))
-        self.btnModificar.setObjectName("btnModificar")
-        self.btnEliminar = QtWidgets.QPushButton(Bienes)
-        self.btnEliminar.setGeometry(QtCore.QRect(120, 280, 41, 41))
-        self.btnEliminar.setStyleSheet("QPushButton{\n"
-"background-color:rgb(255, 255, 255);\n"
-"border:none;\n"
-"border-radius:10px;\n"
-"font: 63 10pt \"Segoe UI Semibold\";\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"\n"
-"border:2px solid #55C1FA;\n"
-"border-radius:10px;\n"
-"}")
-        self.btnEliminar.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnEliminar.setIcon(icon3)
-        self.btnEliminar.setIconSize(QtCore.QSize(27, 27))
-        self.btnEliminar.setObjectName("btnEliminar")
-        self.btnCancelar = QtWidgets.QPushButton(Bienes)
-        self.btnCancelar.setGeometry(QtCore.QRect(170, 280, 41, 41))
-        self.btnCancelar.setStyleSheet("QPushButton{\n"
-"background-color:rgb(255, 255, 255);\n"
-"border:none;\n"
-"border-radius:10px;\n"
-"font: 63 10pt \"Segoe UI Semibold\";\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"\n"
-"border:2px solid #55C1FA;\n"
-"border-radius:10px;\n"
-"}")
-        self.btnCancelar.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnCancelar.setIcon(icon4)
-        self.btnCancelar.setIconSize(QtCore.QSize(27, 27))
-        self.btnCancelar.setObjectName("btnCancelar")
         self.pushButton_5 = QtWidgets.QPushButton(Bienes)
         self.pushButton_5.setEnabled(True)
-        self.pushButton_5.setGeometry(QtCore.QRect(640, 300, 101, 71))
+        self.pushButton_5.setGeometry(QtCore.QRect(560, 450, 91, 61))
         font = QtGui.QFont()
         font.setBold(False)
         font.setWeight(50)
         self.pushButton_5.setFont(font)
         self.pushButton_5.setText("")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/departamento.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_5.setIcon(icon5)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/departamento.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_5.setIcon(icon1)
         self.pushButton_5.setIconSize(QtCore.QSize(52, 52))
         self.pushButton_5.setObjectName("pushButton_5")
         self.tblRegistro = QtWidgets.QTableWidget(Bienes)
-        self.tblRegistro.setGeometry(QtCore.QRect(220, 70, 531, 201))
+        self.tblRegistro.setGeometry(QtCore.QRect(40, 300, 481, 151))
         self.tblRegistro.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.tblRegistro.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tblRegistro.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
@@ -184,6 +51,239 @@ class Ui_Bienes(object):
         self.tblRegistro.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tblRegistro.setHorizontalHeaderItem(4, item)
+        self.lbl_departamentos = QtWidgets.QLabel(Bienes)
+        self.lbl_departamentos.setGeometry(QtCore.QRect(50, 20, 211, 31))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Semibold")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(5)
+        self.lbl_departamentos.setFont(font)
+        self.lbl_departamentos.setStyleSheet("font: 43 10pt \"Segoe UI Semibold\";\n"
+"border:none;\n"
+"background-color: rgba(0,0,0,0%);")
+        self.lbl_departamentos.setObjectName("lbl_departamentos")
+        self.frame = QtWidgets.QFrame(Bienes)
+        self.frame.setGeometry(QtCore.QRect(40, 70, 481, 181))
+        self.frame.setToolTip("")
+        self.frame.setToolTipDuration(-1)
+        self.frame.setStyleSheet("border:4px solid;\n"
+"border-color: rgb(255, 255, 255);")
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.lbl_codigo = QtWidgets.QLabel(self.frame)
+        self.lbl_codigo.setGeometry(QtCore.QRect(30, 20, 51, 20))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Semibold")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.lbl_codigo.setFont(font)
+        self.lbl_codigo.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
+"border:none;")
+        self.lbl_codigo.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lbl_codigo.setObjectName("lbl_codigo")
+        self.lbl_nombre = QtWidgets.QLabel(self.frame)
+        self.lbl_nombre.setGeometry(QtCore.QRect(30, 50, 50, 17))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Semibold")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.lbl_nombre.setFont(font)
+        self.lbl_nombre.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
+"border:none;")
+        self.lbl_nombre.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lbl_nombre.setObjectName("lbl_nombre")
+        self.lbl_jefatura = QtWidgets.QLabel(self.frame)
+        self.lbl_jefatura.setGeometry(QtCore.QRect(20, 80, 61, 21))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Semibold")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.lbl_jefatura.setFont(font)
+        self.lbl_jefatura.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
+"border:none;")
+        self.lbl_jefatura.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lbl_jefatura.setObjectName("lbl_jefatura")
+        self.txtPlaca = QtWidgets.QLineEdit(self.frame)
+        self.txtPlaca.setGeometry(QtCore.QRect(90, 22, 71, 20))
+        self.txtPlaca.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.txtPlaca.setObjectName("txtPlaca")
+        self.txtNombreBien = QtWidgets.QLineEdit(self.frame)
+        self.txtNombreBien.setGeometry(QtCore.QRect(90, 50, 121, 20))
+        self.txtNombreBien.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.txtNombreBien.setObjectName("txtNombreBien")
+        self.cmbCategoria = QtWidgets.QComboBox(self.frame)
+        self.cmbCategoria.setEnabled(True)
+        self.cmbCategoria.setGeometry(QtCore.QRect(90, 80, 121, 20))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.cmbCategoria.sizePolicy().hasHeightForWidth())
+        self.cmbCategoria.setSizePolicy(sizePolicy)
+        self.cmbCategoria.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.cmbCategoria.setEditable(False)
+        self.cmbCategoria.setCurrentText("")
+        self.cmbCategoria.setObjectName("cmbCategoria")
+        self.lbl_codigo_2 = QtWidgets.QLabel(self.frame)
+        self.lbl_codigo_2.setGeometry(QtCore.QRect(290, 50, 61, 61))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lbl_codigo_2.sizePolicy().hasHeightForWidth())
+        self.lbl_codigo_2.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Semibold")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.lbl_codigo_2.setFont(font)
+        self.lbl_codigo_2.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
+"border:none;\n"
+"")
+        self.lbl_codigo_2.setText("")
+        self.lbl_codigo_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/imagenregistro.png"))
+        self.lbl_codigo_2.setScaledContents(True)
+        self.lbl_codigo_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lbl_codigo_2.setObjectName("lbl_codigo_2")
+        self.lbl_jefatura_2 = QtWidgets.QLabel(self.frame)
+        self.lbl_jefatura_2.setGeometry(QtCore.QRect(10, 110, 71, 21))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Semibold")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.lbl_jefatura_2.setFont(font)
+        self.lbl_jefatura_2.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
+"border:none;")
+        self.lbl_jefatura_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lbl_jefatura_2.setObjectName("lbl_jefatura_2")
+        self.txtDescripcion = QtWidgets.QLineEdit(self.frame)
+        self.txtDescripcion.setGeometry(QtCore.QRect(90, 110, 121, 19))
+        self.txtDescripcion.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.txtDescripcion.setObjectName("txtDescripcion")
+        self.lbl_jefatura_3 = QtWidgets.QLabel(self.frame)
+        self.lbl_jefatura_3.setGeometry(QtCore.QRect(10, 140, 71, 21))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Semibold")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.lbl_jefatura_3.setFont(font)
+        self.lbl_jefatura_3.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
+"border:none;")
+        self.lbl_jefatura_3.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lbl_jefatura_3.setObjectName("lbl_jefatura_3")
+        self.cbxEstado = QtWidgets.QComboBox(self.frame)
+        self.cbxEstado.setGeometry(QtCore.QRect(90, 140, 121, 20))
+        self.cbxEstado.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.cbxEstado.setObjectName("cbxEstado")
+        self.cbxEstado.addItem("")
+        self.cbxEstado.addItem("")
+        self.cbxEstado.addItem("")
+        self.btnEliminar = QtWidgets.QPushButton(Bienes)
+        self.btnEliminar.setGeometry(QtCore.QRect(317, 260, 94, 31))
+        self.btnEliminar.setStyleSheet("QPushButton{\n"
+"background-color:rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"border:2px solid #55C1FA;\n"
+"border-radius:10px;\n"
+"}")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnEliminar.setIcon(icon2)
+        self.btnEliminar.setIconSize(QtCore.QSize(20, 20))
+        self.btnEliminar.setObjectName("btnEliminar")
+        self.btnModificar = QtWidgets.QPushButton(Bienes)
+        self.btnModificar.setGeometry(QtCore.QRect(206, 260, 106, 31))
+        self.btnModificar.setStyleSheet("QPushButton{\n"
+"background-color:rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"border:2px solid #55C1FA;\n"
+"border-radius:10px;\n"
+"}")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnModificar.setIcon(icon3)
+        self.btnModificar.setIconSize(QtCore.QSize(20, 20))
+        self.btnModificar.setObjectName("btnModificar")
+        self.btnGuardar = QtWidgets.QPushButton(Bienes)
+        self.btnGuardar.setGeometry(QtCore.QRect(100, 260, 101, 31))
+        self.btnGuardar.setStyleSheet("QPushButton{\n"
+"background-color:rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"border:2px solid #55C1FA;\n"
+"border-radius:10px;\n"
+"}")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnGuardar.setIcon(icon4)
+        self.btnGuardar.setIconSize(QtCore.QSize(20, 20))
+        self.btnGuardar.setObjectName("btnGuardar")
+        self.btnCancelar = QtWidgets.QPushButton(Bienes)
+        self.btnCancelar.setGeometry(QtCore.QRect(420, 260, 81, 30))
+        self.btnCancelar.setMaximumSize(QtCore.QSize(90, 30))
+        self.btnCancelar.setStyleSheet("QPushButton{\n"
+"background-color:rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"border:2px solid #55C1FA;\n"
+"border-radius:10px;\n"
+"}")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnCancelar.setIcon(icon5)
+        self.btnCancelar.setIconSize(QtCore.QSize(18, 18))
+        self.btnCancelar.setObjectName("btnCancelar")
+        self.labelHeader = QtWidgets.QLabel(Bienes)
+        self.labelHeader.setGeometry(QtCore.QRect(20, 20, 31, 31))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Semibold")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.labelHeader.setFont(font)
+        self.labelHeader.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
+"background-color: rgba(0,0,0,0%);")
+        self.labelHeader.setText("")
+        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/icons8-assets-6412.png"))
+        self.labelHeader.setScaledContents(True)
+        self.labelHeader.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.labelHeader.setObjectName("labelHeader")
 
         self.retranslateUi(Bienes)
         QtCore.QMetaObject.connectSlotsByName(Bienes)
@@ -191,15 +291,6 @@ class Ui_Bienes(object):
     def retranslateUi(self, Bienes):
         _translate = QtCore.QCoreApplication.translate
         Bienes.setWindowTitle(_translate("Bienes", "Bienes"))
-        self.label.setText(_translate("Bienes", "Registro de bienes"))
-        self.lblPlaca.setText(_translate("Bienes", "Placa"))
-        self.lblNombreBien.setText(_translate("Bienes", "Nombre"))
-        self.lblCategoria.setText(_translate("Bienes", "Categoria"))
-        self.lblDescripcion.setText(_translate("Bienes", "Descripción"))
-        self.lblestado.setText(_translate("Bienes", "Estado:"))
-        self.cbxEstado.setItemText(0, _translate("Bienes", "Asignable"))
-        self.cbxEstado.setItemText(1, _translate("Bienes", "Reparacion"))
-        self.cbxEstado.setItemText(2, _translate("Bienes", "Exclusion"))
         item = self.tblRegistro.horizontalHeaderItem(0)
         item.setText(_translate("Bienes", "Placa"))
         item = self.tblRegistro.horizontalHeaderItem(1)
@@ -210,3 +301,25 @@ class Ui_Bienes(object):
         item.setText(_translate("Bienes", "Descripcion"))
         item = self.tblRegistro.horizontalHeaderItem(4)
         item.setText(_translate("Bienes", "Estado"))
+        self.lbl_departamentos.setText(_translate("Bienes", "Registrar de Bienes"))
+        self.frame.setAccessibleDescription(_translate("Bienes", "Generar código"))
+        self.lbl_codigo.setText(_translate("Bienes", "Placa"))
+        self.lbl_nombre.setText(_translate("Bienes", "Nombre"))
+        self.lbl_jefatura.setText(_translate("Bienes", "Categoría"))
+        self.lbl_jefatura_2.setText(_translate("Bienes", "Descripción"))
+        self.lbl_jefatura_3.setText(_translate("Bienes", "Estado"))
+        self.cbxEstado.setItemText(0, _translate("Bienes", "Asignable"))
+        self.cbxEstado.setItemText(1, _translate("Bienes", "Reparacion"))
+        self.cbxEstado.setItemText(2, _translate("Bienes", "Exclusion"))
+        self.btnEliminar.setToolTip(_translate("Bienes", "CTRL+DEL"))
+        self.btnEliminar.setText(_translate("Bienes", "Eliminar"))
+        self.btnEliminar.setShortcut(_translate("Bienes", "Ctrl+Del"))
+        self.btnModificar.setToolTip(_translate("Bienes", "CTRL+E"))
+        self.btnModificar.setText(_translate("Bienes", "Modificar"))
+        self.btnModificar.setShortcut(_translate("Bienes", "Ctrl+E"))
+        self.btnGuardar.setToolTip(_translate("Bienes", "CTRL+S"))
+        self.btnGuardar.setText(_translate("Bienes", "Registrar"))
+        self.btnGuardar.setShortcut(_translate("Bienes", "Ctrl+C"))
+        self.btnCancelar.setToolTip(_translate("Bienes", "CTRL+W"))
+        self.btnCancelar.setText(_translate("Bienes", "Limpiar"))
+        self.btnCancelar.setShortcut(_translate("Bienes", "Ctrl+W"))
