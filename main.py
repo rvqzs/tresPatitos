@@ -56,11 +56,6 @@ class Login(QDialog):
         msg.setWindowTitle("Notificación del Sistema")
         retval=msg.exec_()
 
-    # def login(self):
-    #     mdi = mdiApp()
-    #     mdi.show()
-    #     self.close()
-
     def startLoading(self):
         self.loading_dialog = winLoadingDialog(self)
         self.loading_dialog.show()
