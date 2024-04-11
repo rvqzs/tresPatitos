@@ -175,6 +175,10 @@ class mdiApp(QMainWindow):
         login_dialog.exec_()
 
     #Usuarios
+    #TODO: If text="" disable btn.limpiar
+    #TODO: If row.selected disable btn.crear
+    #TODO: If row.selected and user is admin Admin_CheckBox.isChecked=True else False
+    
     def openWinUsuarios(self):
         usuarios=Usuarios()
         self.winUsuarios=winUsuarios()
@@ -358,6 +362,9 @@ class mdiApp(QMainWindow):
         self.togglePasswordVisibility(visibility)
 
     #Empleados
+    #TODO: If text="" disable btn limpiar
+    #TODO: Autollenar nombre
+    #TODO: If row.selected and user is Supervisor Supervisor_CheckBox.isChecked=True else False
 
     def openWinEmpleados(self):
         creacionEmpleado=Empleados()
@@ -499,6 +506,7 @@ class mdiApp(QMainWindow):
             i+=1
 
     #Departamentos
+    #TODO: Pantalla de carga para boton Refresh
     
     def openWinDepartamentos(self):
         self.winDepartamentos=winDepartamentos()
@@ -648,6 +656,10 @@ class mdiApp(QMainWindow):
 
     #Bienes
 
+    #Bienes
+    #TODO: Se cierra al seleccionar un bien de la tabla
+    #TODO: ComboBox Categoria no tiene Categorías
+    
     def openWinBienes(self):
         bien=Bienes()
         self.winBienes=winBienes()
