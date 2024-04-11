@@ -2,7 +2,7 @@ import pymongo
 
 class Empleados:
     def __init__(self, usuario=1, departamento =2, cedula=3, nombre=4, telefono=5,
-                fechaIngreso=6, direccion=7, puesto=8):
+                fechaIngreso=6, direccion=7, isJefatura=8):
         
         self.usuario=usuario
         self.cedula = cedula
@@ -11,7 +11,7 @@ class Empleados:
         self.fechaIngreso=fechaIngreso
         self.direccion= direccion
         self.departamento=departamento
-        self.puesto=puesto
+        self.isJefatura=isJefatura
 
     def guardarEmpleados(self):
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
@@ -26,7 +26,7 @@ class Empleados:
                 "telefono":self.telefono,
                 "fechaIngreso":self.fechaIngreso,
                 "direccion":self.direccion,
-                "puesto":self.puesto
+                "isJefatura":self.isJefatura
                 }
             #insertar en la tabla
             tbl.insert_one(doc)
@@ -52,7 +52,7 @@ class Empleados:
                 "telefono":self.telefono,
                 "fechaIngreso":self.fechaIngreso,
                 "direccion":self.direccion,
-                "puesto":self.puesto
+                "isJefatura":self.isJefatura
                 }
                 }
             tbl.update_one(filtro,doc)
@@ -87,6 +87,12 @@ class Empleados:
         bd=empleados["TresPatitos"]
         tbl=bd["empleados"]
         return tbl.find()
+    
+    def getJefaturas(self):
+        jefaturas = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = jefaturas["TresPatitos"]
+        tbl = bd["empleados"]
+        return tbl.find({"isJefatura":True})
     
     def getRegistrosEmpleados(self):
         empleados=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
