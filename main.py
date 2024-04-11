@@ -59,10 +59,10 @@ class Login(QDialog):
     def startLoading(self):
         self.loading_dialog = winLoadingDialog(self)
         self.loading_dialog.show()
-        time.sleep(2)
+        time.sleep(1)
         self.loading_dialog.update_progress(50)
         self.loading_dialog.update_message("Cargando...")
-        time.sleep(3)
+        time.sleep(1)
         self.loading_dialog.close()
 
     def validarAdmin(self):
