@@ -126,6 +126,48 @@ class mdiApp(QMainWindow):
         msg.setWindowTitle("Notificación del Sistema")
         retval=msg.exec_()
 
+    def areButtonsEnabled(self, button1=None, button2=None, #* This function works
+                button3=None, button4=None, isEnabled=bool):
+        if button1 is not None:
+            button1.setEnabled(isEnabled)
+        if button2 is not None:
+            button2.setEnabled(isEnabled)
+        if button3 is not None:
+            button3.setEnabled(isEnabled)
+        if button4 is not None:
+            button4.setEnabled(isEnabled)
+
+    def isTextFilled(self, txt1=None, txt2=None, txt3=None, txt4=None): #* This function works
+        if txt1 is not None:
+            if txt1.text() == "":
+                return False
+        if txt2 is not None:
+            if txt2.text() == "":
+                return False
+        if txt3 is not None:
+            if txt3.text() == "":
+                return False
+        if txt4 is not None:
+            if txt4.text() == "":
+                return False
+            
+        return True
+    
+    def populateComboBox(self, comboBox, datos): 
+        comboBox.clear()
+        comboBox.addItem("Seleccionar")
+        for d in datos:
+            nombre = d.get("nombre", "")
+            if nombre:
+                comboBox.addItem(nombre)
+
+    def clearTextAndComboBox(self, *elementos): #*This function works fine
+        for elemento in elementos:
+            if isinstance(elemento, QLineEdit):
+                elemento.setText("")
+            elif isinstance(elemento, QComboBox):
+                elemento.setCurrentIndex(0)
+
     def exitApp(self):
         self.hide()
         login_dialog = Login()
@@ -133,7 +175,6 @@ class mdiApp(QMainWindow):
         login_dialog.exec_()
 
     #Usuarios
-
     def openWinUsuarios(self):
         usuarios=Usuarios()
         self.winUsuarios=winUsuarios()
