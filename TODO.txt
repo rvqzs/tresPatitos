@@ -1,0 +1,33 @@
+└─ tresPatitosUIA
+   └─ main.py
+      ├─ line 77: TODO : Hacer que la validación del usuario administrador se haga desde model/usuarios
+      ├─ line 78: TODO : Hacer una validación para usuarios no admin
+      ├─ line 178: TODO : If text = "" disable btn limpiar
+      ├─ line 179: TODO : If row selected disable btn.crear
+      ├─ line 180: TODO : If row selected and user is admin AdminCheckBox: Checked=True else False
+      ├─ line 290: TODO Cambiar btnEditSaveAreEnabled(False) por areButtonsEnabled()
+      ├─ line 366: TODO : If text = "" disable btn limpiar
+      ├─ line 368: TODO : If row selected and user is Supervisor SupervisorCheckBox: isChecked=True else False
+      ├─ line 552: TODO : Agregar Pantalla de carga para boton Refresh
+      ├─ line 726: FIXME : Se cierra al seleccionar un row de la tabla
+      ├─ line 727: TODO : Añadir Categorias al comboBox Categorías
+      ├─ line 728: TODO : Agregar Boton Generar placa - Placa debe tener un formato de 2 letras y 4 números según requerimiento, por ejemplo, AB-1234
+      ├─ line 729: TODO : Agregar Funciones de Enable y Disable de los botones
+      ├─ line 799: TODO : Quitar el background al header y al frame de datos
+      ├─ line 800: TODO : Cambiar nombre e icono del label Header
+      ├─ line 801: TODO : Cambiar label "Codigo" por "Usuario"
+      ├─ line 802: TODO : Eliminar label y txt Apellidos
+      ├─ line 803: TODO : Poner nombre a las columnas de la tabla
+      ├─ line 804: TODO : Ajustar nombres de columnas de la tabla y labels para mostrar informacion
+      ├─ line 805: TODO : Ajustar tamaño de la tabla para poder ver la info completa
+      ├─ line 806: TODO : Cambiar nombre a label "Bien Asignado" a "Bienes Asignables"
+      ├─ line 807: TODO : ? Eliminar boton eliminar - En esta pantalla no se deberia eliminar nada
+      ├─ line 808: TODO : Cambiar boton de "Registrar" a "Guardar"
+      ├─ line 809: TODO : Agregar Txt que muestre la placa del bien o que el combobox muestre la placa y un txt el nombre
+      ├─ line 895: FIXME : La pantalla se cierra al seleccionar un row de la tabla
+      ├─ line 897: TODO : Pantalla no inicia del tamaño minimo correcto
+      ├─ line 898: TODO : Combobox "Seleccione Empleado" deberia cargar usuarios no nombres
+      ├─ line 899: TODO : Agregar nombres a las columnas de tabla tblDesligar y tblDesligar2
+      ├─ line 900: TODO : La tabla tblDesligar no debería mostrar bienes "No Asignados" sino Asignados, la ventana es para Desligar bienes
+      ├─ line 999: TODO : La ventana inincia minimizada
+      └─ line 1000: TODO : La tabla es del mismo color del fondo
