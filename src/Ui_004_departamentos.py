@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\004_departamentos.ui'
+# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\004_departamentos.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -18,7 +18,7 @@ class Ui_Departamentos(object):
         Departamentos.setMinimumSize(QtCore.QSize(480, 650))
         Departamentos.setMaximumSize(QtCore.QSize(500, 650))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconMenuDepartamentos.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconMenuDepartamentos.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Departamentos.setWindowIcon(icon)
         Departamentos.setToolTipDuration(1)
         Departamentos.setStyleSheet("background-color: rgb(206, 206, 206);")
@@ -72,7 +72,7 @@ class Ui_Departamentos(object):
 "border-radius:10px;\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_registrar.setIcon(icon1)
         self.btn_registrar.setIconSize(QtCore.QSize(20, 20))
         self.btn_registrar.setObjectName("btn_registrar")
@@ -90,7 +90,7 @@ class Ui_Departamentos(object):
 "border-radius:10px;\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_editar.setIcon(icon2)
         self.btn_editar.setIconSize(QtCore.QSize(20, 20))
         self.btn_editar.setObjectName("btn_editar")
@@ -108,7 +108,7 @@ class Ui_Departamentos(object):
 "border-radius:10px;\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_eliminar.setIcon(icon3)
         self.btn_eliminar.setIconSize(QtCore.QSize(20, 20))
         self.btn_eliminar.setObjectName("btn_eliminar")
@@ -124,7 +124,7 @@ class Ui_Departamentos(object):
         self.labelHeader.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
 "background-color: rgba(0,0,0,0%);")
         self.labelHeader.setText("")
-        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconDepartamentoHeader.png"))
+        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconDepartamentoHeader.png"))
         self.labelHeader.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.labelHeader.setObjectName("labelHeader")
         self.frame = QtWidgets.QFrame(Departamentos)
@@ -213,7 +213,7 @@ class Ui_Departamentos(object):
 "border:none;\n"
 "")
         self.lbl_codigo_2.setText("")
-        self.lbl_codigo_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/assign2.png"))
+        self.lbl_codigo_2.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/assign2.png"))
         self.lbl_codigo_2.setScaledContents(True)
         self.lbl_codigo_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lbl_codigo_2.setObjectName("lbl_codigo_2")
@@ -234,7 +234,7 @@ class Ui_Departamentos(object):
 "}")
         self.btnNewCode.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconNewDoc.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconNewDoc.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnNewCode.setIcon(icon4)
         self.btnNewCode.setObjectName("btnNewCode")
         self.btnLimpiar = QtWidgets.QPushButton(Departamentos)
@@ -253,7 +253,7 @@ class Ui_Departamentos(object):
 "border-radius:10px;\n"
 "}")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnLimpiar.setIcon(icon5)
         self.btnLimpiar.setIconSize(QtCore.QSize(18, 18))
         self.btnLimpiar.setObjectName("btnLimpiar")
@@ -273,7 +273,7 @@ class Ui_Departamentos(object):
 "}")
         self.btnRefresh.setText("")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/icons8-refresh-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/icons8-refresh-48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnRefresh.setIcon(icon6)
         self.btnRefresh.setShortcut("")
         self.btnRefresh.setObjectName("btnRefresh")

@@ -909,8 +909,8 @@ class mdiApp(QMainWindow):
         self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.espaciosDesligar)
         self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.cargarMetodoTablaDesligar)
         self.winDesligar.uiDesligar.btnDesligar.clicked.connect(self.modificarDesligar)
-        self.cargarTablaDesligar(desligar.getNumeroDesligar(),desligar.getAsignados())
-        self.winDesligar.uiDesligar.tblDesligar.clicked.connect(self.cargarDatosDesligar)
+        #self.cargarTablaDesligar(desligar.getNumeroDesligar(),desligar.getAsignados())
+        self.winDesligar.uiDesligar.tblDesligar2.clicked.connect(self.cargarDatosDesligar)
         #self.cargarEmpleadosAsignados(desligar.getNumeroDesligar(),desligar.getAsignados())
         self.winDesligar.show()
 
@@ -934,7 +934,7 @@ class mdiApp(QMainWindow):
 
         self.winDesligar.uiDesligar.tblDesligar2.setRowCount(numFilas)
         #determinar el numero de columnas de la tabla
-        self.winDesligar.uiDesligar.tblDesligar2.setColumnCount(2)
+        self.winDesligar.uiDesligar.tblDesligar2.setColumnCount(3)
 
         nombreArchivo=self.winDesligar.uiDesligar.cbxEmpleados.currentText()
         i=0
@@ -942,8 +942,9 @@ class mdiApp(QMainWindow):
             nombre=d["nombre"]
             #bien=["bien_asignado"]
             if nombre==nombreArchivo:
-                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,0,QTableWidgetItem(d["nombre"]))
-                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,1,QTableWidgetItem(d["bien_asignado"]))
+                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,0,QTableWidgetItem(d["_id"]))
+                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,1,QTableWidgetItem(d["nombre"]))
+                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,2,QTableWidgetItem(d["bien_asignado"]))
                 i+=1
 
     def espaciosDesligar(self):
@@ -969,7 +970,7 @@ class mdiApp(QMainWindow):
         else:
             self.msgBox("Error al desligar los datos",QMessageBox.Warning)
 
-    def cargarTablaDesligar(self, numFilas, datos):
+    """def cargarTablaDesligar(self, numFilas, datos):
         #determinar el numero de filas de la tabla
         self.winDesligar.uiDesligar.tblDesligar.setRowCount(numFilas)
         #determinar el numero de columnas de la tabla
@@ -980,7 +981,7 @@ class mdiApp(QMainWindow):
             self.winDesligar.uiDesligar.tblDesligar.setItem(i,0,QTableWidgetItem(d["_id"]))
             self.winDesligar.uiDesligar.tblDesligar.setItem(i,1,QTableWidgetItem(d["nombre"]))
             self.winDesligar.uiDesligar.tblDesligar.setItem(i,2,QTableWidgetItem(d["bien_asignado"]))
-            i+=1
+            i+=1"""
     
     def comboBoxBienesAsignado(self, datos):
         for d in datos:
@@ -989,11 +990,11 @@ class mdiApp(QMainWindow):
                 self.winDesligar.uiDesligar.cbxEmpleados.addItem(nombre)
 
     def cargarDatosDesligar(self):
-        numFila=self.winDesligar.uiDesligar.tblDesligar.currentRow()
+        numFila=self.winDesligar.uiDesligar.tblDesligar2.currentRow()
         #self.winDesligar.uiDesligar.cbxEmpleados.setCurrentText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,0).text())
-        self.winDesligar.uiDesligar.txtCedula.setText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,0).text())
-        self.winDesligar.uiDesligar.txtNombre.setText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,1).text())
-        self.winDesligar.uiDesligar.txtBienAsignado.setText(self.winDesligar.uiDesligar.tblDesligar.item(numFila,2).text())
+        self.winDesligar.uiDesligar.txtCedula.setText(self.winDesligar.uiDesligar.tblDesligar2.item(numFila,0).text())
+        self.winDesligar.uiDesligar.txtNombre.setText(self.winDesligar.uiDesligar.tblDesligar2.item(numFila,1).text())
+        self.winDesligar.uiDesligar.txtBienAsignado.setText(self.winDesligar.uiDesligar.tblDesligar2.item(numFila,2).text())
 
     #Reportes
 #TODO: La ventana inincia minimizada

@@ -26,31 +26,12 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(191, 191, 191);</string>
   </property>
-  <widget class="QTableWidget" name="tblDesligar">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>320</y>
-     <width>256</width>
-     <height>192</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="editTriggers">
-    <set>QAbstractItemView::NoEditTriggers</set>
-   </property>
-   <property name="selectionBehavior">
-    <enum>QAbstractItemView::SelectRows</enum>
-   </property>
-  </widget>
   <widget class="QTableWidget" name="tblDesligar2">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>160</x>
      <y>320</y>
-     <width>256</width>
+     <width>301</width>
      <height>192</height>
     </rect>
    </property>
@@ -63,6 +44,30 @@
    <property name="selectionBehavior">
     <enum>QAbstractItemView::SelectRows</enum>
    </property>
+   <property name="columnCount">
+    <number>3</number>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+    <bool>false</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>Cedula</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nombre</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Bien asignado</string>
+    </property>
+   </column>
   </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -234,7 +239,7 @@ border:none;
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txtApellidos">
+   <widget class="QLineEdit" name="txtNombre">
     <property name="geometry">
      <rect>
       <x>140</x>
