@@ -21,7 +21,7 @@ class AsignarBienes:
             doc={"cedula":self.cedula,
                 "nombre":self.nombre,
                 "telefono":self.telefono,
-                "bien_asignado": self.bienAsignado}
+                "_id": self.bienAsignado}
             #insertar en la tabla
             tbl.insert_one(doc)
             estado=1

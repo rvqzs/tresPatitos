@@ -830,7 +830,7 @@ class mdiApp(QMainWindow):
             self.cargarTablaBienesAsignado(bienesAsignados.getNumeroAsignados(),bienesAsignados.getAsignados())
             self.limpiarAsignados()
         else:
-            self.msgBox("Error al Guardar los datos",QMessageBox.Warning)
+            self.msgBox("Error al guardar los datos, el bien ya ha sido asignado a un empleado",QMessageBox.Warning)
 
     def limpiarAsignados(self):
         self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.setCurrentIndex(0)
@@ -865,7 +865,7 @@ class mdiApp(QMainWindow):
             self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,0,QTableWidgetItem(d["cedula"]))
             self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,1,QTableWidgetItem(d["nombre"]))
             self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,2,QTableWidgetItem(d["telefono"]))
-            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,3,QTableWidgetItem(d["bien_asignado"]))
+            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,3,QTableWidgetItem(d["_id"]))
             i+=1
 
     def comboBoxAsignarEmpeladosCedula(self, datos):
