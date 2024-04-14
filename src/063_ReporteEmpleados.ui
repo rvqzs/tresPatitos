@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ReporteEmpleados</class>
+ <widget class="QWidget" name="ReporteEmpleados">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1057</width>
+    <height>549</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1020</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Empleados por Departamento</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(206, 206, 206);</string>
+  </property>
+  <widget class="QLabel" name="labelHeader">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>261</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 43 10pt &quot;Segoe UI Semibold&quot;;
+border:none;
+background-color: rgba(0,0,0,0%);</string>
+   </property>
+   <property name="text">
+    <string>Empleados por Departamento</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tblEmpleadosDepartamento">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>160</y>
+     <width>450</width>
+     <height>270</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
+   </property>
+   <column>
+    <property name="text">
+     <string>Fecha de Ingreso</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Cedula</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nombre</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Puesto</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QComboBox" name="cmbBoxDepartamento">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>80</y>
+     <width>101</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelDepartamentos">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>80</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 43 10pt &quot;Segoe UI Semibold&quot;;
+border:none;
+background-color: rgba(0,0,0,0%);</string>
+   </property>
+   <property name="text">
+    <string>Departamento</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelEmpleados">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>130</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 43 10pt &quot;Segoe UI Semibold&quot;;
+border:none;
+background-color: rgba(0,0,0,0%);</string>
+   </property>
+   <property name="text">
+    <string>Empleados</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelGrafico">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>130</y>
+     <width>271</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 43 10pt &quot;Segoe UI Semibold&quot;;
+border:none;
+background-color: rgba(0,0,0,0%);</string>
+   </property>
+   <property name="text">
+    <string>Cantidad de Empleados por Departamento</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnExport">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>440</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color:rgb(255, 255, 255);
+border:none;
+border-radius:10px;
+font: 63 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QPushButton:hover{
+
+border:2px solid #55C1FA;
+border-radius:10px;
+}</string>
+   </property>
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnSearch">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>80</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Search</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="graphicFrame">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>160</y>
+     <width>500</width>
+     <height>300</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

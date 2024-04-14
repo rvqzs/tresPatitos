@@ -2,7 +2,11 @@ import sys
 import time
 import pymongo
 
-# Widgets
+#Graphics
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+
+#Widgets
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *   
 from PyQt5.QtWidgets import QWidget
@@ -32,6 +36,7 @@ from src.Ui_052_desligar_bienes import Ui_Desligar
 from src.Ui_061_reporte_bienes_asignados import Ui_ReporteBienesAsignados
 from src.Ui_062_reporte_bienes_no_asignables import Ui_ReportBienesNoAsignables
 from src.Ui_070_LoadingBox import Ui_LoadingDialog
+from src.Ui_063_ReporteEmpleados import Ui_ReporteEmpleados
 
 class Login(QDialog):
     
@@ -118,7 +123,8 @@ class mdiApp(QMainWindow):
         self.uiMdi.mnuDesligar.triggered.connect(self.openWinDesligarBienes)
         self.uiMdi.submnuBienesAsignados.triggered.connect(self.openWinReporteBienesAsignados)
         self.uiMdi.submnuBienes_no_Asignados.triggered.connect(self.openWinReporteBienesNoAsignables)
-        
+        self.uiMdi.subMenuReporteEmpleados.triggered.connect(self.openWinReporteEmpleados)
+
     def msgBox(self,mensaje,icono):
         msg = QMessageBox()
         msg.setText(mensaje)
@@ -1047,6 +1053,71 @@ class mdiApp(QMainWindow):
                 self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.tblWidgetBienesNoAsignados.setItem(i,4,QTableWidgetItem(d["estado"]))
                 i+=1
 
+    #Reporte Empleados por Departamento
+    
+    def openWinReporteEmpleados(self):
+        self.winReporteEmpleados=winReporteEmpleados()
+        departamento=Departamentos()
+        self.uiMdi.mdiArea.addSubWindow(self.winReporteEmpleados)
+        self.winReporteEmpleados.show()
+
+        self.populateComboBox(self.winReporteEmpleados.uiReporteEmpleados.cmbBoxDepartamento, departamento.getDepartamentos())  
+        self.generarGraficoPastel()
+
+        self.winReporteEmpleados.uiReporteEmpleados.btnSearch.clicked.connect(lambda: self.cargarTablaReporteEmpleados())
+
+    def cargarTablaReporteEmpleados(self):     
+        empleado = Empleados()
+        row = empleado.getCountEmpleadosByDepartment(self.winReporteEmpleados.uiReporteEmpleados.cmbBoxDepartamento.currentText())
+        data = empleado.getEmpleadosByDepartment(self.winReporteEmpleados.uiReporteEmpleados.cmbBoxDepartamento.currentText())
+
+        self.winReporteEmpleados.uiReporteEmpleados.tblEmpleadosDepartamento.setRowCount(row)
+        self.winReporteEmpleados.uiReporteEmpleados.tblEmpleadosDepartamento.setColumnCount(4)
+        i = 0
+        for b in data:
+            self.winReporteEmpleados.uiReporteEmpleados.tblEmpleadosDepartamento.setItem(i, 0, QTableWidgetItem(b["fechaIngreso"]))
+            self.winReporteEmpleados.uiReporteEmpleados.tblEmpleadosDepartamento.setItem(i, 1, QTableWidgetItem(b["cedula"]))
+            self.winReporteEmpleados.uiReporteEmpleados.tblEmpleadosDepartamento.setItem(i, 2, QTableWidgetItem(b["nombre"]))
+            isJefatura = "Supervisor" if b["isJefatura"] else "Empleado"
+            self.winReporteEmpleados.uiReporteEmpleados.tblEmpleadosDepartamento.setItem(i, 3, QTableWidgetItem(isJefatura))
+            i+=1
+
+    def generarGraficoPastel(self):
+        empleados = Empleados() 
+        departamentos = {}
+        total_empleados = 0
+
+        # Obtener solo los departamentos con empleados
+        departamentos_con_empleados = [departamento["nombre"] for departamento in Departamentos().getDepartamentos()
+                                        if empleados.getCountEmpleadosByDepartment(departamento["nombre"]) > 0]
+
+        for nombre_departamento in departamentos_con_empleados:
+            count = empleados.getCountEmpleadosByDepartment(nombre_departamento)
+            departamentos[nombre_departamento] = count
+            total_empleados += count
+
+        labels = [f"{nombre}\nEmpleados: {count}\nPorcentaje: {count / total_empleados * 100:.1f}%"
+                    for nombre, count in departamentos.items()]
+
+        # Create the pie chart
+        fig, ax = plt.subplots()
+        ax.pie(departamentos.values(), labels=labels, startangle=140, textprops={'fontsize': 'smaller'}, radius=0.5)
+        ax.axis('equal')  # Make the chart circular
+        plt.subplots_adjust(top=0.8)
+        ax.set_title('Empleados por departamento', pad=20)  # Add padding to the title
+
+        # Create a FigureCanvas using the Matplotlib figure
+        canvas = FigureCanvas(fig)
+        # Create a layout for graphicFrame
+        layout = QVBoxLayout(self.winReporteEmpleados.uiReporteEmpleados.graphicFrame)
+        # Add the canvas to the layout of graphicFrame
+        layout.addWidget(canvas)
+        # Set the layout for graphicFrame
+        self.winReporteEmpleados.uiReporteEmpleados.graphicFrame.setLayout(layout)
+
+        # plt.show()
+
+
     #Class Windows
 
 class winLogin(QWidget):
@@ -1103,10 +1174,16 @@ class winReportBienesNoAsignables(QWidget):
         self.uiReporteBienesNoAsignables=Ui_ReportBienesNoAsignables()
         self.uiReporteBienesNoAsignables.setupUi(self)
 
+class winReporteEmpleados(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.uiReporteEmpleados=Ui_ReporteEmpleados()
+        self.uiReporteEmpleados.setupUi(self)
+
 class winReportes(QWidget):
     def __init__(self):
         super().__init__()
-        
+
 class winLoadingDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
