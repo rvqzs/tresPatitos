@@ -295,7 +295,6 @@ class mdiApp(QMainWindow):
         username = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper()
         name = self.winUsuarios.uiUsuarios.txtName.text().strip().title()
         password = self.winUsuarios.uiUsuarios.txtPassword.text().strip()
-        # confirm_password = self.winUsuarios.uiUsuarios.txtConfirmPassword.text().strip()
         is_admin = self.winUsuarios.uiUsuarios.chkBoxAdmin.isChecked()
 
         user = Usuarios(username, name, password, is_admin)
@@ -550,7 +549,7 @@ class mdiApp(QMainWindow):
 
     #Departamentos
     #TODO: Agregar Pantalla de carga para boton Refresh 
-    
+
     def openWinDepartamentos(self):
         self.winDepartamentos=winDepartamentos()
         self.uiMdi.mdiArea.addSubWindow(self.winDepartamentos)
@@ -607,7 +606,7 @@ class mdiApp(QMainWindow):
         else:
             self.msgBox("Error al registrar departamento",QMessageBox.Warning)
             return
-        
+
     def actualizarDepartamento(self):
         departamento=Departamentos()
         # codigo=self.winDepartamentos.uiDepartamentos.txt_codigo.text().strip().upper()
@@ -655,7 +654,7 @@ class mdiApp(QMainWindow):
         self.clearTextAndComboBox(self.winDepartamentos.uiDepartamentos.txt_codigo,
                                     self.winDepartamentos.uiDepartamentos.txt_nombre,
                                     self.winDepartamentos.uiDepartamentos.cmb_jefatura)
-        
+
     def cargarTablaDepartamentos(self, rowCount, datos):
         self.winDepartamentos.uiDepartamentos.tblDepartamentos.setRowCount(rowCount)
         self.winDepartamentos.uiDepartamentos.tblDepartamentos.setColumnCount(3)
@@ -701,7 +700,7 @@ class mdiApp(QMainWindow):
         self.winDepartamentos.uiDepartamentos.txt_codigo.setText(nuevo_codigo)
         self.winDepartamentos.uiDepartamentos.txt_nombre.setText("Departamento " + str(nuevo_numero))
         self.areButtonsEnabled(button1=self.winDepartamentos.uiDepartamentos.btn_registrar, isEnabled=True)
-        
+
     def refreshWinDepartamentos(self):
         txtCodigo=self.winDepartamentos.uiDepartamentos.txt_codigo
         txtNombre=self.winDepartamentos.uiDepartamentos.txt_nombre
@@ -720,7 +719,6 @@ class mdiApp(QMainWindow):
 
         empleados=Empleados()
         self.populateComboBox(cmbJefatura,empleados.getJefaturas())
-
 
     #Bienes Registrar
     #FIXME: Se cierra al seleccionar un row de la tabla
@@ -1008,7 +1006,6 @@ class mdiApp(QMainWindow):
     
         self.winReporteBienesAsig.show()
 
-
     def openWinReporteBienesNoAsignables(self):
         #reporteBienesNoAsignables=ReporteBienesNoAsignables()
         self.winReporteBienesNoAsignables=winReportBienesNoAsignables()
@@ -1104,7 +1101,7 @@ class winReportBienesNoAsignables(QWidget):
         super().__init__()
         self.uiReporteBienesNoAsignables=Ui_ReportBienesNoAsignables()
         self.uiReporteBienesNoAsignables.setupUi(self)
-        
+
 class winReportes(QWidget):
     def __init__(self):
         super().__init__()
