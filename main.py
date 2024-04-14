@@ -115,6 +115,7 @@ class mdiApp(QMainWindow):
 
     def initComponents(self):
         self.uiMdi.btn_logout.triggered.connect(self.exitApp)
+        self.uiMdi.subMnuGraficoEstado.triggered.connect(self.generar_grafico)
         self.uiMdi.mniUsuarios.triggered.connect(self.openWinUsuarios)
         self.uiMdi.mniEmpleados.triggered.connect(self.openWinEmpleados)
         self.uiMdi.mniDepartamentos.triggered.connect(self.openWinDepartamentos)
@@ -305,6 +306,7 @@ class mdiApp(QMainWindow):
         username = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper()
         name = self.winUsuarios.uiUsuarios.txtName.text().strip().title()
         password = self.winUsuarios.uiUsuarios.txtPassword.text().strip()
+        # confirm_password = self.winUsuarios.uiUsuarios.txtConfirmPassword.text().strip()
         is_admin = self.winUsuarios.uiUsuarios.chkBoxAdmin.isChecked()
 
         user = Usuarios(username, name, password, is_admin)
@@ -567,7 +569,7 @@ class mdiApp(QMainWindow):
 
     #Departamentos
     #TODO: Agregar Pantalla de carga para boton Refresh 
-
+    
     def openWinDepartamentos(self):
         self.winDepartamentos=winDepartamentos()
         self.uiMdi.mdiArea.addSubWindow(self.winDepartamentos)
@@ -624,7 +626,7 @@ class mdiApp(QMainWindow):
         else:
             self.msgBox("Error al registrar departamento",QMessageBox.Warning)
             return
-
+        
     def actualizarDepartamento(self):
         departamento=Departamentos()
         # codigo=self.winDepartamentos.uiDepartamentos.txt_codigo.text().strip().upper()
@@ -672,7 +674,7 @@ class mdiApp(QMainWindow):
         self.clearTextAndComboBox(self.winDepartamentos.uiDepartamentos.txt_codigo,
                                     self.winDepartamentos.uiDepartamentos.txt_nombre,
                                     self.winDepartamentos.uiDepartamentos.cmb_jefatura)
-
+        
     def cargarTablaDepartamentos(self, rowCount, datos):
         self.winDepartamentos.uiDepartamentos.tblDepartamentos.setRowCount(rowCount)
         self.winDepartamentos.uiDepartamentos.tblDepartamentos.setColumnCount(3)
@@ -738,12 +740,6 @@ class mdiApp(QMainWindow):
         empleados=Empleados()
         self.populateComboBox(cmbJefatura,empleados.getJefaturas())
 
-    #Bienes Registrar
-    #FIXME: Se cierra al seleccionar un row de la tabla
-    #TODO: Añadir Categorias al comboBox Categorías
-    #TODO: Agregar Boton Generar placa - Placa debe tener un formato de 2 letras y 4 números según requerimiento, por ejemplo, AB-1234
-    #TODO: Agregar Funciones de Enable y Disable de los botones
-
     def openWinBienes(self):
         bien=Bienes()
         self.winBienes=winBienes()
@@ -753,6 +749,7 @@ class mdiApp(QMainWindow):
         self.winBienes.uiBienes.btnGuardar.clicked.connect(self.guardarBienes)
         self.winBienes.uiBienes.btnModificar.clicked.connect(self.modificarBienes)
         self.winBienes.uiBienes.btnEliminar.clicked.connect(self.eliminarBienes)
+        self.winBienes.uiBienes.btnLimpiar.clicked.connect(self.limpiarBienes)
         self.winBienes.uiBienes.tblRegistro.clicked.connect(self.cargarDatosBienes)
         self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
         self.winBienes.show()
@@ -766,6 +763,8 @@ class mdiApp(QMainWindow):
                         )
         if bien.guardar()==1:
             self.msgBox("Datos Guardados Correctamente",QMessageBox.Information)
+            self.limpiarBienes()
+            self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
         else:
             self.msgBox("Error al Guardar los datos",QMessageBox.Warning)
 
@@ -776,6 +775,8 @@ class mdiApp(QMainWindow):
                         )
         if bien.actualizar()==1:
             self.msgBox("Datos Modificados Correctamente",QMessageBox.Information)
+            self.limpiarBienes()
+            self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
         else:
             self.msgBox("Error al Modificar los datos",QMessageBox.Warning)
 
@@ -786,8 +787,17 @@ class mdiApp(QMainWindow):
                         )
         if bien.eliminar()==1:
             self.msgBox("Datos Eliminados Correctamente",QMessageBox.Information)
+            self.limpiarBienes()
+            self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
         else:
             self.msgBox("Error al eliminar los datos",QMessageBox.Warning)
+
+    def limpiarBienes(self):
+        self.winBienes.uiBienes.txtPlaca.setText("")
+        self.winBienes.uiBienes.txtNombreBien.setText("")
+        self.winBienes.uiBienes.txtCategoria.setText("")
+        self.winBienes.uiBienes.txtDescripcion.setText("")
+        self.winBienes.uiBienes.cbxEstado.setCurrentIndex(0)
 
     def cargarTablaBienes(self, numFilas, datos):
         #determinar el numero de filas de la tabla
@@ -810,20 +820,7 @@ class mdiApp(QMainWindow):
         self.winBienes.uiBienes.txtNombreBien.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,1).text())
         self.winBienes.uiBienes.txtCategoria.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,2).text())
         self.winBienes.uiBienes.txtDescripcion.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,3).text())
-
-    #Asignacion Bienes
-#TODO: Quitar el background al header y al frame de datos
-#TODO: Cambiar nombre e icono del label Header
-#TODO: Cambiar label "Codigo" por "Usuario"
-#TODO: Eliminar label y txt Apellidos 
-#TODO: Poner nombre a las columnas de la tabla
-#TODO: Ajustar nombres de columnas de la tabla y labels para mostrar informacion 
-#TODO: Ajustar tamaño de la tabla para poder ver la info completa
-#TODO: Cambiar nombre a label "Bien Asignado" a "Bienes Asignables"
-#TODO: ? Eliminar boton eliminar - En esta pantalla no se deberia eliminar nada
-#TODO: Cambiar boton de "Registrar" a "Guardar"
-#TODO: Agregar Txt que muestre la placa del bien o que el combobox muestre la placa y un txt el nombre
-# ? Clase asignacion y desligar pueden estar en la misma clase bienes, "Asignado" y "Asignable" son propiedades de la clase Bienes  
+        self.winBienes.uiBienes.cbxEstado.setCurrentText(self.winBienes.uiBienes.tblRegistro.item(numFila,4).text())
 
 
     def openWinAsignacionBienes(self):
@@ -834,69 +831,64 @@ class mdiApp(QMainWindow):
         #eventos
         self.comboBoxAsignarEmpeladosCedula(asignado.getEmpleados())
         self.comboBoxBienes(asignado.getBienes())
+        self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.currentIndexChanged.connect(self.cargarMetodoEspaciosAsignar)
         self.winAsignacion.uiAsignacion.btnGuardar.clicked.connect(self.guardarBienAsignado)
-        self.winAsignacion.uiAsignacion.btnModificar.clicked.connect(self.modificarBienAsignado)
-        self.winAsignacion.uiAsignacion.btnEliminar.clicked.connect(self.eliminarBienAsignado)
-        self.winAsignacion.uiAsignacion.tblAsignados.clicked.connect(self.cargarDatosAsignacion)
+        self.winAsignacion.uiAsignacion.btnLimpiar.clicked.connect(self.limpiarAsignados)
+        #self.winAsignacion.uiAsignacion.tblAsignados.clicked.connect(self.cargarDatosAsignacion)
         self.cargarTablaBienesAsignado(asignado.getNumeroAsignados(),asignado.getAsignados())
         self.winAsignacion.show()
 
     def guardarBienAsignado(self):
         bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.currentText(), self.winAsignacion.uiAsignacion.txtNombre.text(),
-                    self.winAsignacion.uiAsignacion.txtApellidos.text(), self.winAsignacion.uiAsignacion.txtTelefono.text(),
+                    self.winAsignacion.uiAsignacion.txtTelefono.text(),
                     self.winAsignacion.uiAsignacion.cbxBienes.currentText()
                     )
         if bienesAsignados.guardar()==1:
             self.msgBox("Datos Guardados Correctamente",QMessageBox.Information)
+            self.cargarTablaBienesAsignado(bienesAsignados.getNumeroAsignados(),bienesAsignados.getAsignados())
+            self.limpiarAsignados()
         else:
-            self.msgBox("Error al Guardar los datos",QMessageBox.Warning)
+            self.msgBox("Error al guardar los datos, el bien ya ha sido asignado a un empleado",QMessageBox.Warning)
 
-    def modificarBienAsignado(self):
-        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.currentText(), self.winAsignacion.uiAsignacion.txtNombre.text(),
-                        self.winAsignacion.uiAsignacion.txtApellidos.text(), self.winAsignacion.uiAsignacion.txtTelefono.text(),
-                        self.winAsignacion.uiAsignacion.cbxBienes.currentText()
-                        )
-        if bienesAsignados.actualizar()==1:
-            self.msgBox("Datos Modificados Correctamente",QMessageBox.Information)
-        else:
-            self.msgBox("Error al Modificar los datos",QMessageBox.Warning)
+    def limpiarAsignados(self):
+        self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.setCurrentIndex(0)
+        self.winAsignacion.uiAsignacion.txtNombre.setText("")
+        self.winAsignacion.uiAsignacion.txtTelefono.setText("")
+        self.winAsignacion.uiAsignacion.cbxBienes.setCurrentIndex(0)
 
-    def eliminarBienAsignado(self):
-        bienesAsignados=AsignarBienes(self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.currentText(), self.winAsignacion.uiAsignacion.txtNombre.text(),
-                        self.winAsignacion.uiAsignacion.txtApellidos.text(), self.winAsignacion.uiAsignacion.txtTelefono.text(),
-                        self.winAsignacion.uiAsignacion.cbxBienes.currentText()
-                        )
-        if bienesAsignados.eliminar()==1:
-            self.msgBox("Datos Eliminados Correctamente",QMessageBox.Information)
-        else:
-            self.msgBox("Error al eliminar los datos",QMessageBox.Warning)
+    def espaciosAsignar(self, datos):
+
+        cedulaArchivo=self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.currentText()
+        #i=0
+        for d in datos:
+            cedula=d["cedula"]
+            #bien=["bien_asignado"]
+            if cedula==cedulaArchivo:
+                self.winAsignacion.uiAsignacion.txtNombre.setText(d["nombre"])
+                self.winAsignacion.uiAsignacion.txtTelefono.setText(d["telefono"])
+                #i+=1
+
+    def cargarMetodoEspaciosAsignar(self):
+        asignar=AsignarBienes()
+        self.espaciosAsignar(asignar.getEmpleados())
 
     def cargarTablaBienesAsignado(self, numFilas, datos):
         #determinar el numero de filas de la tabla
         self.winAsignacion.uiAsignacion.tblAsignados.setRowCount(numFilas)
         #determinar el numero de columnas de la tabla
-        self.winAsignacion.uiAsignacion.tblAsignados.setColumnCount(5)
+        self.winAsignacion.uiAsignacion.tblAsignados.setColumnCount(4)
         i=0
         for d in datos:
             print(d)
-            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,0,QTableWidgetItem(d["_id"]))
+            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,0,QTableWidgetItem(d["cedula"]))
             self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,1,QTableWidgetItem(d["nombre"]))
-            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,2,QTableWidgetItem(d["apellidos"]))
-            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,3,QTableWidgetItem(d["telefono"]))
-            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,4,QTableWidgetItem(d["bien_asignado"]))
+            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,2,QTableWidgetItem(d["telefono"]))
+            self.winAsignacion.uiAsignacion.tblAsignados.setItem(i,3,QTableWidgetItem(d["_id"]))
             i+=1
-    
-    def cargarDatosAsignacion(self):
-        numFila=self.winAsignacion.uiAsignacion.tblAsignados.currentRow()
-        self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.setCurrentText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,0).text())
-        self.winAsignacion.uiAsignacion.txtNombre.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,1).text())
-        self.winAsignacion.uiAsignacion.txtApellidos.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,2).text())
-        self.winAsignacion.uiAsignacion.txtTelefono.setText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,3).text())
-        self.winAsignacion.uiAsignacion.cbxBienes.setCurrentText(self.winAsignacion.uiAsignacion.tblAsignados.item(numFila,4).text())
 
     def comboBoxAsignarEmpeladosCedula(self, datos):
         for d in datos:
-            cedula=d["_id"]
+            cedula=d["cedula"]
             if cedula:
                 self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.addItem(cedula)
     
@@ -908,13 +900,6 @@ class mdiApp(QMainWindow):
 
     #Desligar Bienes
 
-#FIXME: La pantalla se cierra al seleccionar un row de la tabla
-# ? Me parece que no se necesita que carguen los datos de la tabla a los input Fields
-#TODO: Pantalla no inicia del tamaño minimo correcto
-#TODO: Combobox "Seleccione Empleado" deberia cargar usuarios no nombres
-#TODO: Agregar nombres a las columnas de tabla tblDesligar y tblDesligar2
-#TODO: La tabla tblDesligar no debería mostrar bienes "No Asignados" sino Asignados, la ventana es para Desligar bienes
-
     def openWinDesligarBienes(self):
         desligar=DesligarBienes()
         self.winDesligar=winDesligarBienes()
@@ -924,7 +909,8 @@ class mdiApp(QMainWindow):
         self.comboBoxBienesAsignado(desligar.getAsignados())
         self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.espaciosDesligar)
         self.winDesligar.uiDesligar.cbxEmpleados.currentIndexChanged.connect(self.cargarMetodoTablaDesligar)
-        self.winDesligar.uiDesligar.btnDesligar.clicked.connect(self.modificarDesligar)
+        self.winDesligar.uiDesligar.btnDesligar.clicked.connect(self.eliminarDesligar)
+        self.winDesligar.uiDesligar.btnLimpiar.clicked.connect(self.limpiarDesligados)
         #self.cargarTablaDesligar(desligar.getNumeroDesligar(),desligar.getAsignados())
         self.winDesligar.uiDesligar.tblDesligar2.clicked.connect(self.cargarDatosDesligar)
         #self.cargarEmpleadosAsignados(desligar.getNumeroDesligar(),desligar.getAsignados())
@@ -958,7 +944,7 @@ class mdiApp(QMainWindow):
             nombre=d["nombre"]
             #bien=["bien_asignado"]
             if nombre==nombreArchivo:
-                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,0,QTableWidgetItem(d["_id"]))
+                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,0,QTableWidgetItem(d["cedula"]))
                 self.winDesligar.uiDesligar.tblDesligar2.setItem(i,1,QTableWidgetItem(d["nombre"]))
                 self.winDesligar.uiDesligar.tblDesligar2.setItem(i,2,QTableWidgetItem(d["bien_asignado"]))
                 i+=1
@@ -968,36 +954,24 @@ class mdiApp(QMainWindow):
         self.winDesligar.uiDesligar.txtNombre.setText(nombre)
         #self.winDesligar.uiDesligar.txtBienAsignado.setText()
     
-    def modificarDesligar(self):
-        desligar=DesligarBienes(self.winDesligar.uiDesligar.txtCedula.text(),
-                        self.winDesligar.uiDesligar.txtNombre.text()
-                        )
-        if desligar.actualizar()==1:
-            self.msgBox("Datos Modificados Correctamente",QMessageBox.Information)
-        else:
-            self.msgBox("Error al Modificar los datos",QMessageBox.Warning)
     
     def eliminarDesligar(self):
         desligar=DesligarBienes(self.winDesligar.uiDesligar.txtCedula.text(),
-                        self.winDesligar.uiDesligar.txtNombre.text()
+                        self.winDesligar.uiDesligar.txtNombre.text(),
+                        self.winDesligar.uiDesligar.txtBienAsignado.text()
                         )
         if desligar.eliminar()==1:
             self.msgBox("Bien desligado Correctamente",QMessageBox.Information)
+            self.limpiarDesligados()
         else:
             self.msgBox("Error al desligar los datos",QMessageBox.Warning)
 
-    """def cargarTablaDesligar(self, numFilas, datos):
-        #determinar el numero de filas de la tabla
-        self.winDesligar.uiDesligar.tblDesligar.setRowCount(numFilas)
-        #determinar el numero de columnas de la tabla
-        self.winDesligar.uiDesligar.tblDesligar.setColumnCount(3)
-        i=0
-        for d in datos:
-            print(d)
-            self.winDesligar.uiDesligar.tblDesligar.setItem(i,0,QTableWidgetItem(d["_id"]))
-            self.winDesligar.uiDesligar.tblDesligar.setItem(i,1,QTableWidgetItem(d["nombre"]))
-            self.winDesligar.uiDesligar.tblDesligar.setItem(i,2,QTableWidgetItem(d["bien_asignado"]))
-            i+=1"""
+    def limpiarDesligados(self):
+        self.winDesligar.uiDesligar.cbxEmpleados.setCurrentIndex(0)
+        self.winDesligar.uiDesligar.txtCedula.setText("")
+        self.winDesligar.uiDesligar.txtNombre.setText("")
+        self.winDesligar.uiDesligar.txtBienAsignado.setText("")
+        self.winDesligar.uiDesligar.tblDesligar2.clearContents()
     
     def comboBoxBienesAsignado(self, datos):
         for d in datos:
@@ -1012,18 +986,47 @@ class mdiApp(QMainWindow):
         self.winDesligar.uiDesligar.txtNombre.setText(self.winDesligar.uiDesligar.tblDesligar2.item(numFila,1).text())
         self.winDesligar.uiDesligar.txtBienAsignado.setText(self.winDesligar.uiDesligar.tblDesligar2.item(numFila,2).text())
 
-    #Reportes
-#TODO: La ventana inincia minimizada
-#TODO: La tabla es del mismo color del fondo
-
     def openWinReporteBienesAsignados(self):
         reporteBienesAsignados=ReporteBienesAsignados()
         self.winReporteBienesAsig=winReporteBienesAsignados()
         #agregar ventana
         self.uiMdi.mdiArea.addSubWindow(self.winReporteBienesAsig)
         #eventos
-    
+        self.comboBoxBienesAsignadoReporte(reporteBienesAsignados.getAsignados())
+        self.winReporteBienesAsig.uiReporteBienesAsignados.btnLimpiar.clicked.connect(self.limpiarReporte)
+        self.winReporteBienesAsig.uiReporteBienesAsignados.cbxSeleccionEmpleado.currentIndexChanged.connect(self.cargarMetodoTablaReporteAsignados)
         self.winReporteBienesAsig.show()
+
+    def comboBoxBienesAsignadoReporte(self, datos):
+        for d in datos:
+            nombre=d["nombre"]
+            if nombre:
+                self.winReporteBienesAsig.uiReporteBienesAsignados.cbxSeleccionEmpleado.addItem(nombre)
+    
+    def cargarMetodoTablaReporteAsignados(self):
+        asignadosReporte=ReporteBienesAsignados()
+        self.tablaReporteAsignados(asignadosReporte.getNumeroAsignadosReporte(), asignadosReporte.getAsignados())
+
+    def tablaReporteAsignados(self, numFilas, datos):
+
+        self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setRowCount(numFilas)
+        #determinar el numero de columnas de la tabla
+        self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setColumnCount(4)
+
+        nombreArchivo=self.winReporteBienesAsig.uiReporteBienesAsignados.cbxSeleccionEmpleado.currentText()
+        i=0
+        for d in datos:
+            nombre=d["nombre"]
+            if nombre==nombreArchivo:
+                self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setItem(i,0,QTableWidgetItem(d["cedula"]))
+                self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setItem(i,1,QTableWidgetItem(d["nombre"]))
+                self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setItem(i,2,QTableWidgetItem(d["telefono"]))
+                self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setItem(i,3,QTableWidgetItem(d["bien_asignado"]))
+                i+=1
+
+    def limpiarReporte(self):
+        self.winReporteBienesAsig.uiReporteBienesAsignados.cbxSeleccionEmpleado.setCurrentIndex(0)
+        self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.clearContents()
 
     def openWinReporteBienesNoAsignables(self):
         #reporteBienesNoAsignables=ReporteBienesNoAsignables()
@@ -1063,6 +1066,35 @@ class mdiApp(QMainWindow):
                 self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.tblWidgetBienesNoAsignados.setItem(i,3,QTableWidgetItem(d["descripcion"]))
                 self.winReporteBienesNoAsignables.uiReporteBienesNoAsignables.tblWidgetBienesNoAsignados.setItem(i,4,QTableWidgetItem(d["estado"]))
                 i+=1
+
+    def generar_grafico(self):
+        uri = "mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/"
+        base_datos = "TresPatitos"
+        coleccion = "bienes"
+
+        client = pymongo.MongoClient(uri)
+        bd = client[base_datos]
+        bienes = bd[coleccion]
+
+        # Contar la cantidad de bienes en cada estado
+        estados = ["Asignable", "Reparacion", "Exclusion"]
+        cantidad_por_estado = {}
+
+        for estado in estados:
+            cantidad_por_estado[estado] = bienes.count_documents({"estado": estado})
+
+        # Crear el gráfico
+        labels = estados
+        sizes = [cantidad_por_estado[estado] for estado in estados]
+        colors = ['lightblue', 'lightcoral', 'lightgreen']
+
+        plt.bar(labels, sizes, color=colors)
+        plt.xlabel('Estado')
+        plt.ylabel('Cantidad')
+        plt.title('Cantidad de Bienes por Estado')
+        plt.show()
+
+
 
     #Reporte Empleados por Departamento
     
@@ -1129,7 +1161,7 @@ class mdiApp(QMainWindow):
         # plt.show()
 
 
-    #Class Windows
+#Class Windows
 
 class winLogin(QWidget):
     def __init__(self):
