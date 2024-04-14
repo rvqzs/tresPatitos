@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>770</width>
-    <height>527</height>
+    <width>700</width>
+    <height>570</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>770</width>
-    <height>400</height>
+    <width>700</width>
+    <height>570</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -270,34 +270,6 @@ border:none;</string>
      <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="cmbCategoria">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>80</y>
-      <width>121</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="editable">
-     <bool>false</bool>
-    </property>
-    <property name="currentText">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="lbl_codigo_2">
     <property name="geometry">
      <rect>
@@ -439,6 +411,19 @@ border:none;</string>
      </property>
     </item>
    </widget>
+   <widget class="QLineEdit" name="txtCategoria">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>80</y>
+      <width>121</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QPushButton" name="btnEliminar">
    <property name="geometry">
@@ -569,7 +554,7 @@ border-radius:10px;
     <string>Ctrl+C</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnCancelar">
+  <widget class="QPushButton" name="btnLimpiar">
    <property name="geometry">
     <rect>
      <x>420</x>

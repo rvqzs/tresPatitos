@@ -1,9 +1,10 @@
 import pymongo
 
 class DesligarBienes:
-    def __init__(self, cedula=1, nombre=2):
+    def __init__(self, cedula=1, nombre=2, bienAsignado=3):
         self.cedula=cedula
         self.nombre=nombre
+        self.bienAsignado=bienAsignado
 
     def eliminar(self):
         estado = 0
@@ -14,11 +15,10 @@ class DesligarBienes:
         try:
             # definir la tabla a utilizar
             tbl = bd["bienes_asignados"]
-            elemento = tbl ["nombre"]
             # filtro
-            filtro = {"_id": self.cedula}
+            filtro = {"bien_asignado": self.bienAsignado}
             # modifcar en la tabla
-            elemento.delete_many(filtro)
+            tbl.delete_one(filtro)
             estado = 1
         except Exception:
             print("Error al eliminar")

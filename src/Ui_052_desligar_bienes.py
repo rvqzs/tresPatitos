@@ -14,14 +14,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Desligar(object):
     def setupUi(self, Desligar):
         Desligar.setObjectName("Desligar")
-        Desligar.resize(770, 525)
-        Desligar.setMinimumSize(QtCore.QSize(770, 400))
+        Desligar.resize(670, 600)
+        Desligar.setMinimumSize(QtCore.QSize(670, 570))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconDesligar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Desligar.setWindowIcon(icon)
         Desligar.setStyleSheet("background-color: rgb(191, 191, 191);")
         self.tblDesligar2 = QtWidgets.QTableWidget(Desligar)
-        self.tblDesligar2.setGeometry(QtCore.QRect(160, 320, 301, 192))
+        self.tblDesligar2.setGeometry(QtCore.QRect(160, 320, 321, 192))
         self.tblDesligar2.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.tblDesligar2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tblDesligar2.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
@@ -46,7 +46,7 @@ class Ui_Desligar(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.lblSeleccion = QtWidgets.QLabel(self.frame)
-        self.lblSeleccion.setGeometry(QtCore.QRect(70, 20, 151, 20))
+        self.lblSeleccion.setGeometry(QtCore.QRect(120, 20, 151, 20))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
         font.setPointSize(10)
@@ -133,7 +133,7 @@ class Ui_Desligar(object):
         self.txtBienAsignado.setObjectName("txtBienAsignado")
         self.cbxEmpleados = QtWidgets.QComboBox(self.frame)
         self.cbxEmpleados.setEnabled(True)
-        self.cbxEmpleados.setGeometry(QtCore.QRect(80, 50, 161, 20))
+        self.cbxEmpleados.setGeometry(QtCore.QRect(140, 50, 121, 21))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -143,6 +143,25 @@ class Ui_Desligar(object):
         self.cbxEmpleados.setEditable(False)
         self.cbxEmpleados.setCurrentText("")
         self.cbxEmpleados.setObjectName("cbxEmpleados")
+        self.btnLimpiar = QtWidgets.QPushButton(self.frame)
+        self.btnLimpiar.setGeometry(QtCore.QRect(280, 150, 81, 21))
+        self.btnLimpiar.setStyleSheet("QPushButton{\n"
+"background-color:rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"border:2px solid #55C1FA;\n"
+"border-radius:10px;\n"
+"}")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnLimpiar.setIcon(icon1)
+        self.btnLimpiar.setIconSize(QtCore.QSize(20, 20))
+        self.btnLimpiar.setObjectName("btnLimpiar")
         self.labelHeader = QtWidgets.QLabel(Desligar)
         self.labelHeader.setGeometry(QtCore.QRect(20, 20, 31, 21))
         font = QtGui.QFont()
@@ -173,7 +192,7 @@ class Ui_Desligar(object):
 "background-color: rgba(0,0,0,0%);")
         self.lbl_departamentos.setObjectName("lbl_departamentos")
         self.btnDesligar = QtWidgets.QPushButton(Desligar)
-        self.btnDesligar.setGeometry(QtCore.QRect(260, 280, 111, 31))
+        self.btnDesligar.setGeometry(QtCore.QRect(250, 280, 111, 31))
         self.btnDesligar.setStyleSheet("QPushButton{\n"
 "background-color:rgb(255, 255, 255);\n"
 "border:none;\n"
@@ -186,9 +205,9 @@ class Ui_Desligar(object):
 "border:2px solid #55C1FA;\n"
 "border-radius:10px;\n"
 "}")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnunlink.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnDesligar.setIcon(icon1)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnunlink.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnDesligar.setIcon(icon2)
         self.btnDesligar.setIconSize(QtCore.QSize(20, 20))
         self.btnDesligar.setObjectName("btnDesligar")
 
@@ -209,6 +228,9 @@ class Ui_Desligar(object):
         self.lblID.setText(_translate("Desligar", "ID Empleado"))
         self.lblNombre.setText(_translate("Desligar", "Nombre Empleado"))
         self.lblBienAsignado_2.setText(_translate("Desligar", "Bien Asignado"))
+        self.btnLimpiar.setToolTip(_translate("Desligar", "CTRL+S"))
+        self.btnLimpiar.setText(_translate("Desligar", "Limpiar"))
+        self.btnLimpiar.setShortcut(_translate("Desligar", "Ctrl+C"))
         self.lbl_departamentos.setText(_translate("Desligar", "Desligar Bienes"))
         self.btnDesligar.setToolTip(_translate("Desligar", "CTRL+S"))
         self.btnDesligar.setText(_translate("Desligar", "Desligar"))

@@ -2,10 +2,9 @@ import pymongo
 
 
 class AsignarBienes:
-    def __init__(self, cedula=1, nombre=2, apellidos=3, telefono=4, bienAsignado=5):
+    def __init__(self, cedula=1, nombre=2, telefono=3, bienAsignado=4):
         self.cedula = cedula
         self.nombre = nombre
-        self.apellidos = apellidos
         self.telefono = telefono
         self.bienAsignado = bienAsignado
 
@@ -19,9 +18,8 @@ class AsignarBienes:
             #definir la tabla a utilizar
             tbl=bd["bienes_asignados"]
             #crear diccionario
-            doc={"_id":self.cedula,
+            doc={"cedula":self.cedula,
                 "nombre":self.nombre,
-                "apellidos":self.apellidos,
                 "telefono":self.telefono,
                 "bien_asignado": self.bienAsignado}
             #insertar en la tabla
@@ -44,12 +42,11 @@ class AsignarBienes:
             # definir la tabla a utilizar
             tbl = bd["bienes_asignados"]
             # filtro
-            filtro = {"_id": self.cedula}
+            filtro = {"cedula": self.cedula}
             # crear diccionario
             doc = {
                 "$set": {
                     "nombre": self.nombre,
-                    "apellidos": self.apellidos,
                     "telefono": self.telefono,
                     "bien_asignado": self.bienAsignado
                 }
@@ -74,7 +71,7 @@ class AsignarBienes:
             # definir la tabla a utilizar
             tbl = bd["bienes_asignados"]
             # filtro
-            filtro = {"_id": self.cedula}
+            filtro = {"cedula": self.cedula}
             # modifcar en la tabla
             tbl.delete_one(filtro)
             estado = 1
@@ -113,7 +110,8 @@ class AsignarBienes:
         bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd = bien["TresPatitos"]
         tbl = bd["bienes"]
-        return tbl.find()
+        bienes_asignables = tbl.find({"estado": "Asignable"})
+        return bienes_asignables
 
     def getNumeroRegistros(self):
         bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")

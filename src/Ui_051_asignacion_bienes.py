@@ -15,8 +15,8 @@ class Ui_Asignacion(object):
     def setupUi(self, Asignacion):
         Asignacion.setObjectName("Asignacion")
         Asignacion.setEnabled(True)
-        Asignacion.resize(820, 820)
-        Asignacion.setMinimumSize(QtCore.QSize(770, 400))
+        Asignacion.resize(700, 570)
+        Asignacion.setMinimumSize(QtCore.QSize(700, 570))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconAsignar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Asignacion.setWindowIcon(icon)
@@ -25,10 +25,19 @@ class Ui_Asignacion(object):
         self.tblAsignados.setGeometry(QtCore.QRect(40, 300, 431, 192))
         self.tblAsignados.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.tblAsignados.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tblAsignados.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
         self.tblAsignados.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tblAsignados.setObjectName("tblAsignados")
-        self.tblAsignados.setColumnCount(0)
+        self.tblAsignados.setColumnCount(4)
         self.tblAsignados.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tblAsignados.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tblAsignados.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tblAsignados.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tblAsignados.setHorizontalHeaderItem(3, item)
         self.labelHeader = QtWidgets.QLabel(Asignacion)
         self.labelHeader.setGeometry(QtCore.QRect(20, 10, 31, 31))
         font = QtGui.QFont()
@@ -93,19 +102,6 @@ class Ui_Asignacion(object):
 "border:none;")
         self.lblNombre.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lblNombre.setObjectName("lblNombre")
-        self.lblApellidos = QtWidgets.QLabel(self.frame)
-        self.lblApellidos.setGeometry(QtCore.QRect(40, 80, 61, 21))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(7)
-        self.lblApellidos.setFont(font)
-        self.lblApellidos.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
-"border:none;")
-        self.lblApellidos.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.lblApellidos.setObjectName("lblApellidos")
         self.txtNombre = QtWidgets.QLineEdit(self.frame)
         self.txtNombre.setGeometry(QtCore.QRect(110, 50, 121, 20))
         self.txtNombre.setStyleSheet("background-color: rgb(255, 255, 255);")
@@ -131,12 +127,8 @@ class Ui_Asignacion(object):
         self.lbl_codigo_2.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/icons8-stacked-organizational-chart-highlighted-parent-node-96.png"))
         self.lbl_codigo_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lbl_codigo_2.setObjectName("lbl_codigo_2")
-        self.txtApellidos = QtWidgets.QLineEdit(self.frame)
-        self.txtApellidos.setGeometry(QtCore.QRect(110, 80, 121, 20))
-        self.txtApellidos.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.txtApellidos.setObjectName("txtApellidos")
         self.lblTelefono = QtWidgets.QLabel(self.frame)
-        self.lblTelefono.setGeometry(QtCore.QRect(40, 110, 61, 21))
+        self.lblTelefono.setGeometry(QtCore.QRect(40, 80, 61, 21))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
         font.setPointSize(10)
@@ -149,7 +141,7 @@ class Ui_Asignacion(object):
         self.lblTelefono.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lblTelefono.setObjectName("lblTelefono")
         self.txtTelefono = QtWidgets.QLineEdit(self.frame)
-        self.txtTelefono.setGeometry(QtCore.QRect(110, 110, 121, 20))
+        self.txtTelefono.setGeometry(QtCore.QRect(110, 80, 121, 20))
         self.txtTelefono.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.txtTelefono.setObjectName("txtTelefono")
         self.lblBienAsignado = QtWidgets.QLabel(self.frame)
@@ -189,46 +181,8 @@ class Ui_Asignacion(object):
         self.cbxCedulaEmpleados.setEditable(False)
         self.cbxCedulaEmpleados.setCurrentText("")
         self.cbxCedulaEmpleados.setObjectName("cbxCedulaEmpleados")
-        self.btnEliminar = QtWidgets.QPushButton(Asignacion)
-        self.btnEliminar.setGeometry(QtCore.QRect(277, 250, 94, 31))
-        self.btnEliminar.setStyleSheet("QPushButton{\n"
-"background-color:rgb(255, 255, 255);\n"
-"border:none;\n"
-"border-radius:10px;\n"
-"font: 63 10pt \"Segoe UI Semibold\";\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"\n"
-"border:2px solid #55C1FA;\n"
-"border-radius:10px;\n"
-"}")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnEliminar.setIcon(icon1)
-        self.btnEliminar.setIconSize(QtCore.QSize(20, 20))
-        self.btnEliminar.setObjectName("btnEliminar")
-        self.btnModificar = QtWidgets.QPushButton(Asignacion)
-        self.btnModificar.setGeometry(QtCore.QRect(166, 250, 106, 31))
-        self.btnModificar.setStyleSheet("QPushButton{\n"
-"background-color:rgb(255, 255, 255);\n"
-"border:none;\n"
-"border-radius:10px;\n"
-"font: 63 10pt \"Segoe UI Semibold\";\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"\n"
-"border:2px solid #55C1FA;\n"
-"border-radius:10px;\n"
-"}")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnModificar.setIcon(icon2)
-        self.btnModificar.setIconSize(QtCore.QSize(20, 20))
-        self.btnModificar.setObjectName("btnModificar")
-        self.btnLimpiar = QtWidgets.QPushButton(Asignacion)
-        self.btnLimpiar.setGeometry(QtCore.QRect(380, 250, 81, 30))
+        self.btnLimpiar = QtWidgets.QPushButton(self.frame)
+        self.btnLimpiar.setGeometry(QtCore.QRect(250, 140, 71, 21))
         self.btnLimpiar.setMaximumSize(QtCore.QSize(90, 30))
         self.btnLimpiar.setStyleSheet("QPushButton{\n"
 "background-color:rgb(255, 255, 255);\n"
@@ -242,13 +196,13 @@ class Ui_Asignacion(object):
 "border:2px solid #55C1FA;\n"
 "border-radius:10px;\n"
 "}")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnLimpiar.setIcon(icon3)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnLimpiar.setIcon(icon1)
         self.btnLimpiar.setIconSize(QtCore.QSize(18, 18))
         self.btnLimpiar.setObjectName("btnLimpiar")
         self.btnGuardar = QtWidgets.QPushButton(Asignacion)
-        self.btnGuardar.setGeometry(QtCore.QRect(60, 250, 101, 31))
+        self.btnGuardar.setGeometry(QtCore.QRect(200, 260, 101, 31))
         self.btnGuardar.setStyleSheet("QPushButton{\n"
 "background-color:rgb(255, 255, 255);\n"
 "border:none;\n"
@@ -261,9 +215,9 @@ class Ui_Asignacion(object):
 "border:2px solid #55C1FA;\n"
 "border-radius:10px;\n"
 "}")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnGuardar.setIcon(icon4)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnGuardar.setIcon(icon2)
         self.btnGuardar.setIconSize(QtCore.QSize(20, 20))
         self.btnGuardar.setObjectName("btnGuardar")
 
@@ -273,19 +227,20 @@ class Ui_Asignacion(object):
     def retranslateUi(self, Asignacion):
         _translate = QtCore.QCoreApplication.translate
         Asignacion.setWindowTitle(_translate("Asignacion", "Asignacion de bienes"))
+        item = self.tblAsignados.horizontalHeaderItem(0)
+        item.setText(_translate("Asignacion", "Cédula"))
+        item = self.tblAsignados.horizontalHeaderItem(1)
+        item.setText(_translate("Asignacion", "Nombre"))
+        item = self.tblAsignados.horizontalHeaderItem(2)
+        item.setText(_translate("Asignacion", "Télefono"))
+        item = self.tblAsignados.horizontalHeaderItem(3)
+        item.setText(_translate("Asignacion", "Bien asignado"))
         self.lbl_departamentos.setText(_translate("Asignacion", "Registro de Bienes Asignados"))
         self.frame.setAccessibleDescription(_translate("Asignacion", "Generar código"))
-        self.lblCedula.setText(_translate("Asignacion", "Código"))
+        self.lblCedula.setText(_translate("Asignacion", "Cédula"))
         self.lblNombre.setText(_translate("Asignacion", "Nombre"))
-        self.lblApellidos.setText(_translate("Asignacion", "Apellidos"))
         self.lblTelefono.setText(_translate("Asignacion", "Teléfono"))
-        self.lblBienAsignado.setText(_translate("Asignacion", "Bien Asignado"))
-        self.btnEliminar.setToolTip(_translate("Asignacion", "CTRL+DEL"))
-        self.btnEliminar.setText(_translate("Asignacion", "Eliminar"))
-        self.btnEliminar.setShortcut(_translate("Asignacion", "Ctrl+Del"))
-        self.btnModificar.setToolTip(_translate("Asignacion", "CTRL+E"))
-        self.btnModificar.setText(_translate("Asignacion", "Modificar"))
-        self.btnModificar.setShortcut(_translate("Asignacion", "Ctrl+E"))
+        self.lblBienAsignado.setText(_translate("Asignacion", "Asignar bien:"))
         self.btnLimpiar.setToolTip(_translate("Asignacion", "CTRL+W"))
         self.btnLimpiar.setText(_translate("Asignacion", "Limpiar"))
         self.btnLimpiar.setShortcut(_translate("Asignacion", "Ctrl+W"))
