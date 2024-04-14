@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\001_login.ui'
+# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\001_login.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -18,7 +18,7 @@ class Ui_Login(object):
         Login.setMinimumSize(QtCore.QSize(400, 400))
         Login.setMaximumSize(QtCore.QSize(400, 600))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconMDI.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconMDI.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Login.setWindowIcon(icon)
         Login.setAutoFillBackground(False)
         self.verticalLayout = QtWidgets.QVBoxLayout(Login)
@@ -38,7 +38,7 @@ class Ui_Login(object):
         self.labelHeader.setStyleSheet("")
         self.labelHeader.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.Zimbabwe))
         self.labelHeader.setText("")
-        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconLoginHeader.png"))
+        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconLoginHeader.png"))
         self.labelHeader.setScaledContents(True)
         self.labelHeader.setObjectName("labelHeader")
         self.btn_login = QtWidgets.QPushButton(self.login_widget)
@@ -63,7 +63,7 @@ class Ui_Login(object):
 "\n"
 "")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/icons8-login-50.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/icons8-login-50.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_login.setIcon(icon1)
         self.btn_login.setIconSize(QtCore.QSize(20, 20))
         self.btn_login.setObjectName("btn_login")
@@ -100,7 +100,7 @@ class Ui_Login(object):
         self.labelUsername = QtWidgets.QLabel(self.login_widget)
         self.labelUsername.setGeometry(QtCore.QRect(50, 130, 51, 41))
         self.labelUsername.setText("")
-        self.labelUsername.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconLoginUsername.png"))
+        self.labelUsername.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconLoginUsername.png"))
         self.labelUsername.setScaledContents(True)
         self.labelUsername.setObjectName("labelUsername")
         self.labelPassword = QtWidgets.QLabel(self.login_widget)
@@ -112,7 +112,7 @@ class Ui_Login(object):
         self.labelPassword.setSizePolicy(sizePolicy)
         self.labelPassword.setStyleSheet("background-color: rgb(0, 0, 0,0%);")
         self.labelPassword.setText("")
-        self.labelPassword.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconPassword.png"))
+        self.labelPassword.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconPassword.png"))
         self.labelPassword.setScaledContents(True)
         self.labelPassword.setObjectName("labelPassword")
         self.verticalLayout.addWidget(self.login_widget)

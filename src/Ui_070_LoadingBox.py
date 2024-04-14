@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\070_LoadingBox.ui'
+# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\070_LoadingBox.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -23,7 +23,7 @@ class Ui_LoadingDialog(object):
         LoadingDialog.setMinimumSize(QtCore.QSize(300, 100))
         LoadingDialog.setMaximumSize(QtCore.QSize(300, 100))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconMDI.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconMDI.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         LoadingDialog.setWindowIcon(icon)
         LoadingDialog.setStyleSheet("")
         self.frame = QtWidgets.QFrame(LoadingDialog)
