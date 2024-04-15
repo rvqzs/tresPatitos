@@ -188,8 +188,7 @@ class mdiApp(QMainWindow):
         login_dialog.exec_()
 
 # Usuarios
-    #TODO: If row selected disable btn.crear
-        
+
     def openWinUsuarios(self):
         usuarios=Usuarios()
         self.winUsuarios=winUsuarios()
@@ -774,41 +773,42 @@ class mdiApp(QMainWindow):
 
     def guardarBienes(self):
         bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(),
-                        self.winBienes.uiBienes.txtNombreBien.text(),
-                        self.winBienes.uiBienes.txtCategoria.text(),
-                        self.winBienes.uiBienes.txtDescripcion.text(),
-                        self.winBienes.uiBienes.cbxEstado.currentText()
-                        )
+                        self.winBienes.uiBienes.txtNombreBien.text().strip().title(),
+                        self.winBienes.uiBienes.txtCategoria.text().strip().title(),
+                        self.winBienes.uiBienes.txtDescripcion.text().strip().title(),
+                        self.winBienes.uiBienes.cbxEstado.currentText())
+        
         if bien.guardar()==1:
-            self.msgBox("Datos Guardados Correctamente",QMessageBox.Information)
             self.limpiarBienes()
             self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
+            self.msgBox("Datos Guardados Correctamente",QMessageBox.Information)
             self.contador_placa += 1
             self.generar_placa()
         else:
             self.msgBox("Error al Guardar los datos",QMessageBox.Warning)
 
     def modificarBienes(self):
-        bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(), self.winBienes.uiBienes.txtNombreBien.text(),
-                        self.winBienes.uiBienes.txtCategoria.text(), self.winBienes.uiBienes.txtDescripcion.text(),
-                        self.winBienes.uiBienes.cbxEstado.currentText()
-                        )
+        bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(),
+                        self.winBienes.uiBienes.txtNombreBien.text().strip().title(),
+                        self.winBienes.uiBienes.txtCategoria.text().strip().title(),
+                        self.winBienes.uiBienes.txtDescripcion.text().strip().title(),
+                        self.winBienes.uiBienes.cbxEstado.currentText())
+        
         if bien.actualizar()==1:
-            self.msgBox("Datos Modificados Correctamente",QMessageBox.Information)
             self.limpiarBienes()
             self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
+            self.msgBox("Datos Modificados Correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al Modificar los datos",QMessageBox.Warning)
 
     def eliminarBienes(self):
         bien=Bienes(self.winBienes.uiBienes.txtPlaca.text(), self.winBienes.uiBienes.txtNombreBien.text(),
                         self.winBienes.uiBienes.txtCategoria.text(), self.winBienes.uiBienes.txtDescripcion.text(),
-                        self.winBienes.uiBienes.cbxEstado.currentText()
-                        )
+                        self.winBienes.uiBienes.cbxEstado.currentText())
         if bien.eliminar()==1:
-            self.msgBox("Datos Eliminados Correctamente",QMessageBox.Information)
             self.limpiarBienes()
             self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
+            self.msgBox("Datos Eliminados Correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al eliminar los datos",QMessageBox.Warning)
 
@@ -860,6 +860,8 @@ class mdiApp(QMainWindow):
         numeros_placa = '{:04d}'.format(self.contador_placa % 10000)  # Cuatro números con ceros a la izquierda
         placa = letras_placa + '-' + numeros_placa
         self.winBienes.uiBienes.txtPlaca.setText(placa)
+
+    #Asignar Bienes
 
     def openWinAsignacionBienes(self):
         asignado=AsignarBienes()

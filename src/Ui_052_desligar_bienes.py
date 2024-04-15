@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\052_desligar_bienes.ui'
+# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\052_desligar_bienes.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -17,7 +17,7 @@ class Ui_Desligar(object):
         Desligar.resize(670, 600)
         Desligar.setMinimumSize(QtCore.QSize(670, 570))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconDesligar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconDesligar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Desligar.setWindowIcon(icon)
         Desligar.setStyleSheet("background-color: rgb(191, 191, 191);")
         self.tblDesligar2 = QtWidgets.QTableWidget(Desligar)
@@ -106,7 +106,7 @@ class Ui_Desligar(object):
 "border:none;\n"
 "")
         self.lbl_codigo_2.setText("")
-        self.lbl_codigo_2.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/unlink.png"))
+        self.lbl_codigo_2.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/unlink.png"))
         self.lbl_codigo_2.setScaledContents(True)
         self.lbl_codigo_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lbl_codigo_2.setObjectName("lbl_codigo_2")
@@ -158,7 +158,7 @@ class Ui_Desligar(object):
 "border-radius:10px;\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnLimpiar.setIcon(icon1)
         self.btnLimpiar.setIconSize(QtCore.QSize(20, 20))
         self.btnLimpiar.setObjectName("btnLimpiar")
@@ -174,7 +174,7 @@ class Ui_Desligar(object):
         self.labelHeader.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
 "background-color: rgba(0,0,0,0%);")
         self.labelHeader.setText("")
-        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/unlink.png"))
+        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/unlink.png"))
         self.labelHeader.setScaledContents(True)
         self.labelHeader.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.labelHeader.setObjectName("labelHeader")
@@ -206,7 +206,7 @@ class Ui_Desligar(object):
 "border-radius:10px;\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnunlink.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnunlink.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnDesligar.setIcon(icon2)
         self.btnDesligar.setIconSize(QtCore.QSize(20, 20))
         self.btnDesligar.setObjectName("btnDesligar")

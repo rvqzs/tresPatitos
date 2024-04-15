@@ -388,6 +388,9 @@ border:none;</string>
       <height>18</height>
      </size>
     </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="labelUser">
     <property name="geometry">
