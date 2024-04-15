@@ -14,27 +14,19 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Bienes(object):
     def setupUi(self, Bienes):
         Bienes.setObjectName("Bienes")
-        Bienes.resize(700, 570)
-        Bienes.setMinimumSize(QtCore.QSize(700, 570))
+        Bienes.resize(683, 555)
+        Bienes.setMinimumSize(QtCore.QSize(100, 100))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/icons8-assets-64.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Bienes.setWindowIcon(icon)
         Bienes.setStyleSheet("background-color: rgb(191, 191, 191);")
-        self.pushButton_5 = QtWidgets.QPushButton(Bienes)
-        self.pushButton_5.setEnabled(True)
-        self.pushButton_5.setGeometry(QtCore.QRect(560, 450, 91, 61))
-        font = QtGui.QFont()
-        font.setBold(False)
-        font.setWeight(50)
-        self.pushButton_5.setFont(font)
-        self.pushButton_5.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/departamento.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_5.setIcon(icon1)
-        self.pushButton_5.setIconSize(QtCore.QSize(52, 52))
-        self.pushButton_5.setObjectName("pushButton_5")
         self.tblRegistro = QtWidgets.QTableWidget(Bienes)
-        self.tblRegistro.setGeometry(QtCore.QRect(40, 300, 481, 151))
+        self.tblRegistro.setGeometry(QtCore.QRect(40, 300, 611, 231))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tblRegistro.sizePolicy().hasHeightForWidth())
+        self.tblRegistro.setSizePolicy(sizePolicy)
         self.tblRegistro.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.tblRegistro.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tblRegistro.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
@@ -52,7 +44,7 @@ class Ui_Bienes(object):
         item = QtWidgets.QTableWidgetItem()
         self.tblRegistro.setHorizontalHeaderItem(4, item)
         self.lbl_departamentos = QtWidgets.QLabel(Bienes)
-        self.lbl_departamentos.setGeometry(QtCore.QRect(50, 20, 211, 31))
+        self.lbl_departamentos.setGeometry(QtCore.QRect(60, 20, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
         font.setPointSize(10)
@@ -66,7 +58,7 @@ class Ui_Bienes(object):
         self.lbl_departamentos.setObjectName("lbl_departamentos")
         self.frame = QtWidgets.QFrame(Bienes)
         self.frame.setEnabled(True)
-        self.frame.setGeometry(QtCore.QRect(40, 70, 481, 181))
+        self.frame.setGeometry(QtCore.QRect(40, 70, 611, 221))
         self.frame.setToolTip("")
         self.frame.setToolTipDuration(-1)
         self.frame.setStyleSheet("border:4px solid;\n"
@@ -123,7 +115,7 @@ class Ui_Bienes(object):
         self.txtNombreBien.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.txtNombreBien.setObjectName("txtNombreBien")
         self.lbl_codigo_2 = QtWidgets.QLabel(self.frame)
-        self.lbl_codigo_2.setGeometry(QtCore.QRect(290, 50, 61, 61))
+        self.lbl_codigo_2.setGeometry(QtCore.QRect(260, 60, 61, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -181,50 +173,13 @@ class Ui_Bienes(object):
         self.cbxEstado.addItem("")
         self.cbxEstado.addItem("")
         self.cbxEstado.addItem("")
+        self.cbxEstado.addItem("")
         self.txtCategoria = QtWidgets.QLineEdit(self.frame)
         self.txtCategoria.setGeometry(QtCore.QRect(90, 80, 121, 20))
         self.txtCategoria.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.txtCategoria.setObjectName("txtCategoria")
-        self.btnEliminar = QtWidgets.QPushButton(Bienes)
-        self.btnEliminar.setGeometry(QtCore.QRect(317, 260, 94, 31))
-        self.btnEliminar.setStyleSheet("QPushButton{\n"
-"background-color:rgb(255, 255, 255);\n"
-"border:none;\n"
-"border-radius:10px;\n"
-"font: 63 10pt \"Segoe UI Semibold\";\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"\n"
-"border:2px solid #55C1FA;\n"
-"border-radius:10px;\n"
-"}")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnEliminar.setIcon(icon2)
-        self.btnEliminar.setIconSize(QtCore.QSize(20, 20))
-        self.btnEliminar.setObjectName("btnEliminar")
-        self.btnModificar = QtWidgets.QPushButton(Bienes)
-        self.btnModificar.setGeometry(QtCore.QRect(206, 260, 106, 31))
-        self.btnModificar.setStyleSheet("QPushButton{\n"
-"background-color:rgb(255, 255, 255);\n"
-"border:none;\n"
-"border-radius:10px;\n"
-"font: 63 10pt \"Segoe UI Semibold\";\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"\n"
-"border:2px solid #55C1FA;\n"
-"border-radius:10px;\n"
-"}")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnModificar.setIcon(icon3)
-        self.btnModificar.setIconSize(QtCore.QSize(20, 20))
-        self.btnModificar.setObjectName("btnModificar")
-        self.btnGuardar = QtWidgets.QPushButton(Bienes)
-        self.btnGuardar.setGeometry(QtCore.QRect(100, 260, 101, 31))
+        self.btnGuardar = QtWidgets.QPushButton(self.frame)
+        self.btnGuardar.setGeometry(QtCore.QRect(490, 20, 90, 30))
         self.btnGuardar.setStyleSheet("QPushButton{\n"
 "background-color:rgb(255, 255, 255);\n"
 "border:none;\n"
@@ -237,13 +192,51 @@ class Ui_Bienes(object):
 "border:2px solid #55C1FA;\n"
 "border-radius:10px;\n"
 "}")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnGuardar.setIcon(icon4)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnGuardar.setIcon(icon1)
         self.btnGuardar.setIconSize(QtCore.QSize(20, 20))
         self.btnGuardar.setObjectName("btnGuardar")
-        self.btnLimpiar = QtWidgets.QPushButton(Bienes)
-        self.btnLimpiar.setGeometry(QtCore.QRect(420, 260, 81, 30))
+        self.btnModificar = QtWidgets.QPushButton(self.frame)
+        self.btnModificar.setGeometry(QtCore.QRect(490, 70, 90, 30))
+        self.btnModificar.setStyleSheet("QPushButton{\n"
+"background-color:rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"border:2px solid #55C1FA;\n"
+"border-radius:10px;\n"
+"}")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnModificar.setIcon(icon2)
+        self.btnModificar.setIconSize(QtCore.QSize(20, 20))
+        self.btnModificar.setObjectName("btnModificar")
+        self.btnEliminar = QtWidgets.QPushButton(self.frame)
+        self.btnEliminar.setGeometry(QtCore.QRect(490, 120, 90, 30))
+        self.btnEliminar.setStyleSheet("QPushButton{\n"
+"background-color:rgb(255, 255, 255);\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"border:2px solid #55C1FA;\n"
+"border-radius:10px;\n"
+"}")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnEliminar.setIcon(icon3)
+        self.btnEliminar.setIconSize(QtCore.QSize(20, 20))
+        self.btnEliminar.setObjectName("btnEliminar")
+        self.btnLimpiar = QtWidgets.QPushButton(self.frame)
+        self.btnLimpiar.setGeometry(QtCore.QRect(490, 170, 90, 30))
         self.btnLimpiar.setMaximumSize(QtCore.QSize(90, 30))
         self.btnLimpiar.setStyleSheet("QPushButton{\n"
 "background-color:rgb(255, 255, 255);\n"
@@ -257,9 +250,9 @@ class Ui_Bienes(object):
 "border:2px solid #55C1FA;\n"
 "border-radius:10px;\n"
 "}")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnLimpiar.setIcon(icon5)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnLimpiar.setIcon(icon4)
         self.btnLimpiar.setIconSize(QtCore.QSize(18, 18))
         self.btnLimpiar.setObjectName("btnLimpiar")
         self.labelHeader = QtWidgets.QLabel(Bienes)
@@ -302,18 +295,19 @@ class Ui_Bienes(object):
         self.lbl_jefatura.setText(_translate("Bienes", "Categoría"))
         self.lbl_jefatura_2.setText(_translate("Bienes", "Descripción"))
         self.lbl_jefatura_3.setText(_translate("Bienes", "Estado"))
-        self.cbxEstado.setItemText(0, _translate("Bienes", "Asignable"))
-        self.cbxEstado.setItemText(1, _translate("Bienes", "Reparacion"))
-        self.cbxEstado.setItemText(2, _translate("Bienes", "Exclusion"))
-        self.btnEliminar.setToolTip(_translate("Bienes", "CTRL+DEL"))
-        self.btnEliminar.setText(_translate("Bienes", "Eliminar"))
-        self.btnEliminar.setShortcut(_translate("Bienes", "Ctrl+Del"))
-        self.btnModificar.setToolTip(_translate("Bienes", "CTRL+E"))
-        self.btnModificar.setText(_translate("Bienes", "Modificar"))
-        self.btnModificar.setShortcut(_translate("Bienes", "Ctrl+E"))
+        self.cbxEstado.setItemText(0, _translate("Bienes", "Seleccionar"))
+        self.cbxEstado.setItemText(1, _translate("Bienes", "Asignable"))
+        self.cbxEstado.setItemText(2, _translate("Bienes", "Reparacion"))
+        self.cbxEstado.setItemText(3, _translate("Bienes", "Exclusion"))
         self.btnGuardar.setToolTip(_translate("Bienes", "CTRL+S"))
         self.btnGuardar.setText(_translate("Bienes", "Registrar"))
         self.btnGuardar.setShortcut(_translate("Bienes", "Ctrl+C"))
+        self.btnModificar.setToolTip(_translate("Bienes", "CTRL+E"))
+        self.btnModificar.setText(_translate("Bienes", "Modificar"))
+        self.btnModificar.setShortcut(_translate("Bienes", "Ctrl+E"))
+        self.btnEliminar.setToolTip(_translate("Bienes", "CTRL+DEL"))
+        self.btnEliminar.setText(_translate("Bienes", "Eliminar"))
+        self.btnEliminar.setShortcut(_translate("Bienes", "Ctrl+Del"))
         self.btnLimpiar.setToolTip(_translate("Bienes", "CTRL+W"))
         self.btnLimpiar.setText(_translate("Bienes", "Limpiar"))
         self.btnLimpiar.setShortcut(_translate("Bienes", "Ctrl+W"))
