@@ -99,3 +99,21 @@ class Empleados:
         bd=empleados["TresPatitos"]
         size=bd.command("collstats","empleados")
         return size["count"]
+
+    def getEmpleadosByDepartment(self, selected_department):
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = client["TresPatitos"]
+        tbl = bd["empleados"]
+        return tbl.find({"departamento": selected_department})
+    
+    def getCountEmpleadosByDepartment(self, selected_department):
+        empleados = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = empleados["TresPatitos"]
+        count = bd["empleados"].count_documents({"departamento":selected_department})
+        return count
+
+    def getNameEmpleados(self, selectedUser):
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        bd = client["TresPatitos"]
+        tbl = bd["empleados"]
+        return tbl.find({"nombre": selectedUser})

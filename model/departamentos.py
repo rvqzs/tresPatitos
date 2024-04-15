@@ -5,7 +5,7 @@ class Departamentos:
     def __init__(self, codigo=1, nombre=2, jefatura=3):
         self.codigo = codigo
         self.nombre = nombre
-        self.jefatura = str(jefatura)
+        self.jefatura = jefatura
 
     def registrar(self):
         departamento = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")

@@ -541,7 +541,7 @@ border-radius:10px;
     </size>
    </property>
    <property name="toolTip">
-    <string>CTRL+W</string>
+    <string>CTRL+R</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
@@ -571,7 +571,7 @@ border-radius:10px;
     </size>
    </property>
    <property name="shortcut">
-    <string>Ctrl+W</string>
+    <string>Ctrl+R</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnRefresh">

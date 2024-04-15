@@ -21,11 +21,13 @@ class Usuarios:
                 }
             
             tbl.insert_one(doc)
-            estado=0
+            estado=1
         except Exception as e:
             if e=="E11000 duplicate key error collection:":
                 print("Error al guardar, el usuario ya está registrado")
-                estado=1
+                estado=0
+            else:
+                estado=2
         finally:
             usuarios.close
         return estado
@@ -36,15 +38,12 @@ class Usuarios:
         try:
             tbl=bd["usuarios"]
             filtro={"_id":self.username}
-            doc={
-                "$set":
-                {"_id":self.username,
+            doc={"$set":{"_id":self.username,
                 "nombre":self.name,
                 "password":self.password,
                 "is_admin":self.admin
-                }
-                }
-            
+                }}
+        
             tbl.update_one(filtro,doc)
             estado=1
         except Exception as e:

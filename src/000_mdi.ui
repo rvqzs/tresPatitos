@@ -91,40 +91,6 @@
      <enum>QMdiArea::SubWindowView</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>590</y>
-      <width>61</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::NoFrame</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../res/iconMDI.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -189,7 +155,7 @@
      </property>
      <addaction name="submnuBienesAsignados"/>
      <addaction name="submnuBienes_no_Asignados"/>
-     <addaction name="subMnuGraficoEstado"/>
+     <addaction name="subMenuReporteEmpleados"/>
     </widget>
     <addaction name="separator"/>
     <addaction name="mniUsuarios"/>
@@ -334,9 +300,9 @@
     <string>Bienes no Asignados</string>
    </property>
   </action>
-  <action name="subMnuGraficoEstado">
+  <action name="subMenuReporteEmpleados">
    <property name="text">
-    <string>Gráfico Estado de Bienes</string>
+    <string>Empleados por Departamento</string>
    </property>
   </action>
  </widget>
