@@ -72,8 +72,8 @@ class Login(QDialog):
         self.loading_dialog.close()
 
     def validarAdmin(self):
-        username = self.uiLogin.txt_username.text()
-        password = self.uiLogin.txt_password.text()
+        username = self.uiLogin.txt_username.text().upper().strip()
+        password = self.uiLogin.txt_password.text().strip()
 
         if not username or not password:
             self.msgBox("Por favor, ingrese un nombre de usuario y una contraseña.", QMessageBox.Warning)
@@ -85,8 +85,8 @@ class Login(QDialog):
         
         client = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         db = client["TresPatitos"]
-        collection = db["admin"]
-        user = collection.find_one({"username": username, "password": password})
+        collection = db["usuarios"]
+        user = collection.find_one({"_id": username, "password": password})
         if user:
             self.loading_dialog.close()
             # mdi = mdiApp()
@@ -95,11 +95,11 @@ class Login(QDialog):
             self.accept()
         else:
             self.loading_dialog.close()
-            QMessageBox.warning(self, "Invalid credentials", QMessageBox.Warning)
+            self.msgBox("Usuario o contraseña incorrecta, por favor intente de nuevo.", QMessageBox.Warning)
             self.__init__()
 
 class mdiApp(QMainWindow):
-    
+
     def __init__(self):
         super().__init__()
         #instanciar la ventana
@@ -166,11 +166,11 @@ class mdiApp(QMainWindow):
             
         return True
     
-    def populateComboBox(self, comboBox, datos): 
+    def populateComboBox(self, comboBox, datos, get): 
         comboBox.clear()
         comboBox.addItem("Seleccionar")
         for d in datos:
-            nombre = d.get("nombre", "")
+            nombre = d.get(get, "")
             if nombre:
                 comboBox.addItem(nombre)
 
@@ -187,14 +187,17 @@ class mdiApp(QMainWindow):
         login_dialog.accepted.connect(self.show)
         login_dialog.exec_()
 
-    #Usuarios
+# Usuarios
     #TODO: If row selected disable btn.crear
         
     def openWinUsuarios(self):
         usuarios=Usuarios()
         self.winUsuarios=winUsuarios()
         self.uiMdi.mdiArea.addSubWindow(self.winUsuarios)
+        self.winUsuarios.show()
+
         self.winUsuarios.uiUsuarios.txtUsername.setEnabled(True)
+
         # txtusername = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper() #!Delete make in a function
         # txtname = self.winUsuarios.uiUsuarios.txtName.text().title()
         # txtpassword = self.winUsuarios.uiUsuarios.txtPassword.text().strip()
@@ -218,7 +221,7 @@ class mdiApp(QMainWindow):
         self.winUsuarios.uiUsuarios.tblUsuarios.clicked.connect(self.cargarDatosUsuarios)
         self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getUsuarios())
         self.areButtonsEnabled(button1=self.winUsuarios.uiUsuarios.btnCrearUsuario, isEnabled=True)
-        self.winUsuarios.show()
+        
 
         #Focus order
         self.winUsuarios.uiUsuarios.txtUsername.setFocus()
@@ -246,7 +249,7 @@ class mdiApp(QMainWindow):
             self.msgBox("Todos los campos deben ser completados", QMessageBox.Warning)
             self.loading_dialog.close()
             return
-
+        
         #Confirm password
         if password != confirm_password:
             self.msgBox("Las contraseñas no coinciden", QMessageBox.Warning)
@@ -272,10 +275,6 @@ class mdiApp(QMainWindow):
             self.limpiarUsuarios()
             self.msgBox("Error al registrar nuevo usuario",QMessageBox.Information)
 
-        self.areButtonsEnabled(button1=self.winUsuarios.uiUsuarios.btnCrearUsuario,
-                            button2=self.winUsuarios.uiUsuarios.btnModificarUsuario,
-                            button3=self.winUsuarios.uiUsuarios.btnLimpiar, button4=self.winUsuarios.uiUsuarios.btnEliminarUsuario, isEnabled=False)
-
     def modificarUsuario(self):
         usuarios=Usuarios()
         username = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper()
@@ -284,8 +283,12 @@ class mdiApp(QMainWindow):
         confirm_password = self.winUsuarios.uiUsuarios.txtConfirmPassword.text().strip()
         is_admin = self.winUsuarios.uiUsuarios.chkBoxAdmin.isChecked()
 
-        if not username or not name or not password or not confirm_password:
+        if not username or not name or not password:
             self.msgBox("Todos los campos deben ser completados", QMessageBox.Warning)
+            return
+
+        if not confirm_password:
+            self.msgBox("Debe confirmar la contraseña para modificar un usuario", QMessageBox.Warning)
             return
 
         if password != confirm_password:
@@ -303,17 +306,19 @@ class mdiApp(QMainWindow):
             self.msgBox(message, QMessageBox.Information)
             self.limpiarUsuarios()
 
-        self.areButtonsEnabled(button1=self.winUsuarios.uiUsuarios.btnCrearUsuario,
-                            button2=self.winUsuarios.uiUsuarios.btnModificarUsuario,
-                            button3=self.winUsuarios.uiUsuarios.btnLimpiar, button4=self.winUsuarios.uiUsuarios.btnEliminarUsuario, isEnabled=False)
-
     def eliminarUsuario(self):
         usuarios=Usuarios()
         username = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper()
         name = self.winUsuarios.uiUsuarios.txtName.text().strip().title()
         password = self.winUsuarios.uiUsuarios.txtPassword.text().strip()
+        confirm_password = self.winUsuarios.uiUsuarios.txtConfirmPassword.text().strip()
+
         # confirm_password = self.winUsuarios.uiUsuarios.txtConfirmPassword.text().strip()
         is_admin = self.winUsuarios.uiUsuarios.chkBoxAdmin.isChecked()
+
+        if not confirm_password:
+            self.msgBox("Debe confirmar la contraseña para eliminar un usuario", QMessageBox.Warning)
+            return
 
         user = Usuarios(username, name, password, is_admin)
         if user.eliminar()==1:
@@ -369,9 +374,9 @@ class mdiApp(QMainWindow):
         self.winUsuarios.uiUsuarios.chkBoxAdmin.setChecked(False)
         self.winUsuarios.uiUsuarios.isPassowordVisible.setChecked(False)
         self.winUsuarios.uiUsuarios.txtUsername.setEnabled(True)
-        self.areButtonsEnabled(button1=self.winUsuarios.uiUsuarios.btnCrearUsuario,
-                    button2=self.winUsuarios.uiUsuarios.btnModificarUsuario,
+        self.areButtonsEnabled(button2=self.winUsuarios.uiUsuarios.btnModificarUsuario,
                     button3=self.winUsuarios.uiUsuarios.btnLimpiar, button4=self.winUsuarios.uiUsuarios.btnEliminarUsuario, isEnabled=False)
+        self.areButtonsEnabled(button1=self.winUsuarios.uiUsuarios.btnCrearUsuario, isEnabled=True)
 
     def togglePasswordVisibility(self, visible):
         if visible:
@@ -385,16 +390,14 @@ class mdiApp(QMainWindow):
         visibility = self.winUsuarios.uiUsuarios.isPassowordVisible.isChecked()
         self.togglePasswordVisibility(visibility)
 
-    #Empleados
+# Empleados
     #TODO: If text = "" disable btn limpiar
-    # ? Add Autollenar nombre
-    #TODO: If row selected and user is Supervisor SupervisorCheckBox: isChecked=True else False
 
     def openWinEmpleados(self):
         self.winEmpleados=winEmpleados()
         departamento=Departamentos()
         empleado=Empleados()
-        usuarios=Usuarios()
+        usuarios=Usuarios() # ? Delete? no se esta utilizando
         self.uiMdi.mdiArea.addSubWindow(self.winEmpleados)
         self.winEmpleados.show()
 
@@ -404,8 +407,8 @@ class mdiApp(QMainWindow):
 
         #Eventos
         self.cargarTablaEmpleados(empleado.getRegistrosEmpleados(),empleado.getEmpleados())
-        self.populateComboBox(self.winEmpleados.uiEmpleados.cmbBoxDepartamento, departamento.getDepartamentos())
-        self.populateComboBox(self.winEmpleados.uiEmpleados.cmbBoxUsuarios, usuarios.getUsuarios())
+        self.populateComboBox(self.winEmpleados.uiEmpleados.cmbBoxDepartamento, departamento.getDepartamentos(), get="nombre")
+        self.populateComboBox(self.winEmpleados.uiEmpleados.cmbBoxUsuarios, self.getUsersWithoutEmpleado(), get="_id")
 
         # self.comboBoxDepartamentosEmpleados(departamento.getDepartamentos())
         # self.comboBoxUsuarioEmpleados(usuarios.getUsuarios())
@@ -426,6 +429,13 @@ class mdiApp(QMainWindow):
         direccion=self.winEmpleados.uiEmpleados.txtDireccion.text()
         isJefatura=self.winEmpleados.uiEmpleados.chckBoxIsSupervisor.isChecked()            
 
+        if (not usuario or not cedula or not
+            nombre or not telefono or not fechIngreso or not
+            direccion):
+            
+            self.msgBox("Todos los campos deben ser completados", QMessageBox.Warning)
+            return
+
         empleado=Empleados(usuario, departamento, cedula, nombre, telefono, fechIngreso,
                             direccion, isJefatura)
 
@@ -436,7 +446,7 @@ class mdiApp(QMainWindow):
         else:
             self.msgBox("Error al crear Empleado",QMessageBox.Information)
             self.limpiarEmpleados()
-
+        
     def actualizarEmpleado(self):
         usuario=str(self.winEmpleados.uiEmpleados.cmbBoxUsuarios.currentText())
         departamento=str(self.winEmpleados.uiEmpleados.cmbBoxDepartamento.currentText())
@@ -447,18 +457,21 @@ class mdiApp(QMainWindow):
         direccion=self.winEmpleados.uiEmpleados.txtDireccion.text()
         isJefatura=self.winEmpleados.uiEmpleados.chckBoxIsSupervisor.isChecked()
 
+        if (not usuario or not cedula or not
+            nombre or not telefono or not fechIngreso or not
+            direccion):
+            
+            self.msgBox("Todos los campos deben ser completados", QMessageBox.Warning)
+            return
+        
         empleado=Empleados(usuario, departamento, cedula, nombre, telefono, fechIngreso, direccion, isJefatura)
 
         if empleado.actualizarEmpleados()==1:
-            self.msgBox("Empleado actualizado correctamente",QMessageBox.Information)
             self.limpiarEmpleados()
             self.cargarTablaEmpleados(empleado.getRegistrosEmpleados(),empleado.getEmpleados())
+            self.msgBox("Empleado actualizado correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al actualizar Empleado",QMessageBox.Information)
-
-        self.areButtonsEnabled(button1=self.winEmpleados.uiEmpleados.bttModificarEmpleado,
-                                button2=self.winEmpleados.uiEmpleados.bttEliminarEmpleado,
-                                button3=self.winEmpleados.uiEmpleados.bttLimpiarEmpleado, isEnabled=False)
 
     def eliminarEmpleado(self):
         usuario=str(self.winEmpleados.uiEmpleados.cmbBoxUsuarios.currentText())
@@ -473,26 +486,28 @@ class mdiApp(QMainWindow):
         empleado=Empleados(usuario, departamento, cedula, nombre, telefono, fechIngreso, direccion, is_Supervisor)
 
         if empleado.eliminarEmpleados()==1:
-            self.msgBox("Empleado eliminado correctamente",QMessageBox.Information)
             self.limpiarEmpleados()
             self.cargarTablaEmpleados(empleado.getRegistrosEmpleados(),empleado.getEmpleados())
+            self.msgBox("Empleado eliminado correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al eliminar Empleado",QMessageBox.Information)
-        
-        self.areButtonsEnabled(button1=self.winEmpleados.uiEmpleados.bttModificarEmpleado,
+            self.limpiarEmpleados()
+
+    def limpiarEmpleados(self):
+        self.winEmpleados.uiEmpleados.cmbBoxUsuarios.setEnabled(True)
+        self.populateComboBox(self.winEmpleados.uiEmpleados.cmbBoxUsuarios, self.getUsersWithoutEmpleado(), "_id")
+        self.areButtonsEnabled(button1=self.winEmpleados.uiEmpleados.bttCrearEmpleado, isEnabled=True)
+        self.areButtonsEnabled(button1=self.winEmpleados.uiEmpleados.bttModificarEmpleado, 
                                 button2=self.winEmpleados.uiEmpleados.bttEliminarEmpleado,
                                 button3=self.winEmpleados.uiEmpleados.bttLimpiarEmpleado, isEnabled=False)
 
-    def limpiarEmpleados(self):
         self.winEmpleados.uiEmpleados.txtCedula.setText("")
         self.winEmpleados.uiEmpleados.txtNombre.setText("")
         self.winEmpleados.uiEmpleados.txtTelefono.setText("")
         self.winEmpleados.uiEmpleados.txtDireccion.setText("")
         self.winEmpleados.uiEmpleados.cmbBoxDepartamento.setCurrentIndex(0)
         self.winEmpleados.uiEmpleados.cmbBoxUsuarios.setCurrentIndex(0)
-        # self.winEmpleados.uiEmpleados.txtDate.setDate(QDateEdit.())
         self.winEmpleados.uiEmpleados.chckBoxIsSupervisor.setChecked(False)
-        self.areButtonsEnabled(button1=self.winEmpleados.uiEmpleados.bttCrearEmpleado, isEnabled=True)
 
     def cargarTablaEmpleados(self, row, data):
         self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setRowCount(row)
@@ -512,16 +527,14 @@ class mdiApp(QMainWindow):
             i+=1
     
     def cargarDatosEmpleados(self): 
-        self.areButtonsEnabled(button1=self.winEmpleados.uiEmpleados.bttCrearEmpleado, isEnabled=False)
-        self.areButtonsEnabled(button1=self.winEmpleados.uiEmpleados.bttModificarEmpleado,
-                                button2=self.winEmpleados.uiEmpleados.bttEliminarEmpleado,
-                                button3=self.winEmpleados.uiEmpleados.bttLimpiarEmpleado, isEnabled=True)
+        self.populateComboBox(self.winEmpleados.uiEmpleados.cmbBoxUsuarios, Usuarios().getUsuarios(), "_id")
 
         row=self.winEmpleados.uiEmpleados.tblWidgetEmpleados.currentRow()
+
         #Columna Fecha
         fecha_texto = self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row, 0).text()
-        fecha = QDateTime.fromString(fecha_texto, "dd-MM-yyyy")  # Convertir el texto de la fecha a QDateTime
-        self.winEmpleados.uiEmpleados.txtDate.setDate(fecha.date())  # Establecer la fecha en el QDateEdit
+        fecha = QDateTime.fromString(fecha_texto, "dd-MM-yyyy")  
+        self.winEmpleados.uiEmpleados.txtDate.setDate(fecha.date())
 
         #Columna Usuario
         valor_usuario = self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row, 1).text()
@@ -546,41 +559,50 @@ class mdiApp(QMainWindow):
 
         #Columna Direccion
         self.winEmpleados.uiEmpleados.txtDireccion.setText(self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row,6).text())
-
+        
+        #Columna Puesto
         isJefatura = self.winEmpleados.uiEmpleados.tblWidgetEmpleados.item(row, 7).text()
-        # self.winEmpleados.uiEmpleados.chckBoxIsSupervisor.setChecked(isJefatura)
-
-        if isJefatura=='Supervisor':
-            self.winUsuarios.uiUsuarios.chkBoxAdmin.setChecked(True)
+        if isJefatura=="Supervisor":
+            self.winEmpleados.uiEmpleados.chckBoxIsSupervisor.setChecked(True)
         else:
-            self.winUsuarios.uiUsuarios.chkBoxAdmin.setChecked(False)
+            self.winEmpleados.uiEmpleados.chckBoxIsSupervisor.setChecked(False)
 
-    # def comboBoxDepartamentosEmpleados(self, datos): 
-    #     self.winEmpleados.uiEmpleados.cmbBoxDepartamento.clear()
-    #     self.winEmpleados.uiEmpleados.cmbBoxDepartamento.addItem("Seleccionar")
+        self.winEmpleados.uiEmpleados.cmbBoxUsuarios.setEnabled(False)
+        self.areButtonsEnabled(button1=self.winEmpleados.uiEmpleados.bttCrearEmpleado, isEnabled=False)
+        self.areButtonsEnabled(button1=self.winEmpleados.uiEmpleados.bttModificarEmpleado,
+                                button2=self.winEmpleados.uiEmpleados.bttEliminarEmpleado,
+                                button3=self.winEmpleados.uiEmpleados.bttLimpiarEmpleado, isEnabled=True)
 
-    #     for d in datos:
-    #         nombre = d["nombre"]
-    #         if nombre:
-    #             self.winEmpleados.uiEmpleados.cmbBoxDepartamento.addItem(nombre)
-    
-    # def comboBoxUsuarioEmpleados(self, datos):
-    #     self.winEmpleados.uiEmpleados.cmbBoxUsuarios.clear()
-    #     self.winEmpleados.uiEmpleados.cmbBoxUsuarios.addItem("Seleccionar")
+    def getUsersWithoutEmpleado(self):
+        user = Usuarios()
+        empleado = Empleados()
+        allUsers = user.getUsuarios()
+        allEmpleados = empleado.getEmpleados()
 
-        # for d in datos:
-        #     usuario = d["_id"]
-        #     if usuario:
-        #         self.winEmpleados.uiEmpleados.cmbBoxUsuarios.addItem(usuario)
+        # Set of _id values for users associated with an employee
+        usuarios_with_empleado = {empleado['_id'] for empleado in allEmpleados}
 
-    #Departamentos
+        # Filter out users with associated employees and exclude admin
+        usuarios_without_empleado = [
+            usuario for usuario in allUsers 
+            if usuario['_id'] not in usuarios_with_empleado 
+            and usuario['_id'] != 'ADMIN'
+        ]
+
+        return usuarios_without_empleado
+
+# Departamentos
     #TODO: Agregar Pantalla de carga para boton Refresh 
     
     def openWinDepartamentos(self):
         self.winDepartamentos=winDepartamentos()
+        departamento=Departamentos()
+        empleado=Empleados()
         self.uiMdi.mdiArea.addSubWindow(self.winDepartamentos)
         self.winDepartamentos.show()
-        self.refreshWinDepartamentos()
+
+        self.cargarTablaDepartamentos(departamento.getCountDepartamentos(),departamento.getDepartamentos())
+        self.populateComboBox(self.winDepartamentos.uiDepartamentos.cmb_jefatura ,empleado.getJefaturas(), get="nombre")
 
         # Butttons
         self.btnRegistrarDepartamento=self.winDepartamentos.uiDepartamentos.btn_registrar
@@ -589,7 +611,6 @@ class mdiApp(QMainWindow):
         self.btnNewCodeDepartamento=self.winDepartamentos.uiDepartamentos.btnNewCode
         self.btnLimpiarDepartamento=self.winDepartamentos.uiDepartamentos.btnLimpiar
         self.btnRefreshDepartamento=self.winDepartamentos.uiDepartamentos.btnRefresh
-
         self.tblDepartamentos=self.winDepartamentos.uiDepartamentos.tblDepartamentos
         
         #Input
@@ -598,15 +619,15 @@ class mdiApp(QMainWindow):
         self.cmbJefaturaDepartamento=self.winDepartamentos.uiDepartamentos.cmb_jefatura
 
         #Eventos
+        self.areButtonsEnabled(button1=self.btnEditarDepartamento, button2=self.btnEliminarDepartamento,
+                                button3=self.btnLimpiarDepartamento, isEnabled=False)
+
         self.btnRegistrarDepartamento.clicked.connect(self.registrarDepartamento)
         self.btnEditarDepartamento.clicked.connect(self.actualizarDepartamento)
         self.btnEliminarDepartamento.clicked.connect(self.eliminarDepartamento)
         self.btnNewCodeDepartamento.clicked.connect(self.generarNuevoCodigo)
-        # self.btnLimpiarDepartamento.clicked.connect(lambda: self.clearTextAndComboBox(self.txtCodigoDepartamento, self.txtNombreDepartamento,
-        #                                                                                                         self.cmbJefaturaDepartamento))
-        self.btnLimpiarDepartamento.clicked.connect(self.limpiarDepartamento)
-        self.btnRefreshDepartamento.clicked.connect(self.refreshWinDepartamentos)
-
+        self.btnLimpiarDepartamento.clicked.connect(self.limpiarDatos)
+        self.btnRefreshDepartamento.clicked.connect(self.limpiarDatosDepartamento)
         self.tblDepartamentos.clicked.connect(self.cargarDatosDepartamentos)
 
     def registrarDepartamento(self):
@@ -619,26 +640,23 @@ class mdiApp(QMainWindow):
             self.msgBox("Todos los campos deben ser completados", QMessageBox.Warning)
             return
         
-        if departamento.existeDepartamento():
-            self.msgBox("Error al registrar departamento, no pueden existir dos departamentos con el mismo nombre",QMessageBox.Warning)
+        if departamento.existeDepartamento(nombre):
+            self.msgBox("Error al registrar departamento, no pueden existir dos departamentos con el mismo nombre", QMessageBox.Warning)
             return
         else:
             departamento = Departamentos(codigo, nombre, jefatura)
 
+
         if departamento.registrar()==1:
-            self.refreshWinDepartamentos()
+            self.limpiarDatosDepartamento()
             message="Departamento " + codigo + " registrado correctamente"
             self.msgBox(message,QMessageBox.Information)
         else:
             self.msgBox("Error al registrar departamento",QMessageBox.Warning)
             return
-        
+
     def actualizarDepartamento(self):
         departamento=Departamentos()
-        # codigo=self.winDepartamentos.uiDepartamentos.txt_codigo.text().strip().upper()
-        # nombre=self.winDepartamentos.uiDepartamentos.txt_nombre.text().strip().title()
-        # jefatura=str(self.winDepartamentos.uiDepartamentos.cmb_jefatura.currentText())
-
         codigo=self.txtCodigoDepartamento.text().strip().upper()
         nombre=self.txtNombreDepartamento.text().strip().title()
         jefatura=str(self.cmbJefaturaDepartamento.currentText())
@@ -653,13 +671,11 @@ class mdiApp(QMainWindow):
             departamento = Departamentos(codigo, nombre, jefatura)
 
         if departamento.actualizar()==1:
-            self.refreshWinDepartamentos()
+            self.limpiarDatosDepartamento()
             self.msgBox("Departamento actualizado correctamente",QMessageBox.Information)
         else:
             self.msgBox("Error al actualizar el departamento",QMessageBox.Warning)
             return
-
-        # self.areButtonsEnabled(False)
 
     def eliminarDepartamento(self):
         codigo=self.txtCodigoDepartamento.text().strip().upper()
@@ -668,19 +684,12 @@ class mdiApp(QMainWindow):
 
         departamento = Departamentos(codigo, nombre, jefatura)
         if departamento.eliminar()==1:
-            self.refreshWinDepartamentos()
+            self.limpiarDatosDepartamento()
             message="Departamento "+ nombre + " eliminado con éxito!"
             self.msgBox(message,QMessageBox.Information)
         else:
             self.msgBox("Error al eliminar departamento",QMessageBox.Warning)
 
-        self.areButtonsEnabled(button1=self.btnEditarDepartamento, button2=self.btnEliminarDepartamento, isEnabled=False)
-
-    def limpiarDepartamento(self):
-        self.clearTextAndComboBox(self.winDepartamentos.uiDepartamentos.txt_codigo,
-                                    self.winDepartamentos.uiDepartamentos.txt_nombre,
-                                    self.winDepartamentos.uiDepartamentos.cmb_jefatura)
-        
     def cargarTablaDepartamentos(self, rowCount, datos):
         self.winDepartamentos.uiDepartamentos.tblDepartamentos.setRowCount(rowCount)
         self.winDepartamentos.uiDepartamentos.tblDepartamentos.setColumnCount(3)
@@ -715,36 +724,34 @@ class mdiApp(QMainWindow):
         else:
             nuevo_numero = 1
         nuevo_codigo = f"DPT{nuevo_numero:03}"
-        self.areButtonsEnabled(button1=self.btnEditarDepartamento, button2=self.btnEliminarDepartamento, isEnabled=False)
-
-        #Input
-        txtCodigo=self.winDepartamentos.uiDepartamentos.txt_codigo
-        txtNombre=self.winDepartamentos.uiDepartamentos.txt_nombre
-        cmbJefatura=self.winDepartamentos.uiDepartamentos.cmb_jefatura
-        self.clearTextAndComboBox(txtCodigo, txtNombre, cmbJefatura)
 
         self.winDepartamentos.uiDepartamentos.txt_codigo.setText(nuevo_codigo)
-        self.winDepartamentos.uiDepartamentos.txt_nombre.setText("Departamento " + str(nuevo_numero))
-        self.areButtonsEnabled(button1=self.winDepartamentos.uiDepartamentos.btn_registrar, isEnabled=True)
+        self.winDepartamentos.uiDepartamentos.txt_nombre.setText("DEPTO " + str(nuevo_numero))
+        self.winDepartamentos.uiDepartamentos.txt_codigo.setEnabled(False)
 
-    def refreshWinDepartamentos(self):
-        txtCodigo=self.winDepartamentos.uiDepartamentos.txt_codigo
-        txtNombre=self.winDepartamentos.uiDepartamentos.txt_nombre
-        cmbJefatura=self.winDepartamentos.uiDepartamentos.cmb_jefatura
-        btnRegistrar=self.winDepartamentos.uiDepartamentos.btn_registrar
-        btnEditar=self.winDepartamentos.uiDepartamentos.btn_editar
-        btnDelete=self.winDepartamentos.uiDepartamentos.btn_eliminar
-        btnClear=self.winDepartamentos.uiDepartamentos.btnLimpiar
+        self.areButtonsEnabled(button1=self.winDepartamentos.uiDepartamentos.btnNewCode,
+                                button2=self.winDepartamentos.uiDepartamentos.btn_editar,
+                                button3=self.winDepartamentos.uiDepartamentos.btn_eliminar, isEnabled=False)
 
-        self.clearTextAndComboBox(txtCodigo, txtNombre, cmbJefatura)
+        self.areButtonsEnabled(button1=self.winDepartamentos.uiDepartamentos.btn_registrar,
+                                button2=self.winDepartamentos.uiDepartamentos.btnLimpiar, isEnabled=True)
 
+    def limpiarDatosDepartamento(self):
         departamento=Departamentos()
+        empleado=Empleados()
+        self.clearTextAndComboBox(self.winDepartamentos.uiDepartamentos.txt_codigo, self.winDepartamentos.uiDepartamentos.txt_nombre,
+                                    self.winDepartamentos.uiDepartamentos.cmb_jefatura)
         self.cargarTablaDepartamentos(departamento.getCountDepartamentos(),departamento.getDepartamentos())
-        self.areButtonsEnabled(button1=btnRegistrar, isEnabled=True)
-        self.areButtonsEnabled(button1=btnEditar, button2=btnDelete, button3=btnClear, isEnabled=self.isTextFilled(txt1=txtCodigo,txt2=txtNombre))
+        self.winDepartamentos.uiDepartamentos.btnNewCode.setEnabled(True)
+        self.winDepartamentos.uiDepartamentos.cmb_jefatura.setEnabled(True)
+        # self.populateComboBox(self.winDepartamentos.uiDepartamentos.cmb_jefatura ,empleado.getJefaturas(), get="nombre")
 
-        empleados=Empleados()
-        self.populateComboBox(cmbJefatura,empleados.getJefaturas())
+    def limpiarDatos(self):
+        self.clearTextAndComboBox(self.winDepartamentos.uiDepartamentos.txt_codigo, self.winDepartamentos.uiDepartamentos.txt_nombre,
+                                    self.winDepartamentos.uiDepartamentos.cmb_jefatura)
+        self.areButtonsEnabled(button1=self.winDepartamentos.uiDepartamentos.btnNewCode, isEnabled=True)
+
+# Registrar Bienes
 
     def openWinBienes(self):
         bien=Bienes()
@@ -827,7 +834,6 @@ class mdiApp(QMainWindow):
         self.winBienes.uiBienes.txtCategoria.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,2).text())
         self.winBienes.uiBienes.txtDescripcion.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,3).text())
         self.winBienes.uiBienes.cbxEstado.setCurrentText(self.winBienes.uiBienes.tblRegistro.item(numFila,4).text())
-
 
     def openWinAsignacionBienes(self):
         asignado=AsignarBienes()
@@ -1110,7 +1116,7 @@ class mdiApp(QMainWindow):
         self.uiMdi.mdiArea.addSubWindow(self.winReporteEmpleados)
         self.winReporteEmpleados.show()
 
-        self.populateComboBox(self.winReporteEmpleados.uiReporteEmpleados.cmbBoxDepartamento, departamento.getDepartamentos())  
+        self.populateComboBox(self.winReporteEmpleados.uiReporteEmpleados.cmbBoxDepartamento, departamento.getDepartamentos(), get="nombre")  
         self.generarGraficoPastel()
 
         self.winReporteEmpleados.uiReporteEmpleados.btnSearch.clicked.connect(lambda: self.cargarTablaReporteEmpleados())

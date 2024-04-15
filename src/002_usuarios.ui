@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>576</width>
-    <height>685</height>
+    <height>735</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>575</width>
-    <height>650</height>
+    <height>700</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -432,7 +432,7 @@ border:none;</string>
      </size>
     </property>
     <property name="toolTip">
-     <string>CNTRL+W</string>
+     <string>CTRL+R</string>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -462,7 +462,7 @@ border-radius:10px;
      </size>
     </property>
     <property name="shortcut">
-     <string>Ctrl+W</string>
+     <string>Ctrl+R</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnModificarUsuario">

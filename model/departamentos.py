@@ -63,20 +63,23 @@ class Departamentos:
             departamento.close
         return estado
     
-    def existeDepartamento(self):
+    def existeDepartamento(self, nombre_departamento):
         departamento = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd = departamento["TresPatitos"]
         try:
             tbl = bd["departamentos"]
-            filtro = {"nombre": self.nombre}
+            filtro = {"nombre": nombre_departamento}  # Use the provided department name
             resultado = tbl.find_one(filtro)
-            return resultado is not None
+            if resultado is not None:
+                return True
         except Exception as e:
             print("Error al verificar si existe el departamento:", e)
             return False
         finally:
             departamento.close()
 
+
+        
     def getDepartamentos(self):
         usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
         bd=usuarios["TresPatitos"]
