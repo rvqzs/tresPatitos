@@ -130,6 +130,9 @@ background-color: rgba(0,0,0,0%);</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -245,6 +248,9 @@ border:none;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="txtPlaca">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>90</x>
