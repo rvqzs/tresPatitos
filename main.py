@@ -755,6 +755,7 @@ class mdiApp(QMainWindow):
         self.winBienes.uiBienes.btnLimpiar.clicked.connect(self.limpiarBienes)
         self.winBienes.uiBienes.tblRegistro.clicked.connect(self.cargarDatosBienes)
         self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
+        self.inicializar_contador_placa()
         self.generar_placa()
         self.winBienes.show()
 
@@ -827,6 +828,17 @@ class mdiApp(QMainWindow):
         self.winBienes.uiBienes.txtCategoria.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,2).text())
         self.winBienes.uiBienes.txtDescripcion.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,3).text())
         self.winBienes.uiBienes.cbxEstado.setCurrentText(self.winBienes.uiBienes.tblRegistro.item(numFila,4).text())
+
+    def inicializar_contador_placa(self):
+        self.bien = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        self.bd = self.bien["TresPatitos"]
+        self.tbl = self.bd["bienes"]
+        # Buscar el último bien con número de placa y obtener el número siguiente
+        ultimo_bien = self.tbl.find_one(sort=[("_id", pymongo.DESCENDING)])
+        if ultimo_bien and "_id" in ultimo_bien:
+            self.contador_placa = int(ultimo_bien["_id"].split("-")[1]) + 1
+        else:
+            self.contador_placa = 1  # Si no hay ningún bien con número de placa, empezamos desde 1
 
     def generar_placa(self):
         # Generar la placa en el formato "AB-0001"
