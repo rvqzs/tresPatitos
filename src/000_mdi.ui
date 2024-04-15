@@ -173,12 +173,9 @@
      <bool>false</bool>
     </property>
     <property name="title">
-     <string/>
+     <string>Help</string>
     </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>../res/iconHelp.png</normaloff>../res/iconHelp.png</iconset>
-    </property>
+    <addaction name="subMenuITSupport"/>
    </widget>
    <addaction name="menuMain"/>
    <addaction name="menuHelp"/>
@@ -309,6 +306,11 @@
   <action name="subMnuGraficoEstado">
    <property name="text">
     <string>Gráfico Estado de Bienes</string>
+   </property>
+  </action>
+  <action name="subMenuITSupport">
+   <property name="text">
+    <string>IT Support</string>
    </property>
   </action>
  </widget>

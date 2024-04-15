@@ -1,6 +1,7 @@
 import sys
 import time
 import pymongo
+import webbrowser
 
 #Graphics
 import matplotlib.pyplot as plt
@@ -125,6 +126,11 @@ class mdiApp(QMainWindow):
         self.uiMdi.submnuBienesAsignados.triggered.connect(self.openWinReporteBienesAsignados)
         self.uiMdi.submnuBienes_no_Asignados.triggered.connect(self.openWinReporteBienesNoAsignables)
         self.uiMdi.subMenuReporteEmpleados.triggered.connect(self.openWinReporteEmpleados)
+        self.uiMdi.subMenuITSupport.triggered.connect(self.helpdesk)
+
+    def helpdesk(self):
+        link = "https://rviquez.notion.site/A-n-no-hay-soporte-b6a0db1da3e14b989af3bdb65da44ce6?pvs=4"
+        webbrowser.open(link)
 
     def msgBox(self,mensaje,icono):
         msg = QMessageBox()
@@ -1159,7 +1165,6 @@ class mdiApp(QMainWindow):
         self.winReporteEmpleados.uiReporteEmpleados.graphicFrame.setLayout(layout)
 
         # plt.show()
-
 
 #Class Windows
 
