@@ -121,8 +121,8 @@
     <widget class="QMenu" name="menuBienes">
      <property name="geometry">
       <rect>
-       <x>796</x>
-       <y>218</y>
+       <x>468</x>
+       <y>398</y>
        <width>175</width>
        <height>137</height>
       </rect>
@@ -156,6 +156,7 @@
      <addaction name="submnuBienesAsignados"/>
      <addaction name="submnuBienes_no_Asignados"/>
      <addaction name="subMenuReporteEmpleados"/>
+     <addaction name="subMnuGraficoEstado"/>
     </widget>
     <addaction name="separator"/>
     <addaction name="mniUsuarios"/>
@@ -303,6 +304,11 @@
   <action name="subMenuReporteEmpleados">
    <property name="text">
     <string>Empleados por Departamento</string>
+   </property>
+  </action>
+  <action name="subMnuGraficoEstado">
+   <property name="text">
+    <string>Gráfico Estado de Bienes</string>
    </property>
   </action>
  </widget>
