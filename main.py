@@ -2,6 +2,7 @@ import sys
 import time
 import pymongo
 import webbrowser
+from datetime import datetime
 
 #Graphics
 import matplotlib.pyplot as plt
@@ -197,12 +198,6 @@ class mdiApp(QMainWindow):
 
         self.winUsuarios.uiUsuarios.txtUsername.setEnabled(True)
 
-        # txtusername = self.winUsuarios.uiUsuarios.txtUsername.text().strip().upper() #!Delete make in a function
-        # txtname = self.winUsuarios.uiUsuarios.txtName.text().title()
-        # txtpassword = self.winUsuarios.uiUsuarios.txtPassword.text().strip()
-        # txtconfirm_password = self.winUsuarios.uiUsuarios.txtConfirmPassword.text().strip()
-        # is_admin = self.winUsuarios.uiUsuarios.chkBoxAdmin.isChecked()
-        
         #Eventos
         self.winUsuarios.uiUsuarios.btnCrearUsuario.clicked.connect(self.guardarUsuario)
         self.winUsuarios.uiUsuarios.btnModificarUsuario.clicked.connect(self.modificarUsuario)
@@ -210,18 +205,10 @@ class mdiApp(QMainWindow):
         self.winUsuarios.uiUsuarios.btnLimpiar.clicked.connect(self.limpiarUsuarios)
         self.winUsuarios.uiUsuarios.isPassowordVisible.toggled.connect(self.btn_ShowPassword)
 
-        # if not txtusername or not txtname or not txtpassword or not txtconfirm_password or not is_admin: #!Delete make in a function
-        #     self.winUsuarios.uiUsuarios.btnLimpiar.setEnabled(False)
-        #     self.btnEditSaveAreEnabled(False)
-        # else:
-        #     self.winUsuarios.uiUsuarios.btnLimpiar.setEnabled(True)
-        #     self.btnEditSaveAreEnabled(True)
-
         self.winUsuarios.uiUsuarios.tblUsuarios.clicked.connect(self.cargarDatosUsuarios)
         self.cargarTablaUsuarios(usuarios.getRegistrosUsuarios(),usuarios.getUsuarios())
         self.areButtonsEnabled(button1=self.winUsuarios.uiUsuarios.btnCrearUsuario, isEnabled=True)
         
-
         #Focus order
         self.winUsuarios.uiUsuarios.txtUsername.setFocus()
         self.winUsuarios.uiUsuarios.txtUsername.returnPressed.connect(self.winUsuarios.uiUsuarios.txtName.setFocus)
@@ -445,7 +432,7 @@ class mdiApp(QMainWindow):
         else:
             self.msgBox("Error al crear Empleado",QMessageBox.Information)
             self.limpiarEmpleados()
-        
+
     def actualizarEmpleado(self):
         usuario=str(self.winEmpleados.uiEmpleados.cmbBoxUsuarios.currentText())
         departamento=str(self.winEmpleados.uiEmpleados.cmbBoxDepartamento.currentText())
@@ -499,7 +486,7 @@ class mdiApp(QMainWindow):
         self.areButtonsEnabled(button1=self.winEmpleados.uiEmpleados.bttModificarEmpleado, 
                                 button2=self.winEmpleados.uiEmpleados.bttEliminarEmpleado,
                                 button3=self.winEmpleados.uiEmpleados.bttLimpiarEmpleado, isEnabled=False)
-
+        # self.winEmpleados.uiEmpleados.txtDate.setDate(self.datetime.today().date())
         self.winEmpleados.uiEmpleados.txtCedula.setText("")
         self.winEmpleados.uiEmpleados.txtNombre.setText("")
         self.winEmpleados.uiEmpleados.txtTelefono.setText("")

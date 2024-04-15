@@ -77,8 +77,6 @@ class Departamentos:
             return False
         finally:
             departamento.close()
-
-
         
     def getDepartamentos(self):
         usuarios=pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
