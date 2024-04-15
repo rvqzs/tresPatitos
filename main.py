@@ -725,15 +725,19 @@ class mdiApp(QMainWindow):
     def openWinBienes(self):
         bien=Bienes()
         self.winBienes=winBienes()
+        self.contador_placa=1
+        
         #agregar la ventana al mdi
         self.uiMdi.mdiArea.addSubWindow(self.winBienes)
         #eventos
         self.winBienes.uiBienes.btnGuardar.clicked.connect(self.guardarBienes)
+        
         self.winBienes.uiBienes.btnModificar.clicked.connect(self.modificarBienes)
         self.winBienes.uiBienes.btnEliminar.clicked.connect(self.eliminarBienes)
         self.winBienes.uiBienes.btnLimpiar.clicked.connect(self.limpiarBienes)
         self.winBienes.uiBienes.tblRegistro.clicked.connect(self.cargarDatosBienes)
         self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
+        self.generar_placa()
         self.winBienes.show()
 
     def guardarBienes(self):
@@ -747,6 +751,8 @@ class mdiApp(QMainWindow):
             self.msgBox("Datos Guardados Correctamente",QMessageBox.Information)
             self.limpiarBienes()
             self.cargarTablaBienes(bien.getNumeroRegistros(),bien.getBienes())
+            self.contador_placa += 1
+            self.generar_placa()
         else:
             self.msgBox("Error al Guardar los datos",QMessageBox.Warning)
 
@@ -803,6 +809,14 @@ class mdiApp(QMainWindow):
         self.winBienes.uiBienes.txtCategoria.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,2).text())
         self.winBienes.uiBienes.txtDescripcion.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,3).text())
         self.winBienes.uiBienes.cbxEstado.setCurrentText(self.winBienes.uiBienes.tblRegistro.item(numFila,4).text())
+
+    def generar_placa(self):
+        # Generar la placa en el formato "AB-0001"
+        letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        letras_placa = letras[self.contador_placa // 1000 % 26] + letras[self.contador_placa // 100 % 26]  # Dos letras
+        numeros_placa = '{:04d}'.format(self.contador_placa % 10000)  # Cuatro números con ceros a la izquierda
+        placa = letras_placa + '-' + numeros_placa
+        self.winBienes.uiBienes.txtPlaca.setText(placa)
 
 
     def openWinAsignacionBienes(self):
@@ -907,7 +921,7 @@ class mdiApp(QMainWindow):
         for d in datos:
             print(d)
             self.winDesligar.uiDesligar.tblDesligar2.setItem(i,0,QTableWidgetItem(d["nombre"]))
-            self.winDesligar.uiDesligar.tblDesligar2.setItem(i,1,QTableWidgetItem(d["bien_asignado"]))
+            self.winDesligar.uiDesligar.tblDesligar2.setItem(i,1,QTableWidgetItem(d["_id"]))
             i+=1
 
     def cargarMetodoTablaDesligar(self):
@@ -928,7 +942,7 @@ class mdiApp(QMainWindow):
             if nombre==nombreArchivo:
                 self.winDesligar.uiDesligar.tblDesligar2.setItem(i,0,QTableWidgetItem(d["cedula"]))
                 self.winDesligar.uiDesligar.tblDesligar2.setItem(i,1,QTableWidgetItem(d["nombre"]))
-                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,2,QTableWidgetItem(d["bien_asignado"]))
+                self.winDesligar.uiDesligar.tblDesligar2.setItem(i,2,QTableWidgetItem(d["_id"]))
                 i+=1
 
     def espaciosDesligar(self):
@@ -1003,7 +1017,7 @@ class mdiApp(QMainWindow):
                 self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setItem(i,0,QTableWidgetItem(d["cedula"]))
                 self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setItem(i,1,QTableWidgetItem(d["nombre"]))
                 self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setItem(i,2,QTableWidgetItem(d["telefono"]))
-                self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setItem(i,3,QTableWidgetItem(d["bien_asignado"]))
+                self.winReporteBienesAsig.uiReporteBienesAsignados.tblReporteBienesAsignados.setItem(i,3,QTableWidgetItem(d["_id"]))
                 i+=1
 
     def limpiarReporte(self):

@@ -16,7 +16,7 @@ class DesligarBienes:
             # definir la tabla a utilizar
             tbl = bd["bienes_asignados"]
             # filtro
-            filtro = {"bien_asignado": self.bienAsignado}
+            filtro = {"_id": self.bienAsignado}
             # modifcar en la tabla
             tbl.delete_one(filtro)
             estado = 1
