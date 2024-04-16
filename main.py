@@ -166,7 +166,7 @@ class mdiApp(QMainWindow):
                 return False
             
         return True
-    
+
     def populateComboBox(self, comboBox, datos, get): 
         comboBox.clear()
         comboBox.addItem("Seleccionar")
@@ -511,7 +511,7 @@ class mdiApp(QMainWindow):
             isJefatura = "Supervisor" if b["isJefatura"] else "Empleado"
             self.winEmpleados.uiEmpleados.tblWidgetEmpleados.setItem(i, 7, QTableWidgetItem(isJefatura))
             i+=1
-    
+
     def cargarDatosEmpleados(self): 
         self.populateComboBox(self.winEmpleados.uiEmpleados.cmbBoxUsuarios, Usuarios().getUsuarios(), "_id")
 
@@ -579,7 +579,7 @@ class mdiApp(QMainWindow):
 
 # Departamentos
     #TODO: Agregar Pantalla de carga para boton Refresh 
-    
+
     def openWinDepartamentos(self):
         self.winDepartamentos=winDepartamentos()
         departamento=Departamentos()
@@ -820,7 +820,7 @@ class mdiApp(QMainWindow):
             self.winBienes.uiBienes.tblRegistro.setItem(i,3,QTableWidgetItem(d["descripcion"]))
             self.winBienes.uiBienes.tblRegistro.setItem(i,4,QTableWidgetItem(d["estado"]))
             i+=1
-    
+
     def cargarDatosBienes(self):
         numFila=self.winBienes.uiBienes.tblRegistro.currentRow()
         self.winBienes.uiBienes.txtPlaca.setText(self.winBienes.uiBienes.tblRegistro.item(numFila,0).text())
@@ -918,7 +918,7 @@ class mdiApp(QMainWindow):
             cedula=d["cedula"]
             if cedula:
                 self.winAsignacion.uiAsignacion.cbxCedulaEmpleados.addItem(cedula)
-    
+
     def comboBoxBienes(self, datos):
         for d in datos:
             nombre=d["nombre"]
@@ -980,8 +980,7 @@ class mdiApp(QMainWindow):
         nombre=self.winDesligar.uiDesligar.cbxEmpleados.currentText()
         self.winDesligar.uiDesligar.txtNombre.setText(nombre)
         #self.winDesligar.uiDesligar.txtBienAsignado.setText()
-    
-    
+
     def eliminarDesligar(self):
         desligar=DesligarBienes(self.winDesligar.uiDesligar.txtCedula.text(),
                         self.winDesligar.uiDesligar.txtNombre.text(),
@@ -999,7 +998,7 @@ class mdiApp(QMainWindow):
         self.winDesligar.uiDesligar.txtNombre.setText("")
         self.winDesligar.uiDesligar.txtBienAsignado.setText("")
         self.winDesligar.uiDesligar.tblDesligar2.clearContents()
-    
+
     def comboBoxBienesAsignado(self, datos):
         for d in datos:
             nombre=d["nombre"]
@@ -1121,10 +1120,8 @@ class mdiApp(QMainWindow):
         plt.title('Cantidad de Bienes por Estado')
         plt.show()
 
-
-
     #Reporte Empleados por Departamento
-    
+
     def openWinReporteEmpleados(self):
         self.winReporteEmpleados=winReporteEmpleados()
         departamento=Departamentos()
