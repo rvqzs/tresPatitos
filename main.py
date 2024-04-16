@@ -73,46 +73,43 @@ class Login(QDialog):
         self.loading_dialog.close()
 
     def validarAdmin(self):
+        user = Usuarios()
         username = self.uiLogin.txt_username.text().upper().strip()
         password = self.uiLogin.txt_password.text().strip()
 
         if not username or not password:
             self.msgBox("Por favor, ingrese un nombre de usuario y una contraseña.", QMessageBox.Warning)
-            return
-        
+            return False
+
         self.startLoading()
-        #TODO: Hacer que la validación del usuario administrador se haga desde model/usuarios 
-        #TODO: Hacer una validación para usuarios no admin
-        
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
-        db = client["TresPatitos"]
-        collection = db["usuarios"]
-        user = collection.find_one({"_id": username, "password": password})
-        if user:
-            self.loading_dialog.close()
-            # mdi = mdiApp()
-            # mdi.showMaximized()
-            self.close()
-            self.accept()
+
+        # Validate user and check admin status
+        is_valid, is_admin = user.validarUsuarios(username, password)
+        self.loading_dialog.close()
+
+        if is_valid:
+            if is_admin:
+                self.accept()  # Log in as admin
+                return True
+            else:
+                self.accept()  # Log in as non-admin user
+                return False
         else:
-            self.loading_dialog.close()
             self.msgBox("Usuario o contraseña incorrecta, por favor intente de nuevo.", QMessageBox.Warning)
-            self.__init__()
+            self.uiLogin.txt_username.clear()
+            self.uiLogin.txt_password.clear()
+            return False
 
 class mdiApp(QMainWindow):
 
-    def __init__(self):
+    def __init__(self, is_admin):
         super().__init__()
-        #instanciar la ventana
         self.uiMdi=Ui_mdiWindow()
-        #generar los componentes
         self.uiMdi.setupUi(self)
-        #estilos
         self.uiMdi.mdiArea.setFixedHeight(2000)
         self.uiMdi.mdiArea.setFixedWidth(2000)
-        #definir los eventos
         self.initComponents()
-        #mostrar la ventana
+        self.isAdmin(is_admin)
         self.show()
 
     def initComponents(self):
@@ -128,6 +125,12 @@ class mdiApp(QMainWindow):
         self.uiMdi.submnuBienes_no_Asignados.triggered.connect(self.openWinReporteBienesNoAsignables)
         self.uiMdi.subMenuReporteEmpleados.triggered.connect(self.openWinReporteEmpleados)
         self.uiMdi.subMenuITSupport.triggered.connect(self.helpdesk)
+
+    #Lo puse como True para mostrar los menus regardless of admin or not, la funcion no pasa bien el parametro isAdmin para verificar
+    def isAdmin(self, is_admin):
+        if not is_admin:
+            self.uiMdi.mniUsuarios.setVisible(True)
+            self.uiMdi.mniEmpleados.setVisible(True)
 
     def helpdesk(self):
         link = "https://rviquez.notion.site/A-n-no-hay-soporte-b6a0db1da3e14b989af3bdb65da44ce6?pvs=4"
@@ -185,8 +188,10 @@ class mdiApp(QMainWindow):
     def exitApp(self):
         self.hide()
         login_dialog = Login()
-        login_dialog.accepted.connect(self.show)
-        login_dialog.exec_()
+        if login_dialog.exec_() == QDialog.Accepted:
+            is_admin = login_dialog.validarAdmin()
+            self.isAdmin(is_admin)
+            self.show()
 
 # Usuarios
 
@@ -1262,11 +1267,22 @@ class winLoadingDialog(QDialog):
     def update_message(self, message):
         self.uiLoadingBox.messagelabel.setText(message)
 
+# if __name__=="__main__":
+#     app = QApplication(sys.argv)
+#     win = Login()
+#     if win.exec_() == QDialog.Accepted:
+#         mdi = mdiApp()
+#         mdi.showMaximized()
+#         sys.exit(app.exec_())
+#     else:
+#         sys.exit(0)
+
 if __name__=="__main__":
     app = QApplication(sys.argv)
     win = Login()
     if win.exec_() == QDialog.Accepted:
-        mdi = mdiApp()
+        is_admin = win.validarAdmin()  # Get the admin status from Login dialog
+        mdi = mdiApp(is_admin)  # Pass the admin status to mdiApp
         mdi.showMaximized()
         sys.exit(app.exec_())
     else:

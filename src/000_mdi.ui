@@ -121,8 +121,8 @@
     <widget class="QMenu" name="menuBienes">
      <property name="geometry">
       <rect>
-       <x>468</x>
-       <y>398</y>
+       <x>451</x>
+       <y>219</y>
        <width>175</width>
        <height>137</height>
       </rect>
@@ -131,12 +131,22 @@
       <font>
        <family>Segoe UI Semibold</family>
        <pointsize>12</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
+       <weight>7</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
      <property name="focusPolicy">
       <enum>Qt::TabFocus</enum>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::ActionsContextMenu</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 63 12pt &quot;Segoe UI Semibold&quot;;</string>
+     </property>
+     <property name="tearOffEnabled">
+      <bool>false</bool>
      </property>
      <property name="title">
       <string>Bienes</string>
@@ -150,6 +160,14 @@
      <addaction name="mnuDesligar"/>
     </widget>
     <widget class="QMenu" name="menuReportes">
+     <property name="font">
+      <font>
+       <family>Segoe UI Semibold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="title">
       <string>Reportes</string>
      </property>
@@ -161,12 +179,12 @@
     <addaction name="separator"/>
     <addaction name="mniUsuarios"/>
     <addaction name="mniEmpleados"/>
+    <addaction name="separator"/>
     <addaction name="mniDepartamentos"/>
     <addaction name="menuBienes"/>
     <addaction name="menuReportes"/>
     <addaction name="separator"/>
     <addaction name="btn_logout"/>
-    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="tearOffEnabled">
@@ -181,6 +199,9 @@
    <addaction name="menuHelp"/>
   </widget>
   <action name="mniUsuarios">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset>
      <normaloff>../res/iconMenuUsers.png</normaloff>../res/iconMenuUsers.png</iconset>
@@ -199,8 +220,14 @@
    <property name="shortcutContext">
     <enum>Qt::WindowShortcut</enum>
    </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
   </action>
   <action name="mniEmpleados">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset>
      <normaloff>../res/IconMenuEmpleados.png</normaloff>../res/IconMenuEmpleados.png</iconset>
@@ -311,6 +338,14 @@
   <action name="subMenuITSupport">
    <property name="text">
     <string>IT Support</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
   </action>
  </widget>

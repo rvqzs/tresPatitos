@@ -24,6 +24,8 @@ class Ui_ReporteBienesAsignados(object):
         font.setBold(True)
         font.setWeight(75)
         self.lblTitulo.setFont(font)
+        self.lblTitulo.setStyleSheet("\n"
+"background-color: rgb(157, 157, 118);")
         self.lblTitulo.setObjectName("lblTitulo")
         self.lblEmpleado = QtWidgets.QLabel(ReporteBienesAsignados)
         self.lblEmpleado.setGeometry(QtCore.QRect(50, 110, 151, 16))

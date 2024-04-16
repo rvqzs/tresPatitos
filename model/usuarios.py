@@ -80,6 +80,16 @@ class Usuarios:
         size=bd.command("collstats","usuarios")
         return size["count"]
 
+    def validarUsuarios(self, username, password):
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@trespatitosdb.mi0zzv0.mongodb.net/")
+        db = client["TresPatitos"]
+        collection = db["usuarios"]
+        user = collection.find_one({"_id": username, "password": password})
 
-
+        if user:
+            # Assuming the "admin" field indicates whether the user is an admin
+            is_admin = user.get("admin", False)
+            return True, is_admin
+        else:
+            return False, False
 

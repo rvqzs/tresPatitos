@@ -294,7 +294,6 @@ class Ui_Departamentos(object):
         item.setText(_translate("Departamentos", "Jefatura"))
         self.btn_registrar.setToolTip(_translate("Departamentos", "CTRL+S"))
         self.btn_registrar.setText(_translate("Departamentos", "Registrar"))
-        self.btn_registrar.setShortcut(_translate("Departamentos", "Ctrl+C"))
         self.btn_editar.setToolTip(_translate("Departamentos", "CTRL+E"))
         self.btn_editar.setText(_translate("Departamentos", "Modificar"))
         self.btn_editar.setShortcut(_translate("Departamentos", "Ctrl+E"))
