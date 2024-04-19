@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\rviqu\OneDrive - Universidad Internacional de las Américas (UIA)\UIA\2024\I\Programación II\Proyecto Final\tresPatitosUIA\src\002_usuarios.ui'
+# Form implementation generated from reading ui file 'c:\Users\aaron\OneDrive\Documentos\Python\tresPatitosUIA\src\002_usuarios.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -20,7 +20,7 @@ class Ui_Usuarios(object):
         Usuarios.setFocusPolicy(QtCore.Qt.StrongFocus)
         Usuarios.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconMenuUsers.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconMenuUsers.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Usuarios.setWindowIcon(icon)
         Usuarios.setAutoFillBackground(False)
         Usuarios.setStyleSheet("background-color: rgb(206, 206, 206);")
@@ -153,7 +153,7 @@ class Ui_Usuarios(object):
         self.chkBoxAdmin.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
 "border:none;")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconadminUser.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconadminUser.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.chkBoxAdmin.setIcon(icon1)
         self.chkBoxAdmin.setIconSize(QtCore.QSize(18, 18))
         self.chkBoxAdmin.setChecked(False)
@@ -164,7 +164,7 @@ class Ui_Usuarios(object):
 "\n"
 "")
         self.labelUser.setText("")
-        self.labelUser.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconLoginUsername.png"))
+        self.labelUser.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconLoginUsername.png"))
         self.labelUser.setScaledContents(True)
         self.labelUser.setAlignment(QtCore.Qt.AlignCenter)
         self.labelUser.setObjectName("labelUser")
@@ -184,7 +184,7 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnClear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnLimpiar.setIcon(icon2)
         self.btnLimpiar.setIconSize(QtCore.QSize(18, 18))
         self.btnLimpiar.setObjectName("btnLimpiar")
@@ -208,7 +208,7 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnEdit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnModificarUsuario.setIcon(icon3)
         self.btnModificarUsuario.setIconSize(QtCore.QSize(18, 18))
         self.btnModificarUsuario.setObjectName("btnModificarUsuario")
@@ -232,7 +232,7 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnCrear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnCrear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnCrearUsuario.setIcon(icon4)
         self.btnCrearUsuario.setIconSize(QtCore.QSize(25, 25))
         self.btnCrearUsuario.setObjectName("btnCrearUsuario")
@@ -256,7 +256,7 @@ class Ui_Usuarios(object):
 "border-radius:10px;\n"
 "}")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnDelete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnEliminarUsuario.setIcon(icon5)
         self.btnEliminarUsuario.setIconSize(QtCore.QSize(20, 20))
         self.btnEliminarUsuario.setObjectName("btnEliminarUsuario")
@@ -265,7 +265,7 @@ class Ui_Usuarios(object):
         self.isPassowordVisible.setStyleSheet("font: 63 10pt \"Segoe UI Semibold\";\n"
 "border:none;")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/icons8-visible-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/icons8-visible-30.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.isPassowordVisible.setIcon(icon6)
         self.isPassowordVisible.setObjectName("isPassowordVisible")
         self.labelHeader = QtWidgets.QLabel(Usuarios)
@@ -279,7 +279,7 @@ class Ui_Usuarios(object):
 "background-color: rgba(0,0,0,0%);\n"
 "")
         self.labelHeader.setText("")
-        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\rviqu\\OneDrive - Universidad Internacional de las Américas (UIA)\\UIA\\2024\\I\\Programación II\\Proyecto Final\\tresPatitosUIA\\src\\../res/iconAddUser.png"))
+        self.labelHeader.setPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/iconAddUser.png"))
         self.labelHeader.setScaledContents(True)
         self.labelHeader.setAlignment(QtCore.Qt.AlignCenter)
         self.labelHeader.setObjectName("labelHeader")

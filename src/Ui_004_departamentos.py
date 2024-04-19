@@ -75,6 +75,7 @@ class Ui_Departamentos(object):
         icon1.addPixmap(QtGui.QPixmap("c:\\Users\\aaron\\OneDrive\\Documentos\\Python\\tresPatitosUIA\\src\\../res/btnSave.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_registrar.setIcon(icon1)
         self.btn_registrar.setIconSize(QtCore.QSize(20, 20))
+        self.btn_registrar.setShortcut("")
         self.btn_registrar.setObjectName("btn_registrar")
         self.btn_editar = QtWidgets.QPushButton(self.splitter)
         self.btn_editar.setStyleSheet("QPushButton{\n"
