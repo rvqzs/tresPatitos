@@ -1267,16 +1267,6 @@ class winLoadingDialog(QDialog):
     def update_message(self, message):
         self.uiLoadingBox.messagelabel.setText(message)
 
-# if __name__=="__main__":
-#     app = QApplication(sys.argv)
-#     win = Login()
-#     if win.exec_() == QDialog.Accepted:
-#         mdi = mdiApp()
-#         mdi.showMaximized()
-#         sys.exit(app.exec_())
-#     else:
-#         sys.exit(0)
-
 if __name__=="__main__":
     app = QApplication(sys.argv)
     win = Login()
